@@ -61,6 +61,13 @@ public:
         inflate();
     }
 
+    T& operator[](int index){
+        return arr[index];
+    }
+
+    int size(){
+        return count;
+    }
 
     ~ArrayList(){
         delete[] arr;
