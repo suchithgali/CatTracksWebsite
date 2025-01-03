@@ -37,6 +37,20 @@ protected:
         }
     }
 
+    void deflate(){
+        if (capacity > count * 2){
+            capacity /= 2;
+            T* temp = new T[capacity];
+
+            for (int i = 0; i < count; i++){
+                temp[i] = arr[i];
+            }
+            T* old = arr;
+            arr = temp;
+            delete [] old;
+        }
+    }
+
 
 public:
     ArrayList(){
@@ -59,6 +73,32 @@ public:
         count++;
 
         inflate();
+    }
+
+    void prepend(T val){
+        if (count == capacity){
+            inflate();
+        }
+        for (int i = count - 1; i >= 0; i--){
+            arr[i + 1] = arr[i];
+        }
+        arr[0] = val;
+        count++;
+    }
+
+    void removeFirst(){
+        T* temp = new T[capacity];
+        for (int i = 1; i < count; i++){
+            temp[i - 1] = arr[i];
+        }
+        T* old = arr;
+        arr = temp;
+        delete [] old;
+        count--;
+    }
+
+    void removeLast(){
+        count--;
     }
 
     T& operator[](int index){
