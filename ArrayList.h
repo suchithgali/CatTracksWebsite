@@ -1,8 +1,11 @@
 #ifndef ARRAY_LIST
 #define ARRAY_LIST
 
+#include <initializer_list>
 #include <iostream>
 #include <ostream>
+#include <cmath>
+#include <string>
 
 
 template <class T>
@@ -65,6 +68,18 @@ public:
         count = other.count;
         for (int i = 0; i < count; i++){
             arr[i] = other.arr[i];
+        }
+    }
+
+    ArrayList(std::initializer_list<T> list) {
+        count = list.size();
+        capacity = pow(2, ceil(std::log2(count)));
+
+        arr = new T[capacity];
+        
+        int i = 0;
+        for (auto it = list.begin(); it != list.end(); i++, it++) {
+            arr[i] = *it;
         }
     }
 
