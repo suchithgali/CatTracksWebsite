@@ -1,13 +1,14 @@
 #ifndef LINKED_LIST
 #define LINKED_LIST
 
+#include <ostream>
+
+
 template <class T>
 struct Node{
     T data;
     Node* next;
     Node* prev;
-
-
 
     Node(T data){
         this->data = data;
@@ -15,6 +16,12 @@ struct Node{
         prev = nullptr;
     }
 };
+
+template <class T>
+class LinkedList;
+
+template <class T>
+std::ostream& operator<<(std::ostream& os, const LinkedList<T>& container);
 
 template <class T>
 class LinkedList{
@@ -27,25 +34,45 @@ public:
     }
 
     //method that adds a node to a linked list
-    void append(T val){
+    void appendinLL(T val){
         if (front == nullptr){
             front = new Node<T>(val);
+            back = front;
         }
         else{
-            Node* temp = front;
+            Node<T>* temp = front;
             while (temp->next != nullptr){
                 temp = temp->next;
             }
             temp->next = new Node<T>(val);
+            temp->next->prev = temp;
             back = temp->next;
         }
     }
+
+    ~LinkedList(){
+        Node<T>* current = front;
+        while(current){
+            Node<T>* toDelete = current;
+            current = current->next;
+            delete toDelete;
+        }
+    }
+
+    friend std::ostream& operator<< <>(std::ostream& os, const LinkedList<T>& list);
 };
 
-
-
-
-
-
-
+template <class T>
+std::ostream& operator<<(std::ostream& os, const LinkedList<T>& list){
+        Node<T>* current = list.front;
+        while(current != nullptr){
+            os << current->data;
+            if(current->next != nullptr){
+                os << " -> ";
+            }
+            current = current->next;
+        }
+        return os;
+    }
+    
 #endif 
