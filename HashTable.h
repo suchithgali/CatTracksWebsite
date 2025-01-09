@@ -4,6 +4,7 @@
 #include "ArrayList.h"
 #include "LinkedList.h"
 #include <string>
+#include <list>
 #include <ostream>
 #include <typeinfo>
 
@@ -40,16 +41,15 @@ public:
         return sum % buckets;
     }
 
-    void appendInt(int val){
-        int hashCode = 0;
-        hashCode = HashInts(val);
-        data[hashCode].appendinLL(val);
+    int getBuckets(){
+        return buckets;
     }
 
-    void appendString(std::string val_string){
-        int hashCode = 0;
-        hashCode = HashStrings(val_string);
-        data[hashCode].appendinLL(val_string);
+    void appendHash(std::string key, std::list<std::string> values){
+        int index = HashStrings(key);
+        for (const auto& v : values){
+            data[index].appendinLL(v);
+        }
     }
 
     friend std::ostream& operator<< <>(std::ostream& os, const HashTable<T>& table);
@@ -57,7 +57,6 @@ public:
 
 template <class T>
 std::ostream& operator<<(std::ostream& os, const HashTable<T>& table){
-    // So we can cout the table
 
     for (int i = 0; i < table.buckets; i++){
         os<< i << ": " << table.data[i] << std::endl;
