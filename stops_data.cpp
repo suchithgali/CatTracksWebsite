@@ -12,7 +12,7 @@ ArrayList<std::string> bobcat_express_stops_keys = {"Amtrak Station", "Compass P
 "Promenade Center", "R Street Village Apts", "Rite Aid/Walgreens", "University Transit Center", "Walmart on Loughborough Dr"};
 
 
-ArrayList<std::vector<std::string>> bobcat_express_stops_values = {{"6:29", "7:09", "7:49", "8:44", "9:24", "10:04", "10:44", "12:09", "1:49", "3:17", "4:57", "6:22", "8:02"}, 
+ArrayList<std::list<std::string>> bobcat_express_stops_values = {{"6:29", "7:09", "7:49", "8:44", "9:24", "10:04", "10:44", "12:09", "1:49", "3:17", "4:57", "6:22", "8:02"}, 
                                {"6:32", "7:12", "7:52", "8:47", "9:27", "10:07", "10:47", "12:12", "1:52", "3:20", "5:00", "6:25", "8:05"}, 
                                {"6:34", "7:14", "7:54", "8:49", "9:29", "10:09", "10:49", "12:14", "1:54", "3:22", "5:02", "6:27", "8:07"}, 
                                {"6:39", "7:19", "7:59", "8:54", "9:34", "10:14", "10:54", "12:19", "1:59", "3:27", "5:07", "6:32", "8:12"}, 
@@ -23,10 +23,12 @@ ArrayList<std::vector<std::string>> bobcat_express_stops_values = {{"6:29", "7:0
                                {"11:52", "1:32", "3:00", "4:40", "6:05", "7:45"}, {"REQ:", "REQ:", "REQ:", "REQ:", "REQ:", "REQ:"}, 
                                {"12:01", "1:41", "3:09", "4:49", "6:14", "7:54"}, {"12:03", "1:43", "3:11", "4:51", "6:16", "7:56"}};
 
-HashTable<std::string> bobcat_table(10);
-for (int i = 0; i < bobcat_express_stops_keys.size(); i++){
-    bobcat_table.appendString(bobcat_express_stops_keys[i]);
+HashTable<std::string> bobcat_table(bobcat_express_stops_keys.getsize());
+
+for (int i = 0; i < bobcat_table.getBuckets(); i++){
+   bobcat_table.appendHash(bobcat_express_stops_keys[i], bobcat_express_stops_values[i]);
 }
+
 std::cout << bobcat_table << std::endl;
 
 }
