@@ -6,6 +6,7 @@
 #include <ostream>
 #include <cmath>
 #include <string>
+#include <iostream>
 
 
 template <class T>
@@ -90,6 +91,10 @@ public:
         inflate();
     }
 
+    int getsize(){
+        return count;
+    }
+
     void prepend(T val){
         if (count == capacity){
             inflate();
@@ -117,6 +122,10 @@ public:
     }
 
     T& operator[](int index){
+        return arr[index];
+    }
+
+    const T& operator[](int index) const {
         return arr[index];
     }
 
