@@ -1,12 +1,12 @@
 
 
-places = ['Amtrak Station', "Cardella Rd. & 'M' Street (North)", "Cardella Rd. & 'M' Street (South)", 'Compass Pointe Apts', 
-          'El Portal & G Street', 'El Redondo Dr', 'Foothill Drive', 'G St. & W. Alexander Ave', "G St. & W. Alexander Ave. (Bus Stop Paul's Place)", 
-          'G Street South', 'Granville Apartments', 'Ironstone Dr. & M St', 'K St. Between 18th & 19th', 'M St. At Bellevue RD', 
-          'M Street Village Apartments', 'Meadows Ave & Olivewood Dr (Foodmaxx)', 'Merced College The Bus Terminal', 'Merced Mall Target', 'Merced Transpo', 'Moraga Subdivision', 
-          'Promenade Center', 'R Street Village Apts', 'Rite Aid/Walgreens', 'TriCollege/Mercy', 'TriCollege/Mercy (Bus stop on G next to Tri College)', 
-          'UC Merced Downtown Campus Center', 'University Surgery Center', 'University Transit Center', 'Walmart on Loughborough Dr', 'Yosemite & Cordova (Merced Physician Center)', 
-          'Yosemite Crossings Shopping Center']
+places = ["Amtrak Station", "Cardella Rd. & 'M' Street (North)", "Cardella Rd. & 'M' Street (South)", "Compass Pointe Apts", 
+          "El Portal & G Street", "El Redondo Dr", "Foothill Drive", "G St. & W. Alexander Ave", "G St. & W. Alexander Ave. (Bus Stop Paul's Place)", 
+          "G Street South", "Granville Apartments", "Ironstone Dr. & M St", "K St. Between 18th & 19th", "M St. At Bellevue RD", 
+          "M Street Village Apartments", "Meadows Ave & Olivewood Dr (Foodmaxx)", "Merced College The Bus Terminal", "Merced Mall Target", "Merced Transpo", "Moraga Subdivision", 
+          "Promenade Center", "R Street Village Apts", "Rite Aid/Walgreens", "TriCollege/Mercy", "TriCollege/Mercy (Bus stop on G next to Tri College)", 
+          "UC Merced Downtown Campus Center", "University Surgery Center", "University Transit Center", "Walmart on Loughborough Dr", "Yosemite & Cordova (Merced Physician Center)", 
+          "Yosemite Crossings Shopping Center"]
 
 geo_pyPlaces = ["355 West 24th Street, Merced, CA", "595, Glendon Court, Bellevue Ranch, Bellview Ranch, Merced, Merced County, California, 95348, United States", "4298, Lasalle Drive, The Meadows At Bellevue Ranch West, Bellevue Ranch, Bellview Ranch, Merced, Merced County, California, 95348, United States", "1220 Daybreak Dr, Merced, CA 95348", "19, El Portal Drive, Merced, Merced County, California, 95340, United States",
                 "3706 El Redondo Drive", "4486 Everson Ct, Merced, CA 95348", "80, Emerald Drive, Merced, Merced County, California, 95340, United States", "59, Sandy Lane, Merced, Merced County, California, 95340, United States", "3514 G St, Merced, CA 95340", "2962, Willowbrook Drive, Merced, Merced County, California, 95348, United States", 
@@ -15,13 +15,19 @@ geo_pyPlaces = ["355 West 24th Street, Merced, CA", "595, Glendon Court, Bellevu
                 "315 Mercy Avenue, Merced, CA, USA", "3601 G Street, Merced, CA", "UC Merced Downtown Campus Center", "University Surgical & Dianogstic Center", "2897 Bellevue Rd, Merced, CA 95340",
                 "Walmart 3055 Loughborough Drive", "Doctors Carreon Adrian Md, 410, East Yosemite Avenue, Merced, Merced County, California, 95340, United States", "Soccer Field (Varsity) G Street"]
 from geopy.geocoders import Nominatim
-geolocator = Nominatim(user_agent = "route app")
+import ssl
+import certifi
+ssl_context = ssl.create_default_context(cafile=certifi.where())
+geolocator = Nominatim(user_agent = "route app", ssl_context=ssl_context, timeout=10)
 geo_pyPlacesGeocode = []
-for i in geo_pyPlaces:
-    geo_pyPlacesGeocode.append(geolocator.geocode(i))
+for place in geo_pyPlaces:
+    location = geolocator.geocode(place)
+    if location:
+        geo_pyPlacesGeocode.append(location)
 geo_pyPlacesCoords = []
-for i in geo_pyPlacesGeocode:
-    geo_pyPlacesCoords.append([i.longitude, i.latitude])
+for item in geo_pyPlacesGeocode:
+    if item:
+        geo_pyPlacesCoords.append([item.longitude, item.latitude])
 bobcat_express_stops = {
     "R Street Village Apts": [
         "6:29", "7:09", "7:49", "8:44", "9:24", "10:04", "10:44", "12:09", "1:49", "3:17", "4:57",
@@ -58,6 +64,21 @@ bobcat_express_stops = {
     "El Portal & G Street": ["12:03", "1:43", "3:11", "4:51", "6:16", "7:56"]
 }
 
+bobcat_express_stops_keys = ["R Street Village Apts", "El Redondo Dr", "Compass Pointe Apts", "Merced College The Bus Terminal", 
+                             "M St. At Bellevue RD", "University Transit Center", "Promenade Center", "Merced Mall Target", 
+                             "Walmart on Loughborough Dr", "Amtrak Station", "K St. Between 18th & 19th", "Merced Transpo", 
+                             "Rite Aid/Walgreens", "El Portal & G Street"]
+
+bobcat_express_stops_values = [["6:29", "7:09", "7:49", "8:44", "9:24", "10:04", "10:44", "12:09", "1:49", "3:17", "4:57", "6:22", "8:02"], 
+                               ["6:32", "7:12", "7:52", "8:47", "9:27", "10:07", "10:47", "12:12", "1:52", "3:20", "5:00", "6:25", "8:05"], 
+                               ["6:34", "7:14", "7:54", "8:49", "9:29", "10:09", "10:49", "12:14", "1:54", "3:22", "5:02", "6:27", "8:07"], 
+                               ["6:39", "7:19", "7:59", "8:54", "9:34", "10:14", "10:54", "12:19", "1:59", "3:27", "5:07", "6:32", "8:12"], 
+                               ["6:44", "7:24", "8:04", "8:59", "9:39", "10:19", "11:00", "12:25", "2:05", "3:33", "5:13", "6:38", "8:18"], 
+                               ["6:55", "7:35", "8:30", "9:10", "9:50", "10:30", "11:11", "12:51", "2:16", "3:59", "5:24", "7:04", "8:29*"], 
+                               ["11:20", "1:00", "2:25", "4:08", "5:33", "7:13"], ["11:29", "1:09", "2:37", "4:17", "5:42", "7:22"], 
+                               ["11:38", "1:18", "2:46", "4:26", "5:51", "7:31"], ["11:50", "1:30", "2:58", "4:38", "6:03", "7:43"], 
+                               ["11:52", "1:32", "3:00", "4:40", "6:05", "7:45"], ["REQ:", "REQ:", "REQ:", "REQ:", "REQ:", "REQ:"], [
+                                   "12:01", "1:41", "3:09", "4:49", "6:14", "7:54"], ["12:03", "1:43", "3:11", "4:51", "6:16", "7:56"]]
 C1_stops = {
     "Granville Apartments": ["6:20", "7:31", "8:57", "10:08", "11:34", "12:45", "2:16", "3:27", "4:53", "6:04", "7:15", "8:41", "9:52", "REQ:"],
     "G St. & W. Alexander Ave": ["6:32", "7:43", "9:09", "10:20", "11:46", "12:57", "2:28", "3:39", "5:05", "6:16", "7:27", "8:53", "10:04", "REQ:"],
@@ -69,6 +90,22 @@ C1_stops = {
     "TriCollege/Mercy (Bus stop on G next to Tri College)": ["7:06", "8:32", "9:43", "11:09", "12:20", "1:46", "3:02", "4:28", "5:39", "6:50", "8:16", "9:27", "REQ:"],
     "G St. & W. Alexander Ave. (Bus Stop Paul's Place)": ["7:14", "8:40", "9:51", "11:17", "12:28", "1:54", "3:10", "4:36", "5:47", "6:58", "8:24", "9:35", "REQ:"]
     }
+
+C1_stops_keys = ["Granville Apartments", "G St. & W. Alexander Ave", "Rite Aid/Walgreens", "El Portal & G Street", 
+            "TriCollege/Mercy", "M St. At Bellevue RD", "University Transit Center", 
+            "TriCollege/Mercy (Bus stop on G next to Tri College)", "G St. & W. Alexander Ave. (Bus Stop Paul's Place)"]
+
+C1_stops_values = [["6:20", "7:31", "8:57", "10:08", "11:34", "12:45", "2:16", "3:27", "4:53", "6:04", "7:15", "8:41", "9:52", "REQ:"], 
+                   ["6:32", "7:43", "9:09", "10:20", "11:46", "12:57", "2:28", "3:39", "5:05", "6:16", "7:27", "8:53", "10:04", "REQ:"], 
+                   ["6:34", "7:45", "9:11", "10:22", "11:48", "12:59", "2:30", "3:41", "5:07", "6:18", "7:29", "8:55", "10:06", "REQ:"], 
+                   ["6:36", "7:47", "9:13", "10:24", "11:50", "1:01", "2:32", "3:43", "5:09", "6:20", "7:31", "8:57", "10:08", "REQ:", 
+                    "7:09", "8:35", "9:46", "11:12", "12:23", "1:49", "3:05", "4:31", "5:42", "6:53", "8:19", "9:30"], ["6:39", "7:50", 
+                    "9:16", "10:27", "11:53", "1:04", "2:35", "3:46", "5:12", "6:23", "7:34", "9:00", "10:11", "REQ:"], ["6:45", "7:56", 
+                    "9:22", "10:33", "11:59", "1:10", "2:41", "3:52", "5:18", "6:29", "7:40", "9:06", "10:17", "REQ:"], 
+                    ["6:56", "8:22", "9:33", "10:59", "12:10", "1:36", "2:52", "4:18", "5:29", "6:40", "8:06", "9:17", "10:28"], 
+                    ["7:06", "8:32", "9:43", "11:09", "12:20", "1:46", "3:02", "4:28", "5:39", "6:50", "8:16", "9:27", "REQ:"], 
+                    ["7:14", "8:40", "9:51", "11:17", "12:28", "1:54", "3:10", "4:36", "5:47", "6:58", "8:24", "9:35", "REQ:"]]
+
 C2_stops = {
     "R Street Village Apts": ["6:20", "7:18", "8:31", "9:29", "10:42", "11:40", "12:53", "1:51", "2:52", "3:50", "5:03", "6:01", "7:14", "8:12", "9:25", "REQ:"],
         "El Redondo Dr": [
@@ -104,6 +141,21 @@ C2_stops = {
         ]
 }
 
+C2_stops_keys = ["R Street Village Apts", "El Redondo Dr", "Compass Pointe Apts", "Buena Vista Dr", "Merced Mall Target", "Village Apts. 'M' Street", 
+                "Merced College The Bus Terminal", "Cardella Rd. & 'M' Street (North)", "M St. At Bellevue RD", "University Transit Center", "Foothill Drive", "Cardella Rd. & 'M' Street (South)"]
+
+C2_stops_values = [["6:20", "7:18", "8:31", "9:29", "10:42", "11:40", "12:53", "1:51", "2:52", "3:50", "5:03", "6:01", "7:14", "8:12", "9:25", "REQ:"], 
+                   ["6:23", "7:21", "8:34", "9:32", "10:45", "11:43", "12:56", "1:54", "2:55", "3:53", "5:06", "6:04", "7:17", "8:15", "9:28", "REQ:"], 
+                   ["6:25", "7:23", "8:36", "9:34", "10:47", "11:45", "12:58", "1:56", "2:57", "3:55", "5:08", "6:06", "7:19", "8:17", "9:30", "REQ:"], 
+                   ["6:32", "7:30", "8:43", "9:41", "10:54", "11:52", "1:05", "2:03", "3:04", "4:02", "5:15", "6:13", "7:26", "8:24", "9:37", "REQ:"], 
+                   ["6:39", "7:37", "8:50", "9:48", "11:01", "11:59", "1:12", "2:13", "3:11", "4:09", "5:22", "6:20", "7:33", "8:31", "9:44", "REQ:"], 
+                   ["6:41", "7:39", "8:52", "9:50", "11:03", "12:01", "1:14", "2:15", "3:13", "4:11", "5:24", "6:22", "7:35", "8:33", "9:46", "REQ:"], 
+                   ["6:45", "7:43", "8:56", "9:54", "11:07", "12:05", "1:18", "2:19", "3:17", "4:15", "5:28", "6:26", "7:39", "8:37", "9:50", "REQ:"], 
+                   ["6:48", "7:46", "8:59", "9:57", "11:10", "12:08", "1:21", "2:22", "3:20", "4:18", "5:31", "6:29", "7:42", "8:40", "9:53", "REQ:"], 
+                   ["6:51", "7:49", "9:02", "10:00", "11:13", "12:11", "1:24", "2:25", "3:23", "4:21", "5:34", "6:32", "7:45", "8:43", "9:56", "REQ:"], 
+                   ["7:02", "8:15", "9:13", "10:26", "11:24", "12:37", "1:35", "2:36", "3:34", "4:47", "5:45", "6:58", "7:56", "9:09", "10:07"], 
+                   ["7:09", "8:22", "9:20", "10:33", "11:31", "12:44", "1:42", "2:43"], ["7:13", "8:26", "9:24", "10:37", "11:35", "12:48", "1:46", "2:47", "3:45", "4:58", "5:56", "7:09", "8:07", "9:20", "REQ:"]]
+
 E1_stops = {
     "University Transit Center": ["8:30", "9:42", "10:39", "11:51", "12:48", "2:00", "2:57", "3:54", "4:54", "6:06", "7:03", "8:00", "9:12", "10:09", "11:06"],
     "G Street South": ["8:39", "9:51", "10:48", "12:00", "12:57", "2:09", "3:06", "4:03", "5:03", "6:15", "7:12", "8:09", "9:21", "10:18"],
@@ -115,6 +167,20 @@ E1_stops = {
     "Rite Aid/Walgreens": ["9:14", "10:26", "11:23", "12:35", "1:32", "2:44", "3:41", "4:41", "5:38", "6:50", "7:47", "8:44", "9:56", "10:53"],
     "Yosemite Crossings Shopping Center": ["9:18", "10:30", "11:27", "12:39", "1:36", "2:48", "3:45", "4:45", "5:42", "6:54", "7:51", "8:48", "10:00", "10:57" ],
     }
+
+
+E1_stops_keys = ["University Transit Center", "G Street South", "Amtrak Station", "K St. Between 18th & 19th", "Walmart on Loughborough Dr", "Meadows Ave & Olivewood Dr (Foodmaxx)", "Merced Mall Target", 
+                 "Rite Aid/Walgreens", "Yosemite Crossings Shopping Center"]
+
+E1_stops_values = [["8:30", "9:42", "10:39", "11:51", "12:48", "2:00", "2:57", "3:54", "4:54", "6:06", "7:03", "8:00", "9:12", "10:09", "11:06"], 
+                   ["8:39", "9:51", "10:48", "12:00", "12:57", "2:09", "3:06", "4:03", "5:03", "6:15", "7:12", "8:09", "9:21", "10:18"], 
+                   ["8:46", "9:58", "10:55", "12:07", "1:04", "2:16", "3:13", "4:10", "5:10", "6:22", "7:19", "8:16", "9:28", "10:25"], 
+                   ["8:48", "10:00", "10:57", "12:09", "1:06", "2:18", "3:15", "4:15", "5:12", "6:24", "7:21", "8:18", "9:30", "10:27"], 
+                   ["9:01", "10:13", "11:10", "12:22", "1:19", "2:31", "3:28", "4:28", "5:25", "6:37", "7:34", "8:31", "9:43", "10:40"], 
+                   ["9:03", "10:15", "11:12", "12:24", "1:21", "2:33", "3:30", "4:30", "5:27", "6:39", "7:36", "8:33", "9:45", "10:42"], 
+                   ["9:07", "10:19", "11:16", "12:28", "1:25", "2:37", "3:34", "4:34", "5:31", "6:43", "7:40", "8:37", "9:49", "10:46"], 
+                   ["9:14", "10:26", "11:23", "12:35", "1:32", "2:44", "3:41", "4:41", "5:38", "6:50", "7:47", "8:44", "9:56", "10:53"], 
+                   ["9:18", "10:30", "11:27", "12:39", "1:36", "2:48", "3:45", "4:45", "5:42", "6:54", "7:51", "8:48", "10:00", "10:57"]]
 
 E2_stops = {
         "University Transit Center": ["11:05", "12:09", "12:58", "1:47", "2:36", "3:40", "4:29", "5:18", "6:25", "7:14", "8:18", "9:07", "9:56"],
@@ -129,6 +195,20 @@ E2_stops = {
         "Moraga Subdivision": ["11:46", "12:50", "1:39", "2:28", "3:17", "4:21", "5:10", "6:02", "7:06", "7:55", "8:59", "9:48"],
     }
 
+E2_stops_keys = ["University Transit Center", "Promenade Center", "R Street Village Apts", "El Redondo Dr", "Compass Pointe Apts", "Merced Mall Target", 
+                 "M Street Village Apartments", "Ironstone Dr. & M St", "Yosemite & Cordova (Merced Physician Center)", "Moraga Subdivision"]
+
+E2_stops_values = [["11:05", "12:09", "12:58", "1:47", "2:36", "3:40", "4:29", "5:18", "6:25", "7:14", "8:18", "9:07", "9:56"], 
+                   ["11:14", "12:18", "1:07", "1:56", "2:45", "3:49", "4:38", "5:27", "6:34", "7:23", "8:27", "9:16"], 
+                   ["11:20", "12:24", "1:13", "2:02", "2:51", "3:55", "4:44", "5:36", "6:40", "7:29", "8:33", "9:22"], 
+                   ["11:23", "12:27", "1:16", "2:05", "2:54", "3:58", "4:47", "5:39", "6:43", "7:32", "8:36", "9:25"], 
+                   ["11:25", "12:29", "1:18", "2:07", "2:56", "4:00", "4:49", "5:41", "6:45", "7:34", "8:38", "9:27"], 
+                   ["11:31", "12:35", "1:24", "2:13", "3:02", "4:06", "4:55", "5:47", "6:51", "7:40", "8:44", "9:33"], 
+                   ["11:33", "12:37", "1:26", "2:15", "3:04", "4:08", "4:57", "5:49", "6:53", "7:42", "8:46", "9:35"], 
+                   ["11:37", "12:41", "1:30", "2:19", "3:08", "4:12", "5:01", "5:53", "6:57", "7:46", "8:50", "9:39"], 
+                   ["11:43", "12:47", "1:36", "2:25", "3:14", "4:18", "5:07", "5:59", "7:03", "7:52", "8:56", "9:45"], 
+                   ["11:46", "12:50", "1:39", "2:28", "3:17", "4:21", "5:10", "6:02", "7:06", "7:55", "8:59", "9:48"]]
+
 Fastcat_stops = {
         "University Surgery Center": [ "6:35", "7:39", "8:58", "10:02", "11:06", "12:25", "1:29", "2:36", "3:40", "4:59", "6:03", "7:07", "8:11", "9:30"],
         "Promenade Center": ["6:39", "7:43", "9:02", "10:06", "11:10", "12:29", "1:33", "2:40", "3:44", "5:03", "6:07", "7:11", "8:15", "9:34"],
@@ -142,6 +222,19 @@ Fastcat_stops = {
         "Yosemite & Cordova (Merced Physician Center)": ["7:16", "8:35", "9:39", "10:43", "11:47", "1:06", "2:10", "3:17", "4:36", "5:40", "6:44", "7:48", "9:07", "10:11","REQ:"],
         "Moraga Subdivision": ["7:22", "8:41", "9:45", "10:49", "11:53", "1:12", "2:19", "3:23", "4:42", "5:46", "6:50", "7:54", "9:13", "10:17","REQ:"],
     }
+
+Fastcat_stops_keys = ["University Surgery Center", "Promenade Center", "Yosemite Crossings Shopping Center", "TriCollege/Mercy", "Cardella Rd. & 'M' Street", "M St. At Bellevue RD", 
+                      "University Transit Center", "Yosemite & Cordova (Merced Physician Center)", "Moraga Subdivision"]
+
+Fastcat_stops_values = [["6:35", "7:39", "8:58", "10:02", "11:06", "12:25", "1:29", "2:36", "3:40", "4:59", "6:03", "7:07", "8:11", "9:30"], 
+                        ["6:39", "7:43", "9:02", "10:06", "11:10", "12:29", "1:33", "2:40", "3:44", "5:03", "6:07", "7:11", "8:15", "9:34"], 
+                        ["6:42", "7:46", "9:05", "10:09", "11:13", "12:32", "1:36", "2:43", "3:47", "5:06", "6:10", "7:14", "8:18", "9:37"], 
+                        ["6:44", "7:48", "9:07", "10:11", "11:15", "12:34", "1:38", "2:45", "3:49", "5:08", "6:12", "7:16", "8:20", "9:39", "7:13", "8:32", "9:36", "10:40", "11:44", "1:03", "2:07", "3:14", "4:33", "5:37", "6:41", "7:45", "9:04", "10:08", "REQ:"], 
+                        ["6:48", "7:52", "9:11", "10:15", "11:19", "12:38", "1:42", "2:49", "3:53", "5:12", "6:16", "7:20", "8:24", "9:43"], 
+                        ["6:52", "7:56", "9:15", "10:19", "11:23", "12:42", "1:46", "2:53", "3:57", "5:16", "6:20", "7:24", "8:28", "9:47"], 
+                        ["7:03", "8:22", "9:26", "10:30", "11:34", "12:53", "1:57", "3:04", "4:23", "5:27", "6:31", "7:35", "8:54", "9:58", "7:30", "8:49", "9:53", "10:57", "12:16", "1:20", "2:27", "3:31", "4:50", "5:54", "6:58", "8:02", "9:21", "10:25"], 
+                        ["7:16", "8:35", "9:39", "10:43", "11:47", "1:06", "2:10", "3:17", "4:36", "5:40", "6:44", "7:48", "9:07", "10:11", "REQ:"], 
+                        ["7:22", "8:41", "9:45", "10:49", "11:53", "1:12", "2:19", "3:23", "4:42", "5:46", "6:50", "7:54", "9:13", "10:17", "REQ:"]]
 
 Fastcat2_stops = {
         "University Surgery Center": ["8:30", "9:34", "10:53", "11:57", "1:01", "2:20", "3:24", "4:31", "5:50", "6:54", "8:13", "9:17", "9:34", 
@@ -159,6 +252,21 @@ Fastcat2_stops = {
         "University Transit Center": ["9:25", "10:44", "11:48", "12:52", "2:11", "3:15", "4:22", "5:41", "6:45", "8:04", "9:08" ],
     }
 
+Fastcat2_stops_keys = ["University Surgery Center", "Promenade Center", "Yosemite Crossings Shopping Center", "TriCollege/Mercy  ", "Cardella Rd. & 'M' Street",
+                       "M St. At Bellevue RD", "University Transit Center", "Yosemite & Cordova (Merced Physician Center)", "Moraga Subdivision"]
+
+Fastcat2_stops_values = [["8:30", "9:34", "10:53", "11:57", "1:01", "2:20", "3:24", "4:31", "5:50", "6:54", "8:13", "9:17", "9:34", "10:53", "11:57", 
+                          "12:61", "2:20", "3:24", "4:31", "5:50", "6:54", "8:13", "9:17", "9:14", "10:33", "11:37", "12:41", "1:45", "3:04", "4:08", "5:15", "6:34", "7:38", "8:57", "REQ"], 
+                          ["8:34", "9:38", "10:57", "12:01", "1:05", "2:24", "3:28", "4:35", "5:54", "6:58", "8:17", "9:21"], 
+                          ["8:37", "9:41", "11:00", "12:04", "1:08", "2:27", "3:31", "4:38", "5:57", "7:01", "8:20", "9:24"], 
+                          ["8:39", "9:43", "11:02", "12:06", "1:10", "2:29", "3:33", "4:40", "5:59", "7:03", "8:22", "9:26", 
+                           "9:08", "10:27", "11:31", "12:35", "1:39", "2:58", "4:02", "5:09", "6:28", "7:32", "8:51", "REQ"], 
+                           ["8:43", "9:47", "11:06", "12:10", "1:14", "2:33", "3:37", "4:44", "6:03", "7:07", "8:26", "9:30"], 
+                           ["8:47", "9:51", "11:10", "12:14", "1:18", "2:37", "3:41", "4:48", "6:07", "7:11", "8:30", "9:34"], 
+                           ["9:25", "10:44", "11:48", "12:52", "2:11", "3:15", "4:22", "5:41", "6:45", "8:04", "9:08"], 
+                           ["9:11", "10:30", "11:34", "12:38", "1:42", "3:01", "4:05", "5:12", "6:31", "7:35", "8:54", "REQ"], 
+                           ["9:17", "10:36", "11:40", "12:44", "1:48", "3:07", "4:11", "5:18", "6:37", "7:41", "9:00", "REQ"]]
+
 G_line_stops = {
         "R Street Village Apts": ["6:30", "7:38", "9:01", "10:09", "11:17", "12:25", "1:48", "3:01", "4:09", "5:32", "6:40", "7:48", "9:11", "7:38", "9:01", "10:09", "11:17", 
                                    "12:25", "1:48", "3:01", "4:09", "5:32", "6:40", "7:48", "9:11", "REQ:"],
@@ -173,6 +281,19 @@ G_line_stops = {
         "Merced Transpo": ["REQ", "REQ", "REQ", "REQ", "REQ", "REQ", "REQ", "REQ", "REQ", "REQ", "REQ", "REQ", "REQ"],
     }
 
+G_line_stops_keys = ["R Street Village Apts", "El Redondo Dr", "Compass Pointe Apts", "Merced College The Bus Terminal", "M St. At Bellevue RD", "University Transit Center", 
+                     "Amtrak Station", "K St. Between 18th & 19th", "UC Merced Downtown Campus Center", "Merced Transpo"]
+
+G_line_stops_values = [["6:30", "7:38", "9:01", "10:09", "11:17", "12:25", "1:48", "3:01", "4:09", "5:32", "6:40", "7:48", "9:11", "7:38", "9:01", "10:09", "11:17", "12:25", "1:48", "3:01", "4:09", "5:32", "6:40", "7:48", "9:11", "REQ:"], 
+                       ["6:33", "7:41", "9:04", "10:12", "11:20", "12:28", "1:51", "3:04", "4:12", "5:35", "6:43", "7:51", "9:14", "REQ:"], 
+                       ["6:35", "7:43", "9:06", "10:14", "11:22", "12:30", "1:53", "3:06", "4:14", "5:37", "6:45", "7:53", "9:16", "REQ:"], 
+                       ["6:40", "7:48", "9:11", "10:19", "11:27", "12:35", "1:58", "3:11", "4:19", "5:42", "6:50", "7:58", "9:21", "REQ:"], 
+                       ["6:46", "7:54", "9:17", "10:25", "11:33", "12:41", "2:04", "3:17", "4:25", "5:48", "6:56", "8:04", "9:27", "REQ:"], 
+                       ["6:57", "8:20", "9:28", "10:36", "11:44", "1:07", "2:15", "3:28", "4:51", "5:59", "7:07", "8:30", "9:38", "REQ:"], 
+                       ["7:18", "8:41", "9:49", "10:57", "12:05", "1:28", "2:36", "3:49", "5:12", "6:20", "7:28", "8:51", "9:59"], 
+                       ["7:20", "8:43", "9:51", "10:59", "12:07", "1:30", "2:43", "3:51", "5:14", "6:22", "7:30", "8:53", "10:01"], 
+                       ["7:22", "8:45", "9:53", "11:01", "12:09", "1:32", "2:45", "3:53", "5:16", "6:24", "7:32", "8:55", "10:03"], 
+                       ["REQ", "REQ", "REQ", "REQ", "REQ", "REQ", "REQ", "REQ", "REQ", "REQ", "REQ", "REQ", "REQ"]]
 
 yosemite_express_stops = {
     "Moraga Subdivision": ["9:00", "9:27", "9:54", "10:36", "11:03", "11:30", "11:57", "12:24", "12:51", "1:18","2:00", 
@@ -192,4 +313,17 @@ yosemite_express_stops = {
                                 "1:57", "2:24", "2:51", "3:18", "4:00", "4:32","4:59", "5:26", "5:53", "6:35", 
                                 "7:02", "7:29", "7:56", "8:23", "8:50", "9:17", "9:59", "REQ:"]
 }
+
+yosemite_express_stops_keys = ["R Street Village Apts", "El Redondo Dr", "Compass Pointe Apts", "Merced College The Bus Terminal", "M St. At Bellevue RD", 
+                               "University Transit Center", "Amtrak Station", "K St. Between 18th & 19th", "UC Merced Downtown Campus Center", "Merced Transpo"]
+
+yosemite_express_stops_values = [["6:30", "7:38", "9:01", "10:09", "11:17", "12:25", "1:48", "3:01", "4:09", "5:32", "6:40", "7:48", "9:11", "7:38", "9:01", "10:09", "11:17", "12:25", "1:48", "3:01", "4:09", "5:32", "6:40", "7:48", "9:11", "REQ:"], 
+                                 ["6:33", "7:41", "9:04", "10:12", "11:20", "12:28", "1:51", "3:04", "4:12", "5:35", "6:43", "7:51", "9:14", "REQ:"], ["6:35", "7:43", "9:06", "10:14", "11:22", "12:30", "1:53", "3:06", "4:14", "5:37", "6:45", "7:53", "9:16", "REQ:"], 
+                                 ["6:40", "7:48", "9:11", "10:19", "11:27", "12:35", "1:58", "3:11", "4:19", "5:42", "6:50", "7:58", "9:21", "REQ:"], ["6:46", "7:54", "9:17", "10:25", "11:33", "12:41", "2:04", "3:17", "4:25", "5:48", "6:56", "8:04", "9:27", "REQ:"], 
+                                 ["6:57", "8:20", "9:28", "10:36", "11:44", "1:07", "2:15", "3:28", "4:51", "5:59", "7:07", "8:30", "9:38", "REQ:"], ["7:18", "8:41", "9:49", "10:57", "12:05", "1:28", "2:36", "3:49", "5:12", "6:20", "7:28", "8:51", "9:59"], 
+                                 ["7:20", "8:43", "9:51", "10:59", "12:07", "1:30", "2:43", "3:51", "5:14", "6:22", "7:30", "8:53", "10:01"], ["7:22", "8:45", "9:53", "11:01", "12:09", "1:32", "2:45", "3:53", "5:16", "6:24", "7:32", "8:55", "10:03"], 
+                                 ["REQ", "REQ", "REQ", "REQ", "REQ", "REQ", "REQ", "REQ", "REQ", "REQ", "REQ", "REQ", "REQ"]]
+
+#used to print keys and values as a list of each dictionary
+#print(G_line_stops.values())
 
