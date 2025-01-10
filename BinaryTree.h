@@ -19,7 +19,7 @@ struct Node{
 
 //creates a Binary Search Tree using a sorted ArrayList
 template <class T>
-Node<T>* sorted_BST(ArrayList<T> list, int start, int end){
+Node<T>* sorted_BST(ArrayList<T>& list, int start, int end){
     if (start > end) {
         return nullptr;
     }
@@ -30,15 +30,25 @@ Node<T>* sorted_BST(ArrayList<T> list, int start, int end){
     return node;
 }
 
-//traverses the sorted Binary Tree in order
+// Prints the binary tree in a pretty way with branches
 template <class T>
-void in_order_traversal(Node<T>* root){
-    if (root == nullptr) {
-        return;
+void print_tree(Node<T>* root, std::string indent = "", bool last = true) {
+    if (!root) return;
+    std::cout << indent;
+    if (last) {
+        std::cout << "└── ";
+        indent += "    ";
+    } else {
+        std::cout << "├── ";
+        indent += "│   ";
     }
-    in_order_traversal(root->left);
-    std::cout << root->data << " ";
-    in_order_traversal(root->right);
+    std::cout << root->data << std::endl;
+    print_tree(root->left, indent, false);
+    print_tree(root->right, indent, true);
+}
+template <class T>
+void print_tree(Node<T>* root, std::string indent = "", bool last = true){
+    if (!root) return;
 }
 
 #endif
