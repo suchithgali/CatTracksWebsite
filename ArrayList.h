@@ -84,21 +84,6 @@ public:
         }
     }
 
-    template <class T>
-    ArrayList<T> insertionSort(const ArrayList<T>& list){
-    for (int i = 1; i < list.count; i++){
-        int temp = list[i];
-        int j = i - 1;
-
-        while (j >= 0 && list[j] > temp){
-        list[j + 1] = list[j];
-        j--;
-        }
-        list[j + 1] = temp;
-    }
-    return list;
-    }
-
     void append(T value){
         arr[count] = value;
         count++;
