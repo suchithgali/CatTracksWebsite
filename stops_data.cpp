@@ -1,13 +1,5 @@
 #include "stops_data.h"
 
-template <class T>
-// Helper function to append hashes
-void appendHashes(HashTable<T>& table, ArrayList<std::string> keys, ArrayList<std::list<std::string>> values) {
-    for (int i = 0; i < table.getBuckets(); i++) {
-        table.appendHash(keys[i], values[i]);
-    }
-}
-
 int main(){
     appendHashes(bobcat_table, bobcat_express_stops_keys, bobcat_express_stops_values);
     appendHashes(C1_table, C1_stops_keys, C1_stops_values);
