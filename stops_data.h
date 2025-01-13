@@ -23,6 +23,21 @@
     }
     }
 
+    template <class T>
+    // Helper function to append hashes
+    void appendHashes(HashTable<T>& table, ArrayList<T> keys, ArrayList<std::list<T>> values) {
+        for (int i = 0; i < table.getBuckets(); i++) {
+            table.appendHash(keys[i], values[i]);
+        }
+    }
+    //helper function to append hashes for Hashtable
+    template <class T>
+    void appendHashes(HashTable<T>& table, ArrayList<T> keys, ArrayList<HashTable<T>> values) {
+        for (int i = 0; i < table.getBuckets(); i++) {
+            table.appendHash(keys[i], values[i]);
+        }
+    }
+
 ArrayList<std::string> places = {"Amtrak Station", "Cardella Rd. & 'M' Street (North)", "Cardella Rd. & 'M' Street (South)", "Compass Pointe Apts", 
           "El Portal & G Street", "El Redondo Dr", "Foothill Drive", "G St. & W. Alexander Ave", "G St. & W. Alexander Ave. (Bus Stop Paul's Place)", 
           "G Street South", "Granville Apartments", "Ironstone Dr. & M St", "K St. Between 18th & 19th", "M St. At Bellevue RD", 
@@ -31,6 +46,7 @@ ArrayList<std::string> places = {"Amtrak Station", "Cardella Rd. & 'M' Street (N
           "UC Merced Downtown Campus Center", "University Surgery Center", "University Transit Center", "Walmart on Loughborough Dr", "Yosemite & Cordova (Merced Physician Center)", 
           "Yosemite Crossings Shopping Center"};  
 
+ArrayList<std::string> bus_names = {"Bobcat Express", "C1", "C2", "E1", "E2", "Fastcat", "Fastcat 2", "G Line", "Yosemite Express"};
 
 ArrayList<std::string> bobcat_express_stops_keys = {"Amtrak Station", "Compass Pointe Apts", "El Portal & G Street", "El Redondo Dr", 
 "K St. Between 18th & 19th", "M St. At Bellevue RD", "Merced College The Bus Terminal", "Merced Mall Target", "Merced Transpo", 
@@ -185,4 +201,5 @@ ArrayList<std::list<std::string>> yosemite_express_stops_values = {{"6:30", "7:3
 
 HashTable<std::string> yosemite_express_table(yosemite_express_stops_keys.getsize());
 
+ArrayList<HashTable<std::string>> bus_stops_tables = {bobcat_table, C1_table, C2_table, E1_table, E2_table, Fastcat_table, Fastcat2_table, G_line_table, yosemite_express_table}; 
 #endif
