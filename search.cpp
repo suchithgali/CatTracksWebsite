@@ -135,10 +135,23 @@ void Hash_binary_search(HashTable<std::string>& table, std::string target){
 
 void findBusTaken(){
   for (const auto& [name, stop] : named_stops){
-    
+    if (Hash_binary_search(stop, q2) == q2){
+      bus_names[name] = stop;
+    }
   }
 }
 
+void findBusTaken(){
+  for (const auto& [name, stop] : named_stops){
+    if (Hash_binary_search(stop, q1) == q1){
+      busGo_stops[name] = stop;
+    }
+  }
+}
+
+void findBusGo(){
+  
+}
 
 
 
