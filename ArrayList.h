@@ -6,7 +6,6 @@
 #include <ostream>
 #include <cmath>
 #include <string>
-#include <iostream>
 
 
 template <class T>
@@ -132,6 +131,27 @@ public:
     int size(){
         return count;
     }
+
+   int index(T target){
+        int low = 0;
+        int high = count - 1;
+
+        while (low <= high){
+            int middle = (low + high) / 2;
+            T value = arr[middle];
+            if (value < target){
+                low = middle + 1;
+            }
+            else if (value > target){
+                high = middle - 1;
+            }
+            else{
+                return middle;
+            }
+        }
+        return -1;
+    }
+    
 
     ~ArrayList(){
         delete[] arr;
