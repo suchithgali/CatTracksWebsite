@@ -1,7 +1,22 @@
 #ifndef LINKED_LIST
 #define LINKED_LIST
 
+#include <list>
 #include <ostream>
+#include <iostream>
+
+template <typename T>
+std::ostream& operator<<(std::ostream& os, const std::list<T>& lst){
+    os << "[";
+    for(auto it = lst.begin(); it != lst.end(); ++it){
+        os << *it;
+        if(std::next(it) != lst.end()){
+            os << ", ";
+        }
+    }
+    os << "]";
+    return os;
+}
 
 
 template <class T>
@@ -61,6 +76,7 @@ public:
 
     friend std::ostream& operator<< <>(std::ostream& os, const LinkedList<T>& list);
 };
+
 
 template <class T>
 std::ostream& operator<<(std::ostream& os, const LinkedList<T>& list){

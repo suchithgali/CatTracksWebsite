@@ -7,6 +7,7 @@
 #include <list>
 #include <ostream>
 #include <typeinfo>
+#include <algorithm>
 
 template <class T>
 class HashTable;
@@ -16,16 +17,19 @@ std::ostream& operator<<(std::ostream& os, const HashTable<T>& container);
 
 template <class T>
 class HashTable{
+private:
     int buckets;
-    ArrayList<LinkedList<T>> data;
-
-    HashTable(){}
+    ArrayList<T> keys;
+    ArrayList<LinkedList<std::list<T>>*> data;
 
 public:
-    HashTable(int buckets){
-        this->buckets = buckets;
+    HashTable() : buckets(0), keys(), data() {}
+
+    HashTable(ArrayList<T> bus_keys){
+        this->buckets = bus_keys.getsize();
         for (int i = 0; i < buckets; i++){
-            data.append(LinkedList<T>());
+            keys.append(bus_keys[i]);
+            data.append(new LinkedList<std::list<T>>());
         }
     }
 
@@ -38,17 +42,30 @@ public:
         for (int i = 0; i < val.length(); i++){
             sum += static_cast<int>(val[i]);
         }
-        return sum % buckets;
+        return sum % getBuckets();
+    }
+
+    LinkedList<std::list<T>>*& operator[](int index){
+        return data[index];
     }
 
     int getBuckets(){
         return buckets;
     }
 
-    void appendHash(std::string key, std::list<std::string> values){
-        int index = HashStrings(key);
-        for (const auto& v : values){
-            data[index].appendinLL(v);
+    void appendHashes(ArrayList<T> bus_keys, ArrayList<std::list<T>> values) {
+        int limit = std::min({bus_keys.getsize(), values.getsize(), data.getsize()});
+        for (int i = 0; i < limit; i++) {
+            data[i]->appendinLL(values[i]);
+        }
+    }
+    
+    ~HashTable() {
+        for (int i = static_cast<int>(data.getsize()) - 1; i >= 0; i--) {
+            if (data[i] != nullptr) {
+            delete data[i];
+            data[i] = nullptr; // Avoid double deletion
+        }
         }
     }
 
@@ -58,8 +75,8 @@ public:
 template <class T>
 std::ostream& operator<<(std::ostream& os, const HashTable<T>& table){
 
-    for (int i = 0; i < table.buckets; i++){
-        os<< i << ": " << table.data[i] << std::endl;
+    for (int i = 0; i < table.keys.getsize(); i++){
+        os<< i << " " << table.keys[i] << ": " << *(table.data[i]) << std::endl;
     }
     
     return os;
