@@ -2,6 +2,7 @@
 #define ARRAY_LIST
 
 #include <initializer_list>
+#include "LinkedList.h"
 #include <iostream>
 #include <ostream>
 #include <cmath>
@@ -62,6 +63,9 @@ public:
         count = 0;
     }
 
+    auto begin() {return arr;}
+    auto end() {return arr + count;}
+
     ArrayList(const ArrayList& other){
         capacity = other.capacity;
         arr = new T[capacity];
@@ -70,6 +74,21 @@ public:
             arr[i] = other.arr[i];
         }
     }
+
+   ArrayList& operator=(const ArrayList& other){
+        if (this == &other){
+            return *this;
+        }
+        delete[] arr;
+        capacity = other.capacity;
+        arr = new T[capacity];
+        count = other.count;
+        for (int i = 0; i < count; i++){
+            arr[i] = other.arr[i];
+        }
+        return *this;
+    }
+    
 
     ArrayList(std::initializer_list<T> list) {
         count = list.size();
@@ -83,15 +102,40 @@ public:
         }
     }
 
+   ArrayList insertionSort(ArrayList<T>& list){
+    for (int i = 1; i < list.getsize(); i++){
+       std::string temp = list[i];
+        int j = i - 1;
+
+        while (j >= 0 && list[j] > temp){
+        list[j + 1] = list[j];
+        j--;
+        }
+        list[j + 1] = temp;
+    }
+    return list;
+    }
+
     void append(T value){
         arr[count] = value;
         count++;
-
+        
         inflate();
     }
 
-    int getsize(){
+     void append(LinkedList<std::list<T>>* value){
+        arr[count] = value;
+        count++;
+        
+        inflate();
+    }
+
+    int getsize() const{
         return count;
+    }
+
+    T* getarr(){
+        return arr;
     }
 
     void prepend(T val){
@@ -128,7 +172,7 @@ public:
         return arr[index];
     }
 
-    int size(){
+    int size() {
         return count;
     }
 
@@ -151,6 +195,7 @@ public:
         }
         return -1;
     }
+    
     
 
     ~ArrayList(){
