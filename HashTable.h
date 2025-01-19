@@ -37,12 +37,21 @@ public:
         return val % buckets;
     }
 
-    int HashStrings(std::string val){
-        int sum = 0;
-        for (int i = 0; i < val.length(); i++){
-            sum += static_cast<int>(val[i]);
+    int HashStrings(const std::string& val) const {
+        int hashValue = 0;
+        int prime = 41;
+        int mod = 1000000009;
+        int power = 1;
+        for (char c : val){
+            char lower = std::tolower(c);
+            if (lower < 'a' || lower > 'z'){
+                continue;
+            }
+            hashValue = (hashValue + (c - 'a' + 1) * power) % mod;
+            power = (power * prime) % mod;
         }
-        return sum % getBuckets();
+
+        return (hashValue % buckets + buckets) % buckets;
     }
 
     LinkedList<std::list<T>>*& operator[](int index){
@@ -54,29 +63,29 @@ public:
     }
 
     void appendHashes(ArrayList<T> bus_keys, ArrayList<std::list<T>> values) {
-        int limit = std::min({bus_keys.getsize(), values.getsize(), data.getsize()});
-        for (int i = 0; i < limit; i++) {
-            data[i]->appendinLL(values[i]);
+        for (int i = 0; i < buckets; i++) {
+            int hash = HashStrings(bus_keys[i]);
+            data[hash]->appendinLL(values[i]);
         }
     }
+
     
     ~HashTable() {
         for (int i = static_cast<int>(data.getsize()) - 1; i >= 0; i--) {
-            if (data[i] != nullptr) {
             delete data[i];
-            data[i] = nullptr; // Avoid double deletion
-        }
         }
     }
+
 
     friend std::ostream& operator<< <>(std::ostream& os, const HashTable<T>& table);
 };
 
 template <class T>
 std::ostream& operator<<(std::ostream& os, const HashTable<T>& table){
-
     for (int i = 0; i < table.keys.getsize(); i++){
-        os<< i << " " << table.keys[i] << ": " << *(table.data[i]) << std::endl;
+        int j = table.HashStrings(table.keys[i]);
+        os<< table.keys[i] << ": " << *(table.data[j]) << std::endl;
+        os << std::endl;
     }
     
     return os;
