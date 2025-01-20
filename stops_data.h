@@ -9,21 +9,7 @@
 #include <ostream>
 
 
-   template <class T>
-   void insertionSort(ArrayList<T>& list){
-    for (int i = 1; i < list.getsize(); i++){
-       std::string temp = list[i];
-        int j = i - 1;
-
-        while (j >= 0 && list[j] > temp){
-        list[j + 1] = list[j];
-        j--;
-        }
-        list[j + 1] = temp;
-    }
-    }
-
-    template <class T>
+    /*template <class T>
     // Helper function to append hashes
     void appendHashes(HashTable<T>& table, ArrayList<T> keys, ArrayList<std::list<T>> values) {
         for (int i = 0; i < table.getBuckets(); i++) {
@@ -37,6 +23,7 @@
             table.appendHash(keys[i], values[i]);
         }
     }
+    */
 
 ArrayList<std::string> places = {"Amtrak Station", "Cardella Rd. & 'M' Street (North)", "Cardella Rd. & 'M' Street (South)", "Compass Pointe Apts", 
           "El Portal & G Street", "El Redondo Dr", "Foothill Drive", "G St. & W. Alexander Ave", "G St. & W. Alexander Ave. (Bus Stop Paul's Place)", 
@@ -69,7 +56,7 @@ ArrayList<std::list<std::string>> bobcat_express_stops_values = {{"6:29", "7:09"
                                {"11:52", "1:32", "3:00", "4:40", "6:05", "7:45"}, {"REQ:", "REQ:", "REQ:", "REQ:", "REQ:", "REQ:"}, 
                                {"12:01", "1:41", "3:09", "4:49", "6:14", "7:54"}, {"12:03", "1:43", "3:11", "4:51", "6:16", "7:56"}};
 
-HashTable<std::string> bobcat_table(bobcat_express_stops_keys.getsize());
+HashTable<std::string> bobcat_table(bobcat_express_stops_keys);
 
 ArrayList<std::string> C1_stops_keys = {"Granville Apartments", "G St. & W. Alexander Ave", "Rite Aid/Walgreens", "El Portal & G Street", 
             "TriCollege/Mercy", "M St. At Bellevue RD", "University Transit Center", 
@@ -86,7 +73,7 @@ ArrayList<std::list<std::string>> C1_stops_values = {{"6:20", "7:31", "8:57", "1
                     {"7:06", "8:32", "9:43", "11:09", "12:20", "1:46", "3:02", "4:28", "5:39", "6:50", "8:16", "9:27", "REQ:"}, 
                     {"7:14", "8:40", "9:51", "11:17", "12:28", "1:54", "3:10", "4:36", "5:47", "6:58", "8:24", "9:35", "REQ:"}};
 
-HashTable<std::string> C1_table(C1_stops_keys.getsize());
+HashTable<std::string> C1_table(C1_stops_keys);
 
 ArrayList<std::string> C2_stops_keys = {"R Street Village Apts", "El Redondo Dr", "Compass Pointe Apts", "Buena Vista Dr", "Merced Mall Target", "Village Apts. 'M' Street", 
                 "Merced College The Bus Terminal", "Cardella Rd. & 'M' Street (North)", "M St. At Bellevue RD", "University Transit Center", "Foothill Drive", "Cardella Rd. & 'M' Street (South)"};
@@ -103,7 +90,7 @@ ArrayList<std::list<std::string>> C2_stops_values = {{"6:20", "7:18", "8:31", "9
                    {"7:02", "8:15", "9:13", "10:26", "11:24", "12:37", "1:35", "2:36", "3:34", "4:47", "5:45", "6:58", "7:56", "9:09", "10:07"}, 
                    {"7:09", "8:22", "9:20", "10:33", "11:31", "12:44", "1:42", "2:43"}, {"7:13", "8:26", "9:24", "10:37", "11:35", "12:48", "1:46", "2:47", "3:45", "4:58", "5:56", "7:09", "8:07", "9:20", "REQ:"}};
 
-HashTable<std::string> C2_table(C2_stops_keys.getsize());
+HashTable<std::string> C2_table(C2_stops_keys);
 
 ArrayList<std::string> E1_stops_keys = {"University Transit Center", "G Street South", "Amtrak Station", "K St. Between 18th & 19th", "Walmart on Loughborough Dr", "Meadows Ave & Olivewood Dr (Foodmaxx)", "Merced Mall Target", 
                  "Rite Aid/Walgreens", "Yosemite Crossings Shopping Center"};
@@ -118,7 +105,7 @@ ArrayList<std::list<std::string>> E1_stops_values = {{"8:30", "9:42", "10:39", "
                    {"9:14", "10:26", "11:23", "12:35", "1:32", "2:44", "3:41", "4:41", "5:38", "6:50", "7:47", "8:44", "9:56", "10:53"}, 
                    {"9:18", "10:30", "11:27", "12:39", "1:36", "2:48", "3:45", "4:45", "5:42", "6:54", "7:51", "8:48", "10:00", "10:57"}};
 
-HashTable<std::string> E1_table(E1_stops_keys.getsize());
+HashTable<std::string> E1_table(E1_stops_keys);
 
 ArrayList<std::string> E2_stops_keys = {"University Transit Center", "Promenade Center", "R Street Village Apts", "El Redondo Dr", "Compass Pointe Apts", "Merced Mall Target", 
                  "M Street Village Apartments", "Ironstone Dr. & M St", "Yosemite & Cordova (Merced Physician Center)", "Moraga Subdivision"};
@@ -134,7 +121,7 @@ ArrayList<std::list<std::string>> E2_stops_values = {{"8:30", "9:42", "10:39", "
                    {"9:18", "10:30", "11:27", "12:39", "1:36", "2:48", "3:45", "4:45", "5:42", "6:54", "7:51", "8:48", "10:00", "10:57"}};
 
 
-HashTable<std::string> E2_table(E2_stops_keys.getsize());
+HashTable<std::string> E2_table(E2_stops_keys);
 
 ArrayList<std::string> Fastcat_stops_keys = {"University Surgery Center", "Promenade Center", "Yosemite Crossings Shopping Center", "TriCollege/Mercy  ", "Cardella Rd. & 'M' Street",
                        "M St. At Bellevue RD", "University Transit Center", "Yosemite & Cordova (Merced Physician Center)", "Moraga Subdivision"};
@@ -153,7 +140,7 @@ ArrayList<std::list<std::string>> Fastcat_stops_values = {{"8:30", "9:34", "10:5
                            {"9:17", "10:36", "11:40", "12:44", "1:48", "3:07", "4:11", "5:18", "6:37", "7:41", "9:00", "REQ"}};
 
 
-HashTable<std::string> Fastcat_table(Fastcat_stops_keys.getsize());
+HashTable<std::string> Fastcat_table(Fastcat_stops_keys);
 
 ArrayList<std::string> Fastcat2_stops_keys = {"University Surgery Center", "Promenade Center", "Yosemite Crossings Shopping Center", "TriCollege/Mercy  ", "Cardella Rd. & 'M' Street",
                        "M St. At Bellevue RD", "University Transit Center", "Yosemite & Cordova (Merced Physician Center)", "Moraga Subdivision"};
@@ -172,7 +159,7 @@ ArrayList<std::list<std::string>> Fastcat2_stops_values = {{"8:30", "9:34", "10:
                            {"9:17", "10:36", "11:40", "12:44", "1:48", "3:07", "4:11", "5:18", "6:37", "7:41", "9:00", "REQ"}};
 
 
-HashTable<std::string> Fastcat2_table(Fastcat_stops_keys.getsize());
+HashTable<std::string> Fastcat2_table(Fastcat_stops_keys);
 
 ArrayList<std::string> G_line_stops_keys = {"R Street Village Apts", "El Redondo Dr", "Compass Pointe Apts", "Merced College The Bus Terminal", "M St. At Bellevue RD", "University Transit Center", 
                      "Amtrak Station", "K St. Between 18th & 19th", "UC Merced Downtown Campus Center", "Merced Transpo"};
@@ -190,7 +177,7 @@ ArrayList<std::list<std::string>> G_line_stops_values = {{"6:30", "7:38", "9:01"
                        {"REQ", "REQ", "REQ", "REQ", "REQ", "REQ", "REQ", "REQ", "REQ", "REQ", "REQ", "REQ", "REQ"}};
 
 
-HashTable<std::string> G_line_table(G_line_stops_keys.getsize());
+HashTable<std::string> G_line_table(G_line_stops_keys);
 
 
 ArrayList<std::string> yosemite_express_stops_keys = {"R Street Village Apts", "El Redondo Dr", "Compass Pointe Apts", "Merced College The Bus Terminal", "M St. At Bellevue RD", 
@@ -205,7 +192,7 @@ ArrayList<std::list<std::string>> yosemite_express_stops_values = {{"6:30", "7:3
                                  {"REQ", "REQ", "REQ", "REQ", "REQ", "REQ", "REQ", "REQ", "REQ", "REQ", "REQ", "REQ", "REQ"}};
 
 
-HashTable<std::string> yosemite_express_table(yosemite_express_stops_keys.getsize());
+HashTable<std::string> yosemite_express_table(yosemite_express_stops_keys);
 
 ArrayList<HashTable<std::string>> bus_stops_tables = {bobcat_table, C1_table, C2_table, E1_table, E2_table, Fastcat_table, Fastcat2_table, G_line_table, yosemite_express_table}; 
 #endif
