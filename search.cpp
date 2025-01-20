@@ -12,6 +12,16 @@ std::time_t timeT = std::chrono::system_clock::to_time_t(timeLA);
 
 bool placeFound = false;
 
+HashTable<HashTable<std::string>> bus_names(9);
+HashTable<std::string> possible_buses(9);
+ArrayList<std::string> possible_busnames;
+HashTable<int> possible_distances(9);
+ArrayList<std::string> shortest_stops;
+HashTable<std::string> busGo_stops(9);
+HashTable<std::string> distances_dict(9);
+HashTable<std::string> shortestnames_stops(9);
+ArrayList<std::string> distances_list;
+
 
 bool validatePlace(ArrayList<std::string> list, std::string target, int start, int end){
   if (start > end){
@@ -31,9 +41,48 @@ bool validatePlace(ArrayList<std::string> list, std::string target, int start, i
     }
 }
 
+std::string Hash_binary_search(HashTable<std::string>& table, const std::string& target){
+  //ArrayList<std::string> sorted_names;
+  //sorted_names.insertionSort(bus_names);
+  int low = 0;
+  int high = table.getBuckets() - 1;
+
+  while (low <= high){
+    int middle = (low + high) / 2;
+    std::string value = table[middle];
+    if (value < target){
+      low = middle + 1;
+    }
+    else if (value > target){
+      high = middle - 1;
+    }
+    else{
+      return sorted_names[middle];
+    }
+  }
+}
+
+std::string q1;
+std::string q2;
+
+void findBusTaken(){
+  for (auto& tables : bus_stops_tables){
+    if (Hash_binary_search(tables, q2) == q2){
+      bus_names[tables.HashStrings(q2)] = tables;
+    }
+  }
+}
+
+void findBusGo(){
+  for (auto& tables : bus_stops_tables){
+    if (Hash_binary_search(tables, q1) == q1){
+      busGo_stops[tables.HashStrings(q1)] = tables;
+    }
+  }
+}
+
 
 int main(){
-  std::string q1;
   std::cout << "Where would you like to go? ";
   std::cin >> q1;
   validatePlace(places, q1, 0, places.getsize() - 1);
@@ -65,7 +114,6 @@ int main(){
         valid_time = False
 */
 
-std::string q2;
 std::cout << "Where are you currently located?: ";
 std::cin >> q2;
 validatePlace(places, q2, 0, places.getsize() - 1);
@@ -92,16 +140,6 @@ for (int i = 0; i < named_stops.getBuckets(); i++){
   appendHashes(named_stops, bus_names, bus_stops_tables);
 }
 
-HashTable<std::string> buses_names();
-HashTable<std::string> possible_buses();
-ArrayList<std::string> possible_busnames;
-HashTable<int> possible_distances();
-ArrayList<std::string> shortest_stops;
-HashTable<std::string> busGo_stops();
-HashTable<std::string> distances_dict();
-HashTable<std::string> shortestnames_stops();
-ArrayList<std::string> distances_list;
-
 /*
 q3 = input("What time would you like to arrive by? Enter a time (Hour:Minute:Second format): ")
 validateTime(q3)
@@ -113,48 +151,30 @@ while True:
         break
 */
 
-void Hash_binary_search(HashTable<std::string>& table, std::string target){
-  ArrayList<std::string> sorted_names = insertionSort(bus_names);
-  int low = 0;
-  int high = sorted_names.size() - 1;
-
-  while (low <= high){
-    int middle = (low + high) / 2;
-    std::string value = sorted_names[middle];
-    if (value < target){
-      low = middle + 1;
-    }
-    else if (value > target){
-      high = middle - 1;
-    }
-    else{
-      return sorted_names[middle];
-    }
-  }
-}
-
-void findBusTaken(){
-  for (const auto& [name, stop] : named_stops){
-    if (Hash_binary_search(stop, q2) == q2){
-      bus_names[name] = stop;
-    }
-  }
-}
-
-void findBusTaken(){
-  for (const auto& [name, stop] : named_stops){
-    if (Hash_binary_search(stop, q1) == q1){
-      busGo_stops[name] = stop;
-    }
-  }
-}
-
+//from routingpy import ORS
+//client = ORS(api_key='5b3ce3597851110001cf6248e4dacfb3ab0a4b1d83a0511ffdd542f3')
 void findBusGo(){
-  
+std::string point1_name;
+std::string point2_name;
+std::string point3_name;
+std::string takenBusStop;
+for (const auto& [name, stop] : buses_names){
+  for (const auto& j2 : stop2){
+    takenBusStops.append(j2);
+    for (const auto& [name1, stop2] : busGo_stops.items()){
+      for (const auto& j3 : stop3){
+        if (Hash_binary_search(stop3, takenBusStop)){
+          point1_name = geo_places[places.index(q1)];
+          point2_name = geo_places[places.index(q2)];
+          point2_name = geo_places[places.index(takenBusStops)];
+          //route = client.directions(locations= (pointq2_coordinates, pointq3_coordinates, pointq1_coordinates), profile="driving-car");
+          
+        }
+      }
+    }
+  }
 }
-
-
-
+}
 
 
 }
