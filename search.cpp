@@ -49,7 +49,7 @@ std::string Hash_binary_search(HashTable<std::string>& table, const std::string&
 
   while (low <= high){
     int middle = (low + high) / 2;
-    std::string value = table[middle];
+    std::string value = table.search(middle);
     if (value < target){
       low = middle + 1;
     }
@@ -57,7 +57,7 @@ std::string Hash_binary_search(HashTable<std::string>& table, const std::string&
       high = middle - 1;
     }
     else{
-      return sorted_names[middle];
+      return table.search(middle);
     }
   }
 }
@@ -73,7 +73,7 @@ void findBusTaken(){
   }
 }
 
-void findBusGo(){
+void busGoStops(){
   for (auto& tables : bus_stops_tables){
     if (Hash_binary_search(tables, q1) == q1){
       busGo_stops[tables.HashStrings(q1)] = tables;
@@ -137,7 +137,7 @@ validatePlace(places, q2, 0, places.getsize() - 1);
 HashTable<std::string> named_stops(9);
 
 for (int i = 0; i < named_stops.getBuckets(); i++){
-  appendHashes(named_stops, bus_names, bus_stops_tables);
+  named_stops.appendHashes(bus_names, bus_stops_tables);
 }
 
 /*
@@ -161,13 +161,17 @@ std::string takenBusStop;
 for (const auto& [name, stop] : buses_names){
   for (const auto& j2 : stop2){
     takenBusStops.append(j2);
-    for (const auto& [name1, stop2] : busGo_stops.items()){
+    for (const auto& [name1, stop2] : busGo_stops.getValues()){
       for (const auto& j3 : stop3){
         if (Hash_binary_search(stop3, takenBusStop)){
           point1_name = geo_places[places.index(q1)];
           point2_name = geo_places[places.index(q2)];
           point2_name = geo_places[places.index(takenBusStops)];
           //route = client.directions(locations= (pointq2_coordinates, pointq3_coordinates, pointq1_coordinates), profile="driving-car");
+          possible_distances[route.distance] = j3;
+          possible_busnames.append(name);
+          shortest_stops.append(j3);
+          possible_buses[j3] = name1;     
           
         }
       }
@@ -176,5 +180,23 @@ for (const auto& [name, stop] : buses_names){
 }
 }
 
+void findShortestBus(){
+  int min_distance = min(possible_distances.getKeys());
+  std::string min_stop = possible_distances[min_distance];
+  for (const auto& [stop, route] : possible_buses.getValues()){
+    ArrayList<std::string> min_bus;
+    if (Hash_binary_search(possible_buses, min_stop) == stop):
+      min_bus = route;
+      break;   
+  }
+
+
+}
+
+findBusTaken();
+busGoStops();
+findBusGo();
+findShortestBus();
+std::cout << possible_buses << std::endl;
 
 }
