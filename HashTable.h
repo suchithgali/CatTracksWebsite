@@ -25,6 +25,10 @@ private:
 public:
     HashTable() : buckets(0), keys(), data() {}
 
+    HashTable(int buckets){
+        this->buckets = bus_keys.getsize();
+    }
+
     HashTable(ArrayList<T> bus_keys){
         this->buckets = bus_keys.getsize();
         for (int i = 0; i < buckets; i++){
@@ -69,6 +73,13 @@ public:
         }
     }
 
+    void appendHashes(ArrayList<T> bus_keys, ArrayList<HashTable<T>> values) {
+        for (int i = 0; i < buckets; i++) {
+            int hash = HashStrings(bus_keys[i]);
+            data[hash]->appendinLL(values[i]);
+        }
+    }
+
     
     ~HashTable() {
         for (int i = static_cast<int>(data.getsize()) - 1; i >= 0; i--) {
@@ -92,9 +103,3 @@ std::ostream& operator<<(std::ostream& os, const HashTable<T>& table){
 }
 
 #endif
-
-
-
-
-
-
