@@ -17,7 +17,7 @@ std::ostream& operator<<(std::ostream& os, const HashTable<T>& container);
 
 template <class T>
 class HashTable{
-private:
+protected:
     int buckets;
     ArrayList<T> keys;
     ArrayList<LinkedList<std::list<T>>*> data;
@@ -58,8 +58,13 @@ public:
         return (hashValue % buckets + buckets) % buckets;
     }
 
-    LinkedList<std::list<T>>*& operator[](int index){
-        return data[index];
+    ArrayList<T> getKeys(){
+        return keys;
+    }
+
+    std::string search(std::string val){
+        int index = keys.index(val)
+        return keys[index];
     }
 
     int getBuckets(){

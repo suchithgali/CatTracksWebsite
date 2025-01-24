@@ -41,7 +41,7 @@ bool validatePlace(ArrayList<std::string> list, std::string target, int start, i
     }
 }
 
-std::string Hash_binary_search(HashTable<std::string>& table, const std::string& target){
+int Hash_binary_search(HashTable<std::string>& table, const std::string& target){
   //ArrayList<std::string> sorted_names;
   //sorted_names.insertionSort(bus_names);
   int low = 0;
@@ -49,7 +49,8 @@ std::string Hash_binary_search(HashTable<std::string>& table, const std::string&
 
   while (low <= high){
     int middle = (low + high) / 2;
-    std::string value = table.search(middle);
+    ArrayList<std::string> keys = table.getKeys();
+    std::string value = keys[middle];
     if (value < target){
       low = middle + 1;
     }
@@ -57,7 +58,7 @@ std::string Hash_binary_search(HashTable<std::string>& table, const std::string&
       high = middle - 1;
     }
     else{
-      return table.search(middle);
+      return table.search(value);
     }
   }
 }
