@@ -37,6 +37,9 @@ public:
         }
     }
 
+    auto begin() {return keys[0];}
+    auto end() {return keys[getBuckets - 1];}
+
     int HashInts(int val){
         return val % buckets;
     }
@@ -67,8 +70,18 @@ public:
         return keys[index];
     }
 
+    HashTable& operator[](std::string key){
+        int index = HashStrings(key);
+        return data[index];
+    }
+
     int getBuckets(){
         return buckets;
+    }
+
+    void appendTable(int hashCode, std::string value, HashTable<T> table){
+        table.keys[hashCode] = value;
+        table.data[hashCode]->appendinLL(table);
     }
 
     void appendHashes(ArrayList<T> bus_keys, ArrayList<std::list<T>> values) {

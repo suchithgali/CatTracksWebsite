@@ -4,6 +4,10 @@
 #include "stops_data.h"
 #include "ArrayList.h"
 #include "HashTable.h"
+#include <cpr/cpr.h>
+#include <nlohmann/json.hpp>
+
+using json = nlohmann::json;
 
 //holds an object of type time 
 auto timeLA = std::chrono::system_clock::now();
@@ -12,7 +16,7 @@ std::time_t timeT = std::chrono::system_clock::to_time_t(timeLA);
 
 bool placeFound = false;
 
-HashTable<HashTable<std::string>> bus_names(9);
+HashTable<std::string> nameBus(9);
 HashTable<std::string> possible_buses(9);
 ArrayList<std::string> possible_busnames;
 HashTable<int> possible_distances(9);
@@ -21,6 +25,9 @@ HashTable<std::string> busGo_stops(9);
 HashTable<std::string> distances_dict(9);
 HashTable<std::string> shortestnames_stops(9);
 ArrayList<std::string> distances_list;
+
+
+HashTable<std::string> named_stops(9);
 
 
 bool validatePlace(ArrayList<std::string> list, std::string target, int start, int end){
@@ -41,7 +48,7 @@ bool validatePlace(ArrayList<std::string> list, std::string target, int start, i
     }
 }
 
-int Hash_binary_search(HashTable<std::string>& table, const std::string& target){
+std::string Hash_binary_search(HashTable<std::string>& table, const std::string& target){
   //ArrayList<std::string> sorted_names;
   //sorted_names.insertionSort(bus_names);
   int low = 0;
@@ -69,7 +76,7 @@ std::string q2;
 void findBusTaken(){
   for (auto& tables : bus_stops_tables){
     if (Hash_binary_search(tables, q2) == q2){
-      bus_names[tables.HashStrings(q2)] = tables;
+      nameBus.appendTable(tables.HashStrings(q2), q2, tables);
     }
   }
 }
@@ -77,11 +84,113 @@ void findBusTaken(){
 void busGoStops(){
   for (auto& tables : bus_stops_tables){
     if (Hash_binary_search(tables, q1) == q1){
-      busGo_stops[tables.HashStrings(q1)] = tables;
+      busGo_stops.appendTable(tables.HashStrings(q1), q1, tables);
     }
   }
 }
 
+void apiCalls(std::string point1, std::string point2, std::string point3){
+  std::vector<std::vector<float>> coordinates;
+  cpr::Response point1_call = cpr::Get(cpr::Url{"https://api.openrouteservice.org/geocode/search"},
+                          cpr::Parameters{{"text", point1}},
+                          cpr::Header{{"Authorization", "5b3ce3597851110001cf6248e4dacfb3ab0a4b1d83a0511ffdd542f3"}}
+                          );
+    //std::cout << "Status Code: " << r.status_code << std::endl;
+    //std::cout << "Content-Type: " << r.header["content-type"] << std::endl;
+    json jsonResponse = json::parse(point1_call.text);
+    json features = jsonResponse["features"];
+    for (auto& feature : features){
+        auto coords = feature["geometry"]["coordinates"];
+        coordinates.push_back(coords);
+        break;
+    }
+
+    cpr::Response point2_call = cpr::Get(cpr::Url{"https://api.openrouteservice.org/geocode/search"},
+                          cpr::Parameters{{"text", point2}},
+                          cpr::Header{{"Authorization", "5b3ce3597851110001cf6248e4dacfb3ab0a4b1d83a0511ffdd542f3"}}
+                          );
+    //std::cout << "Status Code: " << r.status_code << std::endl;
+    //std::cout << "Content-Type: " << r.header["content-type"] << std::endl;
+    json jsonResponse2 = json::parse(point2_call.text);
+    json features2 = jsonResponse2["features"];
+    for (auto& feature : features2){
+        auto coords2 = feature["geometry"]["coordinates"];
+        coordinates.push_back(coords2);
+        break;
+    }
+
+    cpr::Response point3_call = cpr::Get(cpr::Url{"https://api.openrouteservice.org/geocode/search"},
+                          cpr::Parameters{{"text", point3}},
+                          cpr::Header{{"Authorization", "5b3ce3597851110001cf6248e4dacfb3ab0a4b1d83a0511ffdd542f3"}}
+                          );
+    //std::cout << "Status Code: " << r.status_code << std::endl;
+    //std::cout << "Content-Type: " << r.header["content-type"] << std::endl;
+    json jsonResponse3 = json::parse(point3_call.text);
+    json features3 = jsonResponse3["features"];
+    for (auto& feature : features2){
+        auto coords3 = feature["geometry"]["coordinates"];
+        coordinates.push_back(coords3);
+        break;
+    }
+
+    cpr::Response firstSegment = cpr::Get(cpr::Url{"https://api.openrouteservice.org/v2/directions/driving-car"},
+                          cpr::Parameters{{"profile", "driving-car"}},
+                          cpr::Header{{"Authorization", "5b3ce3597851110001cf6248e4dacfb3ab0a4b1d83a0511ffdd542f3"}},
+                          cpr::Body{json(coordinates).dump()}
+                          );
+          json jsonResponse = json::parse(firstSegment.text);
+          json features = jsonResponse["features"];
+          std::cout << features;
+          for (auto& feature : features){
+              auto distance = feature["summary"]["distance"];
+              std::cout << "Distance: " << distance << std::endl;
+              break;
+          }
+}
+
+//from routingpy import ORS
+//client = ORS(api_key='5b3ce3597851110001cf6248e4dacfb3ab0a4b1d83a0511ffdd542f3')
+void findBusGo(){
+std::string point1_name;
+std::string point2_name;
+std::string point3_name;
+std::string takenBusStop;
+for (const auto& name : nameBus.getKeys()){
+  auto stop = nameBus.search(name);
+  for (const auto& j2 : nameBus[stop].getKeys()){
+    takenBusStop = j2;
+    for (const auto& name1 : busGo_stops.getKeys()){
+      auto stop2 = busGo_stops.search(name1);
+      for (const auto& j3 : busGo_stops[stop2].getKeys()){
+        if (Hash_binary_search(busGo_stops, stop2) == j3){
+          point1_name = geo_places[places.index(q1)];
+          point2_name = geo_places[places.index(q2)];
+          point3_name = geo_places[places.index(takenBusStop)];
+          
+          //route = client.directions(locations= (pointq2_coordinates, pointq3_coordinates, pointq1_coordinates), profile="driving-car");
+          cpr::Response firstSegment = cpr::Get(cpr::Url{"https://api.openrouteservice.org/v2/directions/driving-car"},
+                          cpr::Parameters{{"start", point1_name}, {"end", point2_name}},
+                          cpr::Header{{"Authorization", "5b3ce3597851110001cf6248e4dacfb3ab0a4b1d83a0511ffdd542f3"}}
+                          );
+          json jsonResponse = json::parse(firstSegment.text);
+          json features = jsonResponse["features"];
+          for (auto& feature : features){
+              auto distance = feature["summary"]["distance"];
+              std::cout << "Distance: " << distance << std::endl;
+              break;
+          }
+
+          possible_distances[route.distance] = j3;
+          possible_busnames.append(name);
+          shortest_stops.append(j3);
+          possible_buses[j3] = name1;     
+          
+        }
+      }
+    }
+  }
+}
+}
 
 int main(){
   std::cout << "Where would you like to go? ";
@@ -135,12 +244,9 @@ validatePlace(places, q2, 0, places.getsize() - 1);
   }
 }
 
-HashTable<std::string> named_stops(9);
-
 for (int i = 0; i < named_stops.getBuckets(); i++){
   named_stops.appendHashes(bus_names, bus_stops_tables);
 }
-
 /*
 q3 = input("What time would you like to arrive by? Enter a time (Hour:Minute:Second format): ")
 validateTime(q3)
@@ -152,34 +258,6 @@ while True:
         break
 */
 
-//from routingpy import ORS
-//client = ORS(api_key='5b3ce3597851110001cf6248e4dacfb3ab0a4b1d83a0511ffdd542f3')
-void findBusGo(){
-std::string point1_name;
-std::string point2_name;
-std::string point3_name;
-std::string takenBusStop;
-for (const auto& [name, stop] : buses_names){
-  for (const auto& j2 : stop2){
-    takenBusStops.append(j2);
-    for (const auto& [name1, stop2] : busGo_stops.getValues()){
-      for (const auto& j3 : stop3){
-        if (Hash_binary_search(stop3, takenBusStop)){
-          point1_name = geo_places[places.index(q1)];
-          point2_name = geo_places[places.index(q2)];
-          point2_name = geo_places[places.index(takenBusStops)];
-          //route = client.directions(locations= (pointq2_coordinates, pointq3_coordinates, pointq1_coordinates), profile="driving-car");
-          possible_distances[route.distance] = j3;
-          possible_busnames.append(name);
-          shortest_stops.append(j3);
-          possible_buses[j3] = name1;     
-          
-        }
-      }
-    }
-  }
-}
-}
 
 void findShortestBus(){
   int min_distance = min(possible_distances.getKeys());
