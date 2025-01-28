@@ -44,9 +44,37 @@ class LinkedList{
     Node<T>* back;
 public:
     LinkedList(){
-        front = nullptr;
+        front = nullptr; 
         back = nullptr;
     }
+
+    LinkedList(const LinkedList<T>& other) {
+    front = nullptr;
+    back = nullptr;
+    Node<T>* current = other.front;
+    while (current != nullptr) {
+        appendinLL(current->data); // Copy each node's data
+        current = current->next;
+    }
+}
+
+      // Iterator class
+    class Iterator {
+        Node<T>* current;
+    public:
+        Iterator(Node<T>* node) : current(node) {}
+        T& operator*() { return current->data; }
+        Iterator& operator++() { 
+            if(current) current = current->next; 
+            return *this; 
+        }
+        bool operator!=(const Iterator& other) const { return current != other.current; }
+    };
+
+    Iterator begin() const { return Iterator(front); }
+    Iterator end() const { return Iterator(nullptr); }
+
+    //learn Iterator class
 
     //method that adds a node to a linked list
     void appendinLL(T val){
@@ -66,12 +94,16 @@ public:
     }
 
     ~LinkedList(){
+        std::cout << "LinkedList destructing: " << this << std::endl;
         Node<T>* current = front;
-        while(current){
-            Node<T>* toDelete = current;
-            current = current->next;
-            delete toDelete;
+        while (current != nullptr) {
+            Node<T>* next = current->next;
+            std::cout << "Deleting node with data: " << current->data << std::endl;
+            delete current;
+            current = next;
         }
+        front = nullptr;
+        back = nullptr;
     }
 
     friend std::ostream& operator<< <>(std::ostream& os, const LinkedList<T>& list);
