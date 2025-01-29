@@ -37,6 +37,7 @@ public:
             dataT.append(LinkedList<T>());
             data.append(LinkedList<std::list<T>>());
             dataTables.append(LinkedList<HashTable<T>>());
+            keys.append("");
         }
     }
 
@@ -129,7 +130,7 @@ public:
         for (int i = 0; i < data.getsize(); i++){
             LinkedList<std::list<T>> bucket = data[i];
             for(auto it = bucket.begin(); it != bucket.end(); ++it){
-                for(const T& item : *it){
+                for(const T& item : it){
                     if(first || item == val){
                         index = i;
                         first = false;
@@ -141,21 +142,30 @@ public:
     }
 
     std::string searchforKey(float val){
-        int index = 0;
+        int index = -1;
         if(data.getsize() == 0){
             throw std::runtime_error("HashTable is empty");
         }
-        bool first = true;
+        // ...existing code...
         for (int i = 0; i < data.getsize(); i++){
             LinkedList<std::list<T>> bucket = data[i];
             for(auto it = bucket.begin(); it != bucket.end(); ++it){
                 for(const T& item : *it){
-                    if(first || item == val){
+                    if(item == val){
                         index = i;
-                        first = false;
+                        break;
                     }
                 }
+                if(index != -1){
+                    break;
+                }
             }
+            if(index != -1){
+                break;
+            }
+        }
+        if(index == -1){
+            throw std::invalid_argument("Key not found in searchforKey");
         }
         if(index >= keys.getsize()){
             throw std::out_of_range("Index out of range in searchforKey");
@@ -210,7 +220,7 @@ public:
         if(data.getsize() == 0){
             throw std::runtime_error("HashTable is empty");
         }
-        keys[hashCode] = value;
+        keys.append(value);
         dataTables[hashCode].appendinLL(values);
     }
 
@@ -220,6 +230,7 @@ public:
         }
         for (int i = 0; i < buckets; i++) {
             int hash = HashStrings(bus_keys[i]);
+            keys.append(bus_keys[i]);
             data[hash].appendinLL(values[i]);
         }
     }
@@ -230,6 +241,7 @@ public:
         }
         for (int i = 0; i < buckets; i++) {
             int hash = HashStrings(bus_keys[i]);
+            keys.append(bus_keys[i]);
             dataTables[hash].appendinLL(values[i]);
         }
     }
@@ -240,6 +252,7 @@ public:
         }
         for (int i = 0; i < buckets; i++) {
             int hash = HashStrings(bus_keys[i]);
+            keys.append(bus_keys[i]);
             dataTables[hash].appendinLL(values);
         }
     }
@@ -259,6 +272,7 @@ public:
         if(data.getsize() == 0){
             throw std::runtime_error("HashTable is empty");
         }
+        keys.append(bus_keys);
         int hash = HashStrings(bus_keys);
         dataT[hash].appendinLL(busnames);
     }

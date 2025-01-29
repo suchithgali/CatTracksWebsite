@@ -92,7 +92,7 @@ public:
 
     ArrayList(std::initializer_list<T> list) {
         count = list.size();
-        capacity = pow(2, ceil(std::log2(count)));
+        capacity = (count == 0) ? 1 : (int)pow(2, ceil(std::log2(count)));
 
         arr = new T[capacity];
         
@@ -117,10 +117,12 @@ public:
     }
 
     void append(T value){
+        if (count == capacity){
+            inflate();
+        }
         arr[count] = value;
         count++;
         
-        inflate();
     }
 
      void append(LinkedList<std::list<T>>* value){
@@ -175,7 +177,7 @@ public:
     int size() {
         return count;
     }
-
+    
    int index(T target){
         int low = 0;
         int high = count - 1;
