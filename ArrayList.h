@@ -126,10 +126,11 @@ public:
     }
 
      void append(LinkedList<std::list<T>>* value){
+        if (count == capacity){
+            inflate();
+        }
         arr[count] = value;
         count++;
-        
-        inflate();
     }
 
     int getsize() const{
@@ -196,9 +197,7 @@ public:
             }
         }
         return -1;
-    }
-    
-    
+    } 
 
     ~ArrayList(){
         delete[] arr;
