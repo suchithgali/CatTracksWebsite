@@ -8,6 +8,7 @@
 #include <ostream>
 #include <typeinfo>
 #include <algorithm>
+#include <type_traits>
 
 template <class T>
 class HashTable;
@@ -19,6 +20,7 @@ template <class T>
 class HashTable{
 protected:
     int buckets;
+    std::string name;
     ArrayList<std::string> keys;
     // Store LinkedList objects directly instead of pointers
     ArrayList<LinkedList<std::list<T>>> data;
@@ -31,7 +33,8 @@ public:
         : buckets(1), keys(), data(), dataTables(), dataT() {}
 
     // Constructor with bucket size
-    HashTable(int buckets){
+    HashTable(std::string name, int buckets){
+        this->name = name;
         this->buckets = buckets;
         for (int i = 0; i < buckets; i++){
             dataT.append(LinkedList<T>());
@@ -42,7 +45,8 @@ public:
     }
 
     // Constructor with bus_keys
-    HashTable(ArrayList<T>& bus_keys){
+    HashTable(std::string name, ArrayList<T>& bus_keys){
+        this->name = name;
         this->buckets = bus_keys.getsize();
         for (int i = 0; i < buckets; i++){
             keys.append(bus_keys[i]);
@@ -104,7 +108,7 @@ public:
     ArrayList<LinkedList<std::list<T>>> getValues(){
         return data;
     }
-
+    
     LinkedList<HashTable<T>> getValues(std::string busname){
         int index = HashStrings(busname);
         return dataTables[index];
@@ -151,7 +155,7 @@ public:
             LinkedList<std::list<T>> bucket = data[i];
             for(auto it = bucket.begin(); it != bucket.end(); ++it){
                 for(const T& item : *it){
-                    if(item == val){
+                    if(std::stof(item) == val){
                         index = i;
                         break;
                     }
@@ -165,10 +169,10 @@ public:
             }
         }
         if(index == -1){
-            throw std::invalid_argument("Key not found in searchforKey");
+            return "";
         }
         if(index >= keys.getsize()){
-            throw std::out_of_range("Index out of range in searchforKey");
+            return "";
         }
         return keys[index];
     }
@@ -195,6 +199,10 @@ public:
         return buckets;
     }
 
+    std::string getName() const{
+        return name;
+    }
+
     float getMinValue(){
         if(data.getsize() == 0){
             throw std::runtime_error("HashTable is empty");
@@ -205,10 +213,10 @@ public:
             LinkedList<std::list<T>> bucket = data[i];
             for(auto it = bucket.begin(); it != bucket.end(); ++it){
                 for(const T& item : *it){
-                    if(first || item < min){
-                        min = item;
-                        first = false;
-                    }
+                        if(first || std::stof(item) < min){
+                            min = std::stof(item);
+                            first = false;
+                        }
                 }
             }
         }
@@ -216,19 +224,13 @@ public:
     }
 
     // Append Methods
-    void appendTable(int hashCode, std::string& value, HashTable<T>& values){
-        if(data.getsize() == 0){
-            throw std::runtime_error("HashTable is empty");
-        }
+    void appendTable(int hashCode, const std::string& value, HashTable<T>& values){
         keys.append(value);
         dataTables[hashCode].appendinLL(values);
     }
 
     void appendHashes(ArrayList<T>& bus_keys, ArrayList<std::list<T>>& values) {
-        if(data.getsize() == 0){
-            throw std::runtime_error("HashTable is empty");
-        }
-        for (int i = 0; i < buckets; i++) {
+        for (int i = 0; i < bus_keys.getsize(); i++) {
             int hash = HashStrings(bus_keys[i]);
             keys.append(bus_keys[i]);
             data[hash].appendinLL(values[i]);
@@ -236,10 +238,7 @@ public:
     }
 
     void appendHashes(ArrayList<T>& bus_keys, ArrayList<HashTable<T>>& values) {
-        if(data.getsize() == 0){
-            throw std::runtime_error("HashTable is empty");
-        }
-        for (int i = 0; i < buckets; i++) {
+        for (int i = 0; i < bus_keys.getsize(); i++) {
             int hash = HashStrings(bus_keys[i]);
             keys.append(bus_keys[i]);
             dataTables[hash].appendinLL(values[i]);
@@ -247,10 +246,7 @@ public:
     }
 
     void appendHashes(ArrayList<T>& bus_keys, HashTable<T>& values) {
-        if(data.getsize() == 0){
-            throw std::runtime_error("HashTable is empty");
-        }
-        for (int i = 0; i < buckets; i++) {
+        for (int i = 0; i < bus_keys.getsize(); i++) {
             int hash = HashStrings(bus_keys[i]);
             keys.append(bus_keys[i]);
             dataTables[hash].appendinLL(values);
@@ -258,10 +254,7 @@ public:
     }
 
     void appendHashes(ArrayList<std::string>& bus_keys, T distances) {
-        if(data.getsize() == 0){
-            throw std::runtime_error("HashTable is empty");
-        }
-        for (int i = 0; i < buckets; i++) {
+        for (int i = 0; i < bus_keys.getsize(); i++) {
             keys.append(bus_keys[i]);
             int hash = HashStrings(bus_keys[i]);
             dataT[hash].appendinLL(distances);
@@ -269,12 +262,17 @@ public:
     }
 
     void appendHashes(std::string bus_keys, std::string busnames) {
-        if(data.getsize() == 0){
-            throw std::runtime_error("HashTable is empty");
-        }
-        keys.append(bus_keys);
         int hash = HashStrings(bus_keys);
+        keys.append(bus_keys);
         dataT[hash].appendinLL(busnames);
+    }
+
+    void appendHashes(ArrayList<std::string>& bus_keys, float distances) {
+        for (int i = 0; i < bus_keys.getsize(); i++) {
+            keys.append(bus_keys[i]);
+            int hash = HashStrings(bus_keys[i]);
+            dataT[hash].appendinLL(distances);
+        }
     }
 
     // Friend Declaration for Operator<<
@@ -284,10 +282,20 @@ public:
 // Friend function implementation
 template <class T>
 std::ostream& operator<<(std::ostream& os, const HashTable<T>& table){
+
     for (int i = 0; i < table.keys.getsize(); i++){
-        int j = table.HashStrings(table.keys[i]);
-        os << table.keys[i] << ": " << table.data[j] << std::endl;
-        os << std::endl;
+        int hash = table.HashStrings(table.keys[i]);
+        os << table.keys[i] << ": ";
+        if constexpr(std::is_same<T, std::list<typename T::value_type>>::value){
+            os << table.data[hash];
+        }
+        else if constexpr (std::is_same<T, HashTable<typename T::value_type>>::value){
+            os << table.dataTables[hash];
+        }
+        else {
+            os << table.dataT[hash];
+        }
+        os << std::endl << std::endl;
     }
     return os;
 }
