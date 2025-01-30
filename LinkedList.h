@@ -30,6 +30,12 @@ struct Node{
         next = nullptr;
         prev = nullptr;
     }
+
+    Node(float data){
+        this->data = data;
+        next = nullptr;
+        prev = nullptr;
+    }
 };
 
 template <class T>
@@ -93,12 +99,26 @@ public:
         }
     }
 
+    void appendinLL(float val){
+        if (front == nullptr){
+            front = new Node<T>(val);
+            back = front;
+        }
+        else{
+            Node<T>* temp = front;
+            while (temp->next != nullptr){
+                temp = temp->next;
+            }
+            temp->next = new Node<T>(val);
+            temp->next->prev = temp;
+            back = temp->next;
+        }
+    }
+
     ~LinkedList(){
-        std::cout << "LinkedList destructing: " << this << std::endl;
         Node<T>* current = front;
         while (current != nullptr) {
             Node<T>* next = current->next;
-            std::cout << "Deleting node with data: " << current->data << std::endl;
             delete current;
             current = next;
         }
@@ -108,7 +128,6 @@ public:
 
     friend std::ostream& operator<< <>(std::ostream& os, const LinkedList<T>& list);
 };
-
 
 template <class T>
 std::ostream& operator<<(std::ostream& os, const LinkedList<T>& list){
