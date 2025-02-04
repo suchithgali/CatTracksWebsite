@@ -178,11 +178,57 @@ void findbustoTake(){
   std::cout << "To go to " << q2 << " from " << q1 << " take any of these buses: "; 
   
   for (int i = 0; i < commonBuses.getsize(); i++){
-    std::cout << commonBuses[i].getName() << " ,"; 
+    std::cout << commonBuses[i].getName(); 
   }
   
   std::cout << std::endl;
 
+}
+
+void findBusSimilar(){
+  ArrayList<HashTable<std::string>> q1Buses;
+  ArrayList<HashTable<std::string>> q2Buses;
+  ArrayList<HashTable<std::string>> commonBuses;
+  for (int i = 0; i < bus_stops_tables.getsize(); i++){
+    for (auto& route : bus_stops_tables[i].getKeys()){
+      if (route == q1){
+        q1Buses.append(bus_stops_tables[i]);
+      }
+    }
+  }
+
+  for (int j = 0; j < bus_stops_tables.getsize(); j++){
+    for (auto& route2 : bus_stops_tables[j].getKeys()){
+      if (route2 == q2){
+        q2Buses.append(bus_stops_tables[j]);
+      }
+    }
+  }
+
+  for (int k = 0; k < q1Buses.getsize(); k++){
+    bool busAdded = false;
+    for (auto& stop : q1Buses[k].getKeys()){
+      for (int l = 0; l < q2Buses.getsize(); l++){
+        for (auto& gostop : q2Buses[l].getKeys()){
+            if (stop == gostop){
+              commonBuses.append(q1Buses[k]);
+              busAdded = true;
+              break;
+            }
+        }
+        if (busAdded) break;
+      }
+      if (busAdded) break;
+    }
+  }
+
+  std::cout << "To go to " << q2 << " from " << q1 << " take any of these buses: "; 
+  
+  for (int i = 0; i < commonBuses.getsize(); i++){
+    std::cout << commonBuses[i].getName() << " "; 
+  }
+  
+  std::cout << std::endl;
 }
 
 
@@ -314,7 +360,7 @@ while True:
         break
 */
 
-findbustoTake();
+findBusSimilar();
 //findBusTaken();
 //busGoStops();
 //findBusGo();
