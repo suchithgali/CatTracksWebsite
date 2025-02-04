@@ -221,14 +221,6 @@ void findBusSimilar(){
       if (busAdded) break;
     }
   }
-
-  std::cout << "To go to " << q2 << " from " << q1 << " take any of these buses: "; 
-  
-  for (int i = 0; i < commonBuses.getsize(); i++){
-    std::cout << commonBuses[i].getName() << " "; 
-  }
-  
-  std::cout << std::endl;
 }
 
 
