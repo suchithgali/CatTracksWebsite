@@ -206,6 +206,7 @@ void findBusSimilar(){
   }
 
   for (int k = 0; k < q1Buses.getsize(); k++){
+    float distance;
     bool busAdded = false;
     for (auto& stop : q1Buses[k].getKeys()){
       for (int l = 0; l < q2Buses.getsize(); l++){
@@ -213,6 +214,7 @@ void findBusSimilar(){
             if (stop == gostop){
               commonBuses.append(q1Buses[k]);
               busAdded = true;
+              distance = apiCalls(stop, gostop, q2);
               break;
             }
         }
@@ -360,8 +362,8 @@ while True:
         break
 */
 
-findBusSimilar();
-//findBusTaken();
+//findBusSimilar();
+//findbustoTake();
 //busGoStops();
 //findBusGo();
 //findShortestBus();
