@@ -199,6 +199,26 @@ public:
         return -1;
     } 
 
+    std::string search(std::string target){
+        int low = 0;
+        int high = count - 1;
+
+        while (low <= high){
+            int middle = (low + high) / 2;
+            T value = arr[middle];
+            if (value < target){
+                low = middle + 1;
+            }
+            else if (value > target){
+                high = middle - 1;
+            }
+            else{
+                return arr[middle];
+            }
+        }
+        return "";
+    }
+
     ~ArrayList(){
         delete[] arr;
     }
