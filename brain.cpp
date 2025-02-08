@@ -5,6 +5,7 @@
 #include "stops_data.h"
 #include "ArrayList.h"
 #include <unordered_set>
+#include <future>
 #include "HashTable.h"
 
 #include <cpr/cpr.h>
@@ -94,61 +95,38 @@ void busGoStops(){
   }
 }
 
-float apiCalls(std::string point1, std::string point2, std::string point3){
-  std::vector<std::vector<float>> coordinates1;
-  float distanceMiles;
-  cpr::Response point1_call = cpr::Get(cpr::Url{"https://api.openrouteservice.org/geocode/search"},
-                          cpr::Parameters{{"text", point1}, {"api_key", "5b3ce3597851110001cf6248e4dacfb3ab0a4b1d83a0511ffdd542f3"}}
-                          );
-  if(point1_call.status_code != 200){
-    throw std::runtime_error("API call for point1 failed with status: " + std::to_string(point1_call.status_code));
+std::vector<float> getRequest(std::string point){
+  float lon;
+  float lat;
+  cpr::Response point_call = cpr::Get(cpr::Url{"https://api.openrouteservice.org/geocode/search"},
+    cpr::Parameters{{"text", point}, {"api_key", "5b3ce3597851110001cf6248e4dacfb3ab0a4b1d83a0511ffdd542f3"}}
+    );
+
+  if(point_call.status_code != 200){
+    throw std::runtime_error("API call for point1 failed with status: " + std::to_string(point_call.status_code));
   }
-  json jsonResponse = json::parse(point1_call.text);
+  json jsonResponse = json::parse(point_call.text);
   json features = jsonResponse["features"];
   for (auto& feature : features){
     auto coords = feature["geometry"]["coordinates"];
-    float lon = coords[0];
-    float lat = coords[1];
-    coordinates1.push_back({lon, lat});
+    lon = coords[0];
+    lat = coords[1];
     break;
-    }
+  }
+  return std::vector<float>{lon, lat};
+}
 
-   cpr::Response point2_call = cpr::Get(cpr::Url{"https://api.openrouteservice.org/geocode/search"},
-                          cpr::Parameters{{"text", point2}, {"api_key", "5b3ce3597851110001cf6248e4dacfb3ab0a4b1d83a0511ffdd542f3"}}
-                          );
-  if(point2_call.status_code != 200){
-    throw std::runtime_error("API call for point2 failed with status: " + std::to_string(point2_call.status_code));
-  }
-  json jsonResponse2 = json::parse(point2_call.text);
-  json features2 = jsonResponse2["features"];
-  for (auto& feature : features2){
-    auto coords2 = feature["geometry"]["coordinates"];
-    float lon = coords2[0];
-    float lat = coords2[1];
-    coordinates1.push_back({lon, lat});
-    break;
-  }
-
-   cpr::Response point3_call = cpr::Get(cpr::Url{"https://api.openrouteservice.org/geocode/search"},
-                          cpr::Parameters{{"text", point3}, {"api_key", "5b3ce3597851110001cf6248e4dacfb3ab0a4b1d83a0511ffdd542f3"}}
-                          );
-  if(point3_call.status_code != 200){
-    throw std::runtime_error("API call for point3 failed with status: " + std::to_string(point3_call.status_code));
-  }
-  json jsonResponse3 = json::parse(point3_call.text);
-  json features3 = jsonResponse3["features"];
-  for (auto& feature : features3){
-    auto coords3 = feature["geometry"]["coordinates"];
-    float lon = coords3[0];
-    float lat = coords3[1];
-    coordinates1.push_back({lon, lat});
-    break;
-  }
+float apiCalls(std::string point1, std::string point2, std::string point3){
+  auto f1 = getRequest(point1);
+  auto f2 = getRequest(point2);
+  auto f3 = getRequest(point3);
+  std::vector<std::vector<float>> coordinates1 = {f1, f2, f3};
 
   json requestBody;
   requestBody["coordinates"] = coordinates1;
+  requestBody["radiuses"] = json::array({1000, 1000, 1000});
   //std::cout << requestBody.dump(2);
-  cpr::Response firstSegment = cpr::Post(cpr::Url{"https://api.openrouteservice.org/v2/directions/driving-car"},
+  cpr::Response firstSegment = cpr::Post(cpr::Url{"http://localhost:8080/ors/v2/directions/driving-car"},
                         cpr::Header{{"Authorization", "5b3ce3597851110001cf6248e4dacfb3ab0a4b1d83a0511ffdd542f3"}, {"Content-Type", "application/json"}},
                         cpr::Body{requestBody.dump()}
                         );
@@ -156,14 +134,9 @@ float apiCalls(std::string point1, std::string point2, std::string point3){
   if(firstSegment.status_code != 200){
     throw std::runtime_error("API call for point4 failed with status: " + std::to_string(firstSegment.status_code));
   }
-  json jsonResponse4 = json::parse(firstSegment.text);
-  json features4 = jsonResponse4["routes"];
-  for (auto& feature : features4){
-    float distanceMeters = feature["summary"]["distance"].get<float>();
-    distanceMiles = distanceMeters / 1609;
-    break;
-    }
-  return distanceMiles;
+
+    float distanceMeters = json::parse(firstSegment.text)["routes"][0]["summary"]["distance"].get<float>();;
+    return distanceMeters / 1609;
 }
 
 //need to search for q1 in all the bus hashtables
@@ -203,8 +176,10 @@ void findbustoTake(){
 void findBusSimilar(){
   ArrayList<HashTable<std::string>> q1Buses;
   ArrayList<HashTable<std::string>> q2Buses;
-  ArrayList<std::string> commonBuses;
-  ArrayList<std::string> commonQ2Buses;
+  std::unordered_set<std::string> commonBuses;
+  ArrayList<std::string> commonBus;
+  std::unordered_set<std::string> commonQ2Buses;
+  ArrayList<std::string> commonQ2Bus;
   std::unordered_set<int> commonQ2BusIndices; 
   
   float distance;
@@ -217,7 +192,7 @@ void findBusSimilar(){
   std::string geoQ2 = geo_places[places.index(q2)];
 
   // Single loop to collect q1 and q2 buses
-  for (int i = 0; i < bus_stops_tables.getsize(); i++){
+  /*for (int i = 0; i < bus_stops_tables.getsize(); i++){
     bool addQ1 = false;
     bool addQ2 = false;
     auto keys = bus_stops_tables[i].getKeys();
@@ -239,7 +214,19 @@ void findBusSimilar(){
       q2Buses.append(bus_stops_tables[i]);
     }
   }
+  */
 
+  for (int i = 0; i < bus_stops_tables.getsize(); i++){
+    auto keys = bus_stops_tables[i].getKeys();
+    if (q1 == keys.search(q1)){
+      q1Buses.append(bus_stops_tables[i]);
+    }
+
+    if (q2 == keys.search(q2)){
+      q2Buses.append(bus_stops_tables[i]);
+    }
+  }
+  std::cout << "done" << std::endl;
   // Collect all stops from q2Buses into an unordered_set
   std::unordered_set<std::string> q2AllStops;
   for (int l = 0; l < q2Buses.getsize(); l++){
@@ -248,38 +235,64 @@ void findBusSimilar(){
       }
   }
 
-  // Then iterate over q1Buses and check membership in q2AllStops
-  for (int k = 0; k < q1Buses.getsize(); k++){
-    auto stops = q1Buses[k].getKeys();
-    for (auto& stop : stops){
-        if (visitedStops.find(stop) != visitedStops.end()) {
-            continue; 
-        }
-        visitedStops.insert(stop);
+  std::unordered_set<std::string> q1AllStops;
+  for (int l = 0; l < q1Buses.getsize(); l++){
+      for (auto& comestop : q1Buses[l].getKeys()){
+          q1AllStops.insert(comestop);
+      }
+  }
+  std::cout << "done1" << std::endl;
 
-        // If stop exists in q2AllStops, record it along with the corresponding bus
+
+  // Then iterate over q1AllStops and check membership in q2AllStops
+    for (auto stop : q1AllStops){
+      if (visitedStops.find(stop) != visitedStops.end()) {
+          continue; 
+      }
+      visitedStops.insert(stop);
+          // If stop exists in q2AllStops, record it along with the corresponding bus
         if (q2AllStops.find(stop) != q2AllStops.end()){
-            distances.append(apiCalls(geoQ1, geo_places[places.index(stop)], geoQ2));
-            commonBuses.append(q1Buses[k].getName());
-            commonStops.append(stop);    // <-- Record the common stop name
-
-          for (int j = 0; j < q2Buses.getsize(); j++){
-                auto q2Keys = q2Buses[j].getKeys();
-                // Check if the current q2 bus has the common stop.
-                if (std::find(q2Keys.begin(), q2Keys.end(), stop) != q2Keys.end()){
-                    // Ensure we add the bus only once.
-                    if (commonQ2BusIndices.find(j) == commonQ2BusIndices.end()){
-                        commonQ2Buses.append(q2Buses[j].getName());
-                        commonQ2BusIndices.insert(j);
-                    }
-                }
+          // Iterate over q1Buses to find the bus containing the stop
+          for (int j = 0; j < q1Buses.getsize(); j++){
+            auto keys = q1Buses[j].getKeys();
+            if (std::find(keys.begin(), keys.end(), stop) != keys.end()){
+                distances.append(apiCalls(geoQ1, geo_places[places.index(stop)], geoQ2));
+                commonBuses.insert(q1Buses[j].getName());
+                commonStops.append(stop);    // Record the common stop name
+                break;
             }
+          }
+        }
+      }
+
+    
+    std::cout << "done2" << std::endl;
+
+    for (const auto& commonStop: commonStops){
+      for (int j = 0; j < q2Buses.getsize(); j++){
+        auto q2Keys = q2Buses[j].getKeys();
+        // Check if the current q2 bus has the common stop.
+        if (std::find(q2Keys.begin(), q2Keys.end(), commonStop) != q2Keys.end()){
+          // Ensure we add the bus only once.
+          if (commonQ2BusIndices.find(j) == commonQ2BusIndices.end()){
+            commonQ2Buses.insert(q2Buses[j].getName());
+            commonQ2BusIndices.insert(j);
+            }
+          }
         }
     }
-  } 
+      std::cout << "done3" << std::endl;
+        
+    for (const auto &busName : commonBuses) {
+        commonBus.append(busName);
+    }
+    for (const auto &busName : commonQ2Buses) {
+        commonQ2Bus.append(busName);
+    }
+   
 
-  std::cout << "To go to " << q1 << " from " << q2 << " take any of these buses: " << commonQ2Buses << " to ";
-
+  std::cout << "To go to " << q1 << " from " << q2 << " take any of these buses: " << commonQ2Bus << " to ";
+      
   if (distances.getsize() > 0){
       float minDistance = distances[0];
       int minIndex = 0;
@@ -289,9 +302,9 @@ void findBusSimilar(){
               minIndex = j;
           }
       }
-      std::string minBus = commonBuses[minIndex];
+      std::string minBus = commonBus[minIndex];
       std::string minStop = commonStops[minIndex];
-      std::cout << minStop << " then take any of these buses: " << commonBuses << " to " << q1;
+      std::cout << minStop << " then take any of these buses: " << commonBus << " to " << q1;
   }
 
   std::cout << std::endl;
