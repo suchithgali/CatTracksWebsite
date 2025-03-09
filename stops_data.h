@@ -41,9 +41,8 @@ ArrayList<std::string> geo_places = {"355 West 24th Street, Merced, CA", "1835, 
 
 ArrayList<std::string> bus_names = {"Bobcat Express", "C1", "C2", "E1", "E2", "Fastcat", "Fastcat 2", "G Line", "Yosemite Express"};
 
-ArrayList<std::string> bobcat_express_stops_keys = {"Amtrak Station", "Compass Pointe Apts", "El Portal & G Street", "El Redondo Dr", 
-"K St. Between 18th & 19th", "M St. At Bellevue RD", "Merced College The Bus Terminal", "Merced Mall Target", "Merced Transpo", 
-"Promenade Center", "R Street Village Apts", "Rite Aid/Walgreens", "University Transit Center", "Walmart on Loughborough Dr"};
+ArrayList<std::string> bobcat_express_stops_keys = {"El Portal & G Street", "G St. & W. Alexander Ave", "G St. & W. Alexander Ave. (Bus Stop Paul's Place)", "Granville Apartments", 
+    "M St. At Bellevue RD", "Rite Aid/Walgreens", "TriCollege/Mercy", "TriCollege/Mercy (Bus stop on G next to Tri College)", "University Transit Center"};
 
 ArrayList<std::list<std::string>> bobcat_express_stops_values = {{"6:29", "7:09", "7:49", "8:44", "9:24", "10:04", "10:44", "12:09", "1:49", "3:17", "4:57", "6:22", "8:02"}, 
                                {"6:32", "7:12", "7:52", "8:47", "9:27", "10:07", "10:47", "12:12", "1:52", "3:20", "5:00", "6:25", "8:05"}, 
