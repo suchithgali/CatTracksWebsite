@@ -205,7 +205,7 @@ public:
 
         while (low <= high){
             int middle = (low + high) / 2;
-            T value = arr[middle];
+            std::string value = arr[middle];
             if (value < target){
                 low = middle + 1;
             }

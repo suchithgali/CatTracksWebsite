@@ -13,6 +13,9 @@
 
 using json = nlohmann::json;
 
+std::string q1;
+std::string q2;
+
 //holds an object of type time 
 auto timeLA = std::chrono::system_clock::now();
 //coverts the time object to a printable type
@@ -76,8 +79,6 @@ std::string Hash_binary_search(HashTable<std::string>& table, const std::string&
   return "";
 }
 
-std::string q1;
-std::string q2;
 
 void findBusTaken(){
   for (auto& tables : bus_stops_tables){
@@ -221,12 +222,11 @@ void findBusSimilar(){
     if (q1 == keys.search(q1)){
       q1Buses.append(bus_stops_tables[i]);
     }
-
+    std::cout << keys;
     if (q2 == keys.search(q2)){
       q2Buses.append(bus_stops_tables[i]);
     }
   }
-  std::cout << "done" << std::endl;
   // Collect all stops from q2Buses into an unordered_set
   std::unordered_set<std::string> q2AllStops;
   for (int l = 0; l < q2Buses.getsize(); l++){
@@ -241,11 +241,14 @@ void findBusSimilar(){
           q1AllStops.insert(comestop);
       }
   }
-  std::cout << "done1" << std::endl;
 
+  for (const std::string& element : q1AllStops) {
+    std::cout << element << " ";
+  }
 
   // Then iterate over q1AllStops and check membership in q2AllStops
     for (auto stop : q1AllStops){
+      std::cout << "hello" << std::endl;
       if (visitedStops.find(stop) != visitedStops.end()) {
           continue; 
       }
@@ -255,6 +258,7 @@ void findBusSimilar(){
           // Iterate over q1Buses to find the bus containing the stop
           for (int j = 0; j < q1Buses.getsize(); j++){
             auto keys = q1Buses[j].getKeys();
+            std::cout << keys << std::endl;
             if (std::find(keys.begin(), keys.end(), stop) != keys.end()){
                 distances.append(apiCalls(geoQ1, geo_places[places.index(stop)], geoQ2));
                 commonBuses.insert(q1Buses[j].getName());
@@ -264,15 +268,15 @@ void findBusSimilar(){
           }
         }
       }
-
-    
-    std::cout << "done2" << std::endl;
-
+    std::cout << commonStops << std::endl;
     for (const auto& commonStop: commonStops){
+      std::cout << "Entered" << std::endl;
       for (int j = 0; j < q2Buses.getsize(); j++){
         auto q2Keys = q2Buses[j].getKeys();
+        std::cout << q2Keys <<std::endl;
         // Check if the current q2 bus has the common stop.
         if (std::find(q2Keys.begin(), q2Keys.end(), commonStop) != q2Keys.end()){
+          std::cout << q2Keys <<std::endl;
           // Ensure we add the bus only once.
           if (commonQ2BusIndices.find(j) == commonQ2BusIndices.end()){
             commonQ2Buses.insert(q2Buses[j].getName());
@@ -281,7 +285,7 @@ void findBusSimilar(){
           }
         }
     }
-      std::cout << "done3" << std::endl;
+
         
     for (const auto &busName : commonBuses) {
         commonBus.append(busName);
@@ -373,8 +377,17 @@ void findShortestBus(){
   }
 }
 
-int main(){
-  std::cout << "Where would you like to go? ";
+int main(int argc, char* argv[]){
+  /*if (argc < 3){
+    std::cerr << "Usage: brain <destination> <current_location>" << std::endl;
+    return 1;
+  }
+  q1 = argv[1];
+  q2 = argv[2];
+  */
+
+  /*
+  std::cout << "Where would you like to go?:" << std::endl;
   std::getline(std::cin, q1);
   placeFound = validatePlace(places, q1, 0, places.getsize() - 1);
 
@@ -392,6 +405,8 @@ int main(){
     std::getline(std::cin, q1);
     placeFound = validatePlace(places, q1, 0, places.getsize() - 1);
 }
+    
+
 /*def validateTime(input_time):
     global valid_time
     try:
@@ -403,7 +418,7 @@ int main(){
     except ValueError:
         valid_time = False
 */
-
+/*
 std::cout << "Where are you currently located?: ";
 std::getline(std::cin, q2);
 placeFound = validatePlace(places, q2, 0, places.getsize() - 1);
@@ -423,11 +438,12 @@ placeFound = validatePlace(places, q2, 0, places.getsize() - 1);
         break;
   }
 }
+  
 
 for (int i = 0; i < bus_names.getsize(); i++){
   named_stops.appendHashes(bus_names, bus_stops_tables[i]);
 }
-
+*/
 /*
 q3 = input("What timeEl  would you like to arrive by? Enter a time (Hour:Minute:Second format): ")
 validateTime(q3)
@@ -439,11 +455,12 @@ while True:
         break
 */
 
-findBusSimilar();
+//findBusSimilar();
 //findbustoTake();
 //busGoStops();
 //findBusGo();
 //findShortestBus();
 //std::cout << busGo_stops.getKeys() << std::endl;
+std::cout << C1_stops_keys.insertionSort(C1_stops_keys) << std::endl;
 return 0;
 }
