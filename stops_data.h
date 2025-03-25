@@ -179,10 +179,9 @@ ArrayList<std::list<std::string>> G_line_stops_values = {{"6:30", "7:38", "9:01"
 HashTable<std::string> G_line_table("G Line", G_line_stops_keys);
 
 
-ArrayList<std::string> yosemite_express_stops_keys = {"R Street Village Apts", "El Redondo Dr", "Compass Pointe Apts", "Merced College The Bus Terminal", "M St. At Bellevue RD", 
-                               "University Transit Center", "Amtrak Station", "K St. Between 18th & 19th", "UC Merced Downtown Campus Center", "Merced Transpo"};
+ArrayList<std::string> yosemite_express_stops_keys = {"Moraga Subdivision", "University Transit Center", "Foothill Drive", "TriCollege/Mercy (Bus stop on G next to Tri College)", "G Street South", "University Surgery Center"};
 
-
+//wrong times need to fix when using times
 ArrayList<std::list<std::string>> yosemite_express_stops_values = {{"6:30", "7:38", "9:01", "10:09", "11:17", "12:25", "1:48", "3:01", "4:09", "5:32", "6:40", "7:48", "9:11", "7:38", "9:01", "10:09", "11:17", "12:25", "1:48", "3:01", "4:09", "5:32", "6:40", "7:48", "9:11", "REQ:"}, 
                                  {"6:33", "7:41", "9:04", "10:12", "11:20", "12:28", "1:51", "3:04", "4:12", "5:35", "6:43", "7:51", "9:14", "REQ:"}, {"6:35", "7:43", "9:06", "10:14", "11:22", "12:30", "1:53", "3:06", "4:14", "5:37", "6:45", "7:53", "9:16", "REQ:"}, 
                                  {"6:40", "7:48", "9:11", "10:19", "11:27", "12:35", "1:58", "3:11", "4:19", "5:42", "6:50", "7:58", "9:21", "REQ:"}, {"6:46", "7:54", "9:17", "10:25", "11:33", "12:41", "2:04", "3:17", "4:25", "5:48", "6:56", "8:04", "9:27", "REQ:"}, 

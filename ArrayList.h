@@ -216,7 +216,7 @@ public:
                 return arr[middle];
             }
         }
-        return "";
+        return "none";
     }
 
     ~ArrayList(){
