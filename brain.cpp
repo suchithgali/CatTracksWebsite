@@ -2,6 +2,7 @@
 #include <chrono>
 #include <ctime>
 #include <vector>
+#include <string>
 #include "stops_data.h"
 #include "ArrayList.h"
 #include <unordered_set>
@@ -99,10 +100,9 @@ void busGoStops(){
 std::vector<float> getRequest(std::string point){
   float lon;
   float lat;
-  cpr::Response point_call = cpr::Get(cpr::Url{"https://api.openrouteservice.org/geocode/search"},
-    cpr::Parameters{{"text", point}, {"api_key", "5b3ce3597851110001cf6248e4dacfb3ab0a4b1d83a0511ffdd542f3"}}
+  cpr::Response point_call = cpr::Get(cpr::Url{"http://localhost:4000/v1/search"},
+    cpr::Parameters{{"text", point}}
     );
-
   if(point_call.status_code != 200){
     throw std::runtime_error("API call for point1 failed with status: " + std::to_string(point_call.status_code));
   }
@@ -127,17 +127,16 @@ float apiCalls(std::string point1, std::string point2, std::string point3){
   requestBody["coordinates"] = coordinates1;
   requestBody["radiuses"] = json::array({1000, 1000, 1000});
   //std::cout << requestBody.dump(2);
-  cpr::Response firstSegment = cpr::Post(cpr::Url{"https://api.openrouteservice.org/v2/directions/driving-car"},
+  cpr::Response firstSegment = cpr::Post(cpr::Url{"http://localhost:8080/ors/v2/directions/driving-car"},
                         cpr::Header{{"Authorization", "5b3ce3597851110001cf6248e4dacfb3ab0a4b1d83a0511ffdd542f3"}, {"Content-Type", "application/json"}},
                         cpr::Body{requestBody.dump()}
                         );
-
   if(firstSegment.status_code != 200){
     throw std::runtime_error("API call for firstSegment failed with status: " + std::to_string(firstSegment.status_code));
   }
 
-    float distanceMeters = json::parse(firstSegment.text)["routes"][0]["summary"]["distance"].get<float>();;
-    return distanceMeters / 1609;
+  float distanceMeters = json::parse(firstSegment.text)["routes"][0]["summary"]["distance"].get<float>();
+  return distanceMeters / 1609;
 }
 
 //need to search for q1 in all the bus hashtables
@@ -310,7 +309,7 @@ void findBusSimilar(){
     for (const auto &busName : commonQ2Buses) {
         commonQ2Bus.append(busName);
     }
-
+  std::cout << std::endl;
   std::cout << "You took any of these buses: " << commonQ2Bus << " to " << q2; 
       
   if (distances.getsize() > 0){
@@ -324,8 +323,8 @@ void findBusSimilar(){
       }
       std::string minBus = commonBus[minIndex];
       std::string minStop = commonStops[minIndex];
-      if (minStop == q2){
-        std::cout << "to go to " << q1 << ", take any of these buses: " << commonBus << std::endl;
+      if (minStop == q1){
+        std::cout << ", to go to " << q1 << ", take any of these buses: " << commonBus << std::endl;
       }
       else{
         std::cout << ", to go to " << minStop << " take any of these buses: " << commonBus << " to " << q1 << std::endl;
@@ -404,15 +403,16 @@ int main(int argc, char* argv[]){
     return 1;
   }
     */
+   /*
   q1 = argv[1];
   q2 = argv[2];
 
   std::cout << "q1: " << q1 << std::endl;
   std::cout << "q2: " << q2 << std::endl;
-  
+*/
 
-  /*
-  std::cout << "Where would you like to go?:" << std::endl;
+  
+  std::cout << "Where would you like to go?: ";
   std::getline(std::cin, q1);
   placeFound = validatePlace(places, q1, 0, places.getsize() - 1);
 
@@ -430,7 +430,7 @@ int main(int argc, char* argv[]){
     std::getline(std::cin, q1);
     placeFound = validatePlace(places, q1, 0, places.getsize() - 1);
 }
-*/
+
 
 /*def validateTime(input_time):
     global valid_time
@@ -444,7 +444,7 @@ int main(int argc, char* argv[]){
         valid_time = False
 
 */
-/*
+
 std::cout << "Where are you currently located?: ";
 std::getline(std::cin, q2);
 placeFound = validatePlace(places, q2, 0, places.getsize() - 1);
@@ -464,7 +464,6 @@ placeFound = validatePlace(places, q2, 0, places.getsize() - 1);
         break;
   }
 }
-*/
   
 
 for (int i = 0; i < bus_names.getsize(); i++){
