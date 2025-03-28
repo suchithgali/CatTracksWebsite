@@ -326,8 +326,8 @@ void findBusSimilar(){
       if (minStop == q1){
         std::cout << ", to go to " << q1 << ", take any of these buses: " << commonBus << std::endl;
       }
-      else{
-        std::cout << ", to go to " << minStop << " take any of these buses: " << commonBus << " to " << q1 << std::endl;
+      else if (minStop == q2){
+        std::cout << ", to go to " << q1 << " take any of these buses: " << commonBus << std::endl;
       }
   }
 
@@ -403,15 +403,14 @@ int main(int argc, char* argv[]){
     return 1;
   }
     */
-   /*
+   
   q1 = argv[1];
   q2 = argv[2];
 
+ /*
   std::cout << "q1: " << q1 << std::endl;
   std::cout << "q2: " << q2 << std::endl;
-*/
 
-  
   std::cout << "Where would you like to go?: ";
   std::getline(std::cin, q1);
   placeFound = validatePlace(places, q1, 0, places.getsize() - 1);
@@ -431,7 +430,7 @@ int main(int argc, char* argv[]){
     placeFound = validatePlace(places, q1, 0, places.getsize() - 1);
 }
 
-
+*/
 /*def validateTime(input_time):
     global valid_time
     try:
@@ -444,7 +443,7 @@ int main(int argc, char* argv[]){
         valid_time = False
 
 */
-
+/*
 std::cout << "Where are you currently located?: ";
 std::getline(std::cin, q2);
 placeFound = validatePlace(places, q2, 0, places.getsize() - 1);
@@ -465,7 +464,7 @@ placeFound = validatePlace(places, q2, 0, places.getsize() - 1);
   }
 }
   
-
+*/
 for (int i = 0; i < bus_names.getsize(); i++){
   named_stops.appendHashes(bus_names, bus_stops_tables[i]);
 }
