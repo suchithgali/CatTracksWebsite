@@ -1,0 +1,20 @@
+.header{
+    padding-top: px;
+    background-color: rgb(15, 45, 82);
+    width: 1750px;
+    height: 77px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-color: rgb(219, 170, 0);
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-bottom-style: solid;
+    border-bottom-width: 5px;
+}
+
+.label{
+    display: inline-block;
+    margin-top: 30px;
+}
