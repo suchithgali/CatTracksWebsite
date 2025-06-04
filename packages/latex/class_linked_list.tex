@@ -1,0 +1,154 @@
+\doxysection{Linked\+List\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_linked_list}{}\label{class_linked_list}\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+
+
+{\ttfamily \#include $<$Linked\+List.\+h$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_linked_list_1_1_iterator}{Iterator}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_linked_list_a3c20fcfec867e867f541061a09fc640c}{Linked\+List}} ()
+\item 
+\mbox{\hyperlink{class_linked_list_a2e6c246781e458f803203e9c75c6aa90}{Linked\+List}} (const \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$ \&other)
+\item 
+\mbox{\hyperlink{class_linked_list_1_1_iterator}{Iterator}} \mbox{\hyperlink{class_linked_list_a417e93e223b5e9f5a511cee4c56ac338}{begin}} () const
+\item 
+\mbox{\hyperlink{class_linked_list_1_1_iterator}{Iterator}} \mbox{\hyperlink{class_linked_list_abd13f8fef21c6b9a594a36e31d0f79ad}{end}} () const
+\item 
+void \mbox{\hyperlink{class_linked_list_afecdb04d978c0206287d8cf88d4e5912}{appendin\+LL}} (T val)
+\item 
+void \mbox{\hyperlink{class_linked_list_a455066651ebdb60a153f39a2e92111bc}{appendin\+LL}} (float val)
+\item 
+\mbox{\hyperlink{class_linked_list_a7c37609df3b83bc4eb0281b852f93fd7}{\texorpdfstring{$\sim$}{\string~}\+Linked\+List}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{class_linked_list_a1fcb68f3522aaf1a95fcd2c716c2727a}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$ \&list)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class Linked\+List$<$ T $>$}
+
+
+Definition at line \mbox{\hyperlink{_linked_list_8h_source_l00048}{48}} of file \mbox{\hyperlink{_linked_list_8h_source}{Linked\+List.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_linked_list_a3c20fcfec867e867f541061a09fc640c}\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!LinkedList@{LinkedList}}
+\index{LinkedList@{LinkedList}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{LinkedList()}{LinkedList()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_linked_list_a3c20fcfec867e867f541061a09fc640c} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\mbox{\hyperlink{class_linked_list}{\+::\+Linked\+List}} (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_linked_list_8h_source_l00052}{52}} of file \mbox{\hyperlink{_linked_list_8h_source}{Linked\+List.\+h}}.
+
+Here is the caller graph for this function\+:
+% FIG 0
+\Hypertarget{class_linked_list_a2e6c246781e458f803203e9c75c6aa90}\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!LinkedList@{LinkedList}}
+\index{LinkedList@{LinkedList}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{LinkedList()}{LinkedList()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_linked_list_a2e6c246781e458f803203e9c75c6aa90} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\mbox{\hyperlink{class_linked_list}{\+::\+Linked\+List}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$ \&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_linked_list_8h_source_l00057}{57}} of file \mbox{\hyperlink{_linked_list_8h_source}{Linked\+List.\+h}}.
+
+Here is the call graph for this function\+:
+% FIG 1
+\Hypertarget{class_linked_list_a7c37609df3b83bc4eb0281b852f93fd7}\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!````~LinkedList@{\texorpdfstring{$\sim$}{\string~}LinkedList}}
+\index{````~LinkedList@{\texorpdfstring{$\sim$}{\string~}LinkedList}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}LinkedList()}{\string~LinkedList()}}
+{\footnotesize\ttfamily \label{class_linked_list_a7c37609df3b83bc4eb0281b852f93fd7} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{class_linked_list}{Linked\+List}} (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_linked_list_8h_source_l00118}{118}} of file \mbox{\hyperlink{_linked_list_8h_source}{Linked\+List.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_linked_list_a455066651ebdb60a153f39a2e92111bc}\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!appendinLL@{appendinLL}}
+\index{appendinLL@{appendinLL}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{appendinLL()}{appendinLL()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_linked_list_a455066651ebdb60a153f39a2e92111bc} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\+::appendin\+LL (\begin{DoxyParamCaption}\item[{float}]{val}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_linked_list_8h_source_l00102}{102}} of file \mbox{\hyperlink{_linked_list_8h_source}{Linked\+List.\+h}}.
+
+\Hypertarget{class_linked_list_afecdb04d978c0206287d8cf88d4e5912}\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!appendinLL@{appendinLL}}
+\index{appendinLL@{appendinLL}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{appendinLL()}{appendinLL()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_linked_list_afecdb04d978c0206287d8cf88d4e5912} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\+::appendin\+LL (\begin{DoxyParamCaption}\item[{T}]{val}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_linked_list_8h_source_l00086}{86}} of file \mbox{\hyperlink{_linked_list_8h_source}{Linked\+List.\+h}}.
+
+Here is the caller graph for this function\+:
+% FIG 2
+\Hypertarget{class_linked_list_a417e93e223b5e9f5a511cee4c56ac338}\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!begin@{begin}}
+\index{begin@{begin}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \label{class_linked_list_a417e93e223b5e9f5a511cee4c56ac338} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_linked_list_1_1_iterator}{Iterator}} \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\+::begin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_linked_list_8h_source_l00080}{80}} of file \mbox{\hyperlink{_linked_list_8h_source}{Linked\+List.\+h}}.
+
+Here is the caller graph for this function\+:
+% FIG 3
+\Hypertarget{class_linked_list_abd13f8fef21c6b9a594a36e31d0f79ad}\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!end@{end}}
+\index{end@{end}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily \label{class_linked_list_abd13f8fef21c6b9a594a36e31d0f79ad} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_linked_list_1_1_iterator}{Iterator}} \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\+::end (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_linked_list_8h_source_l00081}{81}} of file \mbox{\hyperlink{_linked_list_8h_source}{Linked\+List.\+h}}.
+
+Here is the caller graph for this function\+:
+% FIG 4
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{class_linked_list_a1fcb68f3522aaf1a95fcd2c716c2727a}\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily \label{class_linked_list_a1fcb68f3522aaf1a95fcd2c716c2727a} 
+template$<$class T$>$ \\
+std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os}{, }\item[{const \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$ \&}]{list}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{_linked_list_8h_source_l00133}{133}} of file \mbox{\hyperlink{_linked_list_8h_source}{Linked\+List.\+h}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_linked_list_8h}{Linked\+List.\+h}}\end{DoxyCompactItemize}

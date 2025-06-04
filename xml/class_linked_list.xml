@@ -1,0 +1,217 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="class_linked_list" kind="class" language="C++" prot="public">
+    <compoundname>LinkedList</compoundname>
+    <includes refid="_linked_list_8h" local="no">LinkedList.h</includes>
+    <innerclass refid="class_linked_list_1_1_iterator" prot="public">LinkedList::Iterator</innerclass>
+    <templateparamlist>
+      <param>
+        <type>class T</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_linked_list_1aee54b0002edf2565ba6a9f0a731319ea" prot="private" static="no" mutable="no">
+        <type><ref refid="struct_node" kindref="compound">Node</ref>&lt; T &gt; *</type>
+        <definition>Node&lt;T&gt;* LinkedList&lt; T &gt;::front</definition>
+        <argsstring></argsstring>
+        <name>front</name>
+        <qualifiedname>LinkedList::front</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="LinkedList.h" line="49" column="10" bodyfile="LinkedList.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_linked_list_1ab857c8c41fc2b03c81f50ed45055e34a" prot="private" static="no" mutable="no">
+        <type><ref refid="struct_node" kindref="compound">Node</ref>&lt; T &gt; *</type>
+        <definition>Node&lt;T&gt;* LinkedList&lt; T &gt;::back</definition>
+        <argsstring></argsstring>
+        <name>back</name>
+        <qualifiedname>LinkedList::back</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="LinkedList.h" line="50" column="10" bodyfile="LinkedList.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_linked_list_1a3c20fcfec867e867f541061a09fc640c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>LinkedList&lt; T &gt;::LinkedList</definition>
+        <argsstring>()</argsstring>
+        <name>LinkedList</name>
+        <qualifiedname>LinkedList::LinkedList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="LinkedList.h" line="52" column="5" bodyfile="LinkedList.h" bodystart="52" bodyend="55"/>
+        <referencedby refid="class_linked_list_1a2e6c246781e458f803203e9c75c6aa90" compoundref="_linked_list_8h" startline="57" endline="65">LinkedList&lt; T &gt;::LinkedList</referencedby>
+        <referencedby refid="class_linked_list_1a1fcb68f3522aaf1a95fcd2c716c2727a" compoundref="_linked_list_8h" startline="133" endline="143">LinkedList&lt; T &gt;::operator&lt;&lt;</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_linked_list_1a2e6c246781e458f803203e9c75c6aa90" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>LinkedList&lt; T &gt;::LinkedList</definition>
+        <argsstring>(const LinkedList&lt; T &gt; &amp;other)</argsstring>
+        <name>LinkedList</name>
+        <qualifiedname>LinkedList::LinkedList</qualifiedname>
+        <param>
+          <type>const <ref refid="class_linked_list" kindref="compound">LinkedList</ref>&lt; T &gt; &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="LinkedList.h" line="57" column="5" bodyfile="LinkedList.h" bodystart="57" bodyend="65"/>
+        <references refid="class_linked_list_1afecdb04d978c0206287d8cf88d4e5912" compoundref="_linked_list_8h" startline="86" endline="100">LinkedList&lt; T &gt;::appendinLL</references>
+        <references refid="struct_node_1ac450c71a8677a38d306361f9ced518d3" compoundref="_binary_tree_8h" startline="10">Node&lt; T &gt;::data</references>
+        <references refid="class_linked_list_1a3c20fcfec867e867f541061a09fc640c" compoundref="_linked_list_8h" startline="52" endline="55">LinkedList&lt; T &gt;::LinkedList</references>
+        <references refid="struct_node_1ac1c0563946c59c36bddde431b4adb00b" compoundref="_linked_list_8h" startline="25">Node&lt; T &gt;::next</references>
+      </memberdef>
+      <memberdef kind="function" id="class_linked_list_1a417e93e223b5e9f5a511cee4c56ac338" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_linked_list_1_1_iterator" kindref="compound">Iterator</ref></type>
+        <definition>Iterator LinkedList&lt; T &gt;::begin</definition>
+        <argsstring>() const</argsstring>
+        <name>begin</name>
+        <qualifiedname>LinkedList::begin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="LinkedList.h" line="80" column="14" bodyfile="LinkedList.h" bodystart="80" bodyend="80"/>
+        <referencedby refid="class_hash_table_1a78319df5357e26b81cfa732d9fd23967" compoundref="_hash_table_8h" startline="206" endline="224">HashTable&lt; T &gt;::getMinValue</referencedby>
+        <referencedby refid="class_hash_table_1a41e58d0ef84097a6ede10d7bdd2d84f3" compoundref="_hash_table_8h" startline="148" endline="178">HashTable&lt; T &gt;::searchforKey</referencedby>
+        <referencedby refid="class_hash_table_1aed30b3a5fcccdf2e1636e32dbf0996e3" compoundref="_hash_table_8h" startline="128" endline="146">HashTable&lt; T &gt;::searchforKeyIndex</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_linked_list_1abd13f8fef21c6b9a594a36e31d0f79ad" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_linked_list_1_1_iterator" kindref="compound">Iterator</ref></type>
+        <definition>Iterator LinkedList&lt; T &gt;::end</definition>
+        <argsstring>() const</argsstring>
+        <name>end</name>
+        <qualifiedname>LinkedList::end</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="LinkedList.h" line="81" column="14" bodyfile="LinkedList.h" bodystart="81" bodyend="81"/>
+        <referencedby refid="class_hash_table_1a78319df5357e26b81cfa732d9fd23967" compoundref="_hash_table_8h" startline="206" endline="224">HashTable&lt; T &gt;::getMinValue</referencedby>
+        <referencedby refid="class_hash_table_1a41e58d0ef84097a6ede10d7bdd2d84f3" compoundref="_hash_table_8h" startline="148" endline="178">HashTable&lt; T &gt;::searchforKey</referencedby>
+        <referencedby refid="class_hash_table_1aed30b3a5fcccdf2e1636e32dbf0996e3" compoundref="_hash_table_8h" startline="128" endline="146">HashTable&lt; T &gt;::searchforKeyIndex</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_linked_list_1afecdb04d978c0206287d8cf88d4e5912" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LinkedList&lt; T &gt;::appendinLL</definition>
+        <argsstring>(T val)</argsstring>
+        <name>appendinLL</name>
+        <qualifiedname>LinkedList::appendinLL</qualifiedname>
+        <param>
+          <type>T</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="LinkedList.h" line="86" column="10" bodyfile="LinkedList.h" bodystart="86" bodyend="100"/>
+        <references refid="struct_node_1ac1c0563946c59c36bddde431b4adb00b" compoundref="_linked_list_8h" startline="25">Node&lt; T &gt;::next</references>
+        <references refid="struct_node_1a4f50b730e5a2a73ecfb42699e3937d17" compoundref="_linked_list_8h" startline="26">Node&lt; T &gt;::prev</references>
+        <referencedby refid="class_linked_list_1a2e6c246781e458f803203e9c75c6aa90" compoundref="_linked_list_8h" startline="57" endline="65">LinkedList&lt; T &gt;::LinkedList</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_linked_list_1a455066651ebdb60a153f39a2e92111bc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LinkedList&lt; T &gt;::appendinLL</definition>
+        <argsstring>(float val)</argsstring>
+        <name>appendinLL</name>
+        <qualifiedname>LinkedList::appendinLL</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="LinkedList.h" line="102" column="10" bodyfile="LinkedList.h" bodystart="102" bodyend="116"/>
+        <references refid="struct_node_1ac1c0563946c59c36bddde431b4adb00b" compoundref="_linked_list_8h" startline="25">Node&lt; T &gt;::next</references>
+        <references refid="struct_node_1a4f50b730e5a2a73ecfb42699e3937d17" compoundref="_linked_list_8h" startline="26">Node&lt; T &gt;::prev</references>
+      </memberdef>
+      <memberdef kind="function" id="class_linked_list_1a7c37609df3b83bc4eb0281b852f93fd7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>LinkedList&lt; T &gt;::~LinkedList</definition>
+        <argsstring>()</argsstring>
+        <name>~LinkedList</name>
+        <qualifiedname>LinkedList::~LinkedList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="LinkedList.h" line="118" column="5" bodyfile="LinkedList.h" bodystart="118" bodyend="127"/>
+        <references refid="struct_node_1ac1c0563946c59c36bddde431b4adb00b" compoundref="_linked_list_8h" startline="25">Node&lt; T &gt;::next</references>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="class_linked_list_1a1fcb68f3522aaf1a95fcd2c716c2727a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream &amp; operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;os, const LinkedList&lt; T &gt; &amp;list)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <qualifiedname>LinkedList::operator&lt;&lt;</qualifiedname>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_linked_list" kindref="compound">LinkedList</ref>&lt; T &gt; &amp;</type>
+          <declname>list</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="LinkedList.h" line="129" column="12" bodyfile="LinkedList.h" bodystart="133" bodyend="143"/>
+        <references refid="struct_node_1ac450c71a8677a38d306361f9ced518d3" compoundref="_binary_tree_8h" startline="10">Node&lt; T &gt;::data</references>
+        <references refid="class_linked_list_1a3c20fcfec867e867f541061a09fc640c" compoundref="_linked_list_8h" startline="52" endline="55">LinkedList&lt; T &gt;::LinkedList</references>
+        <references refid="struct_node_1ac1c0563946c59c36bddde431b4adb00b" compoundref="_linked_list_8h" startline="25">Node&lt; T &gt;::next</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="LinkedList.h" line="48" column="1" bodyfile="LinkedList.h" bodystart="48" bodyend="130"/>
+    <listofallmembers>
+      <member refid="class_linked_list_1afecdb04d978c0206287d8cf88d4e5912" prot="public" virt="non-virtual"><scope>LinkedList</scope><name>appendinLL</name></member>
+      <member refid="class_linked_list_1a455066651ebdb60a153f39a2e92111bc" prot="public" virt="non-virtual"><scope>LinkedList</scope><name>appendinLL</name></member>
+      <member refid="class_linked_list_1ab857c8c41fc2b03c81f50ed45055e34a" prot="private" virt="non-virtual"><scope>LinkedList</scope><name>back</name></member>
+      <member refid="class_linked_list_1a417e93e223b5e9f5a511cee4c56ac338" prot="public" virt="non-virtual"><scope>LinkedList</scope><name>begin</name></member>
+      <member refid="class_linked_list_1abd13f8fef21c6b9a594a36e31d0f79ad" prot="public" virt="non-virtual"><scope>LinkedList</scope><name>end</name></member>
+      <member refid="class_linked_list_1aee54b0002edf2565ba6a9f0a731319ea" prot="private" virt="non-virtual"><scope>LinkedList</scope><name>front</name></member>
+      <member refid="class_linked_list_1a3c20fcfec867e867f541061a09fc640c" prot="public" virt="non-virtual"><scope>LinkedList</scope><name>LinkedList</name></member>
+      <member refid="class_linked_list_1a2e6c246781e458f803203e9c75c6aa90" prot="public" virt="non-virtual"><scope>LinkedList</scope><name>LinkedList</name></member>
+      <member refid="class_linked_list_1a1fcb68f3522aaf1a95fcd2c716c2727a" prot="public" virt="non-virtual"><scope>LinkedList</scope><name>operator&lt;&lt;</name></member>
+      <member refid="class_linked_list_1a7c37609df3b83bc4eb0281b852f93fd7" prot="public" virt="non-virtual"><scope>LinkedList</scope><name>~LinkedList</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

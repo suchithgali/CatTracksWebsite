@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespacetester" xml:lang="en-US">
+<title>tester Namespace Reference</title>
+<indexterm><primary>tester</primary></indexterm>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_namespacetester_1aaccb9dff0d9481dceaffc98f77918b9a">simple_calculator</link> (expression)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_namespacetester_1aaccb9dff0d9481dceaffc98f77918b9a"/><section>
+    <title>simple_calculator()</title>
+<indexterm><primary>simple_calculator</primary><secondary>tester</secondary></indexterm>
+<indexterm><primary>tester</primary><secondary>simple_calculator</secondary></indexterm>
+<para><computeroutput>tester.simple_calculator ( expression)</computeroutput></para><para>
+Definition at line <link linkend="_tester_8py_source_1l00001">1</link> of file <link linkend="_tester_8py_source">tester.py</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespacetester_aaccb9dff0d9481dceaffc98f77918b9a_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespacetester_aaccb9dff0d9481dceaffc98f77918b9a_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+</section>

@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="struct_node" kind="struct" language="C++" prot="public">
+    <compoundname>Node</compoundname>
+    <includes refid="_binary_tree_8h" local="no">BinaryTree.h</includes>
+    <templateparamlist>
+      <param>
+        <type>class T</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_node_1ac450c71a8677a38d306361f9ced518d3" prot="public" static="no" mutable="no">
+        <type>T</type>
+        <definition>T Node&lt; T &gt;::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <qualifiedname>Node::data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="BinaryTree.h" line="10" column="7" bodyfile="BinaryTree.h" bodystart="10" bodyend="-1"/>
+        <referencedby refid="class_linked_list_1a2e6c246781e458f803203e9c75c6aa90" compoundref="_linked_list_8h" startline="57" endline="65">LinkedList&lt; T &gt;::LinkedList</referencedby>
+        <referencedby refid="struct_node_1abe0b87fcd2f8f1668680ae7f86f94bfc" compoundref="_linked_list_8h" startline="34" endline="38">Node&lt; T &gt;::Node</referencedby>
+        <referencedby refid="struct_node_1a0692b16d246460bf94c18d49592facdd" compoundref="_linked_list_8h" startline="28" endline="32">Node&lt; T &gt;::Node</referencedby>
+        <referencedby refid="struct_node_1a2fa6968303ac7486cd1cbbadb793859b" compoundref="_binary_tree_8h" startline="15" endline="17">Node&lt; T &gt;::Node</referencedby>
+        <referencedby refid="class_linked_list_1a1fcb68f3522aaf1a95fcd2c716c2727a" compoundref="_linked_list_8h" startline="133" endline="143">LinkedList&lt; T &gt;::operator&lt;&lt;</referencedby>
+        <referencedby refid="_binary_tree_8h_1afaf0762fd71cfb9a550a9086efcf8985" compoundref="_binary_tree_8h" startline="35" endline="48">print_tree</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_node_1a6596c7ac17ecafff5522310c0da3a828" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_node" kindref="compound">Node</ref> *</type>
+        <definition>Node* Node&lt; T &gt;::left</definition>
+        <argsstring></argsstring>
+        <name>left</name>
+        <qualifiedname>Node::left</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="BinaryTree.h" line="11" column="10" bodyfile="BinaryTree.h" bodystart="11" bodyend="-1"/>
+        <referencedby refid="_binary_tree_8h_1afaf0762fd71cfb9a550a9086efcf8985" compoundref="_binary_tree_8h" startline="35" endline="48">print_tree</referencedby>
+        <referencedby refid="_binary_tree_8h_1a3d6d6401e490c4477d568c2f28072327" compoundref="_binary_tree_8h" startline="22" endline="31">sorted_BST</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_node_1a4009a1138f2f04372037fbec63406f11" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_node" kindref="compound">Node</ref> *</type>
+        <definition>Node* Node&lt; T &gt;::right</definition>
+        <argsstring></argsstring>
+        <name>right</name>
+        <qualifiedname>Node::right</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="BinaryTree.h" line="12" column="10" bodyfile="BinaryTree.h" bodystart="12" bodyend="-1"/>
+        <referencedby refid="_binary_tree_8h_1afaf0762fd71cfb9a550a9086efcf8985" compoundref="_binary_tree_8h" startline="35" endline="48">print_tree</referencedby>
+        <referencedby refid="_binary_tree_8h_1a3d6d6401e490c4477d568c2f28072327" compoundref="_binary_tree_8h" startline="22" endline="31">sorted_BST</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_node_1ac1c0563946c59c36bddde431b4adb00b" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_node" kindref="compound">Node</ref> *</type>
+        <definition>Node* Node&lt; T &gt;::next</definition>
+        <argsstring></argsstring>
+        <name>next</name>
+        <qualifiedname>Node::next</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="LinkedList.h" line="25" column="10" bodyfile="LinkedList.h" bodystart="25" bodyend="-1"/>
+        <referencedby refid="class_linked_list_1a455066651ebdb60a153f39a2e92111bc" compoundref="_linked_list_8h" startline="102" endline="116">LinkedList&lt; T &gt;::appendinLL</referencedby>
+        <referencedby refid="class_linked_list_1afecdb04d978c0206287d8cf88d4e5912" compoundref="_linked_list_8h" startline="86" endline="100">LinkedList&lt; T &gt;::appendinLL</referencedby>
+        <referencedby refid="class_linked_list_1a2e6c246781e458f803203e9c75c6aa90" compoundref="_linked_list_8h" startline="57" endline="65">LinkedList&lt; T &gt;::LinkedList</referencedby>
+        <referencedby refid="struct_node_1abe0b87fcd2f8f1668680ae7f86f94bfc" compoundref="_linked_list_8h" startline="34" endline="38">Node&lt; T &gt;::Node</referencedby>
+        <referencedby refid="struct_node_1a0692b16d246460bf94c18d49592facdd" compoundref="_linked_list_8h" startline="28" endline="32">Node&lt; T &gt;::Node</referencedby>
+        <referencedby refid="class_linked_list_1a1fcb68f3522aaf1a95fcd2c716c2727a" compoundref="_linked_list_8h" startline="133" endline="143">LinkedList&lt; T &gt;::operator&lt;&lt;</referencedby>
+        <referencedby refid="class_linked_list_1a7c37609df3b83bc4eb0281b852f93fd7" compoundref="_linked_list_8h" startline="118" endline="127">LinkedList&lt; T &gt;::~LinkedList</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_node_1a4f50b730e5a2a73ecfb42699e3937d17" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_node" kindref="compound">Node</ref> *</type>
+        <definition>Node* Node&lt; T &gt;::prev</definition>
+        <argsstring></argsstring>
+        <name>prev</name>
+        <qualifiedname>Node::prev</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="LinkedList.h" line="26" column="10" bodyfile="LinkedList.h" bodystart="26" bodyend="-1"/>
+        <referencedby refid="class_linked_list_1a455066651ebdb60a153f39a2e92111bc" compoundref="_linked_list_8h" startline="102" endline="116">LinkedList&lt; T &gt;::appendinLL</referencedby>
+        <referencedby refid="class_linked_list_1afecdb04d978c0206287d8cf88d4e5912" compoundref="_linked_list_8h" startline="86" endline="100">LinkedList&lt; T &gt;::appendinLL</referencedby>
+        <referencedby refid="struct_node_1abe0b87fcd2f8f1668680ae7f86f94bfc" compoundref="_linked_list_8h" startline="34" endline="38">Node&lt; T &gt;::Node</referencedby>
+        <referencedby refid="struct_node_1a0692b16d246460bf94c18d49592facdd" compoundref="_linked_list_8h" startline="28" endline="32">Node&lt; T &gt;::Node</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_node_1a2fa6968303ac7486cd1cbbadb793859b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Node&lt; T &gt;::Node</definition>
+        <argsstring>(T val)</argsstring>
+        <name>Node</name>
+        <qualifiedname>Node::Node</qualifiedname>
+        <param>
+          <type>T</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="BinaryTree.h" line="15" column="5" bodyfile="BinaryTree.h" bodystart="15" bodyend="17"/>
+        <references refid="struct_node_1ac450c71a8677a38d306361f9ced518d3" compoundref="_binary_tree_8h" startline="10">Node&lt; T &gt;::data</references>
+      </memberdef>
+      <memberdef kind="function" id="struct_node_1a0692b16d246460bf94c18d49592facdd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Node&lt; T &gt;::Node</definition>
+        <argsstring>(T data)</argsstring>
+        <name>Node</name>
+        <qualifiedname>Node::Node</qualifiedname>
+        <param>
+          <type>T</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="LinkedList.h" line="28" column="5" bodyfile="LinkedList.h" bodystart="28" bodyend="32"/>
+        <references refid="struct_node_1ac450c71a8677a38d306361f9ced518d3" compoundref="_binary_tree_8h" startline="10">Node&lt; T &gt;::data</references>
+        <references refid="struct_node_1ac1c0563946c59c36bddde431b4adb00b" compoundref="_linked_list_8h" startline="25">Node&lt; T &gt;::next</references>
+        <references refid="struct_node_1a4f50b730e5a2a73ecfb42699e3937d17" compoundref="_linked_list_8h" startline="26">Node&lt; T &gt;::prev</references>
+      </memberdef>
+      <memberdef kind="function" id="struct_node_1abe0b87fcd2f8f1668680ae7f86f94bfc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Node&lt; T &gt;::Node</definition>
+        <argsstring>(float data)</argsstring>
+        <name>Node</name>
+        <qualifiedname>Node::Node</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="LinkedList.h" line="34" column="5" bodyfile="LinkedList.h" bodystart="34" bodyend="38"/>
+        <references refid="struct_node_1ac450c71a8677a38d306361f9ced518d3" compoundref="_binary_tree_8h" startline="10">Node&lt; T &gt;::data</references>
+        <references refid="struct_node_1ac1c0563946c59c36bddde431b4adb00b" compoundref="_linked_list_8h" startline="25">Node&lt; T &gt;::next</references>
+        <references refid="struct_node_1a4f50b730e5a2a73ecfb42699e3937d17" compoundref="_linked_list_8h" startline="26">Node&lt; T &gt;::prev</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>Node&lt; T &gt;</label>
+        <link refid="struct_node"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>left</edgelabel>
+          <edgelabel>next</edgelabel>
+          <edgelabel>prev</edgelabel>
+          <edgelabel>right</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Node&lt; T &gt;</label>
+        <link refid="struct_node"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>left</edgelabel>
+          <edgelabel>next</edgelabel>
+          <edgelabel>prev</edgelabel>
+          <edgelabel>right</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="BinaryTree.h" line="9" column="1" bodyfile="BinaryTree.h" bodystart="9" bodyend="18"/>
+    <listofallmembers>
+      <member refid="struct_node_1ac450c71a8677a38d306361f9ced518d3" prot="public" virt="non-virtual"><scope>Node</scope><name>data</name></member>
+      <member refid="struct_node_1a6596c7ac17ecafff5522310c0da3a828" prot="public" virt="non-virtual"><scope>Node</scope><name>left</name></member>
+      <member refid="struct_node_1ac1c0563946c59c36bddde431b4adb00b" prot="public" virt="non-virtual"><scope>Node</scope><name>next</name></member>
+      <member refid="struct_node_1a2fa6968303ac7486cd1cbbadb793859b" prot="public" virt="non-virtual"><scope>Node</scope><name>Node</name></member>
+      <member refid="struct_node_1a0692b16d246460bf94c18d49592facdd" prot="public" virt="non-virtual"><scope>Node</scope><name>Node</name></member>
+      <member refid="struct_node_1abe0b87fcd2f8f1668680ae7f86f94bfc" prot="public" virt="non-virtual"><scope>Node</scope><name>Node</name></member>
+      <member refid="struct_node_1a4f50b730e5a2a73ecfb42699e3937d17" prot="public" virt="non-virtual"><scope>Node</scope><name>prev</name></member>
+      <member refid="struct_node_1a4009a1138f2f04372037fbec63406f11" prot="public" virt="non-virtual"><scope>Node</scope><name>right</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
