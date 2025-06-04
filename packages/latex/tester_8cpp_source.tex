@@ -1,0 +1,88 @@
+\doxysection{tester.\+cpp}
+\hypertarget{tester_8cpp_source}{}\label{tester_8cpp_source}\mbox{\hyperlink{tester_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_array_list_8h}{ArrayList.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stops__data_8h}{stops\_data.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <cpr/cpr.h>}}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <nlohmann/json.hpp>}}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00007}00007\ \textcolor{keyword}{using\ }\mbox{\hyperlink{brain_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\ =\ nlohmann::json;}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00009}\mbox{\hyperlink{tester_8cpp_aef79fcf6e4eb190dcc020f8169e20ba4}{00009}}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{tester_8cpp_aef79fcf6e4eb190dcc020f8169e20ba4}{apiCalls}}(std::string\ point1,\ std::string\ point2,\ std::string\ point3)\{}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00010}00010\ std::vector<std::vector<float>>\ coordinates1;}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00011}00011\ \textcolor{keywordtype}{float}\ distanceMiles;}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00012}00012\ \ \ cpr::Response\ point1\_call\ =\ cpr::Get(cpr::Url\{\textcolor{stringliteral}{"{}https://api.openrouteservice.org/geocode/search"{}}\},}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00013}00013\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cpr::Parameters\{\{\textcolor{stringliteral}{"{}text"{}},\ point1\}\},}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00014}00014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cpr::Header\{\{\textcolor{stringliteral}{"{}Authorization"{}},\ \textcolor{stringliteral}{"{}5b3ce3597851110001cf6248e4dacfb3ab0a4b1d83a0511ffdd542f3"{}}\}\}}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00017}00017\ \ \ \ \ \mbox{\hyperlink{brain_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\ jsonResponse\ =\ json::parse(point1\_call.text);}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00018}00018\ \ \ \ \ \mbox{\hyperlink{brain_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\ features\ =\ jsonResponse[\textcolor{stringliteral}{"{}features"{}}];}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00019}00019\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ feature\ :\ features)\{}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ coords\ =\ feature[\textcolor{stringliteral}{"{}geometry"{}}][\textcolor{stringliteral}{"{}coordinates"{}}];}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ lon\ =\ coords[0];}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ lat\ =\ coords[1];}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ coordinates1.push\_back(\{lon,\ lat\});}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00025}00025\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00027}00027\ \ \ \ \ cpr::Response\ point2\_call\ =\ cpr::Get(cpr::Url\{\textcolor{stringliteral}{"{}https://api.openrouteservice.org/geocode/search"{}}\},}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cpr::Parameters\{\{\textcolor{stringliteral}{"{}text"{}},\ point2\}\},}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cpr::Header\{\{\textcolor{stringliteral}{"{}Authorization"{}},\ \textcolor{stringliteral}{"{}5b3ce3597851110001cf6248e4dacfb3ab0a4b1d83a0511ffdd542f3"{}}\}\}}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00032}00032\ \ \ \ \ \mbox{\hyperlink{brain_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\ jsonResponse2\ =\ json::parse(point2\_call.text);}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00033}00033\ \ \ \ \ \mbox{\hyperlink{brain_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\ features2\ =\ jsonResponse2[\textcolor{stringliteral}{"{}features"{}}];}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00034}00034\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ feature\ :\ features2)\{}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ coords2\ =\ feature[\textcolor{stringliteral}{"{}geometry"{}}][\textcolor{stringliteral}{"{}coordinates"{}}];}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ lon\ =\ coords2[0];}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ lat\ =\ coords2[1];}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ coordinates1.push\_back(\{lon,\ lat\});}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00040}00040\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00042}00042\ \ \ \ \ cpr::Response\ point3\_call\ =\ cpr::Get(cpr::Url\{\textcolor{stringliteral}{"{}https://api.openrouteservice.org/geocode/search"{}}\},}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cpr::Parameters\{\{\textcolor{stringliteral}{"{}text"{}},\ point3\}\},}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cpr::Header\{\{\textcolor{stringliteral}{"{}Authorization"{}},\ \textcolor{stringliteral}{"{}5b3ce3597851110001cf6248e4dacfb3ab0a4b1d83a0511ffdd542f3"{}}\}\}}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00047}00047\ \ \ \ \ \mbox{\hyperlink{brain_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\ jsonResponse3\ =\ json::parse(point3\_call.text);}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00048}00048\ \ \ \ \ \mbox{\hyperlink{brain_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\ features3\ =\ jsonResponse3[\textcolor{stringliteral}{"{}features"{}}];}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00049}00049\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ feature\ :\ features3)\{}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ coords3\ =\ feature[\textcolor{stringliteral}{"{}geometry"{}}][\textcolor{stringliteral}{"{}coordinates"{}}];}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ lon\ =\ coords3[0];}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ lat\ =\ coords3[1];}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ coordinates1.push\_back(\{lon,\ lat\});}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00055}00055\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00057}00057\ \ \ \ \ \mbox{\hyperlink{brain_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\ requestBody;}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00058}00058\ \ \ \ \ requestBody[\textcolor{stringliteral}{"{}coordinates"{}}]\ =\ coordinates1;}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00059}00059\ \ \ \ \ \textcolor{comment}{//std::cout\ <<\ requestBody.dump(2);}}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00060}00060\ \ \ \ \ cpr::Response\ firstSegment\ =\ cpr::Post(cpr::Url\{\textcolor{stringliteral}{"{}https://api.openrouteservice.org/v2/directions/driving-\/car"{}}\},}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cpr::Header\{\{\textcolor{stringliteral}{"{}Authorization"{}},\ \textcolor{stringliteral}{"{}5b3ce3597851110001cf6248e4dacfb3ab0a4b1d83a0511ffdd542f3"{}}\},\ \{\textcolor{stringliteral}{"{}Content-\/Type"{}},\ \textcolor{stringliteral}{"{}application/json"{}}\}\},}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cpr::Body\{requestBody.dump()\}}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{brain_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\ jsonResponse4\ =\ json::parse(firstSegment.text);}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{brain_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\ features4\ =\ jsonResponse4[\textcolor{stringliteral}{"{}routes"{}}];}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ feature\ :\ features4)\{}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ distanceMeters\ =\ feature[\textcolor{stringliteral}{"{}summary"{}}][\textcolor{stringliteral}{"{}distance"{}}].get<\textcolor{keywordtype}{float}>();}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ distanceMiles\ =\ distanceMeters\ /\ 1609;}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00071}00071\ \ \ \textcolor{keywordflow}{return}\ distanceMiles;}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00072}00072\ \}}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00074}\mbox{\hyperlink{tester_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{00074}}\ \textcolor{keywordtype}{int}\ \ \mbox{\hyperlink{tester_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()\{}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00076}00076\ std::string\ point1\ =\ \textcolor{stringliteral}{"{}3304,\ Santa\ Rosa\ Court,\ Merced,\ Merced\ County,\ California,\ 95348,\ United\ States"{}};}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00077}00077\ std::string\ point2\ =\ \textcolor{stringliteral}{"{}355\ West\ 24th\ Street,\ Merced,\ CA"{}};}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00078}00078\ std::string\ point3\ =\ \textcolor{stringliteral}{"{}3706\ El\ Redondo\ Drive"{}};}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00080}00080\ std::cout\ <<\ \mbox{\hyperlink{tester_8cpp_aef79fcf6e4eb190dcc020f8169e20ba4}{apiCalls}}(point1,\ point2,\ point3)\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00081}00081\ std::cout\ <<\ \mbox{\hyperlink{stops__data_8h_a3bfd9f4dcc904c5ff02862525ed0407f}{places}}.index(\textcolor{stringliteral}{"{}Amtrak\ Station"{}});}
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{tester_8cpp_source_l00083}00083\ \}}
+
+\end{DoxyCode}

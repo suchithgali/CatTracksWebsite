@@ -1,0 +1,307 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__hash_table_8h_source" xml:lang="en-US">
+<title>HashTable.h</title>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="__hash_table_8h_source_1l00001"/>00001 <emphasis role="preprocessor">#ifndef&#32;HASH_TABLE</emphasis>
+<anchor xml:id="__hash_table_8h_source_1l00002"/>00002 <emphasis role="preprocessor">#define&#32;HASH_TABLE</emphasis>
+<anchor xml:id="__hash_table_8h_source_1l00003"/>00003 
+<anchor xml:id="__hash_table_8h_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__array_list_8h">ArrayList.h</link>&quot;</emphasis>
+<anchor xml:id="__hash_table_8h_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__linked_list_8h">LinkedList.h</link>&quot;</emphasis>
+<anchor xml:id="__hash_table_8h_source_1l00006"/>00006 <emphasis role="preprocessor">#include&#32;&lt;string&gt;</emphasis>
+<anchor xml:id="__hash_table_8h_source_1l00007"/>00007 <emphasis role="preprocessor">#include&#32;&lt;list&gt;</emphasis>
+<anchor xml:id="__hash_table_8h_source_1l00008"/>00008 <emphasis role="preprocessor">#include&#32;&lt;ostream&gt;</emphasis>
+<anchor xml:id="__hash_table_8h_source_1l00009"/>00009 <emphasis role="preprocessor">#include&#32;&lt;typeinfo&gt;</emphasis>
+<anchor xml:id="__hash_table_8h_source_1l00010"/>00010 <emphasis role="preprocessor">#include&#32;&lt;algorithm&gt;</emphasis>
+<anchor xml:id="__hash_table_8h_source_1l00011"/>00011 <emphasis role="preprocessor">#include&#32;&lt;type_traits&gt;</emphasis>
+<anchor xml:id="__hash_table_8h_source_1l00012"/>00012 
+<anchor xml:id="__hash_table_8h_source_1l00013"/>00013 <emphasis role="keyword">template</emphasis>&#32;&lt;<emphasis role="keyword">class</emphasis>&#32;T&gt;
+<anchor xml:id="__hash_table_8h_source_1l00014"/>00014 <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_hash_table">HashTable</link>;
+<anchor xml:id="__hash_table_8h_source_1l00015"/>00015 
+<anchor xml:id="__hash_table_8h_source_1l00016"/>00016 <emphasis role="keyword">template</emphasis>&#32;&lt;<emphasis role="keyword">class</emphasis>&#32;T&gt;
+<anchor xml:id="__hash_table_8h_source_1l00017"/>00017 std::ostream&amp;&#32;<link linkend="__hash_table_8h_1a8aff5ad6a6852fcfb7cbaa3936aad758">operator&lt;&lt;</link>(std::ostream&amp;&#32;os,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_hash_table">HashTable&lt;T&gt;</link>&amp;&#32;container);
+<anchor xml:id="__hash_table_8h_source_1l00018"/>00018 
+<anchor xml:id="__hash_table_8h_source_1l00019"/>00019 <emphasis role="keyword">template</emphasis>&#32;&lt;<emphasis role="keyword">class</emphasis>&#32;T&gt;
+<anchor xml:id="__hash_table_8h_source_1l00020"/><link linkend="_class_hash_table">00020</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_hash_table_1aef9a69291686266a617009ace9bcb135">HashTable</link>{
+<anchor xml:id="__hash_table_8h_source_1l00021"/>00021 <emphasis role="keyword">protected</emphasis>:
+<anchor xml:id="__hash_table_8h_source_1l00022"/><link linkend="_class_hash_table_1a3761b4f1a66408666d0fca9184303023">00022</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_hash_table_1a3761b4f1a66408666d0fca9184303023">buckets</link>;
+<anchor xml:id="__hash_table_8h_source_1l00023"/><link linkend="_class_hash_table_1ad53bacae6dae1507bb9bb9ac53158598">00023</link> &#32;&#32;&#32;&#32;std::string&#32;<link linkend="_class_hash_table_1ad53bacae6dae1507bb9bb9ac53158598">name</link>;
+<anchor xml:id="__hash_table_8h_source_1l00024"/><link linkend="_class_hash_table_1a5ae2a80028aa9f9ebf4ecab73596a112">00024</link> &#32;&#32;&#32;&#32;<link linkend="_class_array_list">ArrayList&lt;std::string&gt;</link>&#32;<link linkend="_class_hash_table_1a5ae2a80028aa9f9ebf4ecab73596a112">keys</link>;
+<anchor xml:id="__hash_table_8h_source_1l00025"/>00025 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Store&#32;LinkedList&#32;objects&#32;directly&#32;instead&#32;of&#32;pointers</emphasis>
+<anchor xml:id="__hash_table_8h_source_1l00026"/><link linkend="_class_hash_table_1a8c27e577df26c95d566937bea18f4525">00026</link> &#32;&#32;&#32;&#32;<link linkend="_class_array_list">ArrayList&lt;LinkedList&lt;std::list&lt;T&gt;</link>&gt;&gt;&#32;<link linkend="_class_hash_table_1a8c27e577df26c95d566937bea18f4525">data</link>;
+<anchor xml:id="__hash_table_8h_source_1l00027"/><link linkend="_class_hash_table_1a49468455f43c02eed6b75ca5ee16c9d5">00027</link> &#32;&#32;&#32;&#32;<link linkend="_class_array_list">ArrayList&lt;LinkedList&lt;HashTable&lt;T&gt;</link>&gt;&gt;&#32;<link linkend="_class_hash_table_1a49468455f43c02eed6b75ca5ee16c9d5">dataTables</link>;
+<anchor xml:id="__hash_table_8h_source_1l00028"/><link linkend="_class_hash_table_1a039c57adf89f0ef47e99165b152fe4dd">00028</link> &#32;&#32;&#32;&#32;<link linkend="_class_array_list">ArrayList&lt;LinkedList&lt;T&gt;</link>&gt;&#32;<link linkend="_class_hash_table_1a039c57adf89f0ef47e99165b152fe4dd">dataT</link>;
+<anchor xml:id="__hash_table_8h_source_1l00029"/>00029 
+<anchor xml:id="__hash_table_8h_source_1l00030"/>00030 <emphasis role="keyword">public</emphasis>:
+<anchor xml:id="__hash_table_8h_source_1l00031"/>00031 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Default&#32;Constructor</emphasis>
+<anchor xml:id="__hash_table_8h_source_1l00032"/><link linkend="_class_hash_table_1aef9a69291686266a617009ace9bcb135">00032</link> &#32;&#32;&#32;&#32;<link linkend="_class_hash_table_1aef9a69291686266a617009ace9bcb135">HashTable</link>()&#32;
+<anchor xml:id="__hash_table_8h_source_1l00033"/>00033 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:&#32;<link linkend="_class_hash_table_1a3761b4f1a66408666d0fca9184303023">buckets</link>(1),&#32;<link linkend="_class_hash_table_1a5ae2a80028aa9f9ebf4ecab73596a112">keys</link>(),&#32;<link linkend="_class_hash_table_1a8c27e577df26c95d566937bea18f4525">data</link>(),&#32;<link linkend="_class_hash_table_1a49468455f43c02eed6b75ca5ee16c9d5">dataTables</link>(),&#32;<link linkend="_class_hash_table_1a039c57adf89f0ef47e99165b152fe4dd">dataT</link>()&#32;{}
+<anchor xml:id="__hash_table_8h_source_1l00034"/>00034 
+<anchor xml:id="__hash_table_8h_source_1l00035"/>00035 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Constructor&#32;with&#32;bucket&#32;size</emphasis>
+<anchor xml:id="__hash_table_8h_source_1l00036"/><link linkend="_class_hash_table_1a4a11963e508c404d4639910fe8642571">00036</link> &#32;&#32;&#32;&#32;<link linkend="_class_hash_table_1a4a11963e508c404d4639910fe8642571">HashTable</link>(std::string&#32;<link linkend="_class_hash_table_1ad53bacae6dae1507bb9bb9ac53158598">name</link>,&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_hash_table_1a3761b4f1a66408666d0fca9184303023">buckets</link>){
+<anchor xml:id="__hash_table_8h_source_1l00037"/>00037 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this-&gt;name&#32;=&#32;<link linkend="_class_hash_table_1ad53bacae6dae1507bb9bb9ac53158598">name</link>;
+<anchor xml:id="__hash_table_8h_source_1l00038"/>00038 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this-&gt;buckets&#32;=&#32;<link linkend="_class_hash_table_1a3761b4f1a66408666d0fca9184303023">buckets</link>;
+<anchor xml:id="__hash_table_8h_source_1l00039"/>00039 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;<link linkend="_class_hash_table_1a3761b4f1a66408666d0fca9184303023">buckets</link>;&#32;i++){
+<anchor xml:id="__hash_table_8h_source_1l00040"/>00040 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_hash_table_1a039c57adf89f0ef47e99165b152fe4dd">dataT</link>.append(<link linkend="_class_linked_list">LinkedList&lt;T&gt;</link>());
+<anchor xml:id="__hash_table_8h_source_1l00041"/>00041 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_hash_table_1a8c27e577df26c95d566937bea18f4525">data</link>.append(<link linkend="_class_linked_list">LinkedList</link>&lt;std::list&lt;T&gt;&gt;());
+<anchor xml:id="__hash_table_8h_source_1l00042"/>00042 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_hash_table_1a49468455f43c02eed6b75ca5ee16c9d5">dataTables</link>.append(<link linkend="_class_linked_list">LinkedList</link>&lt;<link linkend="_class_hash_table_1aef9a69291686266a617009ace9bcb135">HashTable&lt;T&gt;</link>&gt;());
+<anchor xml:id="__hash_table_8h_source_1l00043"/>00043 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_hash_table_1a5ae2a80028aa9f9ebf4ecab73596a112">keys</link>.append(<emphasis role="stringliteral">&quot;&quot;</emphasis>);
+<anchor xml:id="__hash_table_8h_source_1l00044"/>00044 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00045"/>00045 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00046"/>00046 
+<anchor xml:id="__hash_table_8h_source_1l00047"/>00047 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Constructor&#32;with&#32;bus_keys</emphasis>
+<anchor xml:id="__hash_table_8h_source_1l00048"/><link linkend="_class_hash_table_1adf3873ac75e2ae9a37ac4cdce8bf95ab">00048</link> &#32;&#32;&#32;&#32;<link linkend="_class_hash_table_1adf3873ac75e2ae9a37ac4cdce8bf95ab">HashTable</link>(std::string&#32;<link linkend="_class_hash_table_1ad53bacae6dae1507bb9bb9ac53158598">name</link>,&#32;<link linkend="_class_array_list">ArrayList&lt;T&gt;</link>&amp;&#32;bus_keys){
+<anchor xml:id="__hash_table_8h_source_1l00049"/>00049 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this-&gt;name&#32;=&#32;<link linkend="_class_hash_table_1ad53bacae6dae1507bb9bb9ac53158598">name</link>;
+<anchor xml:id="__hash_table_8h_source_1l00050"/>00050 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;this-&gt;buckets&#32;=&#32;bus_keys.<link linkend="_class_array_list_1a063667aea4d7d7c5967608d3c9e7d475">getsize</link>();
+<anchor xml:id="__hash_table_8h_source_1l00051"/>00051 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;<link linkend="_class_hash_table_1a3761b4f1a66408666d0fca9184303023">buckets</link>;&#32;i++){
+<anchor xml:id="__hash_table_8h_source_1l00052"/>00052 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_hash_table_1a5ae2a80028aa9f9ebf4ecab73596a112">keys</link>.append(bus_keys[i]);
+<anchor xml:id="__hash_table_8h_source_1l00053"/>00053 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_hash_table_1a8c27e577df26c95d566937bea18f4525">data</link>.append(<link linkend="_class_linked_list">LinkedList</link>&lt;std::list&lt;T&gt;&gt;());
+<anchor xml:id="__hash_table_8h_source_1l00054"/>00054 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_hash_table_1a49468455f43c02eed6b75ca5ee16c9d5">dataTables</link>.append(<link linkend="_class_linked_list">LinkedList</link>&lt;<link linkend="_class_hash_table_1aef9a69291686266a617009ace9bcb135">HashTable&lt;T&gt;</link>&gt;());
+<anchor xml:id="__hash_table_8h_source_1l00055"/>00055 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_hash_table_1a039c57adf89f0ef47e99165b152fe4dd">dataT</link>.append(<link linkend="_class_linked_list">LinkedList&lt;T&gt;</link>());
+<anchor xml:id="__hash_table_8h_source_1l00056"/>00056 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00057"/>00057 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00058"/>00058 
+<anchor xml:id="__hash_table_8h_source_1l00059"/>00059 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Copy&#32;Constructor&#32;(Default&#32;is&#32;sufficient)</emphasis>
+<anchor xml:id="__hash_table_8h_source_1l00060"/><link linkend="_class_hash_table_1a9975878c274ef8e36176b88629af2887">00060</link> &#32;&#32;&#32;&#32;<link linkend="_class_hash_table_1a9975878c274ef8e36176b88629af2887">HashTable</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_hash_table_1aef9a69291686266a617009ace9bcb135">HashTable&lt;T&gt;</link>&amp;&#32;other)&#32;=&#32;<emphasis role="keywordflow">default</emphasis>;
+<anchor xml:id="__hash_table_8h_source_1l00061"/>00061 
+<anchor xml:id="__hash_table_8h_source_1l00062"/>00062 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Move&#32;Constructor&#32;(Default&#32;is&#32;sufficient)</emphasis>
+<anchor xml:id="__hash_table_8h_source_1l00063"/><link linkend="_class_hash_table_1a15f6fd855190aa4060743fa1a5ad1048">00063</link> &#32;&#32;&#32;&#32;<link linkend="_class_hash_table_1a15f6fd855190aa4060743fa1a5ad1048">HashTable</link>(<link linkend="_class_hash_table_1aef9a69291686266a617009ace9bcb135">HashTable&lt;T&gt;</link>&amp;&amp;&#32;other)&#32;<emphasis role="keyword">noexcept</emphasis>&#32;=&#32;<emphasis role="keywordflow">default</emphasis>;
+<anchor xml:id="__hash_table_8h_source_1l00064"/>00064 
+<anchor xml:id="__hash_table_8h_source_1l00065"/>00065 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Copy&#32;Assignment&#32;Operator&#32;(Default&#32;is&#32;sufficient)</emphasis>
+<anchor xml:id="__hash_table_8h_source_1l00066"/><link linkend="_class_hash_table_1aee63cca1c525d74f1dd700f4b43aec97">00066</link> &#32;&#32;&#32;&#32;<link linkend="_class_hash_table_1aef9a69291686266a617009ace9bcb135">HashTable&lt;T&gt;</link>&amp;&#32;<link linkend="_class_hash_table_1aee63cca1c525d74f1dd700f4b43aec97">operator=</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_hash_table_1aef9a69291686266a617009ace9bcb135">HashTable&lt;T&gt;</link>&amp;&#32;other)&#32;=&#32;<emphasis role="keywordflow">default</emphasis>;
+<anchor xml:id="__hash_table_8h_source_1l00067"/>00067 
+<anchor xml:id="__hash_table_8h_source_1l00068"/>00068 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Move&#32;Assignment&#32;Operator&#32;(Default&#32;is&#32;sufficient)</emphasis>
+<anchor xml:id="__hash_table_8h_source_1l00069"/><link linkend="_class_hash_table_1a5bf66782ede692e139142deb5e69274a">00069</link> &#32;&#32;&#32;&#32;<link linkend="_class_hash_table_1aef9a69291686266a617009ace9bcb135">HashTable&lt;T&gt;</link>&amp;&#32;<link linkend="_class_hash_table_1a5bf66782ede692e139142deb5e69274a">operator=</link>(<link linkend="_class_hash_table_1aef9a69291686266a617009ace9bcb135">HashTable&lt;T&gt;</link>&amp;&amp;&#32;other)&#32;<emphasis role="keyword">noexcept</emphasis>&#32;=&#32;<emphasis role="keywordflow">default</emphasis>;
+<anchor xml:id="__hash_table_8h_source_1l00070"/>00070 
+<anchor xml:id="__hash_table_8h_source_1l00071"/>00071 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Destructor&#32;(Default&#32;is&#32;sufficient)</emphasis>
+<anchor xml:id="__hash_table_8h_source_1l00072"/><link linkend="_class_hash_table_1ad34948fa4296cd12c5862903c12f4c55">00072</link> &#32;&#32;&#32;&#32;<link linkend="_class_hash_table_1ad34948fa4296cd12c5862903c12f4c55">~HashTable</link>()&#32;=&#32;<emphasis role="keywordflow">default</emphasis>;
+<anchor xml:id="__hash_table_8h_source_1l00073"/>00073 
+<anchor xml:id="__hash_table_8h_source_1l00074"/>00074 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Iterator&#32;Support</emphasis>
+<anchor xml:id="__hash_table_8h_source_1l00075"/><link linkend="_class_hash_table_1ab820465daec6a4d1e7cde79891c9f880">00075</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">auto</emphasis>&#32;<link linkend="_class_hash_table_1ab820465daec6a4d1e7cde79891c9f880">begin</link>()&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_hash_table_1a5ae2a80028aa9f9ebf4ecab73596a112">keys</link>[0];&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00076"/><link linkend="_class_hash_table_1a447d8ff47ebf2f6ab437e1be5d8b7f92">00076</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">auto</emphasis>&#32;<link linkend="_class_hash_table_1a447d8ff47ebf2f6ab437e1be5d8b7f92">end</link>()&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_hash_table_1a5ae2a80028aa9f9ebf4ecab73596a112">keys</link>.end();&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00077"/>00077 
+<anchor xml:id="__hash_table_8h_source_1l00078"/>00078 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Hash&#32;Functions</emphasis>
+<anchor xml:id="__hash_table_8h_source_1l00079"/><link linkend="_class_hash_table_1a7a5c66eeea34c1566638f1e7a64ab627">00079</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_hash_table_1a7a5c66eeea34c1566638f1e7a64ab627">HashInts</link>(<emphasis role="keywordtype">int</emphasis>&#32;val){
+<anchor xml:id="__hash_table_8h_source_1l00080"/>00080 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;val&#32;%&#32;<link linkend="_class_hash_table_1a3761b4f1a66408666d0fca9184303023">buckets</link>;
+<anchor xml:id="__hash_table_8h_source_1l00081"/>00081 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00082"/>00082 
+<anchor xml:id="__hash_table_8h_source_1l00083"/><link linkend="_class_hash_table_1a2f9f1e739d8383b38d89fa2508d98a9c">00083</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_hash_table_1a2f9f1e739d8383b38d89fa2508d98a9c">HashStrings</link>(<emphasis role="keyword">const</emphasis>&#32;std::string&amp;&#32;val)<emphasis role="keyword">&#32;const&#32;</emphasis>{
+<anchor xml:id="__hash_table_8h_source_1l00084"/>00084 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(<link linkend="_class_hash_table_1a8c27e577df26c95d566937bea18f4525">data</link>.getsize()&#32;==&#32;0){
+<anchor xml:id="__hash_table_8h_source_1l00085"/>00085 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">throw</emphasis>&#32;std::runtime_error(<emphasis role="stringliteral">&quot;HashTable&#32;is&#32;empty&quot;</emphasis>);
+<anchor xml:id="__hash_table_8h_source_1l00086"/>00086 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00087"/>00087 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;hashValue&#32;=&#32;0;
+<anchor xml:id="__hash_table_8h_source_1l00088"/>00088 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;prime&#32;=&#32;41;
+<anchor xml:id="__hash_table_8h_source_1l00089"/>00089 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;mod&#32;=&#32;1000000009;
+<anchor xml:id="__hash_table_8h_source_1l00090"/>00090 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;power&#32;=&#32;1;
+<anchor xml:id="__hash_table_8h_source_1l00091"/>00091 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">char</emphasis>&#32;c&#32;:&#32;val){
+<anchor xml:id="__hash_table_8h_source_1l00092"/>00092 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;lower&#32;=&#32;std::tolower(c);
+<anchor xml:id="__hash_table_8h_source_1l00093"/>00093 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(lower&#32;&lt;&#32;<emphasis role="charliteral">&apos;a&apos;</emphasis>&#32;||&#32;lower&#32;&gt;&#32;<emphasis role="charliteral">&apos;z&apos;</emphasis>){
+<anchor xml:id="__hash_table_8h_source_1l00094"/>00094 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">continue</emphasis>;
+<anchor xml:id="__hash_table_8h_source_1l00095"/>00095 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00096"/>00096 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;hashValue&#32;=&#32;(hashValue&#32;+&#32;(c&#32;-&#32;<emphasis role="charliteral">&apos;a&apos;</emphasis>&#32;+&#32;1)&#32;*&#32;power)&#32;%&#32;mod;
+<anchor xml:id="__hash_table_8h_source_1l00097"/>00097 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;power&#32;=&#32;(power&#32;*&#32;prime)&#32;%&#32;mod;
+<anchor xml:id="__hash_table_8h_source_1l00098"/>00098 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00099"/>00099 
+<anchor xml:id="__hash_table_8h_source_1l00100"/>00100 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;(hashValue&#32;%&#32;<link linkend="_class_hash_table_1a3761b4f1a66408666d0fca9184303023">buckets</link>&#32;+&#32;<link linkend="_class_hash_table_1a3761b4f1a66408666d0fca9184303023">buckets</link>)&#32;%&#32;<link linkend="_class_hash_table_1a3761b4f1a66408666d0fca9184303023">buckets</link>;
+<anchor xml:id="__hash_table_8h_source_1l00101"/>00101 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00102"/>00102 
+<anchor xml:id="__hash_table_8h_source_1l00103"/>00103 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Accessors</emphasis>
+<anchor xml:id="__hash_table_8h_source_1l00104"/><link linkend="_class_hash_table_1a696a2532b2a73abc2a2135e57d138906">00104</link> &#32;&#32;&#32;&#32;<link linkend="_class_array_list">ArrayList&lt;std::string&gt;</link>&#32;<link linkend="_class_hash_table_1a696a2532b2a73abc2a2135e57d138906">getKeys</link>()<emphasis role="keyword">&#32;const</emphasis>{
+<anchor xml:id="__hash_table_8h_source_1l00105"/>00105 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_hash_table_1a5ae2a80028aa9f9ebf4ecab73596a112">keys</link>;
+<anchor xml:id="__hash_table_8h_source_1l00106"/>00106 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00107"/>00107 
+<anchor xml:id="__hash_table_8h_source_1l00108"/><link linkend="_class_hash_table_1ac1b1e0ae3a193949b896f933a5090fe0">00108</link> &#32;&#32;&#32;&#32;<link linkend="_class_array_list">ArrayList&lt;LinkedList&lt;std::list&lt;T&gt;</link>&gt;&gt;&#32;<link linkend="_class_hash_table_1ac1b1e0ae3a193949b896f933a5090fe0">getValues</link>(){
+<anchor xml:id="__hash_table_8h_source_1l00109"/>00109 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_hash_table_1a8c27e577df26c95d566937bea18f4525">data</link>;
+<anchor xml:id="__hash_table_8h_source_1l00110"/>00110 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00111"/>00111 &#32;&#32;&#32;&#32;
+<anchor xml:id="__hash_table_8h_source_1l00112"/><link linkend="_class_hash_table_1a14225a6edd19b90b8e9ed55484c7766f">00112</link> &#32;&#32;&#32;&#32;<link linkend="_class_linked_list">LinkedList&lt;HashTable&lt;T&gt;</link>&gt;&#32;<link linkend="_class_hash_table_1a14225a6edd19b90b8e9ed55484c7766f">getValues</link>(std::string&#32;busname){
+<anchor xml:id="__hash_table_8h_source_1l00113"/>00113 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;index&#32;=&#32;<link linkend="_class_hash_table_1a2f9f1e739d8383b38d89fa2508d98a9c">HashStrings</link>(busname);
+<anchor xml:id="__hash_table_8h_source_1l00114"/>00114 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_hash_table_1a49468455f43c02eed6b75ca5ee16c9d5">dataTables</link>[index];
+<anchor xml:id="__hash_table_8h_source_1l00115"/>00115 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00116"/>00116 
+<anchor xml:id="__hash_table_8h_source_1l00117"/>00117 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Search&#32;Functions</emphasis>
+<anchor xml:id="__hash_table_8h_source_1l00118"/><link linkend="_class_hash_table_1a012d6d29d5afe9756a310bdff563aa9f">00118</link> &#32;&#32;&#32;&#32;std::string&#32;<link linkend="_class_hash_table_1a012d6d29d5afe9756a310bdff563aa9f">search</link>(std::string&#32;val){
+<anchor xml:id="__hash_table_8h_source_1l00119"/>00119 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;index&#32;=&#32;<link linkend="_class_hash_table_1a5ae2a80028aa9f9ebf4ecab73596a112">keys</link>.index(val);
+<anchor xml:id="__hash_table_8h_source_1l00120"/>00120 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(index&#32;&gt;=&#32;0){
+<anchor xml:id="__hash_table_8h_source_1l00121"/>00121 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_hash_table_1a5ae2a80028aa9f9ebf4ecab73596a112">keys</link>[index];
+<anchor xml:id="__hash_table_8h_source_1l00122"/>00122 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00123"/>00123 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>{
+<anchor xml:id="__hash_table_8h_source_1l00124"/>00124 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;&quot;</emphasis>;
+<anchor xml:id="__hash_table_8h_source_1l00125"/>00125 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00126"/>00126 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00127"/>00127 
+<anchor xml:id="__hash_table_8h_source_1l00128"/><link linkend="_class_hash_table_1aed30b3a5fcccdf2e1636e32dbf0996e3">00128</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_hash_table_1aed30b3a5fcccdf2e1636e32dbf0996e3">searchforKeyIndex</link>(<emphasis role="keywordtype">float</emphasis>&#32;val){
+<anchor xml:id="__hash_table_8h_source_1l00129"/>00129 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;index&#32;=&#32;0;
+<anchor xml:id="__hash_table_8h_source_1l00130"/>00130 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(<link linkend="_class_hash_table_1a8c27e577df26c95d566937bea18f4525">data</link>.getsize()&#32;==&#32;0){
+<anchor xml:id="__hash_table_8h_source_1l00131"/>00131 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">throw</emphasis>&#32;std::runtime_error(<emphasis role="stringliteral">&quot;HashTable&#32;is&#32;empty&quot;</emphasis>);
+<anchor xml:id="__hash_table_8h_source_1l00132"/>00132 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00133"/>00133 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;first&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="__hash_table_8h_source_1l00134"/>00134 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;<link linkend="_class_hash_table_1a8c27e577df26c95d566937bea18f4525">data</link>.getsize();&#32;i++){
+<anchor xml:id="__hash_table_8h_source_1l00135"/>00135 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_linked_list">LinkedList&lt;std::list&lt;T&gt;</link>&gt;&#32;bucket&#32;=&#32;<link linkend="_class_hash_table_1a8c27e577df26c95d566937bea18f4525">data</link>[i];
+<anchor xml:id="__hash_table_8h_source_1l00136"/>00136 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>(<emphasis role="keyword">auto</emphasis>&#32;it&#32;=&#32;bucket.<link linkend="_class_linked_list_1a417e93e223b5e9f5a511cee4c56ac338">begin</link>();&#32;it&#32;!=&#32;bucket.<link linkend="_class_linked_list_1abd13f8fef21c6b9a594a36e31d0f79ad">end</link>();&#32;++it){
+<anchor xml:id="__hash_table_8h_source_1l00137"/>00137 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>(<emphasis role="keyword">const</emphasis>&#32;T&amp;&#32;item&#32;:&#32;it){
+<anchor xml:id="__hash_table_8h_source_1l00138"/>00138 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(first&#32;||&#32;item&#32;==&#32;val){
+<anchor xml:id="__hash_table_8h_source_1l00139"/>00139 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;index&#32;=&#32;i;
+<anchor xml:id="__hash_table_8h_source_1l00140"/>00140 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;first&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="__hash_table_8h_source_1l00141"/>00141 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00142"/>00142 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00143"/>00143 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00144"/>00144 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00145"/>00145 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;index;
+<anchor xml:id="__hash_table_8h_source_1l00146"/>00146 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00147"/>00147 
+<anchor xml:id="__hash_table_8h_source_1l00148"/><link linkend="_class_hash_table_1a41e58d0ef84097a6ede10d7bdd2d84f3">00148</link> &#32;&#32;&#32;&#32;std::string&#32;<link linkend="_class_hash_table_1a41e58d0ef84097a6ede10d7bdd2d84f3">searchforKey</link>(<emphasis role="keywordtype">float</emphasis>&#32;val){
+<anchor xml:id="__hash_table_8h_source_1l00149"/>00149 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;index&#32;=&#32;-1;
+<anchor xml:id="__hash_table_8h_source_1l00150"/>00150 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(<link linkend="_class_hash_table_1a8c27e577df26c95d566937bea18f4525">data</link>.getsize()&#32;==&#32;0){
+<anchor xml:id="__hash_table_8h_source_1l00151"/>00151 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">throw</emphasis>&#32;std::runtime_error(<emphasis role="stringliteral">&quot;HashTable&#32;is&#32;empty&quot;</emphasis>);
+<anchor xml:id="__hash_table_8h_source_1l00152"/>00152 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00153"/>00153 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;...existing&#32;code...</emphasis>
+<anchor xml:id="__hash_table_8h_source_1l00154"/>00154 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;<link linkend="_class_hash_table_1a8c27e577df26c95d566937bea18f4525">data</link>.getsize();&#32;i++){
+<anchor xml:id="__hash_table_8h_source_1l00155"/>00155 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_linked_list">LinkedList&lt;std::list&lt;T&gt;</link>&gt;&#32;bucket&#32;=&#32;<link linkend="_class_hash_table_1a8c27e577df26c95d566937bea18f4525">data</link>[i];
+<anchor xml:id="__hash_table_8h_source_1l00156"/>00156 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>(<emphasis role="keyword">auto</emphasis>&#32;it&#32;=&#32;bucket.<link linkend="_class_linked_list_1a417e93e223b5e9f5a511cee4c56ac338">begin</link>();&#32;it&#32;!=&#32;bucket.<link linkend="_class_linked_list_1abd13f8fef21c6b9a594a36e31d0f79ad">end</link>();&#32;++it){
+<anchor xml:id="__hash_table_8h_source_1l00157"/>00157 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>(<emphasis role="keyword">const</emphasis>&#32;T&amp;&#32;item&#32;:&#32;*it){
+<anchor xml:id="__hash_table_8h_source_1l00158"/>00158 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(std::stof(item)&#32;==&#32;val){
+<anchor xml:id="__hash_table_8h_source_1l00159"/>00159 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;index&#32;=&#32;i;
+<anchor xml:id="__hash_table_8h_source_1l00160"/>00160 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__hash_table_8h_source_1l00161"/>00161 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00162"/>00162 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00163"/>00163 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(index&#32;!=&#32;-1){
+<anchor xml:id="__hash_table_8h_source_1l00164"/>00164 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__hash_table_8h_source_1l00165"/>00165 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00166"/>00166 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00167"/>00167 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(index&#32;!=&#32;-1){
+<anchor xml:id="__hash_table_8h_source_1l00168"/>00168 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="__hash_table_8h_source_1l00169"/>00169 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00170"/>00170 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00171"/>00171 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(index&#32;==&#32;-1){
+<anchor xml:id="__hash_table_8h_source_1l00172"/>00172 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;&quot;</emphasis>;
+<anchor xml:id="__hash_table_8h_source_1l00173"/>00173 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00174"/>00174 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(index&#32;&gt;=&#32;<link linkend="_class_hash_table_1a5ae2a80028aa9f9ebf4ecab73596a112">keys</link>.getsize()){
+<anchor xml:id="__hash_table_8h_source_1l00175"/>00175 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;&quot;</emphasis>;
+<anchor xml:id="__hash_table_8h_source_1l00176"/>00176 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00177"/>00177 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_hash_table_1a5ae2a80028aa9f9ebf4ecab73596a112">keys</link>[index];
+<anchor xml:id="__hash_table_8h_source_1l00178"/>00178 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00179"/>00179 
+<anchor xml:id="__hash_table_8h_source_1l00180"/>00180 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Overloaded&#32;Operators</emphasis>
+<anchor xml:id="__hash_table_8h_source_1l00181"/><link linkend="_class_hash_table_1ad585ca0ecf155ce37180596d9e4b1ac0">00181</link> &#32;&#32;&#32;&#32;std::string&#32;<link linkend="_class_hash_table_1ad585ca0ecf155ce37180596d9e4b1ac0">operator[]</link>(<emphasis role="keywordtype">int</emphasis>&#32;key){
+<anchor xml:id="__hash_table_8h_source_1l00182"/>00182 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;index&#32;=&#32;<link linkend="_class_hash_table_1a7a5c66eeea34c1566638f1e7a64ab627">HashInts</link>(key);
+<anchor xml:id="__hash_table_8h_source_1l00183"/>00183 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(index&#32;&lt;&#32;0&#32;||&#32;index&#32;&gt;=&#32;<link linkend="_class_hash_table_1a5ae2a80028aa9f9ebf4ecab73596a112">keys</link>.getsize()){
+<anchor xml:id="__hash_table_8h_source_1l00184"/>00184 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">throw</emphasis>&#32;std::out_of_range(<emphasis role="stringliteral">&quot;Key&#32;index&#32;out&#32;of&#32;range&quot;</emphasis>);
+<anchor xml:id="__hash_table_8h_source_1l00185"/>00185 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00186"/>00186 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_hash_table_1a5ae2a80028aa9f9ebf4ecab73596a112">keys</link>[index];
+<anchor xml:id="__hash_table_8h_source_1l00187"/>00187 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00188"/>00188 
+<anchor xml:id="__hash_table_8h_source_1l00189"/><link linkend="_class_hash_table_1a9cae17312252d0c048c266dfd7b14ee3">00189</link> &#32;&#32;&#32;&#32;std::string&#32;<link linkend="_class_hash_table_1a9cae17312252d0c048c266dfd7b14ee3">operator[]</link>(std::string&#32;key){
+<anchor xml:id="__hash_table_8h_source_1l00190"/>00190 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;index&#32;=&#32;<link linkend="_class_hash_table_1a2f9f1e739d8383b38d89fa2508d98a9c">HashStrings</link>(key);
+<anchor xml:id="__hash_table_8h_source_1l00191"/>00191 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(index&#32;&lt;&#32;0&#32;||&#32;index&#32;&gt;=&#32;<link linkend="_class_hash_table_1a5ae2a80028aa9f9ebf4ecab73596a112">keys</link>.getsize()){
+<anchor xml:id="__hash_table_8h_source_1l00192"/>00192 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">throw</emphasis>&#32;std::out_of_range(<emphasis role="stringliteral">&quot;Key&#32;index&#32;out&#32;of&#32;range&quot;</emphasis>);
+<anchor xml:id="__hash_table_8h_source_1l00193"/>00193 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00194"/>00194 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_hash_table_1a5ae2a80028aa9f9ebf4ecab73596a112">keys</link>[index];
+<anchor xml:id="__hash_table_8h_source_1l00195"/>00195 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00196"/>00196 
+<anchor xml:id="__hash_table_8h_source_1l00197"/>00197 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Additional&#32;Methods</emphasis>
+<anchor xml:id="__hash_table_8h_source_1l00198"/><link linkend="_class_hash_table_1a334c472f741326880069131e6e250d04">00198</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_hash_table_1a334c472f741326880069131e6e250d04">getBuckets</link>()<emphasis role="keyword">&#32;const</emphasis>{
+<anchor xml:id="__hash_table_8h_source_1l00199"/>00199 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_hash_table_1a3761b4f1a66408666d0fca9184303023">buckets</link>;
+<anchor xml:id="__hash_table_8h_source_1l00200"/>00200 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00201"/>00201 
+<anchor xml:id="__hash_table_8h_source_1l00202"/><link linkend="_class_hash_table_1ad155e0413babe87efb83d94a8c4abaaf">00202</link> &#32;&#32;&#32;&#32;std::string&#32;<link linkend="_class_hash_table_1ad155e0413babe87efb83d94a8c4abaaf">getName</link>()<emphasis role="keyword">&#32;const</emphasis>{
+<anchor xml:id="__hash_table_8h_source_1l00203"/>00203 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_hash_table_1ad53bacae6dae1507bb9bb9ac53158598">name</link>;
+<anchor xml:id="__hash_table_8h_source_1l00204"/>00204 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00205"/>00205 
+<anchor xml:id="__hash_table_8h_source_1l00206"/><link linkend="_class_hash_table_1a78319df5357e26b81cfa732d9fd23967">00206</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;<link linkend="_class_hash_table_1a78319df5357e26b81cfa732d9fd23967">getMinValue</link>(){
+<anchor xml:id="__hash_table_8h_source_1l00207"/>00207 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(<link linkend="_class_hash_table_1a8c27e577df26c95d566937bea18f4525">data</link>.getsize()&#32;==&#32;0){
+<anchor xml:id="__hash_table_8h_source_1l00208"/>00208 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">throw</emphasis>&#32;std::runtime_error(<emphasis role="stringliteral">&quot;HashTable&#32;is&#32;empty&quot;</emphasis>);
+<anchor xml:id="__hash_table_8h_source_1l00209"/>00209 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00210"/>00210 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;min;
+<anchor xml:id="__hash_table_8h_source_1l00211"/>00211 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;first&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="__hash_table_8h_source_1l00212"/>00212 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;<link linkend="_class_hash_table_1a8c27e577df26c95d566937bea18f4525">data</link>.getsize();&#32;i++){
+<anchor xml:id="__hash_table_8h_source_1l00213"/>00213 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_linked_list">LinkedList&lt;std::list&lt;T&gt;</link>&gt;&#32;bucket&#32;=&#32;<link linkend="_class_hash_table_1a8c27e577df26c95d566937bea18f4525">data</link>[i];
+<anchor xml:id="__hash_table_8h_source_1l00214"/>00214 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>(<emphasis role="keyword">auto</emphasis>&#32;it&#32;=&#32;bucket.<link linkend="_class_linked_list_1a417e93e223b5e9f5a511cee4c56ac338">begin</link>();&#32;it&#32;!=&#32;bucket.<link linkend="_class_linked_list_1abd13f8fef21c6b9a594a36e31d0f79ad">end</link>();&#32;++it){
+<anchor xml:id="__hash_table_8h_source_1l00215"/>00215 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>(<emphasis role="keyword">const</emphasis>&#32;T&amp;&#32;item&#32;:&#32;*it){
+<anchor xml:id="__hash_table_8h_source_1l00216"/>00216 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(first&#32;||&#32;std::stof(item)&#32;&lt;&#32;min){
+<anchor xml:id="__hash_table_8h_source_1l00217"/>00217 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;min&#32;=&#32;std::stof(item);
+<anchor xml:id="__hash_table_8h_source_1l00218"/>00218 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;first&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="__hash_table_8h_source_1l00219"/>00219 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00220"/>00220 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00221"/>00221 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00222"/>00222 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00223"/>00223 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;min;
+<anchor xml:id="__hash_table_8h_source_1l00224"/>00224 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00225"/>00225 
+<anchor xml:id="__hash_table_8h_source_1l00226"/>00226 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Append&#32;Methods</emphasis>
+<anchor xml:id="__hash_table_8h_source_1l00227"/><link linkend="_class_hash_table_1abf14fb1b8620c525979c1273ed8197e7">00227</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_hash_table_1abf14fb1b8620c525979c1273ed8197e7">appendTable</link>(<emphasis role="keywordtype">int</emphasis>&#32;hashCode,&#32;<emphasis role="keyword">const</emphasis>&#32;std::string&amp;&#32;value,&#32;<link linkend="_class_hash_table_1aef9a69291686266a617009ace9bcb135">HashTable&lt;T&gt;</link>&amp;&#32;values){
+<anchor xml:id="__hash_table_8h_source_1l00228"/>00228 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_hash_table_1a5ae2a80028aa9f9ebf4ecab73596a112">keys</link>.append(value);
+<anchor xml:id="__hash_table_8h_source_1l00229"/>00229 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_hash_table_1a49468455f43c02eed6b75ca5ee16c9d5">dataTables</link>[hashCode].appendinLL(values);
+<anchor xml:id="__hash_table_8h_source_1l00230"/>00230 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00231"/>00231 
+<anchor xml:id="__hash_table_8h_source_1l00232"/><link linkend="_class_hash_table_1a19d70062202d74e388bd00ee3e60252c">00232</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_hash_table_1a19d70062202d74e388bd00ee3e60252c">appendHashes</link>(<link linkend="_class_array_list">ArrayList&lt;T&gt;</link>&amp;&#32;bus_keys,&#32;<link linkend="_class_array_list">ArrayList</link>&lt;std::list&lt;T&gt;&gt;&amp;&#32;values)&#32;{
+<anchor xml:id="__hash_table_8h_source_1l00233"/>00233 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;bus_keys.<link linkend="_class_array_list_1a063667aea4d7d7c5967608d3c9e7d475">getsize</link>();&#32;i++)&#32;{
+<anchor xml:id="__hash_table_8h_source_1l00234"/>00234 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;hash&#32;=&#32;<link linkend="_class_hash_table_1a2f9f1e739d8383b38d89fa2508d98a9c">HashStrings</link>(bus_keys[i]);
+<anchor xml:id="__hash_table_8h_source_1l00235"/>00235 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_hash_table_1a5ae2a80028aa9f9ebf4ecab73596a112">keys</link>.append(bus_keys[i]);
+<anchor xml:id="__hash_table_8h_source_1l00236"/>00236 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_hash_table_1a8c27e577df26c95d566937bea18f4525">data</link>[hash].appendinLL(values[i]);
+<anchor xml:id="__hash_table_8h_source_1l00237"/>00237 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00238"/>00238 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00239"/>00239 
+<anchor xml:id="__hash_table_8h_source_1l00240"/><link linkend="_class_hash_table_1ab526b44388ca692ef94c4561c21e1ae9">00240</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_hash_table_1ab526b44388ca692ef94c4561c21e1ae9">appendHashes</link>(<link linkend="_class_array_list">ArrayList&lt;T&gt;</link>&amp;&#32;bus_keys,&#32;<link linkend="_class_array_list">ArrayList</link>&lt;<link linkend="_class_hash_table_1aef9a69291686266a617009ace9bcb135">HashTable&lt;T&gt;</link>&gt;&amp;&#32;values)&#32;{
+<anchor xml:id="__hash_table_8h_source_1l00241"/>00241 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;bus_keys.<link linkend="_class_array_list_1a063667aea4d7d7c5967608d3c9e7d475">getsize</link>();&#32;i++)&#32;{
+<anchor xml:id="__hash_table_8h_source_1l00242"/>00242 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;hash&#32;=&#32;<link linkend="_class_hash_table_1a2f9f1e739d8383b38d89fa2508d98a9c">HashStrings</link>(bus_keys[i]);
+<anchor xml:id="__hash_table_8h_source_1l00243"/>00243 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_hash_table_1a5ae2a80028aa9f9ebf4ecab73596a112">keys</link>.append(bus_keys[i]);
+<anchor xml:id="__hash_table_8h_source_1l00244"/>00244 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_hash_table_1a49468455f43c02eed6b75ca5ee16c9d5">dataTables</link>[hash].appendinLL(values[i]);
+<anchor xml:id="__hash_table_8h_source_1l00245"/>00245 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00246"/>00246 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00247"/>00247 
+<anchor xml:id="__hash_table_8h_source_1l00248"/><link linkend="_class_hash_table_1ae398bb56ee52bc6c176977ea4366d517">00248</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_hash_table_1ae398bb56ee52bc6c176977ea4366d517">appendHashes</link>(<link linkend="_class_array_list">ArrayList&lt;T&gt;</link>&amp;&#32;bus_keys,&#32;<link linkend="_class_hash_table_1aef9a69291686266a617009ace9bcb135">HashTable&lt;T&gt;</link>&amp;&#32;values)&#32;{
+<anchor xml:id="__hash_table_8h_source_1l00249"/>00249 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;bus_keys.<link linkend="_class_array_list_1a063667aea4d7d7c5967608d3c9e7d475">getsize</link>();&#32;i++)&#32;{
+<anchor xml:id="__hash_table_8h_source_1l00250"/>00250 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;hash&#32;=&#32;<link linkend="_class_hash_table_1a2f9f1e739d8383b38d89fa2508d98a9c">HashStrings</link>(bus_keys[i]);
+<anchor xml:id="__hash_table_8h_source_1l00251"/>00251 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_hash_table_1a5ae2a80028aa9f9ebf4ecab73596a112">keys</link>.append(bus_keys[i]);
+<anchor xml:id="__hash_table_8h_source_1l00252"/>00252 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_hash_table_1a49468455f43c02eed6b75ca5ee16c9d5">dataTables</link>[hash].appendinLL(values);
+<anchor xml:id="__hash_table_8h_source_1l00253"/>00253 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00254"/>00254 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00255"/>00255 
+<anchor xml:id="__hash_table_8h_source_1l00256"/><link linkend="_class_hash_table_1a017abff6a21774cfc698883f383aba59">00256</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_hash_table_1a017abff6a21774cfc698883f383aba59">appendHashes</link>(<link linkend="_class_array_list">ArrayList&lt;std::string&gt;</link>&amp;&#32;bus_keys,&#32;T&#32;distances)&#32;{
+<anchor xml:id="__hash_table_8h_source_1l00257"/>00257 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;bus_keys.<link linkend="_class_array_list_1a063667aea4d7d7c5967608d3c9e7d475">getsize</link>();&#32;i++)&#32;{
+<anchor xml:id="__hash_table_8h_source_1l00258"/>00258 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_hash_table_1a5ae2a80028aa9f9ebf4ecab73596a112">keys</link>.append(bus_keys[i]);
+<anchor xml:id="__hash_table_8h_source_1l00259"/>00259 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;hash&#32;=&#32;<link linkend="_class_hash_table_1a2f9f1e739d8383b38d89fa2508d98a9c">HashStrings</link>(bus_keys[i]);
+<anchor xml:id="__hash_table_8h_source_1l00260"/>00260 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_hash_table_1a039c57adf89f0ef47e99165b152fe4dd">dataT</link>[hash].appendinLL(distances);
+<anchor xml:id="__hash_table_8h_source_1l00261"/>00261 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00262"/>00262 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00263"/>00263 
+<anchor xml:id="__hash_table_8h_source_1l00264"/><link linkend="_class_hash_table_1a579bdf29d6361e749a091ca6b2f01111">00264</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_hash_table_1a579bdf29d6361e749a091ca6b2f01111">appendHashes</link>(std::string&#32;bus_keys,&#32;std::string&#32;busnames)&#32;{
+<anchor xml:id="__hash_table_8h_source_1l00265"/>00265 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;hash&#32;=&#32;<link linkend="_class_hash_table_1a2f9f1e739d8383b38d89fa2508d98a9c">HashStrings</link>(bus_keys);
+<anchor xml:id="__hash_table_8h_source_1l00266"/>00266 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_hash_table_1a5ae2a80028aa9f9ebf4ecab73596a112">keys</link>.append(bus_keys);
+<anchor xml:id="__hash_table_8h_source_1l00267"/>00267 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_hash_table_1a039c57adf89f0ef47e99165b152fe4dd">dataT</link>[hash].appendinLL(busnames);
+<anchor xml:id="__hash_table_8h_source_1l00268"/>00268 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00269"/>00269 
+<anchor xml:id="__hash_table_8h_source_1l00270"/><link linkend="_class_hash_table_1a0c2f65372ae69ba7852b552238f5accd">00270</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_hash_table_1a0c2f65372ae69ba7852b552238f5accd">appendHashes</link>(<link linkend="_class_array_list">ArrayList&lt;std::string&gt;</link>&amp;&#32;bus_keys,&#32;<emphasis role="keywordtype">float</emphasis>&#32;distances)&#32;{
+<anchor xml:id="__hash_table_8h_source_1l00271"/>00271 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;bus_keys.<link linkend="_class_array_list_1a063667aea4d7d7c5967608d3c9e7d475">getsize</link>();&#32;i++)&#32;{
+<anchor xml:id="__hash_table_8h_source_1l00272"/>00272 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_hash_table_1a5ae2a80028aa9f9ebf4ecab73596a112">keys</link>.append(bus_keys[i]);
+<anchor xml:id="__hash_table_8h_source_1l00273"/>00273 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;hash&#32;=&#32;<link linkend="_class_hash_table_1a2f9f1e739d8383b38d89fa2508d98a9c">HashStrings</link>(bus_keys[i]);
+<anchor xml:id="__hash_table_8h_source_1l00274"/>00274 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_hash_table_1a039c57adf89f0ef47e99165b152fe4dd">dataT</link>[hash].appendinLL(distances);
+<anchor xml:id="__hash_table_8h_source_1l00275"/>00275 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00276"/>00276 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00277"/>00277 
+<anchor xml:id="__hash_table_8h_source_1l00278"/>00278 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Friend&#32;Declaration&#32;for&#32;Operator&lt;&lt;</emphasis>
+<anchor xml:id="__hash_table_8h_source_1l00279"/>00279 &#32;&#32;&#32;&#32;<emphasis role="keyword">friend</emphasis>&#32;std::ostream&amp;&#32;operator&lt;&lt;&#32;&lt;&gt;(std::ostream&amp;&#32;os,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_hash_table">HashTable&lt;T&gt;</link>&amp;&#32;table);
+<anchor xml:id="__hash_table_8h_source_1l00280"/>00280 };
+<anchor xml:id="__hash_table_8h_source_1l00281"/>00281 
+<anchor xml:id="__hash_table_8h_source_1l00282"/>00282 <emphasis role="comment">//&#32;Friend&#32;function&#32;implementation</emphasis>
+<anchor xml:id="__hash_table_8h_source_1l00283"/>00283 <emphasis role="keyword">template</emphasis>&#32;&lt;<emphasis role="keyword">class</emphasis>&#32;T&gt;
+<anchor xml:id="__hash_table_8h_source_1l00284"/><link linkend="_class_hash_table_1a3fdbe798fd18986e2af4bb41723be979">00284</link> std::ostream&amp;&#32;<link linkend="__hash_table_8h_1a8aff5ad6a6852fcfb7cbaa3936aad758">operator&lt;&lt;</link>(std::ostream&amp;&#32;os,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_hash_table_1aef9a69291686266a617009ace9bcb135">HashTable&lt;T&gt;</link>&amp;&#32;table){
+<anchor xml:id="__hash_table_8h_source_1l00285"/>00285 
+<anchor xml:id="__hash_table_8h_source_1l00286"/>00286 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;table.<link linkend="_class_hash_table_1a5ae2a80028aa9f9ebf4ecab73596a112">keys</link>.<link linkend="_class_array_list_1a063667aea4d7d7c5967608d3c9e7d475">getsize</link>();&#32;i++){
+<anchor xml:id="__hash_table_8h_source_1l00287"/>00287 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;hash&#32;=&#32;table.<link linkend="_class_hash_table_1a2f9f1e739d8383b38d89fa2508d98a9c">HashStrings</link>(table.<link linkend="_class_hash_table_1a5ae2a80028aa9f9ebf4ecab73596a112">keys</link>[i]);
+<anchor xml:id="__hash_table_8h_source_1l00288"/>00288 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;os&#32;&lt;&lt;&#32;table.<link linkend="_class_hash_table_1a5ae2a80028aa9f9ebf4ecab73596a112">keys</link>[i]&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;:&#32;&quot;</emphasis>;
+<anchor xml:id="__hash_table_8h_source_1l00289"/>00289 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>(std::is_same&lt;T,&#32;std::list&lt;typename&#32;T::value_type&gt;&gt;::value){
+<anchor xml:id="__hash_table_8h_source_1l00290"/>00290 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;os&#32;&lt;&lt;&#32;table.<link linkend="_class_hash_table_1a8c27e577df26c95d566937bea18f4525">data</link>[hash];
+<anchor xml:id="__hash_table_8h_source_1l00291"/>00291 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00292"/>00292 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>&#32;(std::is_same&lt;T,&#32;HashTable&lt;typename&#32;T::value_type&gt;&gt;::value){
+<anchor xml:id="__hash_table_8h_source_1l00293"/>00293 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;os&#32;&lt;&lt;&#32;table.<link linkend="_class_hash_table_1a49468455f43c02eed6b75ca5ee16c9d5">dataTables</link>[hash];
+<anchor xml:id="__hash_table_8h_source_1l00294"/>00294 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00295"/>00295 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;{
+<anchor xml:id="__hash_table_8h_source_1l00296"/>00296 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;os&#32;&lt;&lt;&#32;table.<link linkend="_class_hash_table_1a039c57adf89f0ef47e99165b152fe4dd">dataT</link>[hash];
+<anchor xml:id="__hash_table_8h_source_1l00297"/>00297 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00298"/>00298 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;os&#32;&lt;&lt;&#32;std::endl&#32;&lt;&lt;&#32;std::endl;
+<anchor xml:id="__hash_table_8h_source_1l00299"/>00299 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__hash_table_8h_source_1l00300"/>00300 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;os;
+<anchor xml:id="__hash_table_8h_source_1l00301"/>00301 }
+<anchor xml:id="__hash_table_8h_source_1l00302"/>00302 
+<anchor xml:id="__hash_table_8h_source_1l00303"/>00303 <emphasis role="preprocessor">#endif</emphasis>
+</programlisting></section>

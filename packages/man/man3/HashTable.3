@@ -1,0 +1,291 @@
+.TH "HashTable< T >" 3 "CatTracks Route Planner" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+HashTable< T >
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <HashTable\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBHashTable\fP ()"
+.br
+.ti -1c
+.RI "\fBHashTable\fP (std::string \fBname\fP, int \fBbuckets\fP)"
+.br
+.ti -1c
+.RI "\fBHashTable\fP (std::string \fBname\fP, \fBArrayList\fP< T > &bus_keys)"
+.br
+.ti -1c
+.RI "\fBHashTable\fP (const \fBHashTable\fP< T > &other)=default"
+.br
+.ti -1c
+.RI "\fBHashTable\fP (\fBHashTable\fP< T > &&other) noexcept=default"
+.br
+.ti -1c
+.RI "\fBHashTable\fP< T > & \fBoperator=\fP (const \fBHashTable\fP< T > &other)=default"
+.br
+.ti -1c
+.RI "\fBHashTable\fP< T > & \fBoperator=\fP (\fBHashTable\fP< T > &&other) noexcept=default"
+.br
+.ti -1c
+.RI "\fB~HashTable\fP ()=default"
+.br
+.ti -1c
+.RI "auto \fBbegin\fP ()"
+.br
+.ti -1c
+.RI "auto \fBend\fP ()"
+.br
+.ti -1c
+.RI "int \fBHashInts\fP (int val)"
+.br
+.ti -1c
+.RI "int \fBHashStrings\fP (const std::string &val) const"
+.br
+.ti -1c
+.RI "\fBArrayList\fP< std::string > \fBgetKeys\fP () const"
+.br
+.ti -1c
+.RI "\fBArrayList\fP< \fBLinkedList\fP< std::list< T > > > \fBgetValues\fP ()"
+.br
+.ti -1c
+.RI "\fBLinkedList\fP< \fBHashTable\fP< T > > \fBgetValues\fP (std::string busname)"
+.br
+.ti -1c
+.RI "std::string \fBsearch\fP (std::string val)"
+.br
+.ti -1c
+.RI "int \fBsearchforKeyIndex\fP (float val)"
+.br
+.ti -1c
+.RI "std::string \fBsearchforKey\fP (float val)"
+.br
+.ti -1c
+.RI "std::string \fBoperator[]\fP (int key)"
+.br
+.ti -1c
+.RI "std::string \fBoperator[]\fP (std::string key)"
+.br
+.ti -1c
+.RI "int \fBgetBuckets\fP () const"
+.br
+.ti -1c
+.RI "std::string \fBgetName\fP () const"
+.br
+.ti -1c
+.RI "float \fBgetMinValue\fP ()"
+.br
+.ti -1c
+.RI "void \fBappendTable\fP (int hashCode, const std::string &value, \fBHashTable\fP< T > &values)"
+.br
+.ti -1c
+.RI "void \fBappendHashes\fP (\fBArrayList\fP< T > &bus_keys, \fBArrayList\fP< std::list< T > > &values)"
+.br
+.ti -1c
+.RI "void \fBappendHashes\fP (\fBArrayList\fP< T > &bus_keys, \fBArrayList\fP< \fBHashTable\fP< T > > &values)"
+.br
+.ti -1c
+.RI "void \fBappendHashes\fP (\fBArrayList\fP< T > &bus_keys, \fBHashTable\fP< T > &values)"
+.br
+.ti -1c
+.RI "void \fBappendHashes\fP (\fBArrayList\fP< std::string > &bus_keys, T distances)"
+.br
+.ti -1c
+.RI "void \fBappendHashes\fP (std::string bus_keys, std::string busnames)"
+.br
+.ti -1c
+.RI "void \fBappendHashes\fP (\fBArrayList\fP< std::string > &bus_keys, float distances)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBbuckets\fP"
+.br
+.ti -1c
+.RI "std::string \fBname\fP"
+.br
+.ti -1c
+.RI "\fBArrayList\fP< std::string > \fBkeys\fP"
+.br
+.ti -1c
+.RI "\fBArrayList\fP< \fBLinkedList\fP< std::list< T > > > \fBdata\fP"
+.br
+.ti -1c
+.RI "\fBArrayList\fP< \fBLinkedList\fP< \fBHashTable\fP< T > > > \fBdataTables\fP"
+.br
+.ti -1c
+.RI "\fBArrayList\fP< \fBLinkedList\fP< T > > \fBdataT\fP"
+.br
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "std::ostream & \fBoperator<<\fP (std::ostream &os, const \fBHashTable\fP< T > &table)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SS "template<class T>
+.br
+class HashTable< T >"
+.PP
+Definition at line \fB20\fP of file \fBHashTable\&.h\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<class T> \fBHashTable\fP< T >\fB::HashTable\fP ()\fR [inline]\fP"
+
+.PP
+Definition at line \fB32\fP of file \fBHashTable\&.h\fP\&.
+.SS "template<class T> \fBHashTable\fP< T >\fB::HashTable\fP (std::string name, int buckets)\fR [inline]\fP"
+
+.PP
+Definition at line \fB36\fP of file \fBHashTable\&.h\fP\&.
+.SS "template<class T> \fBHashTable\fP< T >\fB::HashTable\fP (std::string name, \fBArrayList\fP< T > & bus_keys)\fR [inline]\fP"
+
+.PP
+Definition at line \fB48\fP of file \fBHashTable\&.h\fP\&.
+.SS "template<class T> \fBHashTable\fP< T >\fB::HashTable\fP (const \fBHashTable\fP< T > & other)\fR [default]\fP"
+
+.SS "template<class T> \fBHashTable\fP< T >\fB::HashTable\fP (\fBHashTable\fP< T > && other)\fR [default]\fP, \fR [noexcept]\fP"
+
+.SS "template<class T> \fBHashTable\fP< T >::~\fBHashTable\fP ()\fR [default]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "template<class T> void \fBHashTable\fP< T >::appendHashes (\fBArrayList\fP< std::string > & bus_keys, float distances)\fR [inline]\fP"
+
+.PP
+Definition at line \fB270\fP of file \fBHashTable\&.h\fP\&.
+.SS "template<class T> void \fBHashTable\fP< T >::appendHashes (\fBArrayList\fP< std::string > & bus_keys, T distances)\fR [inline]\fP"
+
+.PP
+Definition at line \fB256\fP of file \fBHashTable\&.h\fP\&.
+.SS "template<class T> void \fBHashTable\fP< T >::appendHashes (\fBArrayList\fP< T > & bus_keys, \fBArrayList\fP< \fBHashTable\fP< T > > & values)\fR [inline]\fP"
+
+.PP
+Definition at line \fB240\fP of file \fBHashTable\&.h\fP\&.
+.SS "template<class T> void \fBHashTable\fP< T >::appendHashes (\fBArrayList\fP< T > & bus_keys, \fBArrayList\fP< std::list< T > > & values)\fR [inline]\fP"
+
+.PP
+Definition at line \fB232\fP of file \fBHashTable\&.h\fP\&.
+.SS "template<class T> void \fBHashTable\fP< T >::appendHashes (\fBArrayList\fP< T > & bus_keys, \fBHashTable\fP< T > & values)\fR [inline]\fP"
+
+.PP
+Definition at line \fB248\fP of file \fBHashTable\&.h\fP\&.
+.SS "template<class T> void \fBHashTable\fP< T >::appendHashes (std::string bus_keys, std::string busnames)\fR [inline]\fP"
+
+.PP
+Definition at line \fB264\fP of file \fBHashTable\&.h\fP\&.
+.SS "template<class T> void \fBHashTable\fP< T >::appendTable (int hashCode, const std::string & value, \fBHashTable\fP< T > & values)\fR [inline]\fP"
+
+.PP
+Definition at line \fB227\fP of file \fBHashTable\&.h\fP\&.
+.SS "template<class T> auto \fBHashTable\fP< T >::begin ()\fR [inline]\fP"
+
+.PP
+Definition at line \fB75\fP of file \fBHashTable\&.h\fP\&.
+.SS "template<class T> auto \fBHashTable\fP< T >::end ()\fR [inline]\fP"
+
+.PP
+Definition at line \fB76\fP of file \fBHashTable\&.h\fP\&.
+.SS "template<class T> int \fBHashTable\fP< T >::getBuckets () const\fR [inline]\fP"
+
+.PP
+Definition at line \fB198\fP of file \fBHashTable\&.h\fP\&.
+.SS "template<class T> \fBArrayList\fP< std::string > \fBHashTable\fP< T >::getKeys () const\fR [inline]\fP"
+
+.PP
+Definition at line \fB104\fP of file \fBHashTable\&.h\fP\&.
+.SS "template<class T> float \fBHashTable\fP< T >::getMinValue ()\fR [inline]\fP"
+
+.PP
+Definition at line \fB206\fP of file \fBHashTable\&.h\fP\&.
+.SS "template<class T> std::string \fBHashTable\fP< T >::getName () const\fR [inline]\fP"
+
+.PP
+Definition at line \fB202\fP of file \fBHashTable\&.h\fP\&.
+.SS "template<class T> \fBArrayList\fP< \fBLinkedList\fP< std::list< T > > > \fBHashTable\fP< T >::getValues ()\fR [inline]\fP"
+
+.PP
+Definition at line \fB108\fP of file \fBHashTable\&.h\fP\&.
+.SS "template<class T> \fBLinkedList\fP< \fBHashTable\fP< T > > \fBHashTable\fP< T >::getValues (std::string busname)\fR [inline]\fP"
+
+.PP
+Definition at line \fB112\fP of file \fBHashTable\&.h\fP\&.
+.SS "template<class T> int \fBHashTable\fP< T >::HashInts (int val)\fR [inline]\fP"
+
+.PP
+Definition at line \fB79\fP of file \fBHashTable\&.h\fP\&.
+.SS "template<class T> int \fBHashTable\fP< T >::HashStrings (const std::string & val) const\fR [inline]\fP"
+
+.PP
+Definition at line \fB83\fP of file \fBHashTable\&.h\fP\&.
+.SS "template<class T> \fBHashTable\fP< T > & \fBHashTable\fP< T >::operator= (const \fBHashTable\fP< T > & other)\fR [default]\fP"
+
+.SS "template<class T> \fBHashTable\fP< T > & \fBHashTable\fP< T >::operator= (\fBHashTable\fP< T > && other)\fR [default]\fP, \fR [noexcept]\fP"
+
+.SS "template<class T> std::string \fBHashTable\fP< T >::operator[] (int key)\fR [inline]\fP"
+
+.PP
+Definition at line \fB181\fP of file \fBHashTable\&.h\fP\&.
+.SS "template<class T> std::string \fBHashTable\fP< T >::operator[] (std::string key)\fR [inline]\fP"
+
+.PP
+Definition at line \fB189\fP of file \fBHashTable\&.h\fP\&.
+.SS "template<class T> std::string \fBHashTable\fP< T >::search (std::string val)\fR [inline]\fP"
+
+.PP
+Definition at line \fB118\fP of file \fBHashTable\&.h\fP\&.
+.SS "template<class T> std::string \fBHashTable\fP< T >::searchforKey (float val)\fR [inline]\fP"
+
+.PP
+Definition at line \fB148\fP of file \fBHashTable\&.h\fP\&.
+.SS "template<class T> int \fBHashTable\fP< T >::searchforKeyIndex (float val)\fR [inline]\fP"
+
+.PP
+Definition at line \fB128\fP of file \fBHashTable\&.h\fP\&.
+.SH "Friends And Related Symbol Documentation"
+.PP 
+.SS "template<class T> std::ostream & operator<< (std::ostream & os, const \fBHashTable\fP< T > & table)\fR [friend]\fP"
+
+.PP
+Definition at line \fB284\fP of file \fBHashTable\&.h\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "template<class T> int \fBHashTable\fP< T >::buckets\fR [protected]\fP"
+
+.PP
+Definition at line \fB22\fP of file \fBHashTable\&.h\fP\&.
+.SS "template<class T> \fBArrayList\fP<\fBLinkedList\fP<std::list<T> > > \fBHashTable\fP< T >::data\fR [protected]\fP"
+
+.PP
+Definition at line \fB26\fP of file \fBHashTable\&.h\fP\&.
+.SS "template<class T> \fBArrayList\fP<\fBLinkedList\fP<T> > \fBHashTable\fP< T >::dataT\fR [protected]\fP"
+
+.PP
+Definition at line \fB28\fP of file \fBHashTable\&.h\fP\&.
+.SS "template<class T> \fBArrayList\fP<\fBLinkedList\fP<\fBHashTable\fP<T> > > \fBHashTable\fP< T >::dataTables\fR [protected]\fP"
+
+.PP
+Definition at line \fB27\fP of file \fBHashTable\&.h\fP\&.
+.SS "template<class T> \fBArrayList\fP<std::string> \fBHashTable\fP< T >::keys\fR [protected]\fP"
+
+.PP
+Definition at line \fB24\fP of file \fBHashTable\&.h\fP\&.
+.SS "template<class T> std::string \fBHashTable\fP< T >::name\fR [protected]\fP"
+
+.PP
+Definition at line \fB23\fP of file \fBHashTable\&.h\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CatTracks Route Planner from the source code\&.

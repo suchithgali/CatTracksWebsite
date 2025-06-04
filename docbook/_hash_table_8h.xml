@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__hash_table_8h" xml:lang="en-US">
+<title>HashTable.h File Reference</title>
+<indexterm><primary>HashTable.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;ArrayList.h&quot;<?linebreak?>#include &quot;LinkedList.h&quot;<?linebreak?>#include &lt;string&gt;<?linebreak?>#include &lt;list&gt;<?linebreak?>#include &lt;ostream&gt;<?linebreak?>#include &lt;typeinfo&gt;<?linebreak?>#include &lt;algorithm&gt;<?linebreak?>#include &lt;type_traits&gt;<?linebreak?></programlisting>Include dependency graph for HashTable.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_hash_table_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_hash_table_8h__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_hash_table">HashTable&lt; T &gt;</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>template&lt;class T&gt; </para><para>std::ostream &amp; <link linkend="__hash_table_8h_1a8aff5ad6a6852fcfb7cbaa3936aad758">operator&lt;&lt;</link> (std::ostream &amp;os, const <link linkend="_class_hash_table">HashTable</link>&lt; T &gt; &amp;container)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="__hash_table_8h_1a8aff5ad6a6852fcfb7cbaa3936aad758"/><section>
+    <title>operator&lt;&lt;()</title>
+<indexterm><primary>operator&lt;&lt;</primary><secondary>HashTable.h</secondary></indexterm>
+<indexterm><primary>HashTable.h</primary><secondary>operator&lt;&lt;</secondary></indexterm>
+<computeroutput>template&lt;class T&gt; </computeroutput><para><computeroutput>std::ostream &amp; operator&lt;&lt; (std::ostream &amp; os, const <link linkend="_class_hash_table">HashTable</link>&lt; T &gt; &amp; container)</computeroutput></para><para>
+Definition at line <link linkend="__hash_table_8h_source_1l00284">284</link> of file <link linkend="__hash_table_8h_source">HashTable.h</link>.</para>
+</section>
+</section>
+</section>

@@ -1,0 +1,235 @@
+.TH "ArrayList< T >" 3 "CatTracks Route Planner" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ArrayList< T >
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <ArrayList\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBArrayList\fP ()"
+.br
+.ti -1c
+.RI "auto \fBbegin\fP ()"
+.br
+.ti -1c
+.RI "auto \fBend\fP ()"
+.br
+.ti -1c
+.RI "\fBArrayList\fP (const \fBArrayList\fP &other)"
+.br
+.ti -1c
+.RI "\fBArrayList\fP & \fBoperator=\fP (const \fBArrayList\fP &other)"
+.br
+.ti -1c
+.RI "\fBArrayList\fP (std::initializer_list< T > list)"
+.br
+.ti -1c
+.RI "\fBArrayList\fP \fBinsertionSort\fP (\fBArrayList\fP< T > &list)"
+.br
+.ti -1c
+.RI "void \fBappend\fP (T value)"
+.br
+.ti -1c
+.RI "void \fBappend\fP (\fBLinkedList\fP< std::list< T > > *value)"
+.br
+.ti -1c
+.RI "int \fBgetsize\fP () const"
+.br
+.ti -1c
+.RI "T * \fBgetarr\fP ()"
+.br
+.ti -1c
+.RI "void \fBprepend\fP (T val)"
+.br
+.ti -1c
+.RI "void \fBremoveFirst\fP ()"
+.br
+.ti -1c
+.RI "void \fBremoveLast\fP ()"
+.br
+.ti -1c
+.RI "T & \fBoperator[]\fP (int \fBindex\fP)"
+.br
+.ti -1c
+.RI "const T & \fBoperator[]\fP (int \fBindex\fP) const"
+.br
+.ti -1c
+.RI "int \fBsize\fP ()"
+.br
+.ti -1c
+.RI "int \fBindex\fP (T target)"
+.br
+.ti -1c
+.RI "std::string \fBsearch\fP (std::string target)"
+.br
+.ti -1c
+.RI "\fB~ArrayList\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBinflate\fP ()"
+.br
+.ti -1c
+.RI "void \fBdeflate\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "T * \fBarr\fP"
+.br
+.ti -1c
+.RI "int \fBcount\fP"
+.br
+.ti -1c
+.RI "int \fBcapacity\fP"
+.br
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "struct \fBTestArrayList\fP"
+.br
+.ti -1c
+.RI "std::ostream & \fBoperator<<\fP (std::ostream &os, const \fBArrayList\fP< T > &container)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SS "template<class T>
+.br
+class ArrayList< T >"
+.PP
+Definition at line \fB19\fP of file \fBArrayList\&.h\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<class T> \fBArrayList\fP< T >\fB::ArrayList\fP ()\fR [inline]\fP"
+
+.PP
+Definition at line \fB60\fP of file \fBArrayList\&.h\fP\&.
+.SS "template<class T> \fBArrayList\fP< T >\fB::ArrayList\fP (const \fBArrayList\fP< T > & other)\fR [inline]\fP"
+
+.PP
+Definition at line \fB69\fP of file \fBArrayList\&.h\fP\&.
+.SS "template<class T> \fBArrayList\fP< T >\fB::ArrayList\fP (std::initializer_list< T > list)\fR [inline]\fP"
+
+.PP
+Definition at line \fB93\fP of file \fBArrayList\&.h\fP\&.
+.SS "template<class T> \fBArrayList\fP< T >::~\fBArrayList\fP ()\fR [inline]\fP"
+
+.PP
+Definition at line \fB222\fP of file \fBArrayList\&.h\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "template<class T> void \fBArrayList\fP< T >::append (\fBLinkedList\fP< std::list< T > > * value)\fR [inline]\fP"
+
+.PP
+Definition at line \fB128\fP of file \fBArrayList\&.h\fP\&.
+.SS "template<class T> void \fBArrayList\fP< T >::append (T value)\fR [inline]\fP"
+
+.PP
+Definition at line \fB119\fP of file \fBArrayList\&.h\fP\&.
+.SS "template<class T> auto \fBArrayList\fP< T >::begin ()\fR [inline]\fP"
+
+.PP
+Definition at line \fB66\fP of file \fBArrayList\&.h\fP\&.
+.SS "template<class T> void \fBArrayList\fP< T >::deflate ()\fR [inline]\fP, \fR [protected]\fP"
+
+.PP
+Definition at line \fB44\fP of file \fBArrayList\&.h\fP\&.
+.SS "template<class T> auto \fBArrayList\fP< T >::end ()\fR [inline]\fP"
+
+.PP
+Definition at line \fB67\fP of file \fBArrayList\&.h\fP\&.
+.SS "template<class T> T * \fBArrayList\fP< T >::getarr ()\fR [inline]\fP"
+
+.PP
+Definition at line \fB140\fP of file \fBArrayList\&.h\fP\&.
+.SS "template<class T> int \fBArrayList\fP< T >::getsize () const\fR [inline]\fP"
+
+.PP
+Definition at line \fB136\fP of file \fBArrayList\&.h\fP\&.
+.SS "template<class T> int \fBArrayList\fP< T >::index (T target)\fR [inline]\fP"
+
+.PP
+Definition at line \fB182\fP of file \fBArrayList\&.h\fP\&.
+.SS "template<class T> void \fBArrayList\fP< T >::inflate ()\fR [inline]\fP, \fR [protected]\fP"
+
+.PP
+Definition at line \fB25\fP of file \fBArrayList\&.h\fP\&.
+.SS "template<class T> \fBArrayList\fP \fBArrayList\fP< T >::insertionSort (\fBArrayList\fP< T > & list)\fR [inline]\fP"
+
+.PP
+Definition at line \fB105\fP of file \fBArrayList\&.h\fP\&.
+.SS "template<class T> \fBArrayList\fP & \fBArrayList\fP< T >::operator= (const \fBArrayList\fP< T > & other)\fR [inline]\fP"
+
+.PP
+Definition at line \fB78\fP of file \fBArrayList\&.h\fP\&.
+.SS "template<class T> T & \fBArrayList\fP< T >::operator[] (int index)\fR [inline]\fP"
+
+.PP
+Definition at line \fB170\fP of file \fBArrayList\&.h\fP\&.
+.SS "template<class T> const T & \fBArrayList\fP< T >::operator[] (int index) const\fR [inline]\fP"
+
+.PP
+Definition at line \fB174\fP of file \fBArrayList\&.h\fP\&.
+.SS "template<class T> void \fBArrayList\fP< T >::prepend (T val)\fR [inline]\fP"
+
+.PP
+Definition at line \fB144\fP of file \fBArrayList\&.h\fP\&.
+.SS "template<class T> void \fBArrayList\fP< T >::removeFirst ()\fR [inline]\fP"
+
+.PP
+Definition at line \fB155\fP of file \fBArrayList\&.h\fP\&.
+.SS "template<class T> void \fBArrayList\fP< T >::removeLast ()\fR [inline]\fP"
+
+.PP
+Definition at line \fB166\fP of file \fBArrayList\&.h\fP\&.
+.SS "template<class T> std::string \fBArrayList\fP< T >::search (std::string target)\fR [inline]\fP"
+
+.PP
+Definition at line \fB202\fP of file \fBArrayList\&.h\fP\&.
+.SS "template<class T> int \fBArrayList\fP< T >::size ()\fR [inline]\fP"
+
+.PP
+Definition at line \fB178\fP of file \fBArrayList\&.h\fP\&.
+.SH "Friends And Related Symbol Documentation"
+.PP 
+.SS "template<class T> std::ostream & operator<< (std::ostream & os, const \fBArrayList\fP< T > & container)\fR [friend]\fP"
+
+.PP
+Definition at line \fB231\fP of file \fBArrayList\&.h\fP\&.
+.SS "template<class T> friend struct TestArrayList\fR [friend]\fP"
+
+.PP
+Definition at line \fB227\fP of file \fBArrayList\&.h\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "template<class T> T* \fBArrayList\fP< T >::arr\fR [protected]\fP"
+
+.PP
+Definition at line \fB21\fP of file \fBArrayList\&.h\fP\&.
+.SS "template<class T> int \fBArrayList\fP< T >::capacity\fR [protected]\fP"
+
+.PP
+Definition at line \fB23\fP of file \fBArrayList\&.h\fP\&.
+.SS "template<class T> int \fBArrayList\fP< T >::count\fR [protected]\fP"
+
+.PP
+Definition at line \fB22\fP of file \fBArrayList\&.h\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CatTracks Route Planner from the source code\&.
