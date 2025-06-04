@@ -1,0 +1,219 @@
+.TH "search" 3 "CatTracks Route Planner" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+search
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBvalidatePlaceq1\fP (target, start, end)"
+.br
+.ti -1c
+.RI "\fBvalidatePlaceq2\fP (target, start, end)"
+.br
+.ti -1c
+.RI "\fBvalidateTime\fP (input_time)"
+.br
+.ti -1c
+.RI "\fBdict_binary_search\fP (name, target)"
+.br
+.ti -1c
+.RI "\fBfindBusTaken\fP ()"
+.br
+.ti -1c
+.RI "\fBbusGoStops\fP ()"
+.br
+.ti -1c
+.RI "\fBfindBusGo\fP ()"
+.br
+.ti -1c
+.RI "\fBfindshortestBus\fP ()"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBtz_LA\fP = pytz\&.timezone('America/Los_Angeles')"
+.br
+.ti -1c
+.RI "\fBdatetime_LA\fP = datetime\&.now(\fBtz_LA\fP)"
+.br
+.ti -1c
+.RI "bool \fBplaceFoundq1\fP = False"
+.br
+.ti -1c
+.RI "bool \fBplaceFoundq2\fP = False"
+.br
+.ti -1c
+.RI "\fBq1\fP = input('Where would you like to go?: ')"
+.br
+.ti -1c
+.RI "\fBq2\fP = input('Where are you currently located?: ')"
+.br
+.ti -1c
+.RI "dict \fBnamed_stops\fP = {'Bobcat Express': bobcat_express_stops, 'C1': C1_stops, 'C2': C2_stops, 'E1': E1_stops, 'E2': E2_stops, 'Fastcat': Fastcat_stops, 'Fastcat 2': Fastcat2_stops, 'G Line': G_line_stops, 'Yosemite Express' : yosemite_express_stops}"
+.br
+.ti -1c
+.RI "dict \fBbus_names\fP = {}"
+.br
+.ti -1c
+.RI "dict \fBpossible_buses\fP = {}"
+.br
+.ti -1c
+.RI "list \fBpossible_busnames\fP = []"
+.br
+.ti -1c
+.RI "dict \fBpossible_distances\fP = {}"
+.br
+.ti -1c
+.RI "list \fBshortest_stops\fP = []"
+.br
+.ti -1c
+.RI "dict \fBbusGo_stops\fP = {}"
+.br
+.ti -1c
+.RI "dict \fBdistances_dict\fP = {}"
+.br
+.ti -1c
+.RI "dict \fBshortestnames_stops\fP = {}"
+.br
+.ti -1c
+.RI "list \fBdistances_list\fP = []"
+.br
+.ti -1c
+.RI "\fBq3\fP = input('What time would you like to arrive by? Enter a time (Hour:Minute:Second format): ')"
+.br
+.ti -1c
+.RI "\fBclient\fP = ORS(api_key='5b3ce3597851110001cf6248e4dacfb3ab0a4b1d83a0511ffdd542f3')"
+.br
+.ti -1c
+.RI "\fBpotential_buses\fP = set()"
+.br
+.ti -1c
+.RI "\fBunique_list\fP = list(\fBpotential_buses\fP)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "search\&.busGoStops ()"
+
+.PP
+Definition at line \fB134\fP of file \fBsearch\&.py\fP\&.
+.SS "search\&.dict_binary_search ( name,  target)"
+
+.PP
+Definition at line \fB114\fP of file \fBsearch\&.py\fP\&.
+.SS "search\&.findBusGo ()"
+
+.PP
+Definition at line \fB142\fP of file \fBsearch\&.py\fP\&.
+.SS "search\&.findBusTaken ()"
+
+.PP
+Definition at line \fB129\fP of file \fBsearch\&.py\fP\&.
+.SS "search\&.findshortestBus ()"
+
+.PP
+Definition at line \fB173\fP of file \fBsearch\&.py\fP\&.
+.SS "search\&.validatePlaceq1 ( target,  start,  end)"
+
+.PP
+Definition at line \fB12\fP of file \fBsearch\&.py\fP\&.
+.SS "search\&.validatePlaceq2 ( target,  start,  end)"
+
+.PP
+Definition at line \fB27\fP of file \fBsearch\&.py\fP\&.
+.SS "search\&.validateTime ( input_time)"
+
+.PP
+Definition at line \fB42\fP of file \fBsearch\&.py\fP\&.
+.SH "Variable Documentation"
+.PP 
+.SS "dict search\&.bus_names = {}"
+
+.PP
+Definition at line \fB96\fP of file \fBsearch\&.py\fP\&.
+.SS "dict search\&.busGo_stops = {}"
+
+.PP
+Definition at line \fB101\fP of file \fBsearch\&.py\fP\&.
+.SS "search\&.client = ORS(api_key='5b3ce3597851110001cf6248e4dacfb3ab0a4b1d83a0511ffdd542f3')"
+
+.PP
+Definition at line \fB141\fP of file \fBsearch\&.py\fP\&.
+.SS "search\&.datetime_LA = datetime\&.now(\fBtz_LA\fP)"
+
+.PP
+Definition at line \fB6\fP of file \fBsearch\&.py\fP\&.
+.SS "dict search\&.distances_dict = {}"
+
+.PP
+Definition at line \fB102\fP of file \fBsearch\&.py\fP\&.
+.SS "list search\&.distances_list = []"
+
+.PP
+Definition at line \fB104\fP of file \fBsearch\&.py\fP\&.
+.SS "dict search\&.named_stops = {'Bobcat Express': bobcat_express_stops, 'C1': C1_stops, 'C2': C2_stops, 'E1': E1_stops, 'E2': E2_stops, 'Fastcat': Fastcat_stops, 'Fastcat 2': Fastcat2_stops, 'G Line': G_line_stops, 'Yosemite Express' : yosemite_express_stops}"
+
+.PP
+Definition at line \fB95\fP of file \fBsearch\&.py\fP\&.
+.SS "bool search\&.placeFoundq1 = False"
+
+.PP
+Definition at line \fB10\fP of file \fBsearch\&.py\fP\&.
+.SS "bool search\&.placeFoundq2 = False"
+
+.PP
+Definition at line \fB11\fP of file \fBsearch\&.py\fP\&.
+.SS "dict search\&.possible_buses = {}"
+
+.PP
+Definition at line \fB97\fP of file \fBsearch\&.py\fP\&.
+.SS "list search\&.possible_busnames = []"
+
+.PP
+Definition at line \fB98\fP of file \fBsearch\&.py\fP\&.
+.SS "dict search\&.possible_distances = {}"
+
+.PP
+Definition at line \fB99\fP of file \fBsearch\&.py\fP\&.
+.SS "search\&.potential_buses = set()"
+
+.PP
+Definition at line \fB198\fP of file \fBsearch\&.py\fP\&.
+.SS "search\&.q1 = input('Where would you like to go?: ')"
+
+.PP
+Definition at line \fB55\fP of file \fBsearch\&.py\fP\&.
+.SS "search\&.q2 = input('Where are you currently located?: ')"
+
+.PP
+Definition at line \fB73\fP of file \fBsearch\&.py\fP\&.
+.SS "search\&.q3 = input('What time would you like to arrive by? Enter a time (Hour:Minute:Second format): ')"
+
+.PP
+Definition at line \fB106\fP of file \fBsearch\&.py\fP\&.
+.SS "list search\&.shortest_stops = []"
+
+.PP
+Definition at line \fB100\fP of file \fBsearch\&.py\fP\&.
+.SS "dict search\&.shortestnames_stops = {}"
+
+.PP
+Definition at line \fB103\fP of file \fBsearch\&.py\fP\&.
+.SS "search\&.tz_LA = pytz\&.timezone('America/Los_Angeles')"
+
+.PP
+Definition at line \fB5\fP of file \fBsearch\&.py\fP\&.
+.SS "search\&.unique_list = list(\fBpotential_buses\fP)"
+
+.PP
+Definition at line \fB205\fP of file \fBsearch\&.py\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CatTracks Route Planner from the source code\&.

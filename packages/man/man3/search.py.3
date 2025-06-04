@@ -1,0 +1,110 @@
+.TH "search.py" 3 "CatTracks Route Planner" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+search.py
+.SH SYNOPSIS
+.br
+.PP
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI "namespace \fBsearch\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBsearch\&.validatePlaceq1\fP (target, start, end)"
+.br
+.ti -1c
+.RI "\fBsearch\&.validatePlaceq2\fP (target, start, end)"
+.br
+.ti -1c
+.RI "\fBsearch\&.validateTime\fP (input_time)"
+.br
+.ti -1c
+.RI "\fBsearch\&.dict_binary_search\fP (name, target)"
+.br
+.ti -1c
+.RI "\fBsearch\&.findBusTaken\fP ()"
+.br
+.ti -1c
+.RI "\fBsearch\&.busGoStops\fP ()"
+.br
+.ti -1c
+.RI "\fBsearch\&.findBusGo\fP ()"
+.br
+.ti -1c
+.RI "\fBsearch\&.findshortestBus\fP ()"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBsearch\&.tz_LA\fP = pytz\&.timezone('America/Los_Angeles')"
+.br
+.ti -1c
+.RI "\fBsearch\&.datetime_LA\fP = datetime\&.now(\fBtz_LA\fP)"
+.br
+.ti -1c
+.RI "bool \fBsearch\&.placeFoundq1\fP = False"
+.br
+.ti -1c
+.RI "bool \fBsearch\&.placeFoundq2\fP = False"
+.br
+.ti -1c
+.RI "\fBsearch\&.q1\fP = input('Where would you like to go?: ')"
+.br
+.ti -1c
+.RI "\fBsearch\&.q2\fP = input('Where are you currently located?: ')"
+.br
+.ti -1c
+.RI "dict \fBsearch\&.named_stops\fP = {'Bobcat Express': bobcat_express_stops, 'C1': C1_stops, 'C2': C2_stops, 'E1': E1_stops, 'E2': E2_stops, 'Fastcat': Fastcat_stops, 'Fastcat 2': Fastcat2_stops, 'G Line': G_line_stops, 'Yosemite Express' : yosemite_express_stops}"
+.br
+.ti -1c
+.RI "dict \fBsearch\&.bus_names\fP = {}"
+.br
+.ti -1c
+.RI "dict \fBsearch\&.possible_buses\fP = {}"
+.br
+.ti -1c
+.RI "list \fBsearch\&.possible_busnames\fP = []"
+.br
+.ti -1c
+.RI "dict \fBsearch\&.possible_distances\fP = {}"
+.br
+.ti -1c
+.RI "list \fBsearch\&.shortest_stops\fP = []"
+.br
+.ti -1c
+.RI "dict \fBsearch\&.busGo_stops\fP = {}"
+.br
+.ti -1c
+.RI "dict \fBsearch\&.distances_dict\fP = {}"
+.br
+.ti -1c
+.RI "dict \fBsearch\&.shortestnames_stops\fP = {}"
+.br
+.ti -1c
+.RI "list \fBsearch\&.distances_list\fP = []"
+.br
+.ti -1c
+.RI "\fBsearch\&.q3\fP = input('What time would you like to arrive by? Enter a time (Hour:Minute:Second format): ')"
+.br
+.ti -1c
+.RI "\fBsearch\&.client\fP = ORS(api_key='5b3ce3597851110001cf6248e4dacfb3ab0a4b1d83a0511ffdd542f3')"
+.br
+.ti -1c
+.RI "\fBsearch\&.potential_buses\fP = set()"
+.br
+.ti -1c
+.RI "\fBsearch\&.unique_list\fP = list(\fBpotential_buses\fP)"
+.br
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CatTracks Route Planner from the source code\&.

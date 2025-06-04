@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_linked_list" xml:lang="en-US">
+<title>LinkedList&lt; T &gt; Class Template Reference</title>
+<indexterm><primary>LinkedList&lt; T &gt;</primary></indexterm>
+<para>
+<computeroutput>#include &lt;LinkedList.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_linked_list_1_1_iterator">Iterator</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_linked_list_1a3c20fcfec867e867f541061a09fc640c">LinkedList</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_linked_list_1a2e6c246781e458f803203e9c75c6aa90">LinkedList</link> (const <link linkend="_class_linked_list">LinkedList</link>&lt; T &gt; &amp;other)</para>
+</listitem>
+            <listitem><para><link linkend="_class_linked_list_1_1_iterator">Iterator</link> <link linkend="_class_linked_list_1a417e93e223b5e9f5a511cee4c56ac338">begin</link> () const</para>
+</listitem>
+            <listitem><para><link linkend="_class_linked_list_1_1_iterator">Iterator</link> <link linkend="_class_linked_list_1abd13f8fef21c6b9a594a36e31d0f79ad">end</link> () const</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_linked_list_1afecdb04d978c0206287d8cf88d4e5912">appendinLL</link> (T val)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_linked_list_1a455066651ebdb60a153f39a2e92111bc">appendinLL</link> (float val)</para>
+</listitem>
+            <listitem><para><link linkend="_class_linked_list_1a7c37609df3b83bc4eb0281b852f93fd7">~LinkedList</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Friends    </title>
+        <itemizedlist>
+            <listitem><para>std::ostream &amp; <link linkend="_class_linked_list_1a1fcb68f3522aaf1a95fcd2c716c2727a">operator&lt;&lt;</link> (std::ostream &amp;os, const <link linkend="_class_linked_list">LinkedList</link>&lt; T &gt; &amp;list)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<simplesect><title>template&lt;class T&gt;<?linebreak?>class LinkedList&lt; T &gt;</title></simplesect>
+<para>
+Definition at line <link linkend="__linked_list_8h_source_1l00048">48</link> of file <link linkend="__linked_list_8h_source">LinkedList.h</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_linked_list_1a3c20fcfec867e867f541061a09fc640c"/><section>
+    <title>LinkedList()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>LinkedList</primary><secondary>LinkedList&lt; T &gt;</secondary></indexterm>
+<indexterm><primary>LinkedList&lt; T &gt;</primary><secondary>LinkedList</secondary></indexterm>
+<computeroutput>template&lt;class T&gt; </computeroutput><para><computeroutput><link linkend="_class_linked_list">LinkedList</link>&lt; T &gt;<link linkend="_class_linked_list">::LinkedList</link> ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__linked_list_8h_source_1l00052">52</link> of file <link linkend="__linked_list_8h_source">LinkedList.h</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_linked_list_a3c20fcfec867e867f541061a09fc640c_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_linked_list_1a2e6c246781e458f803203e9c75c6aa90"/><section>
+    <title>LinkedList()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>LinkedList</primary><secondary>LinkedList&lt; T &gt;</secondary></indexterm>
+<indexterm><primary>LinkedList&lt; T &gt;</primary><secondary>LinkedList</secondary></indexterm>
+<computeroutput>template&lt;class T&gt; </computeroutput><para><computeroutput><link linkend="_class_linked_list">LinkedList</link>&lt; T &gt;<link linkend="_class_linked_list">::LinkedList</link> (const <link linkend="_class_linked_list">LinkedList</link>&lt; T &gt; &amp; other)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__linked_list_8h_source_1l00057">57</link> of file <link linkend="__linked_list_8h_source">LinkedList.h</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_linked_list_a2e6c246781e458f803203e9c75c6aa90_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_linked_list_1a7c37609df3b83bc4eb0281b852f93fd7"/><section>
+    <title>~LinkedList()</title>
+<indexterm><primary>~LinkedList</primary><secondary>LinkedList&lt; T &gt;</secondary></indexterm>
+<indexterm><primary>LinkedList&lt; T &gt;</primary><secondary>~LinkedList</secondary></indexterm>
+<computeroutput>template&lt;class T&gt; </computeroutput><para><computeroutput><link linkend="_class_linked_list">LinkedList</link>&lt; T &gt;::~<link linkend="_class_linked_list">LinkedList</link> ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__linked_list_8h_source_1l00118">118</link> of file <link linkend="__linked_list_8h_source">LinkedList.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_linked_list_1a455066651ebdb60a153f39a2e92111bc"/><section>
+    <title>appendinLL()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>appendinLL</primary><secondary>LinkedList&lt; T &gt;</secondary></indexterm>
+<indexterm><primary>LinkedList&lt; T &gt;</primary><secondary>appendinLL</secondary></indexterm>
+<computeroutput>template&lt;class T&gt; </computeroutput><para><computeroutput>void <link linkend="_class_linked_list">LinkedList</link>&lt; T &gt;::appendinLL (float val)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__linked_list_8h_source_1l00102">102</link> of file <link linkend="__linked_list_8h_source">LinkedList.h</link>.</para>
+</section>
+<anchor xml:id="_class_linked_list_1afecdb04d978c0206287d8cf88d4e5912"/><section>
+    <title>appendinLL()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>appendinLL</primary><secondary>LinkedList&lt; T &gt;</secondary></indexterm>
+<indexterm><primary>LinkedList&lt; T &gt;</primary><secondary>appendinLL</secondary></indexterm>
+<computeroutput>template&lt;class T&gt; </computeroutput><para><computeroutput>void <link linkend="_class_linked_list">LinkedList</link>&lt; T &gt;::appendinLL (T val)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__linked_list_8h_source_1l00086">86</link> of file <link linkend="__linked_list_8h_source">LinkedList.h</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_linked_list_afecdb04d978c0206287d8cf88d4e5912_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_linked_list_1a417e93e223b5e9f5a511cee4c56ac338"/><section>
+    <title>begin()</title>
+<indexterm><primary>begin</primary><secondary>LinkedList&lt; T &gt;</secondary></indexterm>
+<indexterm><primary>LinkedList&lt; T &gt;</primary><secondary>begin</secondary></indexterm>
+<computeroutput>template&lt;class T&gt; </computeroutput><para><computeroutput><link linkend="_class_linked_list_1_1_iterator">Iterator</link> <link linkend="_class_linked_list">LinkedList</link>&lt; T &gt;::begin ( ) const<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__linked_list_8h_source_1l00080">80</link> of file <link linkend="__linked_list_8h_source">LinkedList.h</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_linked_list_a417e93e223b5e9f5a511cee4c56ac338_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_linked_list_1abd13f8fef21c6b9a594a36e31d0f79ad"/><section>
+    <title>end()</title>
+<indexterm><primary>end</primary><secondary>LinkedList&lt; T &gt;</secondary></indexterm>
+<indexterm><primary>LinkedList&lt; T &gt;</primary><secondary>end</secondary></indexterm>
+<computeroutput>template&lt;class T&gt; </computeroutput><para><computeroutput><link linkend="_class_linked_list_1_1_iterator">Iterator</link> <link linkend="_class_linked_list">LinkedList</link>&lt; T &gt;::end ( ) const<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__linked_list_8h_source_1l00081">81</link> of file <link linkend="__linked_list_8h_source">LinkedList.h</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_linked_list_abd13f8fef21c6b9a594a36e31d0f79ad_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Friends And Related Symbol Documentation</title>
+<anchor xml:id="_class_linked_list_1a1fcb68f3522aaf1a95fcd2c716c2727a"/><section>
+    <title>operator&lt;&lt;</title>
+<indexterm><primary>operator&lt;&lt;</primary><secondary>LinkedList&lt; T &gt;</secondary></indexterm>
+<indexterm><primary>LinkedList&lt; T &gt;</primary><secondary>operator&lt;&lt;</secondary></indexterm>
+<computeroutput>template&lt;class T&gt; </computeroutput><para><computeroutput>std::ostream &amp; operator&lt;&lt; (std::ostream &amp; os, const <link linkend="_class_linked_list">LinkedList</link>&lt; T &gt; &amp; list)<computeroutput>[friend]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="__linked_list_8h_source_1l00133">133</link> of file <link linkend="__linked_list_8h_source">LinkedList.h</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+<link linkend="__linked_list_8h">LinkedList.h</link></section>
+</section>

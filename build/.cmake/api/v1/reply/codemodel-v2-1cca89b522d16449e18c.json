@@ -1,0 +1,291 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						7,
+						8
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "_deps/zlib-build",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-_deps.zlib-build-Debug-dd70bf0690db4c428f8e.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5.1"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "/Users/suchithgali/Python Files/Python Files/Source Code/CatTracks/build/_deps/zlib-src",
+					"targetIndexes" : 
+					[
+						7
+					]
+				},
+				{
+					"build" : "_deps/curl-build",
+					"childIndexes" : 
+					[
+						3,
+						6
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-_deps.curl-build-Debug-35d4b388ce15d6d7e368.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.7"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "/Users/suchithgali/Python Files/Python Files/Source Code/CatTracks/build/_deps/curl-src",
+					"targetIndexes" : 
+					[
+						5
+					]
+				},
+				{
+					"build" : "_deps/curl-build/docs",
+					"childIndexes" : 
+					[
+						4
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-_deps.curl-build.docs-Debug-7ca3979df4955f6a5292.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.7"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 2,
+					"source" : "/Users/suchithgali/Python Files/Python Files/Source Code/CatTracks/build/_deps/curl-src/docs",
+					"targetIndexes" : 
+					[
+						1,
+						2
+					]
+				},
+				{
+					"build" : "_deps/curl-build/docs/libcurl",
+					"childIndexes" : 
+					[
+						5
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-_deps.curl-build.docs.libcurl-Debug-5386a150495ecf7e6fc9.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.7"
+					},
+					"parentIndex" : 3,
+					"projectIndex" : 2,
+					"source" : "/Users/suchithgali/Python Files/Python Files/Source Code/CatTracks/build/_deps/curl-src/docs/libcurl",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "_deps/curl-build/docs/libcurl/opts",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-_deps.curl-build.docs.libcurl.opts-Debug-0d122ea07c8361c97630.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.7"
+					},
+					"parentIndex" : 4,
+					"projectIndex" : 2,
+					"source" : "/Users/suchithgali/Python Files/Python Files/Source Code/CatTracks/build/_deps/curl-src/docs/libcurl/opts",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "_deps/curl-build/lib",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-_deps.curl-build.lib-Debug-3a2a87297a579ee2309d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.7"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 2,
+					"source" : "/Users/suchithgali/Python Files/Python Files/Source Code/CatTracks/build/_deps/curl-src/lib",
+					"targetIndexes" : 
+					[
+						6
+					]
+				},
+				{
+					"build" : "cpr",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-cpr-Debug-4162c7fad36047d174c7.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "cpr",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "include",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-include-Debug-5e46862f23e5d6aceaf6.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "include"
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						7,
+						8
+					],
+					"name" : "cpr",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "zlib",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						7
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2,
+						3,
+						4,
+						5,
+						6
+					],
+					"name" : "CURL",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 7,
+					"id" : "cpr::@deb796c7b9efacb35a82",
+					"jsonFile" : "target-cpr-Debug-e80fceb41f08cad35817.json",
+					"name" : "cpr",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "curl-generate-curl-config.1::@b114a9630f645e739f37",
+					"jsonFile" : "target-curl-generate-curl-config.1-Debug-d0db85cf0a7e7d22f400.json",
+					"name" : "curl-generate-curl-config.1",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "curl-generate-mk-ca-bundle.1::@b114a9630f645e739f37",
+					"jsonFile" : "target-curl-generate-mk-ca-bundle.1-Debug-caa72315246e1829764b.json",
+					"name" : "curl-generate-mk-ca-bundle.1",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "curl-man::@2578f1a13a47df1940c2",
+					"jsonFile" : "target-curl-man-Debug-4349c63ef00058abf018.json",
+					"name" : "curl-man",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "curl-opts-man::@fe02a9ef8a74f0774785",
+					"jsonFile" : "target-curl-opts-man-Debug-7aff41af959d9bc96ce0.json",
+					"name" : "curl-opts-man",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "curl_uninstall::@b95861b2ba384b5171eb",
+					"jsonFile" : "target-curl_uninstall-Debug-eec5c816a4a4616b736e.json",
+					"name" : "curl_uninstall",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "libcurl_shared::@7349aeacaff41deceb36",
+					"jsonFile" : "target-libcurl_shared-Debug-1bde77df83b1be55c9c0.json",
+					"name" : "libcurl_shared",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "zlib::@c9556b0b6bf47963f9da",
+					"jsonFile" : "target-zlib-Debug-1d24f64809a38529a407.json",
+					"name" : "zlib",
+					"projectIndex" : 1
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/suchithgali/Python Files/Python Files/Source Code/CatTracks/build",
+		"source" : "/Users/suchithgali/Python Files/Python Files/Source Code/CatTracks/cpr"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

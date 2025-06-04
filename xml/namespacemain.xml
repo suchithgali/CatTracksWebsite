@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="namespacemain" kind="namespace" language="Python">
+    <compoundname>main</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacemain_1a9582bd76fa0468c20a318f771203f2f6" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>main.data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <qualifiedname>main.data</qualifiedname>
+        <initializer>=  json.load(f)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="main.py" line="5" column="1" bodyfile="main.py" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacemain_1af9c8e67e6d6870722452489d1fd21cf8" prot="public" static="no" mutable="no">
+        <type>str</type>
+        <definition>str main.text_to_write</definition>
+        <argsstring></argsstring>
+        <name>text_to_write</name>
+        <qualifiedname>main.text_to_write</qualifiedname>
+        <initializer>=  i[&apos;Text&apos;] + &apos;\n&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="main.py" line="12" column="1" bodyfile="main.py" bodystart="12" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="main.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

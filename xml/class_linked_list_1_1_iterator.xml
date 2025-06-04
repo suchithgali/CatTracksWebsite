@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="class_linked_list_1_1_iterator" kind="class" language="C++" prot="public">
+    <compoundname>LinkedList::Iterator</compoundname>
+    <includes refid="_linked_list_8h" local="no">LinkedList.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_linked_list_1_1_iterator_1a33bec865c139f7df811f457370043733" prot="private" static="no" mutable="no">
+        <type><ref refid="struct_node" kindref="compound">Node</ref>&lt; T &gt; *</type>
+        <definition>Node&lt;T&gt;* LinkedList&lt; T &gt;::Iterator::current</definition>
+        <argsstring></argsstring>
+        <name>current</name>
+        <qualifiedname>LinkedList::Iterator::current</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="LinkedList.h" line="69" column="14" bodyfile="LinkedList.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_linked_list_1_1_iterator_1ae772ed8a3fe633ea021c0851ffd0ef1d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>LinkedList&lt; T &gt;::Iterator::Iterator</definition>
+        <argsstring>(Node&lt; T &gt; *node)</argsstring>
+        <name>Iterator</name>
+        <qualifiedname>LinkedList::Iterator::Iterator</qualifiedname>
+        <param>
+          <type><ref refid="struct_node" kindref="compound">Node</ref>&lt; T &gt; *</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="LinkedList.h" line="71" column="9" bodyfile="LinkedList.h" bodystart="71" bodyend="71"/>
+        <referencedby refid="class_linked_list_1_1_iterator_1a8f198f199bcec5ac69f39cd539000c0e" compoundref="_linked_list_8h" startline="77" endline="77">LinkedList&lt; T &gt;::Iterator::operator!=</referencedby>
+        <referencedby refid="class_linked_list_1_1_iterator_1ab71c0df5efc97a4a8ffa8866723e662b" compoundref="_linked_list_8h" startline="73" endline="76">LinkedList&lt; T &gt;::Iterator::operator++</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_linked_list_1_1_iterator_1a3bddc0d07e273fbb04fa22b7feb3faf4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>T &amp;</type>
+        <definition>T &amp; LinkedList&lt; T &gt;::Iterator::operator*</definition>
+        <argsstring>()</argsstring>
+        <name>operator*</name>
+        <qualifiedname>LinkedList::Iterator::operator*</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="LinkedList.h" line="72" column="11" bodyfile="LinkedList.h" bodystart="72" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="class_linked_list_1_1_iterator_1ab71c0df5efc97a4a8ffa8866723e662b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_linked_list_1_1_iterator" kindref="compound">Iterator</ref> &amp;</type>
+        <definition>Iterator &amp; LinkedList&lt; T &gt;::Iterator::operator++</definition>
+        <argsstring>()</argsstring>
+        <name>operator++</name>
+        <qualifiedname>LinkedList::Iterator::operator++</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="LinkedList.h" line="73" column="18" bodyfile="LinkedList.h" bodystart="73" bodyend="76"/>
+        <references refid="class_linked_list_1_1_iterator_1ae772ed8a3fe633ea021c0851ffd0ef1d" compoundref="_linked_list_8h" startline="71" endline="71">LinkedList&lt; T &gt;::Iterator::Iterator</references>
+      </memberdef>
+      <memberdef kind="function" id="class_linked_list_1_1_iterator_1a8f198f199bcec5ac69f39cd539000c0e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool LinkedList&lt; T &gt;::Iterator::operator!=</definition>
+        <argsstring>(const Iterator &amp;other) const</argsstring>
+        <name>operator!=</name>
+        <qualifiedname>LinkedList::Iterator::operator!=</qualifiedname>
+        <param>
+          <type>const <ref refid="class_linked_list_1_1_iterator" kindref="compound">Iterator</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="LinkedList.h" line="77" column="14" bodyfile="LinkedList.h" bodystart="77" bodyend="77"/>
+        <references refid="class_linked_list_1_1_iterator_1ae772ed8a3fe633ea021c0851ffd0ef1d" compoundref="_linked_list_8h" startline="71" endline="71">LinkedList&lt; T &gt;::Iterator::Iterator</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="LinkedList.h" line="68" column="5" bodyfile="LinkedList.h" bodystart="68" bodyend="78"/>
+    <listofallmembers>
+      <member refid="class_linked_list_1_1_iterator_1a33bec865c139f7df811f457370043733" prot="private" virt="non-virtual"><scope>LinkedList::Iterator</scope><name>current</name></member>
+      <member refid="class_linked_list_1_1_iterator_1ae772ed8a3fe633ea021c0851ffd0ef1d" prot="public" virt="non-virtual"><scope>LinkedList::Iterator</scope><name>Iterator</name></member>
+      <member refid="class_linked_list_1_1_iterator_1a8f198f199bcec5ac69f39cd539000c0e" prot="public" virt="non-virtual"><scope>LinkedList::Iterator</scope><name>operator!=</name></member>
+      <member refid="class_linked_list_1_1_iterator_1a3bddc0d07e273fbb04fa22b7feb3faf4" prot="public" virt="non-virtual"><scope>LinkedList::Iterator</scope><name>operator*</name></member>
+      <member refid="class_linked_list_1_1_iterator_1ab71c0df5efc97a4a8ffa8866723e662b" prot="public" virt="non-virtual"><scope>LinkedList::Iterator</scope><name>operator++</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

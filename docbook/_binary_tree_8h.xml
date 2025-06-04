@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__binary_tree_8h" xml:lang="en-US">
+<title>BinaryTree.h File Reference</title>
+<indexterm><primary>BinaryTree.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;iostream&gt;<?linebreak?>#include &lt;ostream&gt;<?linebreak?>#include &quot;ArrayList.h&quot;<?linebreak?></programlisting>Include dependency graph for BinaryTree.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_binary_tree_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_struct_node">Node&lt; T &gt;</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>template&lt;class T&gt; </para><para><link linkend="_struct_node">Node</link>&lt; T &gt; * <link linkend="__binary_tree_8h_1a3d6d6401e490c4477d568c2f28072327">sorted_BST</link> (<link linkend="_class_array_list">ArrayList</link>&lt; T &gt; &amp;list, int start, int end)</para>
+</listitem>
+            <listitem><para>template&lt;class T&gt; </para><para>void <link linkend="__binary_tree_8h_1afaf0762fd71cfb9a550a9086efcf8985">print_tree</link> (<link linkend="_struct_node">Node</link>&lt; T &gt; *root, std::string indent=&quot;&quot;, bool last=true)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="__binary_tree_8h_1afaf0762fd71cfb9a550a9086efcf8985"/><section>
+    <title>print_tree()</title>
+<indexterm><primary>print_tree</primary><secondary>BinaryTree.h</secondary></indexterm>
+<indexterm><primary>BinaryTree.h</primary><secondary>print_tree</secondary></indexterm>
+<computeroutput>template&lt;class T&gt; </computeroutput><para><computeroutput>void print_tree (<link linkend="_struct_node">Node</link>&lt; T &gt; * root, std::string indent = <computeroutput>&quot;&quot;</computeroutput>
+, bool last = <computeroutput>true</computeroutput>
+)</computeroutput></para><para>
+Definition at line <link linkend="__binary_tree_8h_source_1l00035">35</link> of file <link linkend="__binary_tree_8h_source">BinaryTree.h</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_binary_tree_8h_afaf0762fd71cfb9a550a9086efcf8985_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_binary_tree_8h_afaf0762fd71cfb9a550a9086efcf8985_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__binary_tree_8h_1a3d6d6401e490c4477d568c2f28072327"/><section>
+    <title>sorted_BST()</title>
+<indexterm><primary>sorted_BST</primary><secondary>BinaryTree.h</secondary></indexterm>
+<indexterm><primary>BinaryTree.h</primary><secondary>sorted_BST</secondary></indexterm>
+<computeroutput>template&lt;class T&gt; </computeroutput><para><computeroutput><link linkend="_struct_node">Node</link>&lt; T &gt; * sorted_BST (<link linkend="_class_array_list">ArrayList</link>&lt; T &gt; &amp; list, int start, int end)</computeroutput></para><para>
+Definition at line <link linkend="__binary_tree_8h_source_1l00022">22</link> of file <link linkend="__binary_tree_8h_source">BinaryTree.h</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_binary_tree_8h_a3d6d6401e490c4477d568c2f28072327_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_binary_tree_8h_a3d6d6401e490c4477d568c2f28072327_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+</section>

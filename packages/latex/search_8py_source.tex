@@ -1,0 +1,213 @@
+\doxysection{search.\+py}
+\hypertarget{search_8py_source}{}\label{search_8py_source}\mbox{\hyperlink{search_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00001}\mbox{\hyperlink{namespacesearch}{00001}}\ \textcolor{keyword}{import}\ time}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00002}00002\ \textcolor{comment}{\#start\_time\ =\ time.time()}}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00003}00003\ \textcolor{keyword}{from}\ datetime\ \textcolor{keyword}{import}\ datetime}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00004}00004\ \textcolor{keyword}{import}\ pytz}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00005}\mbox{\hyperlink{namespacesearch_a1ba9eddeb86e4db183ff598fceb4e100}{00005}}\ tz\_LA\ =\ pytz.timezone(\textcolor{stringliteral}{'America/Los\_Angeles'})}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00006}\mbox{\hyperlink{namespacesearch_a30336eeb7592365e0e15024a1ec4c5d9}{00006}}\ datetime\_LA\ =\ datetime.now(tz\_LA)}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00008}00008\ \textcolor{keyword}{from}\ route\_datatypes\ \textcolor{keyword}{import}*}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00010}\mbox{\hyperlink{namespacesearch_a36f59a5e5bc6ca64fa450d3969cf89ac}{00010}}\ placeFoundq1\ =\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00011}\mbox{\hyperlink{namespacesearch_a46b2d30619fc3b9b36b2321a90100532}{00011}}\ placeFoundq2\ =\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00012}\mbox{\hyperlink{namespacesearch_aa0a2895db358e9e68e0f40f93d11dd85}{00012}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacesearch_aa0a2895db358e9e68e0f40f93d11dd85}{validatePlaceq1}}(target,\ start,\ end):}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00013}00013\ \ \ \ \ places.sort()}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00014}00014\ \ \ \ \ \textcolor{keyword}{global}\ placeFoundq1}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00015}00015\ \ \ \ \ \textcolor{keywordflow}{if}\ (start\ >\ end):}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00016}00016\ \ \ \ \ \ \ \ \ placeFoundq1\ =\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00017}00017\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ placeFoundq1}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00018}00018\ \ \ \ \ middle\ =\ (start\ +\ end)\ //\ 2}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00019}00019\ \ \ \ \ \textcolor{keywordflow}{if}\ (places[middle]\ ==\ target):}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00020}00020\ \ \ \ \ \ \ \ \ placeFoundq1\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ placeFoundq1}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00022}00022\ \ \ \ \ \textcolor{keywordflow}{elif}\ (places[middle]\ >\ target):}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacesearch_aa0a2895db358e9e68e0f40f93d11dd85}{validatePlaceq1}}(target,\ start,\ middle\ -\/\ 1)}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00024}00024\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacesearch_aa0a2895db358e9e68e0f40f93d11dd85}{validatePlaceq1}}(target,\ middle\ +\ 1,\ end)}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00026}00026\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00027}\mbox{\hyperlink{namespacesearch_ae8f1d38ba40d7cb40299d427d773b353}{00027}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacesearch_ae8f1d38ba40d7cb40299d427d773b353}{validatePlaceq2}}(target,\ start,\ end):}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00028}00028\ \ \ \ \ places.sort()}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00029}00029\ \ \ \ \ \textcolor{keyword}{global}\ placeFoundq2}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00030}00030\ \ \ \ \ \textcolor{keywordflow}{if}\ (start\ >\ end):}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00031}00031\ \ \ \ \ \ \ \ \ placeFoundq2\ =\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ placeFoundq2}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00033}00033\ \ \ \ \ middle\ =\ (start\ +\ end)\ //\ 2}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00034}00034\ \ \ \ \ \textcolor{keywordflow}{if}\ (places[middle]\ ==\ target):}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00035}00035\ \ \ \ \ \ \ \ \ placeFoundq2\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ placeFoundq2}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00037}00037\ \ \ \ \ \textcolor{keywordflow}{elif}\ (places[middle]\ >\ target):}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacesearch_ae8f1d38ba40d7cb40299d427d773b353}{validatePlaceq2}}(target,\ start,\ middle\ -\/\ 1)}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00039}00039\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacesearch_ae8f1d38ba40d7cb40299d427d773b353}{validatePlaceq2}}(target,\ middle\ +\ 1,\ end)}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00042}\mbox{\hyperlink{namespacesearch_a57b514484c4a9a99e08f49d70348ebd3}{00042}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacesearch_a57b514484c4a9a99e08f49d70348ebd3}{validateTime}}(input\_time):}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00043}00043\ \ \ \ \ \textcolor{keyword}{global}\ valid\_time}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00044}00044\ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00045}00045\ \ \ \ \ \ \ \ \ parsed\_time\ =\ datetime.strptime(input\_time,\ \textcolor{stringliteral}{'\%H:\%M:\%S'})}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ 0\ <=\ parsed\_time.hour\ <\ 24\ \textcolor{keywordflow}{and}\ 0\ <=\ parsed\_time.minute\ <\ 60\ \textcolor{keywordflow}{and}\ 0\ <=\ parsed\_time.second\ <\ 60:}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ valid\_time\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ valid\_time\ =\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00050}00050\ \ \ \ \ \textcolor{keywordflow}{except}\ ValueError:}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00051}00051\ \ \ \ \ \ \ \ \ valid\_time\ =\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00053}00053\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00055}\mbox{\hyperlink{namespacesearch_a2c811d67b8d23b88c06920cdbcc8b59a}{00055}}\ q1\ =\ input(\textcolor{stringliteral}{"{}Where\ would\ you\ like\ to\ go?:\ "{}})}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00056}00056\ \mbox{\hyperlink{namespacesearch_aa0a2895db358e9e68e0f40f93d11dd85}{validatePlaceq1}}(q1,\ 0,\ len(places)\ -\/\ 1)}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00058}00058\ \textcolor{keywordflow}{while}\ \textcolor{keyword}{True}:}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00059}00059\ \ \ \ \ \textcolor{keywordflow}{if}\ (placeFoundq1\ ==\ \textcolor{keyword}{False}):}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00060}00060\ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}Invalid\ location"{}})}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00061}00061\ \ \ \ \ \ \ \ \ q1\ =\ input(\textcolor{stringliteral}{'''Where\ would\ you\ like\ to\ go?:\ }}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00062}00062\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ R\ Street\ Village\ Apts,\ El\ Redondo\ Dr,\ Compass\ Pointe\ Apts,\ Merced\ College\ The\ Bus\ Terminal,\ M\ St.\ At\ Bellevue\ RD,\ University\ Transit\ Center,\ Promenade\ Center,\ }}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00063}00063\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Merced\ Mall\ Target,\ Walmart\ on\ Loughborough\ Dr,\ Amtrak\ Station,\ K\ St.\ Between\ 18th\ \&\ 19th,\ Merced\ Transpo\ (REQ),\ Rite\ Aid/Walgreens\ on\ G\ St,\ }}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00064}00064\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ El\ Portal\ Plaza\ \&\ G\ Street,\ Granville\ Apartments,\ G\ St.\ \&\ W.\ Alexander\ Ave,\ El\ Portal\ \&\ G\ Street,\ Mercy\ Hospital/TriCollege,\ TriCollege/Mercy\ (Bus\ stop\ on\ G\ next\ to\ Tri\ College),\ }}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00065}00065\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ G\ St.\ \&\ W.\ Alexander\ Ave.\ (Bus\ Stop\ Paul's\ Place),\ Cardella\ Rd.\ \&\ 'M'\ Street\ (North),\ Foothill\ Drive,\ Cardella\ Rd.\ \&\ 'M'\ Street\ (South),\ G\ Street\ South\ Across\ from\ Raley's\ (The\ Bus\ Stop),}}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00066}00066\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ K\ St.\ Between\ 18Th\ \&\ 19th,\ Meadows\ Ave\ \&\ Olivewood\ Dr\ (Foodmaxx),\ Yosemite\ Crossings\ Shopping\ Center,\ M\ Street\ Village\ Apartments,\ Ironstone\ Dr.\ \&\ M\ St,\ }}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00067}00067\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Yosemite\ \&\ Cordova\ (Merced\ Physician\ Center),\ Moraga\ Subdivision,\ University\ Surgery\ Center,\ Cardella\ Rd.\ \&\ 'M'\ Street,\ Cardella\ Rd.\ \&\ 'M'\ Street,}}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00068}00068\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ K\ St.\ Between\ 18th\ \&\ 19th,\ UC\ Merced\ Downtown\ Campus\ Center,\ Merced\ Transpo,\ G\ Street\ South\(\backslash\)n'''})}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00069}00069\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacesearch_aa0a2895db358e9e68e0f40f93d11dd85}{validatePlaceq1}}(q1,\ 0,\ len(places)\ -\/\ 1)}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00070}00070\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00071}00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break}}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00073}\mbox{\hyperlink{namespacesearch_a9ee2a066db40edfb7a6b5f195d3199e9}{00073}}\ q2\ =\ input(\textcolor{stringliteral}{"{}Where\ are\ you\ currently\ located?:\ "{}})}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00074}00074\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00075}00075\ \mbox{\hyperlink{namespacesearch_ae8f1d38ba40d7cb40299d427d773b353}{validatePlaceq2}}(q2,\ 0,\ len(places)\ -\/\ 1)}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00076}00076\ \textcolor{keywordflow}{while}\ \textcolor{keyword}{True}:}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00077}00077\ \ \ \ \ if(placeFoundq2\ ==\ \textcolor{keyword}{False}):}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00078}00078\ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}Invalid\ location"{}})}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00079}00079\ \ \ \ \ \ \ \ \ q2\ =\ input(\textcolor{stringliteral}{'''Where\ are\ you\ currently\ located?:\ }}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00080}00080\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ R\ Street\ Village\ Apts,\ El\ Redondo\ Dr,\ Compass\ Pointe\ Apts,\ Merced\ College\ The\ Bus\ Terminal,\ M\ St.\ At\ Bellevue\ RD,\ University\ Transit\ Center,\ Promenade\ Center,\ }}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00081}00081\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Merced\ Mall\ Target,\ Walmart\ on\ Loughborough\ Dr,\ Amtrak\ Station,\ K\ St.\ Between\ 18th\ \&\ 19th,\ Merced\ Transpo\ (REQ),\ Rite\ Aid/Walgreens\ on\ G\ St,\ }}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00082}00082\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ El\ Portal\ Plaza\ \&\ G\ Street,\ Granville\ Apartments,\ G\ St.\ \&\ W.\ Alexander\ Ave,\ El\ Portal\ \&\ G\ Street,\ Mercy\ Hospital/TriCollege,\ TriCollege/Mercy\ (Bus\ stop\ on\ G\ next\ to\ Tri\ College),\ }}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00083}00083\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ G\ St.\ \&\ W.\ Alexander\ Ave.\ (Bus\ Stop\ Paul's\ Place),\ Cardella\ Rd.\ \&\ 'M'\ Street\ (North),\ Foothill\ Drive,\ Cardella\ Rd.\ \&\ 'M'\ Street\ (South),\ G\ Street\ South\ Across\ from\ Raley's\ (The\ Bus\ Stop),}}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00084}00084\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ K\ St.\ Between\ 18Th\ \&\ 19th,\ Meadows\ Ave\ \&\ Olivewood\ Dr\ (Foodmaxx),\ Yosemite\ Crossings\ Shopping\ Center,\ M\ Street\ Village\ Apartments,\ Ironstone\ Dr.\ \&\ M\ St,\ }}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00085}00085\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Yosemite\ \&\ Cordova\ (Merced\ Physician\ Center),\ Moraga\ Subdivision,\ University\ Surgery\ Center,\ Cardella\ Rd.\ \&\ 'M'\ Street,\ Cardella\ Rd.\ \&\ 'M'\ Street,}}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00086}00086\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ K\ St.\ Between\ 18th\ \&\ 19th,\ UC\ Merced\ Downtown\ Campus\ Center,\ Merced\ Transpo,\ G\ Street\ South\(\backslash\)n'''})}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00087}00087\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacesearch_ae8f1d38ba40d7cb40299d427d773b353}{validatePlaceq2}}(q2,\ 0,\ len(places)\ -\/\ 1)}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00088}00088\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00089}00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break}}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00092}00092\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00093}00093\ \textcolor{comment}{\#q3\ =\ input("{}What\ time\ do\ you\ want\ to\ arrive\ by?"{})}}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00094}00094\ \textcolor{comment}{\#print("{}Pacific\ time:"{},\ datetime\_LA.strftime("{}\%I:\%M:\%p"{}))}}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00095}\mbox{\hyperlink{namespacesearch_ad60b4e999ba801da3a823268e9e47318}{00095}}\ named\_stops\ =\ \{\textcolor{stringliteral}{"{}Bobcat\ Express"{}}:\ bobcat\_express\_stops,\ \textcolor{stringliteral}{"{}C1"{}}:\ C1\_stops,\ \textcolor{stringliteral}{"{}C2"{}}:\ C2\_stops,\ \textcolor{stringliteral}{"{}E1"{}}:\ E1\_stops,\ \textcolor{stringliteral}{"{}E2"{}}:\ E2\_stops,\ \textcolor{stringliteral}{"{}Fastcat"{}}:\ Fastcat\_stops,\ \textcolor{stringliteral}{"{}Fastcat\ 2"{}}:\ Fastcat2\_stops,\ \textcolor{stringliteral}{"{}G\ Line"{}}:\ G\_line\_stops,\ \textcolor{stringliteral}{"{}Yosemite\ Express"{}}\ :\ yosemite\_express\_stops\}}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00096}\mbox{\hyperlink{namespacesearch_abe0111b8295350cb47724c324c8e70da}{00096}}\ bus\_names\ =\ \{\}}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00097}\mbox{\hyperlink{namespacesearch_a25463332a2270f434fb7425487d019d0}{00097}}\ possible\_buses\ =\ \{\}}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00098}\mbox{\hyperlink{namespacesearch_a675a8e96d84e2326bfb56b3c837a92db}{00098}}\ possible\_busnames\ =\ []}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00099}\mbox{\hyperlink{namespacesearch_aef564b377cb3d6fd0335b14ef027ebbf}{00099}}\ possible\_distances\ =\ \{\}}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00100}\mbox{\hyperlink{namespacesearch_afa07a6e7b438c7bc7bc5fb9d5625b341}{00100}}\ shortest\_stops\ =\ []}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00101}\mbox{\hyperlink{namespacesearch_a8f6c713314ffbd604dcf45f2abd5acc8}{00101}}\ busGo\_stops\ =\ \{\}}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00102}\mbox{\hyperlink{namespacesearch_a697a8681535b1ab5557c94cc0895556b}{00102}}\ distances\_dict\ =\ \{\}}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00103}\mbox{\hyperlink{namespacesearch_a098de2d6852feae2c598603bbe3f198d}{00103}}\ shortestnames\_stops\ =\ \{\}}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00104}\mbox{\hyperlink{namespacesearch_a6fb7e41f35f61ca4fd68794bb2749f71}{00104}}\ distances\_list\ =\ []}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00106}\mbox{\hyperlink{namespacesearch_a6922113272595e8b54ebef18c47356d5}{00106}}\ q3\ =\ input(\textcolor{stringliteral}{"{}What\ time\ would\ you\ like\ to\ arrive\ by?\ Enter\ a\ time\ (Hour:Minute:Second\ format):\ "{}})}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00107}00107\ \mbox{\hyperlink{namespacesearch_a57b514484c4a9a99e08f49d70348ebd3}{validateTime}}(q3)}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00108}00108\ \textcolor{keywordflow}{while}\ \textcolor{keyword}{True}:}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00109}00109\ \ \ \ \ \textcolor{keywordflow}{if}\ (valid\_time\ ==\ \textcolor{keyword}{False}):}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00110}00110\ \ \ \ \ \ \ \ \ q3\ =\ input(\textcolor{stringliteral}{"{}What\ time\ would\ you\ like\ to\ arrive\ by?\ Enter\ a\ time\ (Hour:Minute:Second\ format)"{}})}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00111}00111\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacesearch_a57b514484c4a9a99e08f49d70348ebd3}{validateTime}}(q3)}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00112}00112\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00113}00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break}}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00114}\mbox{\hyperlink{namespacesearch_a79be19296b7b96829cfc6d54ec5cb084}{00114}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacesearch_a79be19296b7b96829cfc6d54ec5cb084}{dict\_binary\_search}}(name,\ target):}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00115}00115\ \ \ \ \ sorted\_names\ =\ sorted(list(name.keys()))}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00116}00116\ \ \ \ \ low\ =\ 0\ }
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00117}00117\ \ \ \ \ high\ =\ len(sorted\_names)\ -\/\ 1\ }
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00118}00118\ \ \ \ \ \textcolor{keywordflow}{while}\ (low\ <=\ high):\ }
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00119}00119\ \ \ \ \ \ \ \ \ middle\ =\ (low\ +\ high)\ //\ 2\ }
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00120}00120\ \ \ \ \ \ \ \ \ value\ =\ sorted\_names[middle]\ }
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00121}00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ <\ target):\ }
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ low\ =\ middle\ +\ 1\ }
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00123}00123\ \ \ \ \ \ \ \ \ elif(value\ >\ target):\ }
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ high\ =\ middle\ -\/\ 1\ }
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00125}00125\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:\ }
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ sorted\_names[middle]}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00128}00128\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00129}\mbox{\hyperlink{namespacesearch_a67013b4ddfe9c4f2dbb661a642cbed07}{00129}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacesearch_a67013b4ddfe9c4f2dbb661a642cbed07}{findBusTaken}}():}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00130}00130\ \ \ \ \ \textcolor{keywordflow}{for}\ name,\ stop\ \textcolor{keywordflow}{in}\ named\_stops.items():}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00131}00131\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespacesearch_a79be19296b7b96829cfc6d54ec5cb084}{dict\_binary\_search}}(stop,\ q2)\ ==\ q2):}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ bus\_names[name]\ =\ stop}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00134}\mbox{\hyperlink{namespacesearch_a8af036654b8c8878447d1e55225cc4c1}{00134}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacesearch_a8af036654b8c8878447d1e55225cc4c1}{busGoStops}}():}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00135}00135\ \ \ \ \ \textcolor{keywordflow}{for}\ name,\ stop\ \textcolor{keywordflow}{in}\ named\_stops.items():}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00136}00136\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespacesearch_a79be19296b7b96829cfc6d54ec5cb084}{dict\_binary\_search}}(stop,\ q1)\ ==\ q1):}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ busGo\_stops[name]\ =\ stop}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00139}00139\ \textcolor{keyword}{from}\ routingpy\ \textcolor{keyword}{import}\ ORS}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00140}00140\ \textcolor{keyword}{from}\ pprint\ \textcolor{keyword}{import}\ pprint}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00141}\mbox{\hyperlink{namespacesearch_ae4ce93a64d79693eeb6cd026fda0debb}{00141}}\ client\ =\ ORS(api\_key=\textcolor{stringliteral}{'5b3ce3597851110001cf6248e4dacfb3ab0a4b1d83a0511ffdd542f3'})}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00142}\mbox{\hyperlink{namespacesearch_a6aed943c283470ac4811b589afebee85}{00142}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacesearch_a6aed943c283470ac4811b589afebee85}{findBusGo}}():}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00143}00143\ \ \ \ \ \textcolor{keyword}{global}\ possible\_buses}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00144}00144\ \ \ \ \ \textcolor{keyword}{global}\ distanceBusGo}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00145}00145\ \ \ \ \ \textcolor{keyword}{global}\ distancepointq2\_q3}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00146}00146\ \ \ \ \ \textcolor{keyword}{global}\ distancepointq3\_q1}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00147}00147\ \ \ \ \ \textcolor{keyword}{global}\ totalDistance}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00148}00148\ \ \ \ \ \textcolor{keyword}{global}\ pointq1}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00149}00149\ \ \ \ \ \textcolor{keyword}{global}\ pointr1}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00150}00150\ \ \ \ \ \textcolor{keyword}{global}\ pointq1\_coordinates}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00151}00151\ \ \ \ \ \textcolor{keyword}{global}\ pointq2}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00152}00152\ \ \ \ \ \textcolor{keyword}{global}\ pointr2}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00153}00153\ \ \ \ \ \textcolor{keyword}{global}\ pointq2\_coordinates}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00154}00154\ \ \ \ \ \textcolor{keyword}{global}\ pointq3}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00155}00155\ \ \ \ \ \textcolor{keyword}{global}\ pointq3\_coordinates}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00156}00156\ \ \ \ \ \textcolor{comment}{\#when\ the\ stop\ you\ want\ to\ go\ to\ is\ not\ found\ in\ the\ stops\ of\ the\ bus\ you\ took,\ code\ checks\ if\ the\ other\ stops\ on\ the\ bus\ you\ took\ are\ found\ in\ other\ busses,\ if\ stop\ found\ in\ other\ buses,\ adds\ name\ of\ the\ buss\ to\ possible\ buses\ list}}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00157}00157\ \ \ \ \ \textcolor{keyword}{global}\ takenBusStops}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00158}00158\ \ \ \ \ \textcolor{keywordflow}{for}\ name,\ stop2\ \textcolor{keywordflow}{in}\ bus\_names.items():}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00159}00159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ j2\ \textcolor{keywordflow}{in}\ stop2:}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ takenBusStops\ =\ j2}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ name1,\ stop3\ \textcolor{keywordflow}{in}\ busGo\_stops.items():}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ j3\ \textcolor{keywordflow}{in}\ stop3:}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespacesearch_a79be19296b7b96829cfc6d54ec5cb084}{dict\_binary\_search}}(stop3,\ takenBusStops)\ ==\ j3):}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pointq1\_coordinates\ =\ (geo\_pyPlacesCoords[places.index(q1)])\ \ \textcolor{comment}{\#where\ wanna\ go}}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pointq2\_coordinates\ =\ (geo\_pyPlacesCoords[places.index(q2)])\ \ \textcolor{comment}{\#\ where\ currently\ located}}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pointq3\_coordinates\ =\ (geo\_pyPlacesCoords[places.index(takenBusStops)])\ \textcolor{comment}{\#coordinates\ of\ similar\ bus\ stop}}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#coords\ =\ [pointq1\_coordinates,\ pointq2\_coordinates,\ pointq3\_coordinates]}}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ route\ =\ client.directions(locations=\ (pointq2\_coordinates,\ pointq3\_coordinates,\ pointq1\_coordinates),\ profile=\textcolor{stringliteral}{"{}driving-\/car"{}})}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ possible\_distances[route.distance]\ =\ j3}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ possible\_busnames.append(name)}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shortest\_stops.append(j3)}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ possible\_buses[j3]\ =\ name1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00173}\mbox{\hyperlink{namespacesearch_afdf665e9c4a977f17e7c7604884bf928}{00173}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacesearch_afdf665e9c4a977f17e7c7604884bf928}{findshortestBus}}():}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00174}00174\ \ \ \ \ \textcolor{keyword}{global}\ pointq4}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00175}00175\ \ \ \ \ \textcolor{keyword}{global}\ pointq5}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00176}00176\ \ \ \ \ min\_distance\ =\ min(possible\_distances.keys())}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00177}00177\ \ \ \ \ \textcolor{keyword}{global}\ bus\_stop}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00178}00178\ \ \ \ \ \textcolor{keyword}{global}\ b\_name}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00179}00179\ \ \ \ \ \textcolor{keyword}{global}\ index\ }
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00180}00180\ \ \ \ \ \textcolor{keyword}{global}\ min\_stop}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00181}00181\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00182}00182\ \ \ \ \ min\_stop\ =\ possible\_distances[min\_distance]}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00183}00183\ \ \ \ \ \textcolor{keywordflow}{for}\ stop,\ route\ \textcolor{keywordflow}{in}\ possible\_buses.items():}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00184}00184\ \ \ \ \ \ \ \ \ \textcolor{keyword}{global}\ min\_bus}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00185}00185\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespacesearch_a79be19296b7b96829cfc6d54ec5cb084}{dict\_binary\_search}}(possible\_buses,\ min\_stop)\ ==\ stop):\ \textcolor{comment}{\#check\ if\ bianry\ vs\ linear\ faster\ here}}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00186}00186\ \ \ \ \ \ \ \ \ \ \ \ \ min\_bus\ =\ route}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00187}00187\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break}\ \ \ }
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00188}00188\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00189}00189\ }
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00190}00190\ }
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00191}00191\ \mbox{\hyperlink{namespacesearch_a67013b4ddfe9c4f2dbb661a642cbed07}{findBusTaken}}()}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00192}00192\ \mbox{\hyperlink{namespacesearch_a8af036654b8c8878447d1e55225cc4c1}{busGoStops}}()}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00193}00193\ \mbox{\hyperlink{namespacesearch_a6aed943c283470ac4811b589afebee85}{findBusGo}}()}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00194}00194\ \mbox{\hyperlink{namespacesearch_afdf665e9c4a977f17e7c7604884bf928}{findshortestBus}}()}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00195}00195\ \textcolor{comment}{\#print(possible\_distances)}}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00196}00196\ \textcolor{comment}{\#print(possible\_busnames)}}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00197}00197\ print(possible\_buses)}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00198}\mbox{\hyperlink{namespacesearch_a0e903c86b07e720b1faa757790f4a433}{00198}}\ potential\_buses\ =\ set()}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00199}00199\ \textcolor{keywordflow}{if}\ (min\_stop\ ==\ q2\ \textcolor{keywordflow}{or}\ min\_stop\ ==\ q1):}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00200}00200\ \ \ \ \ print(f\textcolor{stringliteral}{'Take\ \{min\_bus\}\ to\ \{q1\}'})}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00201}00201\ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00202}00202\ \ \ \ \ \textcolor{keywordflow}{for}\ name,\ stop\ \textcolor{keywordflow}{in}\ bus\_names.items():}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00203}00203\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespacesearch_a79be19296b7b96829cfc6d54ec5cb084}{dict\_binary\_search}}(stop,\ q2)\ ==\ q2\ \textcolor{keywordflow}{and}\ \mbox{\hyperlink{namespacesearch_a79be19296b7b96829cfc6d54ec5cb084}{dict\_binary\_search}}(stop,\ min\_stop)\ ==\ min\_stop):}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ potential\_buses.add(name)}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00205}\mbox{\hyperlink{namespacesearch_a62181562a49785d6f447602d893c13dc}{00205}}\ \ \ \ \ unique\_list\ =\ list(potential\_buses)}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00206}00206\ \ \ \ \ print(f\textcolor{stringliteral}{'Take\ \{"{},\ "{}.join(potential\_buses)\}\ to\ \{min\_stop\}\ then\ take\ \{min\_bus\}\ to\ \{q1\}'})}
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00207}00207\ }
+\DoxyCodeLine{\Hypertarget{search_8py_source_l00208}00208\ \textcolor{comment}{\#print("{}Process\ finished\ -\/-\/-\/\ \%s\ seconds\ -\/-\/-\/"{}\ \%\ (time.time()\ -\/\ start\_time))}}
+
+\end{DoxyCode}

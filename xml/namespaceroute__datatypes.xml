@@ -1,0 +1,707 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.13.2" xml:lang="en-US">
+  <compounddef id="namespaceroute__datatypes" kind="namespace" language="Python">
+    <compoundname>route_datatypes</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceroute__datatypes_1a12324975c0cc17c0331d5027652d8c3a" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list route_datatypes.places</definition>
+        <argsstring></argsstring>
+        <name>places</name>
+        <qualifiedname>route_datatypes.places</qualifiedname>
+        <initializer>=  [&quot;Amtrak Station&quot;, &quot;Cardella Rd. &amp; &apos;M&apos; Street (North)&quot;, &quot;Cardella Rd. &amp; &apos;M&apos; Street (South)&quot;, &quot;Compass Pointe Apts&quot;, 
+          &quot;El Portal &amp; G Street&quot;, &quot;El Redondo Dr&quot;, &quot;Foothill Drive&quot;, &quot;G St. &amp; W. Alexander Ave&quot;, &quot;G St. &amp; W. Alexander Ave. (Bus Stop Paul&apos;s Place)&quot;, 
+          &quot;G Street South&quot;, &quot;Granville Apartments&quot;, &quot;Ironstone Dr. &amp; M St&quot;, &quot;K St. Between 18th &amp; 19th&quot;, &quot;M St. At Bellevue RD&quot;, 
+          &quot;M Street Village Apartments&quot;, &quot;Meadows Ave &amp; Olivewood Dr (Foodmaxx)&quot;, &quot;Merced College The Bus Terminal&quot;, &quot;Merced Mall Target&quot;, &quot;Merced Transpo&quot;, &quot;Moraga Subdivision&quot;, 
+          &quot;Promenade Center&quot;, &quot;R Street Village Apts&quot;, &quot;Rite Aid/Walgreens&quot;, &quot;TriCollege/Mercy&quot;, &quot;TriCollege/Mercy (Bus stop on G next to Tri College)&quot;, 
+          &quot;UC Merced Downtown Campus Center&quot;, &quot;University Surgery Center&quot;, &quot;University Transit Center&quot;, &quot;Walmart on Loughborough Dr&quot;, &quot;Yosemite &amp; Cordova (Merced Physician Center)&quot;, 
+          &quot;Yosemite Crossings Shopping Center&quot;]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="route_datatypes.py" line="3" column="1" bodyfile="route_datatypes.py" bodystart="3" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceroute__datatypes_1a3aa4dff68a00944df480b07c4cc3f32e" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list route_datatypes.geo_pyPlaces</definition>
+        <argsstring></argsstring>
+        <name>geo_pyPlaces</name>
+        <qualifiedname>route_datatypes.geo_pyPlaces</qualifiedname>
+        <initializer>=  [&quot;355 West 24th Street, Merced, CA&quot;, &quot;595, Glendon Court, Bellevue Ranch, Bellview Ranch, Merced, Merced County, California, 95348, United States&quot;, &quot;4298, Lasalle Drive, The Meadows At Bellevue Ranch West, Bellevue Ranch, Bellview Ranch, Merced, Merced County, California, 95348, United States&quot;, &quot;1220 Daybreak Dr, Merced, CA 95348&quot;, &quot;19, El Portal Drive, Merced, Merced County, California, 95340, United States&quot;,
+                &quot;3706 El Redondo Drive&quot;, &quot;4486 Everson Ct, Merced, CA 95348&quot;, &quot;80, Emerald Drive, Merced, Merced County, California, 95340, United States&quot;, &quot;59, Sandy Lane, Merced, Merced County, California, 95340, United States&quot;, &quot;3514 G St, Merced, CA 95340&quot;, &quot;2962, Willowbrook Drive, Merced, Merced County, California, 95348, United States&quot;, 
+                &quot;621 M St, Merced, CA 95348&quot;, &quot;415, West 18th Street, Merced, Merced County, California, 95340, United States&quot;, &quot;586 Barclay Way, Merced, CA 95348&quot;, &quot;597, Collins Drive, Merced, Merced County, California, 95348, United States&quot;, &quot;1223, Devonwood Drive, Merced, Merced County, California, 95348, United States&quot;, &quot;614, Stanford Court, Merced, Merced County, California, 95348, United States&quot;, &quot;3304, Santa Rosa Court, Merced, Merced County, California, 95348, United States&quot;,
+                &quot;710, West 16th Street, Merced, Merced County, California, 95340, United States&quot;, &quot;2397, Explorador Drive, Merced, Merced County, California, 95340, United States&quot;, &quot;755, East Yosemite Avenue, Merced, Merced County, California, 95340, United States&quot;, &quot;3892, R Street, Bellevue Ranch, Bellview Ranch, Merced, Merced County, California, 95348, United States&quot;, &quot;Pizza Factory, G Street, Merced, Merced County, California, 98348, United States&quot;,
+                &quot;315 Mercy Avenue, Merced, CA, USA&quot;, &quot;3601 G Street, Merced, CA&quot;, &quot;UC Merced Downtown Campus Center&quot;, &quot;University Surgical &amp; Dianogstic Center&quot;, &quot;2897 Bellevue Rd, Merced, CA 95340&quot;,
+                &quot;Walmart 3055 Loughborough Drive&quot;, &quot;Doctors Carreon Adrian Md, 410, East Yosemite Avenue, Merced, Merced County, California, 95340, United States&quot;, &quot;Soccer Field (Varsity) G Street&quot;]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="route_datatypes.py" line="11" column="1" bodyfile="route_datatypes.py" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceroute__datatypes_1af3a819231673f18d422d51e06a46699f" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>route_datatypes.ssl_context</definition>
+        <argsstring></argsstring>
+        <name>ssl_context</name>
+        <qualifiedname>route_datatypes.ssl_context</qualifiedname>
+        <initializer>=  ssl.create_default_context(cafile=certifi.where())</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="route_datatypes.py" line="20" column="1" bodyfile="route_datatypes.py" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceroute__datatypes_1ab9312d61126b1abf172ba8a875307602" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>route_datatypes.geolocator</definition>
+        <argsstring></argsstring>
+        <name>geolocator</name>
+        <qualifiedname>route_datatypes.geolocator</qualifiedname>
+        <initializer>=  Nominatim(user_agent = &quot;route app&quot;, <ref refid="namespaceroute__datatypes_1af3a819231673f18d422d51e06a46699f" kindref="member">ssl_context</ref>=<ref refid="namespaceroute__datatypes_1af3a819231673f18d422d51e06a46699f" kindref="member">ssl_context</ref>, timeout=10)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="route_datatypes.py" line="21" column="1" bodyfile="route_datatypes.py" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceroute__datatypes_1a20b1c3fadc886912992824ba6bd0d2b4" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list route_datatypes.geo_pyPlacesGeocode</definition>
+        <argsstring></argsstring>
+        <name>geo_pyPlacesGeocode</name>
+        <qualifiedname>route_datatypes.geo_pyPlacesGeocode</qualifiedname>
+        <initializer>=  []</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="route_datatypes.py" line="22" column="1" bodyfile="route_datatypes.py" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceroute__datatypes_1a8902645772ffb3f4a2f016320fa09435" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>route_datatypes.location</definition>
+        <argsstring></argsstring>
+        <name>location</name>
+        <qualifiedname>route_datatypes.location</qualifiedname>
+        <initializer>=  geolocator.geocode(place)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="route_datatypes.py" line="24" column="1" bodyfile="route_datatypes.py" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceroute__datatypes_1aa7f386ce876fe59e1c90c215ff705acb" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list route_datatypes.geo_pyPlacesCoords</definition>
+        <argsstring></argsstring>
+        <name>geo_pyPlacesCoords</name>
+        <qualifiedname>route_datatypes.geo_pyPlacesCoords</qualifiedname>
+        <initializer>=  []</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="route_datatypes.py" line="27" column="1" bodyfile="route_datatypes.py" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceroute__datatypes_1a5b377f853cd308623c9063928576e4d9" prot="public" static="no" mutable="no">
+        <type>dict</type>
+        <definition>dict route_datatypes.bobcat_express_stops</definition>
+        <argsstring></argsstring>
+        <name>bobcat_express_stops</name>
+        <qualifiedname>route_datatypes.bobcat_express_stops</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="route_datatypes.py" line="31" column="1" bodyfile="route_datatypes.py" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceroute__datatypes_1aaa57d23c28ac52631df1065b32cede1d" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list route_datatypes.bobcat_express_stops_keys</definition>
+        <argsstring></argsstring>
+        <name>bobcat_express_stops_keys</name>
+        <qualifiedname>route_datatypes.bobcat_express_stops_keys</qualifiedname>
+        <initializer>=  [&quot;R Street Village Apts&quot;, &quot;El Redondo Dr&quot;, &quot;Compass Pointe Apts&quot;, &quot;Merced College The Bus Terminal&quot;, 
+                             &quot;M St. At Bellevue RD&quot;, &quot;University Transit Center&quot;, &quot;Promenade Center&quot;, &quot;Merced Mall Target&quot;, 
+                             &quot;Walmart on Loughborough Dr&quot;, &quot;Amtrak Station&quot;, &quot;K St. Between 18th &amp; 19th&quot;, &quot;Merced Transpo&quot;, 
+                             &quot;Rite Aid/Walgreens&quot;, &quot;El Portal &amp; G Street&quot;]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="route_datatypes.py" line="67" column="1" bodyfile="route_datatypes.py" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceroute__datatypes_1a295c6995bef54df35e0ed73fb4352f9c" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list route_datatypes.bobcat_express_stops_values</definition>
+        <argsstring></argsstring>
+        <name>bobcat_express_stops_values</name>
+        <qualifiedname>route_datatypes.bobcat_express_stops_values</qualifiedname>
+        <initializer>=  [[&quot;6:29&quot;, &quot;7:09&quot;, &quot;7:49&quot;, &quot;8:44&quot;, &quot;9:24&quot;, &quot;10:04&quot;, &quot;10:44&quot;, &quot;12:09&quot;, &quot;1:49&quot;, &quot;3:17&quot;, &quot;4:57&quot;, &quot;6:22&quot;, &quot;8:02&quot;], 
+                               [&quot;6:32&quot;, &quot;7:12&quot;, &quot;7:52&quot;, &quot;8:47&quot;, &quot;9:27&quot;, &quot;10:07&quot;, &quot;10:47&quot;, &quot;12:12&quot;, &quot;1:52&quot;, &quot;3:20&quot;, &quot;5:00&quot;, &quot;6:25&quot;, &quot;8:05&quot;], 
+                               [&quot;6:34&quot;, &quot;7:14&quot;, &quot;7:54&quot;, &quot;8:49&quot;, &quot;9:29&quot;, &quot;10:09&quot;, &quot;10:49&quot;, &quot;12:14&quot;, &quot;1:54&quot;, &quot;3:22&quot;, &quot;5:02&quot;, &quot;6:27&quot;, &quot;8:07&quot;], 
+                               [&quot;6:39&quot;, &quot;7:19&quot;, &quot;7:59&quot;, &quot;8:54&quot;, &quot;9:34&quot;, &quot;10:14&quot;, &quot;10:54&quot;, &quot;12:19&quot;, &quot;1:59&quot;, &quot;3:27&quot;, &quot;5:07&quot;, &quot;6:32&quot;, &quot;8:12&quot;], 
+                               [&quot;6:44&quot;, &quot;7:24&quot;, &quot;8:04&quot;, &quot;8:59&quot;, &quot;9:39&quot;, &quot;10:19&quot;, &quot;11:00&quot;, &quot;12:25&quot;, &quot;2:05&quot;, &quot;3:33&quot;, &quot;5:13&quot;, &quot;6:38&quot;, &quot;8:18&quot;], 
+                               [&quot;6:55&quot;, &quot;7:35&quot;, &quot;8:30&quot;, &quot;9:10&quot;, &quot;9:50&quot;, &quot;10:30&quot;, &quot;11:11&quot;, &quot;12:51&quot;, &quot;2:16&quot;, &quot;3:59&quot;, &quot;5:24&quot;, &quot;7:04&quot;, &quot;8:29*&quot;], 
+                               [&quot;11:20&quot;, &quot;1:00&quot;, &quot;2:25&quot;, &quot;4:08&quot;, &quot;5:33&quot;, &quot;7:13&quot;], [&quot;11:29&quot;, &quot;1:09&quot;, &quot;2:37&quot;, &quot;4:17&quot;, &quot;5:42&quot;, &quot;7:22&quot;], 
+                               [&quot;11:38&quot;, &quot;1:18&quot;, &quot;2:46&quot;, &quot;4:26&quot;, &quot;5:51&quot;, &quot;7:31&quot;], [&quot;11:50&quot;, &quot;1:30&quot;, &quot;2:58&quot;, &quot;4:38&quot;, &quot;6:03&quot;, &quot;7:43&quot;], 
+                               [&quot;11:52&quot;, &quot;1:32&quot;, &quot;3:00&quot;, &quot;4:40&quot;, &quot;6:05&quot;, &quot;7:45&quot;], [&quot;REQ:&quot;, &quot;REQ:&quot;, &quot;REQ:&quot;, &quot;REQ:&quot;, &quot;REQ:&quot;, &quot;REQ:&quot;], [
+                                   &quot;12:01&quot;, &quot;1:41&quot;, &quot;3:09&quot;, &quot;4:49&quot;, &quot;6:14&quot;, &quot;7:54&quot;], [&quot;12:03&quot;, &quot;1:43&quot;, &quot;3:11&quot;, &quot;4:51&quot;, &quot;6:16&quot;, &quot;7:56&quot;]]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="route_datatypes.py" line="72" column="1" bodyfile="route_datatypes.py" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceroute__datatypes_1a4b939f65ac57f206581bb8a15fe40e22" prot="public" static="no" mutable="no">
+        <type>dict</type>
+        <definition>dict route_datatypes.C1_stops</definition>
+        <argsstring></argsstring>
+        <name>C1_stops</name>
+        <qualifiedname>route_datatypes.C1_stops</qualifiedname>
+        <initializer>=  {
+    &quot;Granville Apartments&quot;: [&quot;6:20&quot;, &quot;7:31&quot;, &quot;8:57&quot;, &quot;10:08&quot;, &quot;11:34&quot;, &quot;12:45&quot;, &quot;2:16&quot;, &quot;3:27&quot;, &quot;4:53&quot;, &quot;6:04&quot;, &quot;7:15&quot;, &quot;8:41&quot;, &quot;9:52&quot;, &quot;REQ:&quot;],
+    &quot;G St. &amp; W. Alexander Ave&quot;: [&quot;6:32&quot;, &quot;7:43&quot;, &quot;9:09&quot;, &quot;10:20&quot;, &quot;11:46&quot;, &quot;12:57&quot;, &quot;2:28&quot;, &quot;3:39&quot;, &quot;5:05&quot;, &quot;6:16&quot;, &quot;7:27&quot;, &quot;8:53&quot;, &quot;10:04&quot;, &quot;REQ:&quot;],
+    &quot;Rite Aid/Walgreens&quot;: [&quot;6:34&quot;, &quot;7:45&quot;, &quot;9:11&quot;, &quot;10:22&quot;, &quot;11:48&quot;, &quot;12:59&quot;, &quot;2:30&quot;, &quot;3:41&quot;, &quot;5:07&quot;, &quot;6:18&quot;, &quot;7:29&quot;, &quot;8:55&quot;, &quot;10:06&quot;, &quot;REQ:&quot;],
+    &quot;El Portal &amp; G Street&quot;: [&quot;6:36&quot;, &quot;7:47&quot;, &quot;9:13&quot;, &quot;10:24&quot;, &quot;11:50&quot;, &quot;1:01&quot;, &quot;2:32&quot;, &quot;3:43&quot;, &quot;5:09&quot;, &quot;6:20&quot;, &quot;7:31&quot;, &quot;8:57&quot;, &quot;10:08&quot;, &quot;REQ:&quot;, &quot;7:09&quot;, &quot;8:35&quot;, &quot;9:46&quot;, &quot;11:12&quot;, &quot;12:23&quot;, &quot;1:49&quot;, &quot;3:05&quot;, &quot;4:31&quot;, &quot;5:42&quot;, &quot;6:53&quot;, &quot;8:19&quot;, &quot;9:30&quot;,],
+    &quot;TriCollege/Mercy&quot;: [&quot;6:39&quot;, &quot;7:50&quot;, &quot;9:16&quot;, &quot;10:27&quot;, &quot;11:53&quot;, &quot;1:04&quot;, &quot;2:35&quot;, &quot;3:46&quot;, &quot;5:12&quot;, &quot;6:23&quot;, &quot;7:34&quot;, &quot;9:00&quot;, &quot;10:11&quot;, &quot;REQ:&quot;],
+    &quot;M St. At Bellevue RD&quot;: [&quot;6:45&quot;, &quot;7:56&quot;, &quot;9:22&quot;, &quot;10:33&quot;, &quot;11:59&quot;, &quot;1:10&quot;, &quot;2:41&quot;, &quot;3:52&quot;, &quot;5:18&quot;, &quot;6:29&quot;, &quot;7:40&quot;, &quot;9:06&quot;, &quot;10:17&quot;, &quot;REQ:&quot;],
+    &quot;University Transit Center&quot;: [&quot;6:56&quot;, &quot;8:22&quot;, &quot;9:33&quot;, &quot;10:59&quot;, &quot;12:10&quot;, &quot;1:36&quot;, &quot;2:52&quot;, &quot;4:18&quot;, &quot;5:29&quot;, &quot;6:40&quot;, &quot;8:06&quot;, &quot;9:17&quot;, &quot;10:28&quot;],
+    &quot;TriCollege/Mercy (Bus stop on G next to Tri College)&quot;: [&quot;7:06&quot;, &quot;8:32&quot;, &quot;9:43&quot;, &quot;11:09&quot;, &quot;12:20&quot;, &quot;1:46&quot;, &quot;3:02&quot;, &quot;4:28&quot;, &quot;5:39&quot;, &quot;6:50&quot;, &quot;8:16&quot;, &quot;9:27&quot;, &quot;REQ:&quot;],
+    &quot;G St. &amp; W. Alexander Ave. (Bus Stop Paul&apos;s Place)&quot;: [&quot;7:14&quot;, &quot;8:40&quot;, &quot;9:51&quot;, &quot;11:17&quot;, &quot;12:28&quot;, &quot;1:54&quot;, &quot;3:10&quot;, &quot;4:36&quot;, &quot;5:47&quot;, &quot;6:58&quot;, &quot;8:24&quot;, &quot;9:35&quot;, &quot;REQ:&quot;]
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="route_datatypes.py" line="82" column="1" bodyfile="route_datatypes.py" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceroute__datatypes_1a198a270f86b0edca37e363110f984d04" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list route_datatypes.C1_stops_keys</definition>
+        <argsstring></argsstring>
+        <name>C1_stops_keys</name>
+        <qualifiedname>route_datatypes.C1_stops_keys</qualifiedname>
+        <initializer>=  [&quot;Granville Apartments&quot;, &quot;G St. &amp; W. Alexander Ave&quot;, &quot;Rite Aid/Walgreens&quot;, &quot;El Portal &amp; G Street&quot;, 
+            &quot;TriCollege/Mercy&quot;, &quot;M St. At Bellevue RD&quot;, &quot;University Transit Center&quot;, 
+            &quot;TriCollege/Mercy (Bus stop on G next to Tri College)&quot;, &quot;G St. &amp; W. Alexander Ave. (Bus Stop Paul&apos;s Place)&quot;]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="route_datatypes.py" line="94" column="1" bodyfile="route_datatypes.py" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceroute__datatypes_1a7d3e7f47c54e21ac92da294de6f099a7" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list route_datatypes.C1_stops_values</definition>
+        <argsstring></argsstring>
+        <name>C1_stops_values</name>
+        <qualifiedname>route_datatypes.C1_stops_values</qualifiedname>
+        <initializer>=  [[&quot;6:20&quot;, &quot;7:31&quot;, &quot;8:57&quot;, &quot;10:08&quot;, &quot;11:34&quot;, &quot;12:45&quot;, &quot;2:16&quot;, &quot;3:27&quot;, &quot;4:53&quot;, &quot;6:04&quot;, &quot;7:15&quot;, &quot;8:41&quot;, &quot;9:52&quot;, &quot;REQ:&quot;], 
+                   [&quot;6:32&quot;, &quot;7:43&quot;, &quot;9:09&quot;, &quot;10:20&quot;, &quot;11:46&quot;, &quot;12:57&quot;, &quot;2:28&quot;, &quot;3:39&quot;, &quot;5:05&quot;, &quot;6:16&quot;, &quot;7:27&quot;, &quot;8:53&quot;, &quot;10:04&quot;, &quot;REQ:&quot;], 
+                   [&quot;6:34&quot;, &quot;7:45&quot;, &quot;9:11&quot;, &quot;10:22&quot;, &quot;11:48&quot;, &quot;12:59&quot;, &quot;2:30&quot;, &quot;3:41&quot;, &quot;5:07&quot;, &quot;6:18&quot;, &quot;7:29&quot;, &quot;8:55&quot;, &quot;10:06&quot;, &quot;REQ:&quot;], 
+                   [&quot;6:36&quot;, &quot;7:47&quot;, &quot;9:13&quot;, &quot;10:24&quot;, &quot;11:50&quot;, &quot;1:01&quot;, &quot;2:32&quot;, &quot;3:43&quot;, &quot;5:09&quot;, &quot;6:20&quot;, &quot;7:31&quot;, &quot;8:57&quot;, &quot;10:08&quot;, &quot;REQ:&quot;, 
+                    &quot;7:09&quot;, &quot;8:35&quot;, &quot;9:46&quot;, &quot;11:12&quot;, &quot;12:23&quot;, &quot;1:49&quot;, &quot;3:05&quot;, &quot;4:31&quot;, &quot;5:42&quot;, &quot;6:53&quot;, &quot;8:19&quot;, &quot;9:30&quot;], [&quot;6:39&quot;, &quot;7:50&quot;, 
+                    &quot;9:16&quot;, &quot;10:27&quot;, &quot;11:53&quot;, &quot;1:04&quot;, &quot;2:35&quot;, &quot;3:46&quot;, &quot;5:12&quot;, &quot;6:23&quot;, &quot;7:34&quot;, &quot;9:00&quot;, &quot;10:11&quot;, &quot;REQ:&quot;], [&quot;6:45&quot;, &quot;7:56&quot;, 
+                    &quot;9:22&quot;, &quot;10:33&quot;, &quot;11:59&quot;, &quot;1:10&quot;, &quot;2:41&quot;, &quot;3:52&quot;, &quot;5:18&quot;, &quot;6:29&quot;, &quot;7:40&quot;, &quot;9:06&quot;, &quot;10:17&quot;, &quot;REQ:&quot;], 
+                    [&quot;6:56&quot;, &quot;8:22&quot;, &quot;9:33&quot;, &quot;10:59&quot;, &quot;12:10&quot;, &quot;1:36&quot;, &quot;2:52&quot;, &quot;4:18&quot;, &quot;5:29&quot;, &quot;6:40&quot;, &quot;8:06&quot;, &quot;9:17&quot;, &quot;10:28&quot;], 
+                    [&quot;7:06&quot;, &quot;8:32&quot;, &quot;9:43&quot;, &quot;11:09&quot;, &quot;12:20&quot;, &quot;1:46&quot;, &quot;3:02&quot;, &quot;4:28&quot;, &quot;5:39&quot;, &quot;6:50&quot;, &quot;8:16&quot;, &quot;9:27&quot;, &quot;REQ:&quot;], 
+                    [&quot;7:14&quot;, &quot;8:40&quot;, &quot;9:51&quot;, &quot;11:17&quot;, &quot;12:28&quot;, &quot;1:54&quot;, &quot;3:10&quot;, &quot;4:36&quot;, &quot;5:47&quot;, &quot;6:58&quot;, &quot;8:24&quot;, &quot;9:35&quot;, &quot;REQ:&quot;]]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="route_datatypes.py" line="98" column="1" bodyfile="route_datatypes.py" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceroute__datatypes_1a62eb1f405adae7b1207a57bcb101771c" prot="public" static="no" mutable="no">
+        <type>dict</type>
+        <definition>dict route_datatypes.C2_stops</definition>
+        <argsstring></argsstring>
+        <name>C2_stops</name>
+        <qualifiedname>route_datatypes.C2_stops</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="route_datatypes.py" line="109" column="1" bodyfile="route_datatypes.py" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceroute__datatypes_1aa02b54f00bc056c82bf08476277bc420" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list route_datatypes.C2_stops_keys</definition>
+        <argsstring></argsstring>
+        <name>C2_stops_keys</name>
+        <qualifiedname>route_datatypes.C2_stops_keys</qualifiedname>
+        <initializer>=  [&quot;R Street Village Apts&quot;, &quot;El Redondo Dr&quot;, &quot;Compass Pointe Apts&quot;, &quot;Buena Vista Dr&quot;, &quot;Merced Mall Target&quot;, &quot;Village Apts. &apos;M&apos; Street&quot;, 
+                &quot;Merced College The Bus Terminal&quot;, &quot;Cardella Rd. &amp; &apos;M&apos; Street (North)&quot;, &quot;M St. At Bellevue RD&quot;, &quot;University Transit Center&quot;, &quot;Foothill Drive&quot;, &quot;Cardella Rd. &amp; &apos;M&apos; Street (South)&quot;]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="route_datatypes.py" line="144" column="1" bodyfile="route_datatypes.py" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceroute__datatypes_1a4d4a6890673d4fe6fa40a9f0db3dd21c" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list route_datatypes.C2_stops_values</definition>
+        <argsstring></argsstring>
+        <name>C2_stops_values</name>
+        <qualifiedname>route_datatypes.C2_stops_values</qualifiedname>
+        <initializer>=  [[&quot;6:20&quot;, &quot;7:18&quot;, &quot;8:31&quot;, &quot;9:29&quot;, &quot;10:42&quot;, &quot;11:40&quot;, &quot;12:53&quot;, &quot;1:51&quot;, &quot;2:52&quot;, &quot;3:50&quot;, &quot;5:03&quot;, &quot;6:01&quot;, &quot;7:14&quot;, &quot;8:12&quot;, &quot;9:25&quot;, &quot;REQ:&quot;], 
+                   [&quot;6:23&quot;, &quot;7:21&quot;, &quot;8:34&quot;, &quot;9:32&quot;, &quot;10:45&quot;, &quot;11:43&quot;, &quot;12:56&quot;, &quot;1:54&quot;, &quot;2:55&quot;, &quot;3:53&quot;, &quot;5:06&quot;, &quot;6:04&quot;, &quot;7:17&quot;, &quot;8:15&quot;, &quot;9:28&quot;, &quot;REQ:&quot;], 
+                   [&quot;6:25&quot;, &quot;7:23&quot;, &quot;8:36&quot;, &quot;9:34&quot;, &quot;10:47&quot;, &quot;11:45&quot;, &quot;12:58&quot;, &quot;1:56&quot;, &quot;2:57&quot;, &quot;3:55&quot;, &quot;5:08&quot;, &quot;6:06&quot;, &quot;7:19&quot;, &quot;8:17&quot;, &quot;9:30&quot;, &quot;REQ:&quot;], 
+                   [&quot;6:32&quot;, &quot;7:30&quot;, &quot;8:43&quot;, &quot;9:41&quot;, &quot;10:54&quot;, &quot;11:52&quot;, &quot;1:05&quot;, &quot;2:03&quot;, &quot;3:04&quot;, &quot;4:02&quot;, &quot;5:15&quot;, &quot;6:13&quot;, &quot;7:26&quot;, &quot;8:24&quot;, &quot;9:37&quot;, &quot;REQ:&quot;], 
+                   [&quot;6:39&quot;, &quot;7:37&quot;, &quot;8:50&quot;, &quot;9:48&quot;, &quot;11:01&quot;, &quot;11:59&quot;, &quot;1:12&quot;, &quot;2:13&quot;, &quot;3:11&quot;, &quot;4:09&quot;, &quot;5:22&quot;, &quot;6:20&quot;, &quot;7:33&quot;, &quot;8:31&quot;, &quot;9:44&quot;, &quot;REQ:&quot;], 
+                   [&quot;6:41&quot;, &quot;7:39&quot;, &quot;8:52&quot;, &quot;9:50&quot;, &quot;11:03&quot;, &quot;12:01&quot;, &quot;1:14&quot;, &quot;2:15&quot;, &quot;3:13&quot;, &quot;4:11&quot;, &quot;5:24&quot;, &quot;6:22&quot;, &quot;7:35&quot;, &quot;8:33&quot;, &quot;9:46&quot;, &quot;REQ:&quot;], 
+                   [&quot;6:45&quot;, &quot;7:43&quot;, &quot;8:56&quot;, &quot;9:54&quot;, &quot;11:07&quot;, &quot;12:05&quot;, &quot;1:18&quot;, &quot;2:19&quot;, &quot;3:17&quot;, &quot;4:15&quot;, &quot;5:28&quot;, &quot;6:26&quot;, &quot;7:39&quot;, &quot;8:37&quot;, &quot;9:50&quot;, &quot;REQ:&quot;], 
+                   [&quot;6:48&quot;, &quot;7:46&quot;, &quot;8:59&quot;, &quot;9:57&quot;, &quot;11:10&quot;, &quot;12:08&quot;, &quot;1:21&quot;, &quot;2:22&quot;, &quot;3:20&quot;, &quot;4:18&quot;, &quot;5:31&quot;, &quot;6:29&quot;, &quot;7:42&quot;, &quot;8:40&quot;, &quot;9:53&quot;, &quot;REQ:&quot;], 
+                   [&quot;6:51&quot;, &quot;7:49&quot;, &quot;9:02&quot;, &quot;10:00&quot;, &quot;11:13&quot;, &quot;12:11&quot;, &quot;1:24&quot;, &quot;2:25&quot;, &quot;3:23&quot;, &quot;4:21&quot;, &quot;5:34&quot;, &quot;6:32&quot;, &quot;7:45&quot;, &quot;8:43&quot;, &quot;9:56&quot;, &quot;REQ:&quot;], 
+                   [&quot;7:02&quot;, &quot;8:15&quot;, &quot;9:13&quot;, &quot;10:26&quot;, &quot;11:24&quot;, &quot;12:37&quot;, &quot;1:35&quot;, &quot;2:36&quot;, &quot;3:34&quot;, &quot;4:47&quot;, &quot;5:45&quot;, &quot;6:58&quot;, &quot;7:56&quot;, &quot;9:09&quot;, &quot;10:07&quot;], 
+                   [&quot;7:09&quot;, &quot;8:22&quot;, &quot;9:20&quot;, &quot;10:33&quot;, &quot;11:31&quot;, &quot;12:44&quot;, &quot;1:42&quot;, &quot;2:43&quot;], [&quot;7:13&quot;, &quot;8:26&quot;, &quot;9:24&quot;, &quot;10:37&quot;, &quot;11:35&quot;, &quot;12:48&quot;, &quot;1:46&quot;, &quot;2:47&quot;, &quot;3:45&quot;, &quot;4:58&quot;, &quot;5:56&quot;, &quot;7:09&quot;, &quot;8:07&quot;, &quot;9:20&quot;, &quot;REQ:&quot;]]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="route_datatypes.py" line="147" column="1" bodyfile="route_datatypes.py" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceroute__datatypes_1a603aba42739f307404e3eba0267027af" prot="public" static="no" mutable="no">
+        <type>dict</type>
+        <definition>dict route_datatypes.E1_stops</definition>
+        <argsstring></argsstring>
+        <name>E1_stops</name>
+        <qualifiedname>route_datatypes.E1_stops</qualifiedname>
+        <initializer>=  {
+    &quot;University Transit Center&quot;: [&quot;8:30&quot;, &quot;9:42&quot;, &quot;10:39&quot;, &quot;11:51&quot;, &quot;12:48&quot;, &quot;2:00&quot;, &quot;2:57&quot;, &quot;3:54&quot;, &quot;4:54&quot;, &quot;6:06&quot;, &quot;7:03&quot;, &quot;8:00&quot;, &quot;9:12&quot;, &quot;10:09&quot;, &quot;11:06&quot;],
+    &quot;G Street South&quot;: [&quot;8:39&quot;, &quot;9:51&quot;, &quot;10:48&quot;, &quot;12:00&quot;, &quot;12:57&quot;, &quot;2:09&quot;, &quot;3:06&quot;, &quot;4:03&quot;, &quot;5:03&quot;, &quot;6:15&quot;, &quot;7:12&quot;, &quot;8:09&quot;, &quot;9:21&quot;, &quot;10:18&quot;],
+    &quot;Amtrak Station&quot;: [&quot;8:46&quot;, &quot;9:58&quot;, &quot;10:55&quot;, &quot;12:07&quot;, &quot;1:04&quot;, &quot;2:16&quot;, &quot;3:13&quot;, &quot;4:10&quot;, &quot;5:10&quot;, &quot;6:22&quot;, &quot;7:19&quot;, &quot;8:16&quot;, &quot;9:28&quot;, &quot;10:25&quot;],
+    &quot;K St. Between 18th &amp; 19th&quot;: [&quot;8:48&quot;, &quot;10:00&quot;, &quot;10:57&quot;, &quot;12:09&quot;, &quot;1:06&quot;, &quot;2:18&quot;, &quot;3:15&quot;, &quot;4:15&quot;, &quot;5:12&quot;, &quot;6:24&quot;, &quot;7:21&quot;, &quot;8:18&quot;, &quot;9:30&quot;, &quot;10:27&quot;],
+    &quot;Walmart on Loughborough Dr&quot;: [&quot;9:01&quot;, &quot;10:13&quot;, &quot;11:10&quot;, &quot;12:22&quot;, &quot;1:19&quot;, &quot;2:31&quot;, &quot;3:28&quot;, &quot;4:28&quot;, &quot;5:25&quot;, &quot;6:37&quot;, &quot;7:34&quot;, &quot;8:31&quot;, &quot;9:43&quot;, &quot;10:40&quot;],
+    &quot;Meadows Ave &amp; Olivewood Dr (Foodmaxx)&quot;: [&quot;9:03&quot;, &quot;10:15&quot;, &quot;11:12&quot;, &quot;12:24&quot;, &quot;1:21&quot;, &quot;2:33&quot;, &quot;3:30&quot;, &quot;4:30&quot;, &quot;5:27&quot;, &quot;6:39&quot;, &quot;7:36&quot;, &quot;8:33&quot;, &quot;9:45&quot;, &quot;10:42&quot;],
+    &quot;Merced Mall Target&quot;: [&quot;9:07&quot;, &quot;10:19&quot;, &quot;11:16&quot;, &quot;12:28&quot;, &quot;1:25&quot;, &quot;2:37&quot;, &quot;3:34&quot;, &quot;4:34&quot;, &quot;5:31&quot;, &quot;6:43&quot;, &quot;7:40&quot;, &quot;8:37&quot;, &quot;9:49&quot;, &quot;10:46&quot;],
+    &quot;Rite Aid/Walgreens&quot;: [&quot;9:14&quot;, &quot;10:26&quot;, &quot;11:23&quot;, &quot;12:35&quot;, &quot;1:32&quot;, &quot;2:44&quot;, &quot;3:41&quot;, &quot;4:41&quot;, &quot;5:38&quot;, &quot;6:50&quot;, &quot;7:47&quot;, &quot;8:44&quot;, &quot;9:56&quot;, &quot;10:53&quot;],
+    &quot;Yosemite Crossings Shopping Center&quot;: [&quot;9:18&quot;, &quot;10:30&quot;, &quot;11:27&quot;, &quot;12:39&quot;, &quot;1:36&quot;, &quot;2:48&quot;, &quot;3:45&quot;, &quot;4:45&quot;, &quot;5:42&quot;, &quot;6:54&quot;, &quot;7:51&quot;, &quot;8:48&quot;, &quot;10:00&quot;, &quot;10:57&quot; ],
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="route_datatypes.py" line="159" column="1" bodyfile="route_datatypes.py" bodystart="159" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceroute__datatypes_1a4d070f8c10b4bb528642df05b17a1a80" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list route_datatypes.E1_stops_keys</definition>
+        <argsstring></argsstring>
+        <name>E1_stops_keys</name>
+        <qualifiedname>route_datatypes.E1_stops_keys</qualifiedname>
+        <initializer>=  [&quot;University Transit Center&quot;, &quot;G Street South&quot;, &quot;Amtrak Station&quot;, &quot;K St. Between 18th &amp; 19th&quot;, &quot;Walmart on Loughborough Dr&quot;, &quot;Meadows Ave &amp; Olivewood Dr (Foodmaxx)&quot;, &quot;Merced Mall Target&quot;, 
+                 &quot;Rite Aid/Walgreens&quot;, &quot;Yosemite Crossings Shopping Center&quot;]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="route_datatypes.py" line="172" column="1" bodyfile="route_datatypes.py" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceroute__datatypes_1a11d0193b1abc8774509c62d665b1b953" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list route_datatypes.E1_stops_values</definition>
+        <argsstring></argsstring>
+        <name>E1_stops_values</name>
+        <qualifiedname>route_datatypes.E1_stops_values</qualifiedname>
+        <initializer>=  [[&quot;8:30&quot;, &quot;9:42&quot;, &quot;10:39&quot;, &quot;11:51&quot;, &quot;12:48&quot;, &quot;2:00&quot;, &quot;2:57&quot;, &quot;3:54&quot;, &quot;4:54&quot;, &quot;6:06&quot;, &quot;7:03&quot;, &quot;8:00&quot;, &quot;9:12&quot;, &quot;10:09&quot;, &quot;11:06&quot;], 
+                   [&quot;8:39&quot;, &quot;9:51&quot;, &quot;10:48&quot;, &quot;12:00&quot;, &quot;12:57&quot;, &quot;2:09&quot;, &quot;3:06&quot;, &quot;4:03&quot;, &quot;5:03&quot;, &quot;6:15&quot;, &quot;7:12&quot;, &quot;8:09&quot;, &quot;9:21&quot;, &quot;10:18&quot;], 
+                   [&quot;8:46&quot;, &quot;9:58&quot;, &quot;10:55&quot;, &quot;12:07&quot;, &quot;1:04&quot;, &quot;2:16&quot;, &quot;3:13&quot;, &quot;4:10&quot;, &quot;5:10&quot;, &quot;6:22&quot;, &quot;7:19&quot;, &quot;8:16&quot;, &quot;9:28&quot;, &quot;10:25&quot;], 
+                   [&quot;8:48&quot;, &quot;10:00&quot;, &quot;10:57&quot;, &quot;12:09&quot;, &quot;1:06&quot;, &quot;2:18&quot;, &quot;3:15&quot;, &quot;4:15&quot;, &quot;5:12&quot;, &quot;6:24&quot;, &quot;7:21&quot;, &quot;8:18&quot;, &quot;9:30&quot;, &quot;10:27&quot;], 
+                   [&quot;9:01&quot;, &quot;10:13&quot;, &quot;11:10&quot;, &quot;12:22&quot;, &quot;1:19&quot;, &quot;2:31&quot;, &quot;3:28&quot;, &quot;4:28&quot;, &quot;5:25&quot;, &quot;6:37&quot;, &quot;7:34&quot;, &quot;8:31&quot;, &quot;9:43&quot;, &quot;10:40&quot;], 
+                   [&quot;9:03&quot;, &quot;10:15&quot;, &quot;11:12&quot;, &quot;12:24&quot;, &quot;1:21&quot;, &quot;2:33&quot;, &quot;3:30&quot;, &quot;4:30&quot;, &quot;5:27&quot;, &quot;6:39&quot;, &quot;7:36&quot;, &quot;8:33&quot;, &quot;9:45&quot;, &quot;10:42&quot;], 
+                   [&quot;9:07&quot;, &quot;10:19&quot;, &quot;11:16&quot;, &quot;12:28&quot;, &quot;1:25&quot;, &quot;2:37&quot;, &quot;3:34&quot;, &quot;4:34&quot;, &quot;5:31&quot;, &quot;6:43&quot;, &quot;7:40&quot;, &quot;8:37&quot;, &quot;9:49&quot;, &quot;10:46&quot;], 
+                   [&quot;9:14&quot;, &quot;10:26&quot;, &quot;11:23&quot;, &quot;12:35&quot;, &quot;1:32&quot;, &quot;2:44&quot;, &quot;3:41&quot;, &quot;4:41&quot;, &quot;5:38&quot;, &quot;6:50&quot;, &quot;7:47&quot;, &quot;8:44&quot;, &quot;9:56&quot;, &quot;10:53&quot;], 
+                   [&quot;9:18&quot;, &quot;10:30&quot;, &quot;11:27&quot;, &quot;12:39&quot;, &quot;1:36&quot;, &quot;2:48&quot;, &quot;3:45&quot;, &quot;4:45&quot;, &quot;5:42&quot;, &quot;6:54&quot;, &quot;7:51&quot;, &quot;8:48&quot;, &quot;10:00&quot;, &quot;10:57&quot;]]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="route_datatypes.py" line="175" column="1" bodyfile="route_datatypes.py" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceroute__datatypes_1ad4330195f4f5a57e31106ebf52434bed" prot="public" static="no" mutable="no">
+        <type>dict</type>
+        <definition>dict route_datatypes.E2_stops</definition>
+        <argsstring></argsstring>
+        <name>E2_stops</name>
+        <qualifiedname>route_datatypes.E2_stops</qualifiedname>
+        <initializer>=  {
+        &quot;University Transit Center&quot;: [&quot;11:05&quot;, &quot;12:09&quot;, &quot;12:58&quot;, &quot;1:47&quot;, &quot;2:36&quot;, &quot;3:40&quot;, &quot;4:29&quot;, &quot;5:18&quot;, &quot;6:25&quot;, &quot;7:14&quot;, &quot;8:18&quot;, &quot;9:07&quot;, &quot;9:56&quot;],
+        &quot;Promenade Center&quot;: [&quot;11:14&quot;, &quot;12:18&quot;, &quot;1:07&quot;, &quot;1:56&quot;, &quot;2:45&quot;, &quot;3:49&quot;, &quot;4:38&quot;, &quot;5:27&quot;, &quot;6:34&quot;, &quot;7:23&quot;, &quot;8:27&quot;, &quot;9:16&quot;],
+        &quot;R Street Village Apts&quot;: [&quot;11:20&quot;, &quot;12:24&quot;, &quot;1:13&quot;, &quot;2:02&quot;, &quot;2:51&quot;, &quot;3:55&quot;, &quot;4:44&quot;, &quot;5:36&quot;, &quot;6:40&quot;, &quot;7:29&quot;, &quot;8:33&quot;, &quot;9:22&quot;],
+        &quot;El Redondo Dr&quot;: [&quot;11:23&quot;, &quot;12:27&quot;, &quot;1:16&quot;, &quot;2:05&quot;, &quot;2:54&quot;, &quot;3:58&quot;, &quot;4:47&quot;, &quot;5:39&quot;, &quot;6:43&quot;, &quot;7:32&quot;, &quot;8:36&quot;, &quot;9:25&quot;],
+        &quot;Compass Pointe Apts&quot;: [&quot;11:25&quot;, &quot;12:29&quot;, &quot;1:18&quot;, &quot;2:07&quot;, &quot;2:56&quot;, &quot;4:00&quot;, &quot;4:49&quot;, &quot;5:41&quot;, &quot;6:45&quot;, &quot;7:34&quot;, &quot;8:38&quot;, &quot;9:27&quot;],
+        &quot;Merced Mall Target&quot;: [&quot;11:31&quot;, &quot;12:35&quot;, &quot;1:24&quot;, &quot;2:13&quot;, &quot;3:02&quot;, &quot;4:06&quot;, &quot;4:55&quot;, &quot;5:47&quot;, &quot;6:51&quot;, &quot;7:40&quot;, &quot;8:44&quot;, &quot;9:33&quot;],
+        &quot;M Street Village Apartments&quot;: [&quot;11:33&quot;, &quot;12:37&quot;, &quot;1:26&quot;, &quot;2:15&quot;, &quot;3:04&quot;, &quot;4:08&quot;, &quot;4:57&quot;, &quot;5:49&quot;, &quot;6:53&quot;, &quot;7:42&quot;, &quot;8:46&quot;, &quot;9:35&quot;],
+        &quot;Ironstone Dr. &amp; M St&quot;: [&quot;11:37&quot;, &quot;12:41&quot;, &quot;1:30&quot;, &quot;2:19&quot;, &quot;3:08&quot;, &quot;4:12&quot;, &quot;5:01&quot;, &quot;5:53&quot;, &quot;6:57&quot;, &quot;7:46&quot;, &quot;8:50&quot;, &quot;9:39&quot;],
+        &quot;Yosemite &amp; Cordova (Merced Physician Center)&quot;: [&quot;11:43&quot;, &quot;12:47&quot;, &quot;1:36&quot;, &quot;2:25&quot;, &quot;3:14&quot;, &quot;4:18&quot;, &quot;5:07&quot;, &quot;5:59&quot;, &quot;7:03&quot;, &quot;7:52&quot;, &quot;8:56&quot;, &quot;9:45&quot;],
+        &quot;Moraga Subdivision&quot;: [&quot;11:46&quot;, &quot;12:50&quot;, &quot;1:39&quot;, &quot;2:28&quot;, &quot;3:17&quot;, &quot;4:21&quot;, &quot;5:10&quot;, &quot;6:02&quot;, &quot;7:06&quot;, &quot;7:55&quot;, &quot;8:59&quot;, &quot;9:48&quot;],
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="route_datatypes.py" line="185" column="1" bodyfile="route_datatypes.py" bodystart="185" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceroute__datatypes_1a87be52350b7be96402dbbeffc218ca6e" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list route_datatypes.E2_stops_keys</definition>
+        <argsstring></argsstring>
+        <name>E2_stops_keys</name>
+        <qualifiedname>route_datatypes.E2_stops_keys</qualifiedname>
+        <initializer>=  [&quot;University Transit Center&quot;, &quot;Promenade Center&quot;, &quot;R Street Village Apts&quot;, &quot;El Redondo Dr&quot;, &quot;Compass Pointe Apts&quot;, &quot;Merced Mall Target&quot;, 
+                 &quot;M Street Village Apartments&quot;, &quot;Ironstone Dr. &amp; M St&quot;, &quot;Yosemite &amp; Cordova (Merced Physician Center)&quot;, &quot;Moraga Subdivision&quot;]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="route_datatypes.py" line="198" column="1" bodyfile="route_datatypes.py" bodystart="198" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceroute__datatypes_1a94b0bc75c197f56a7656302c47d4f70c" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list route_datatypes.E2_stops_values</definition>
+        <argsstring></argsstring>
+        <name>E2_stops_values</name>
+        <qualifiedname>route_datatypes.E2_stops_values</qualifiedname>
+        <initializer>=  [[&quot;11:05&quot;, &quot;12:09&quot;, &quot;12:58&quot;, &quot;1:47&quot;, &quot;2:36&quot;, &quot;3:40&quot;, &quot;4:29&quot;, &quot;5:18&quot;, &quot;6:25&quot;, &quot;7:14&quot;, &quot;8:18&quot;, &quot;9:07&quot;, &quot;9:56&quot;], 
+                   [&quot;11:14&quot;, &quot;12:18&quot;, &quot;1:07&quot;, &quot;1:56&quot;, &quot;2:45&quot;, &quot;3:49&quot;, &quot;4:38&quot;, &quot;5:27&quot;, &quot;6:34&quot;, &quot;7:23&quot;, &quot;8:27&quot;, &quot;9:16&quot;], 
+                   [&quot;11:20&quot;, &quot;12:24&quot;, &quot;1:13&quot;, &quot;2:02&quot;, &quot;2:51&quot;, &quot;3:55&quot;, &quot;4:44&quot;, &quot;5:36&quot;, &quot;6:40&quot;, &quot;7:29&quot;, &quot;8:33&quot;, &quot;9:22&quot;], 
+                   [&quot;11:23&quot;, &quot;12:27&quot;, &quot;1:16&quot;, &quot;2:05&quot;, &quot;2:54&quot;, &quot;3:58&quot;, &quot;4:47&quot;, &quot;5:39&quot;, &quot;6:43&quot;, &quot;7:32&quot;, &quot;8:36&quot;, &quot;9:25&quot;], 
+                   [&quot;11:25&quot;, &quot;12:29&quot;, &quot;1:18&quot;, &quot;2:07&quot;, &quot;2:56&quot;, &quot;4:00&quot;, &quot;4:49&quot;, &quot;5:41&quot;, &quot;6:45&quot;, &quot;7:34&quot;, &quot;8:38&quot;, &quot;9:27&quot;], 
+                   [&quot;11:31&quot;, &quot;12:35&quot;, &quot;1:24&quot;, &quot;2:13&quot;, &quot;3:02&quot;, &quot;4:06&quot;, &quot;4:55&quot;, &quot;5:47&quot;, &quot;6:51&quot;, &quot;7:40&quot;, &quot;8:44&quot;, &quot;9:33&quot;], 
+                   [&quot;11:33&quot;, &quot;12:37&quot;, &quot;1:26&quot;, &quot;2:15&quot;, &quot;3:04&quot;, &quot;4:08&quot;, &quot;4:57&quot;, &quot;5:49&quot;, &quot;6:53&quot;, &quot;7:42&quot;, &quot;8:46&quot;, &quot;9:35&quot;], 
+                   [&quot;11:37&quot;, &quot;12:41&quot;, &quot;1:30&quot;, &quot;2:19&quot;, &quot;3:08&quot;, &quot;4:12&quot;, &quot;5:01&quot;, &quot;5:53&quot;, &quot;6:57&quot;, &quot;7:46&quot;, &quot;8:50&quot;, &quot;9:39&quot;], 
+                   [&quot;11:43&quot;, &quot;12:47&quot;, &quot;1:36&quot;, &quot;2:25&quot;, &quot;3:14&quot;, &quot;4:18&quot;, &quot;5:07&quot;, &quot;5:59&quot;, &quot;7:03&quot;, &quot;7:52&quot;, &quot;8:56&quot;, &quot;9:45&quot;], 
+                   [&quot;11:46&quot;, &quot;12:50&quot;, &quot;1:39&quot;, &quot;2:28&quot;, &quot;3:17&quot;, &quot;4:21&quot;, &quot;5:10&quot;, &quot;6:02&quot;, &quot;7:06&quot;, &quot;7:55&quot;, &quot;8:59&quot;, &quot;9:48&quot;]]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="route_datatypes.py" line="201" column="1" bodyfile="route_datatypes.py" bodystart="201" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceroute__datatypes_1a72e00ca9da6d6a5b5247a72fc8c2f88b" prot="public" static="no" mutable="no">
+        <type>dict</type>
+        <definition>dict route_datatypes.Fastcat_stops</definition>
+        <argsstring></argsstring>
+        <name>Fastcat_stops</name>
+        <qualifiedname>route_datatypes.Fastcat_stops</qualifiedname>
+        <initializer>=  {
+        &quot;University Surgery Center&quot;: [ &quot;6:35&quot;, &quot;7:39&quot;, &quot;8:58&quot;, &quot;10:02&quot;, &quot;11:06&quot;, &quot;12:25&quot;, &quot;1:29&quot;, &quot;2:36&quot;, &quot;3:40&quot;, &quot;4:59&quot;, &quot;6:03&quot;, &quot;7:07&quot;, &quot;8:11&quot;, &quot;9:30&quot;],
+        &quot;Promenade Center&quot;: [&quot;6:39&quot;, &quot;7:43&quot;, &quot;9:02&quot;, &quot;10:06&quot;, &quot;11:10&quot;, &quot;12:29&quot;, &quot;1:33&quot;, &quot;2:40&quot;, &quot;3:44&quot;, &quot;5:03&quot;, &quot;6:07&quot;, &quot;7:11&quot;, &quot;8:15&quot;, &quot;9:34&quot;],
+        &quot;Yosemite Crossings Shopping Center&quot;: [&quot;6:42&quot;, &quot;7:46&quot;, &quot;9:05&quot;, &quot;10:09&quot;, &quot;11:13&quot;, &quot;12:32&quot;, &quot;1:36&quot;, &quot;2:43&quot;, &quot;3:47&quot;, &quot;5:06&quot;, &quot;6:10&quot;, &quot;7:14&quot;, &quot;8:18&quot;, &quot;9:37&quot;],
+        &quot;TriCollege/Mercy&quot;: [&quot;6:44&quot;, &quot;7:48&quot;, &quot;9:07&quot;, &quot;10:11&quot;, &quot;11:15&quot;, &quot;12:34&quot;, &quot;1:38&quot;, &quot;2:45&quot;, &quot;3:49&quot;, &quot;5:08&quot;, &quot;6:12&quot;, &quot;7:16&quot;, &quot;8:20&quot;, &quot;9:39&quot;, &quot;7:13&quot;, 
+                                       &quot;8:32&quot;, &quot;9:36&quot;, &quot;10:40&quot;, &quot;11:44&quot;, &quot;1:03&quot;, &quot;2:07&quot;, &quot;3:14&quot;, &quot;4:33&quot;, &quot;5:37&quot;, &quot;6:41&quot;, &quot;7:45&quot;, &quot;9:04&quot;, &quot;10:08&quot;,&quot;REQ:&quot;],
+        &quot;Cardella Rd. &amp; &apos;M&apos; Street&quot;: [&quot;6:48&quot;, &quot;7:52&quot;, &quot;9:11&quot;, &quot;10:15&quot;, &quot;11:19&quot;, &quot;12:38&quot;, &quot;1:42&quot;, &quot;2:49&quot;, &quot;3:53&quot;, &quot;5:12&quot;, &quot;6:16&quot;, &quot;7:20&quot;, &quot;8:24&quot;, &quot;9:43&quot;],
+        &quot;M St. At Bellevue RD&quot;: [&quot;6:52&quot;, &quot;7:56&quot;, &quot;9:15&quot;, &quot;10:19&quot;, &quot;11:23&quot;, &quot;12:42&quot;, &quot;1:46&quot;, &quot;2:53&quot;, &quot;3:57&quot;, &quot;5:16&quot;, &quot;6:20&quot;, &quot;7:24&quot;, &quot;8:28&quot;, &quot;9:47&quot;],
+        &quot;University Transit Center&quot;: [&quot;7:03&quot;, &quot;8:22&quot;, &quot;9:26&quot;, &quot;10:30&quot;, &quot;11:34&quot;, &quot;12:53&quot;, &quot;1:57&quot;, &quot;3:04&quot;, &quot;4:23&quot;, &quot;5:27&quot;, &quot;6:31&quot;, &quot;7:35&quot;, &quot;8:54&quot;, &quot;9:58&quot;, &quot;7:30&quot;, 
+                                            &quot;8:49&quot;, &quot;9:53&quot;, &quot;10:57&quot;, &quot;12:16&quot;, &quot;1:20&quot;, &quot;2:27&quot;, &quot;3:31&quot;, &quot;4:50&quot;, &quot;5:54&quot;, &quot;6:58&quot;, &quot;8:02&quot;, &quot;9:21&quot;, &quot;10:25&quot;],
+        &quot;Yosemite &amp; Cordova (Merced Physician Center)&quot;: [&quot;7:16&quot;, &quot;8:35&quot;, &quot;9:39&quot;, &quot;10:43&quot;, &quot;11:47&quot;, &quot;1:06&quot;, &quot;2:10&quot;, &quot;3:17&quot;, &quot;4:36&quot;, &quot;5:40&quot;, &quot;6:44&quot;, &quot;7:48&quot;, &quot;9:07&quot;, &quot;10:11&quot;,&quot;REQ:&quot;],
+        &quot;Moraga Subdivision&quot;: [&quot;7:22&quot;, &quot;8:41&quot;, &quot;9:45&quot;, &quot;10:49&quot;, &quot;11:53&quot;, &quot;1:12&quot;, &quot;2:19&quot;, &quot;3:23&quot;, &quot;4:42&quot;, &quot;5:46&quot;, &quot;6:50&quot;, &quot;7:54&quot;, &quot;9:13&quot;, &quot;10:17&quot;,&quot;REQ:&quot;],
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="route_datatypes.py" line="212" column="1" bodyfile="route_datatypes.py" bodystart="212" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceroute__datatypes_1a827d8ff2115bb9e2049e0801720dbb0c" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list route_datatypes.Fastcat_stops_keys</definition>
+        <argsstring></argsstring>
+        <name>Fastcat_stops_keys</name>
+        <qualifiedname>route_datatypes.Fastcat_stops_keys</qualifiedname>
+        <initializer>=  [&quot;University Surgery Center&quot;, &quot;Promenade Center&quot;, &quot;Yosemite Crossings Shopping Center&quot;, &quot;TriCollege/Mercy&quot;, &quot;Cardella Rd. &amp; &apos;M&apos; Street&quot;, &quot;M St. At Bellevue RD&quot;, 
+                      &quot;University Transit Center&quot;, &quot;Yosemite &amp; Cordova (Merced Physician Center)&quot;, &quot;Moraga Subdivision&quot;]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="route_datatypes.py" line="226" column="1" bodyfile="route_datatypes.py" bodystart="226" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceroute__datatypes_1aa0acc5f4fc08d03341277a7382a2a5ff" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list route_datatypes.Fastcat_stops_values</definition>
+        <argsstring></argsstring>
+        <name>Fastcat_stops_values</name>
+        <qualifiedname>route_datatypes.Fastcat_stops_values</qualifiedname>
+        <initializer>=  [[&quot;6:35&quot;, &quot;7:39&quot;, &quot;8:58&quot;, &quot;10:02&quot;, &quot;11:06&quot;, &quot;12:25&quot;, &quot;1:29&quot;, &quot;2:36&quot;, &quot;3:40&quot;, &quot;4:59&quot;, &quot;6:03&quot;, &quot;7:07&quot;, &quot;8:11&quot;, &quot;9:30&quot;], 
+                        [&quot;6:39&quot;, &quot;7:43&quot;, &quot;9:02&quot;, &quot;10:06&quot;, &quot;11:10&quot;, &quot;12:29&quot;, &quot;1:33&quot;, &quot;2:40&quot;, &quot;3:44&quot;, &quot;5:03&quot;, &quot;6:07&quot;, &quot;7:11&quot;, &quot;8:15&quot;, &quot;9:34&quot;], 
+                        [&quot;6:42&quot;, &quot;7:46&quot;, &quot;9:05&quot;, &quot;10:09&quot;, &quot;11:13&quot;, &quot;12:32&quot;, &quot;1:36&quot;, &quot;2:43&quot;, &quot;3:47&quot;, &quot;5:06&quot;, &quot;6:10&quot;, &quot;7:14&quot;, &quot;8:18&quot;, &quot;9:37&quot;], 
+                        [&quot;6:44&quot;, &quot;7:48&quot;, &quot;9:07&quot;, &quot;10:11&quot;, &quot;11:15&quot;, &quot;12:34&quot;, &quot;1:38&quot;, &quot;2:45&quot;, &quot;3:49&quot;, &quot;5:08&quot;, &quot;6:12&quot;, &quot;7:16&quot;, &quot;8:20&quot;, &quot;9:39&quot;, &quot;7:13&quot;, &quot;8:32&quot;, &quot;9:36&quot;, &quot;10:40&quot;, &quot;11:44&quot;, &quot;1:03&quot;, &quot;2:07&quot;, &quot;3:14&quot;, &quot;4:33&quot;, &quot;5:37&quot;, &quot;6:41&quot;, &quot;7:45&quot;, &quot;9:04&quot;, &quot;10:08&quot;, &quot;REQ:&quot;], 
+                        [&quot;6:48&quot;, &quot;7:52&quot;, &quot;9:11&quot;, &quot;10:15&quot;, &quot;11:19&quot;, &quot;12:38&quot;, &quot;1:42&quot;, &quot;2:49&quot;, &quot;3:53&quot;, &quot;5:12&quot;, &quot;6:16&quot;, &quot;7:20&quot;, &quot;8:24&quot;, &quot;9:43&quot;], 
+                        [&quot;6:52&quot;, &quot;7:56&quot;, &quot;9:15&quot;, &quot;10:19&quot;, &quot;11:23&quot;, &quot;12:42&quot;, &quot;1:46&quot;, &quot;2:53&quot;, &quot;3:57&quot;, &quot;5:16&quot;, &quot;6:20&quot;, &quot;7:24&quot;, &quot;8:28&quot;, &quot;9:47&quot;], 
+                        [&quot;7:03&quot;, &quot;8:22&quot;, &quot;9:26&quot;, &quot;10:30&quot;, &quot;11:34&quot;, &quot;12:53&quot;, &quot;1:57&quot;, &quot;3:04&quot;, &quot;4:23&quot;, &quot;5:27&quot;, &quot;6:31&quot;, &quot;7:35&quot;, &quot;8:54&quot;, &quot;9:58&quot;, &quot;7:30&quot;, &quot;8:49&quot;, &quot;9:53&quot;, &quot;10:57&quot;, &quot;12:16&quot;, &quot;1:20&quot;, &quot;2:27&quot;, &quot;3:31&quot;, &quot;4:50&quot;, &quot;5:54&quot;, &quot;6:58&quot;, &quot;8:02&quot;, &quot;9:21&quot;, &quot;10:25&quot;], 
+                        [&quot;7:16&quot;, &quot;8:35&quot;, &quot;9:39&quot;, &quot;10:43&quot;, &quot;11:47&quot;, &quot;1:06&quot;, &quot;2:10&quot;, &quot;3:17&quot;, &quot;4:36&quot;, &quot;5:40&quot;, &quot;6:44&quot;, &quot;7:48&quot;, &quot;9:07&quot;, &quot;10:11&quot;, &quot;REQ:&quot;], 
+                        [&quot;7:22&quot;, &quot;8:41&quot;, &quot;9:45&quot;, &quot;10:49&quot;, &quot;11:53&quot;, &quot;1:12&quot;, &quot;2:19&quot;, &quot;3:23&quot;, &quot;4:42&quot;, &quot;5:46&quot;, &quot;6:50&quot;, &quot;7:54&quot;, &quot;9:13&quot;, &quot;10:17&quot;, &quot;REQ:&quot;]]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="route_datatypes.py" line="229" column="1" bodyfile="route_datatypes.py" bodystart="229" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceroute__datatypes_1a09b9b954a15fae42e0ca0397d8a38149" prot="public" static="no" mutable="no">
+        <type>dict</type>
+        <definition>dict route_datatypes.Fastcat2_stops</definition>
+        <argsstring></argsstring>
+        <name>Fastcat2_stops</name>
+        <qualifiedname>route_datatypes.Fastcat2_stops</qualifiedname>
+        <initializer>=  {
+        &quot;University Surgery Center&quot;: [&quot;8:30&quot;, &quot;9:34&quot;, &quot;10:53&quot;, &quot;11:57&quot;, &quot;1:01&quot;, &quot;2:20&quot;, &quot;3:24&quot;, &quot;4:31&quot;, &quot;5:50&quot;, &quot;6:54&quot;, &quot;8:13&quot;, &quot;9:17&quot;, &quot;9:34&quot;, 
+                                      &quot;10:53&quot;, &quot;11:57&quot;, &quot;12:61&quot;, &quot;2:20&quot;, &quot;3:24&quot;, &quot;4:31&quot;, &quot;5:50&quot;, &quot;6:54&quot;, &quot;8:13&quot;, &quot;9:17&quot;, &quot;9:14&quot;, &quot;10:33&quot;, &quot;11:37&quot;, 
+                                      &quot;12:41&quot;, &quot;1:45&quot;, &quot;3:04&quot;, &quot;4:08&quot;, &quot;5:15&quot;, &quot;6:34&quot;, &quot;7:38&quot;, &quot;8:57&quot;, &quot;REQ&quot;],
+        &quot;Promenade Center&quot;: [&quot;8:34&quot;, &quot;9:38&quot;, &quot;10:57&quot;, &quot;12:01&quot;, &quot;1:05&quot;, &quot;2:24&quot;, &quot;3:28&quot;, &quot;4:35&quot;, &quot;5:54&quot;, &quot;6:58&quot;, &quot;8:17&quot;, &quot;9:21&quot;],
+        &quot;Yosemite Crossings Shopping Center&quot;: [&quot;8:37&quot;, &quot;9:41&quot;, &quot;11:00&quot;, &quot;12:04&quot;, &quot;1:08&quot;, &quot;2:27&quot;, &quot;3:31&quot;, &quot;4:38&quot;, &quot;5:57&quot;, &quot;7:01&quot;, &quot;8:20&quot;, &quot;9:24&quot;],
+        &quot;TriCollege/Mercy  &quot;: [&quot;8:39&quot;, &quot;9:43&quot;, &quot;11:02&quot;, &quot;12:06&quot;, &quot;1:10&quot;, &quot;2:29&quot;, &quot;3:33&quot;, &quot;4:40&quot;, &quot;5:59&quot;, &quot;7:03&quot;, &quot;8:22&quot;, &quot;9:26&quot;, &quot;9:08&quot;, 
+                                       &quot;10:27&quot;, &quot;11:31&quot;, &quot;12:35&quot;, &quot;1:39&quot;, &quot;2:58&quot;, &quot;4:02&quot;, &quot;5:09&quot;, &quot;6:28&quot;, &quot;7:32&quot;, &quot;8:51&quot;, &quot;REQ&quot;],
+        &quot;Cardella Rd. &amp; &apos;M&apos; Street&quot;: [&quot;8:43&quot;, &quot;9:47&quot;, &quot;11:06&quot;, &quot;12:10&quot;, &quot;1:14&quot;, &quot;2:33&quot;, &quot;3:37&quot;, &quot;4:44&quot;, &quot;6:03&quot;, &quot;7:07&quot;, &quot;8:26&quot;, &quot;9:30&quot;],
+        &quot;M St. At Bellevue RD&quot;: [&quot;8:47&quot;, &quot;9:51&quot;, &quot;11:10&quot;, &quot;12:14&quot;, &quot;1:18&quot;, &quot;2:37&quot;, &quot;3:41&quot;, &quot;4:48&quot;, &quot;6:07&quot;, &quot;7:11&quot;, &quot;8:30&quot;, &quot;9:34&quot;],
+        &quot;University Transit Center&quot;: [&quot;8:58&quot;, &quot;10:17&quot;, &quot;11:21&quot;, &quot;12:25&quot;, &quot;1:29&quot;, &quot;2:48&quot;, &quot;3:52&quot;, &quot;4:59&quot;, &quot;6:18&quot;, &quot;7:22&quot;, &quot;8:41&quot;, &quot;9:45&quot;],
+        &quot;Yosemite &amp; Cordova (Merced Physician Center)&quot;: [&quot;9:11&quot;, &quot;10:30&quot;, &quot;11:34&quot;, &quot;12:38&quot;, &quot;1:42&quot;, &quot;3:01&quot;, &quot;4:05&quot;, &quot;5:12&quot;, &quot;6:31&quot;, &quot;7:35&quot;, &quot;8:54&quot;, &quot;REQ&quot;],
+        &quot;Moraga Subdivision&quot;: [&quot;9:17&quot;, &quot;10:36&quot;, &quot;11:40&quot;, &quot;12:44&quot;, &quot;1:48&quot;, &quot;3:07&quot;, &quot;4:11&quot;, &quot;5:18&quot;, &quot;6:37&quot;, &quot;7:41&quot;, &quot;9:00&quot;, &quot;REQ&quot;],
+        &quot;University Transit Center&quot;: [&quot;9:25&quot;, &quot;10:44&quot;, &quot;11:48&quot;, &quot;12:52&quot;, &quot;2:11&quot;, &quot;3:15&quot;, &quot;4:22&quot;, &quot;5:41&quot;, &quot;6:45&quot;, &quot;8:04&quot;, &quot;9:08&quot; ],
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="route_datatypes.py" line="239" column="1" bodyfile="route_datatypes.py" bodystart="239" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceroute__datatypes_1a3098aab37a6c75e9876febc8ad1bce18" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list route_datatypes.Fastcat2_stops_keys</definition>
+        <argsstring></argsstring>
+        <name>Fastcat2_stops_keys</name>
+        <qualifiedname>route_datatypes.Fastcat2_stops_keys</qualifiedname>
+        <initializer>=  [&quot;University Surgery Center&quot;, &quot;Promenade Center&quot;, &quot;Yosemite Crossings Shopping Center&quot;, &quot;TriCollege/Mercy  &quot;, &quot;Cardella Rd. &amp; &apos;M&apos; Street&quot;,
+                       &quot;M St. At Bellevue RD&quot;, &quot;University Transit Center&quot;, &quot;Yosemite &amp; Cordova (Merced Physician Center)&quot;, &quot;Moraga Subdivision&quot;]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="route_datatypes.py" line="255" column="1" bodyfile="route_datatypes.py" bodystart="255" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceroute__datatypes_1a93d1c747c0b8e573bb51931481b987b3" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list route_datatypes.Fastcat2_stops_values</definition>
+        <argsstring></argsstring>
+        <name>Fastcat2_stops_values</name>
+        <qualifiedname>route_datatypes.Fastcat2_stops_values</qualifiedname>
+        <initializer>=  [[&quot;8:30&quot;, &quot;9:34&quot;, &quot;10:53&quot;, &quot;11:57&quot;, &quot;1:01&quot;, &quot;2:20&quot;, &quot;3:24&quot;, &quot;4:31&quot;, &quot;5:50&quot;, &quot;6:54&quot;, &quot;8:13&quot;, &quot;9:17&quot;, &quot;9:34&quot;, &quot;10:53&quot;, &quot;11:57&quot;, 
+                          &quot;12:61&quot;, &quot;2:20&quot;, &quot;3:24&quot;, &quot;4:31&quot;, &quot;5:50&quot;, &quot;6:54&quot;, &quot;8:13&quot;, &quot;9:17&quot;, &quot;9:14&quot;, &quot;10:33&quot;, &quot;11:37&quot;, &quot;12:41&quot;, &quot;1:45&quot;, &quot;3:04&quot;, &quot;4:08&quot;, &quot;5:15&quot;, &quot;6:34&quot;, &quot;7:38&quot;, &quot;8:57&quot;, &quot;REQ&quot;], 
+                          [&quot;8:34&quot;, &quot;9:38&quot;, &quot;10:57&quot;, &quot;12:01&quot;, &quot;1:05&quot;, &quot;2:24&quot;, &quot;3:28&quot;, &quot;4:35&quot;, &quot;5:54&quot;, &quot;6:58&quot;, &quot;8:17&quot;, &quot;9:21&quot;], 
+                          [&quot;8:37&quot;, &quot;9:41&quot;, &quot;11:00&quot;, &quot;12:04&quot;, &quot;1:08&quot;, &quot;2:27&quot;, &quot;3:31&quot;, &quot;4:38&quot;, &quot;5:57&quot;, &quot;7:01&quot;, &quot;8:20&quot;, &quot;9:24&quot;], 
+                          [&quot;8:39&quot;, &quot;9:43&quot;, &quot;11:02&quot;, &quot;12:06&quot;, &quot;1:10&quot;, &quot;2:29&quot;, &quot;3:33&quot;, &quot;4:40&quot;, &quot;5:59&quot;, &quot;7:03&quot;, &quot;8:22&quot;, &quot;9:26&quot;, 
+                           &quot;9:08&quot;, &quot;10:27&quot;, &quot;11:31&quot;, &quot;12:35&quot;, &quot;1:39&quot;, &quot;2:58&quot;, &quot;4:02&quot;, &quot;5:09&quot;, &quot;6:28&quot;, &quot;7:32&quot;, &quot;8:51&quot;, &quot;REQ&quot;], 
+                           [&quot;8:43&quot;, &quot;9:47&quot;, &quot;11:06&quot;, &quot;12:10&quot;, &quot;1:14&quot;, &quot;2:33&quot;, &quot;3:37&quot;, &quot;4:44&quot;, &quot;6:03&quot;, &quot;7:07&quot;, &quot;8:26&quot;, &quot;9:30&quot;], 
+                           [&quot;8:47&quot;, &quot;9:51&quot;, &quot;11:10&quot;, &quot;12:14&quot;, &quot;1:18&quot;, &quot;2:37&quot;, &quot;3:41&quot;, &quot;4:48&quot;, &quot;6:07&quot;, &quot;7:11&quot;, &quot;8:30&quot;, &quot;9:34&quot;], 
+                           [&quot;9:25&quot;, &quot;10:44&quot;, &quot;11:48&quot;, &quot;12:52&quot;, &quot;2:11&quot;, &quot;3:15&quot;, &quot;4:22&quot;, &quot;5:41&quot;, &quot;6:45&quot;, &quot;8:04&quot;, &quot;9:08&quot;], 
+                           [&quot;9:11&quot;, &quot;10:30&quot;, &quot;11:34&quot;, &quot;12:38&quot;, &quot;1:42&quot;, &quot;3:01&quot;, &quot;4:05&quot;, &quot;5:12&quot;, &quot;6:31&quot;, &quot;7:35&quot;, &quot;8:54&quot;, &quot;REQ&quot;], 
+                           [&quot;9:17&quot;, &quot;10:36&quot;, &quot;11:40&quot;, &quot;12:44&quot;, &quot;1:48&quot;, &quot;3:07&quot;, &quot;4:11&quot;, &quot;5:18&quot;, &quot;6:37&quot;, &quot;7:41&quot;, &quot;9:00&quot;, &quot;REQ&quot;]]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="route_datatypes.py" line="258" column="1" bodyfile="route_datatypes.py" bodystart="258" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceroute__datatypes_1acd9a30dfe78c94430c0e53961627af71" prot="public" static="no" mutable="no">
+        <type>dict</type>
+        <definition>dict route_datatypes.G_line_stops</definition>
+        <argsstring></argsstring>
+        <name>G_line_stops</name>
+        <qualifiedname>route_datatypes.G_line_stops</qualifiedname>
+        <initializer>=  {
+        &quot;R Street Village Apts&quot;: [&quot;6:30&quot;, &quot;7:38&quot;, &quot;9:01&quot;, &quot;10:09&quot;, &quot;11:17&quot;, &quot;12:25&quot;, &quot;1:48&quot;, &quot;3:01&quot;, &quot;4:09&quot;, &quot;5:32&quot;, &quot;6:40&quot;, &quot;7:48&quot;, &quot;9:11&quot;, &quot;7:38&quot;, &quot;9:01&quot;, &quot;10:09&quot;, &quot;11:17&quot;, 
+                                   &quot;12:25&quot;, &quot;1:48&quot;, &quot;3:01&quot;, &quot;4:09&quot;, &quot;5:32&quot;, &quot;6:40&quot;, &quot;7:48&quot;, &quot;9:11&quot;, &quot;REQ:&quot;],
+        &quot;El Redondo Dr&quot;: [&quot;6:33&quot;, &quot;7:41&quot;, &quot;9:04&quot;, &quot;10:12&quot;, &quot;11:20&quot;, &quot;12:28&quot;, &quot;1:51&quot;, &quot;3:04&quot;, &quot;4:12&quot;, &quot;5:35&quot;, &quot;6:43&quot;, &quot;7:51&quot;, &quot;9:14&quot;, &quot;REQ:&quot;],
+        &quot;Compass Pointe Apts&quot;: [&quot;6:35&quot;, &quot;7:43&quot;, &quot;9:06&quot;, &quot;10:14&quot;, &quot;11:22&quot;, &quot;12:30&quot;, &quot;1:53&quot;, &quot;3:06&quot;, &quot;4:14&quot;, &quot;5:37&quot;, &quot;6:45&quot;, &quot;7:53&quot;, &quot;9:16&quot;, &quot;REQ:&quot;],
+        &quot;Merced College The Bus Terminal&quot;: [&quot;6:40&quot;, &quot;7:48&quot;, &quot;9:11&quot;, &quot;10:19&quot;, &quot;11:27&quot;, &quot;12:35&quot;, &quot;1:58&quot;, &quot;3:11&quot;, &quot;4:19&quot;, &quot;5:42&quot;, &quot;6:50&quot;, &quot;7:58&quot;, &quot;9:21&quot;, &quot;REQ:&quot;],
+        &quot;M St. At Bellevue RD&quot;: [&quot;6:46&quot;, &quot;7:54&quot;, &quot;9:17&quot;, &quot;10:25&quot;, &quot;11:33&quot;, &quot;12:41&quot;, &quot;2:04&quot;, &quot;3:17&quot;, &quot;4:25&quot;, &quot;5:48&quot;, &quot;6:56&quot;, &quot;8:04&quot;, &quot;9:27&quot;, &quot;REQ:&quot;],
+        &quot;University Transit Center&quot;: [&quot;6:57&quot;, &quot;8:20&quot;, &quot;9:28&quot;, &quot;10:36&quot;, &quot;11:44&quot;, &quot;1:07&quot;, &quot;2:15&quot;, &quot;3:28&quot;, &quot;4:51&quot;, &quot;5:59&quot;, &quot;7:07&quot;, &quot;8:30&quot;, &quot;9:38&quot;, &quot;REQ:&quot;],
+        &quot;Amtrak Station&quot;: [&quot;7:18&quot;, &quot;8:41&quot;, &quot;9:49&quot;, &quot;10:57&quot;, &quot;12:05&quot;, &quot;1:28&quot;, &quot;2:36&quot;, &quot;3:49&quot;, &quot;5:12&quot;, &quot;6:20&quot;, &quot;7:28&quot;, &quot;8:51&quot;, &quot;9:59&quot;],
+        &quot;K St. Between 18th &amp; 19th&quot;: [&quot;7:20&quot;, &quot;8:43&quot;, &quot;9:51&quot;, &quot;10:59&quot;, &quot;12:07&quot;, &quot;1:30&quot;, &quot;2:43&quot;, &quot;3:51&quot;, &quot;5:14&quot;, &quot;6:22&quot;, &quot;7:30&quot;, &quot;8:53&quot;, &quot;10:01&quot;],
+        &quot;UC Merced Downtown Campus Center&quot;: [&quot;7:22&quot;, &quot;8:45&quot;, &quot;9:53&quot;, &quot;11:01&quot;, &quot;12:09&quot;, &quot;1:32&quot;, &quot;2:45&quot;, &quot;3:53&quot;, &quot;5:16&quot;, &quot;6:24&quot;, &quot;7:32&quot;, &quot;8:55&quot;, &quot;10:03&quot;],
+        &quot;Merced Transpo&quot;: [&quot;REQ&quot;, &quot;REQ&quot;, &quot;REQ&quot;, &quot;REQ&quot;, &quot;REQ&quot;, &quot;REQ&quot;, &quot;REQ&quot;, &quot;REQ&quot;, &quot;REQ&quot;, &quot;REQ&quot;, &quot;REQ&quot;, &quot;REQ&quot;, &quot;REQ&quot;],
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="route_datatypes.py" line="270" column="1" bodyfile="route_datatypes.py" bodystart="270" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceroute__datatypes_1aea6302213b1c12574dd93b870faecd4b" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list route_datatypes.G_line_stops_keys</definition>
+        <argsstring></argsstring>
+        <name>G_line_stops_keys</name>
+        <qualifiedname>route_datatypes.G_line_stops_keys</qualifiedname>
+        <initializer>=  [&quot;R Street Village Apts&quot;, &quot;El Redondo Dr&quot;, &quot;Compass Pointe Apts&quot;, &quot;Merced College The Bus Terminal&quot;, &quot;M St. At Bellevue RD&quot;, &quot;University Transit Center&quot;, 
+                     &quot;Amtrak Station&quot;, &quot;K St. Between 18th &amp; 19th&quot;, &quot;UC Merced Downtown Campus Center&quot;, &quot;Merced Transpo&quot;]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="route_datatypes.py" line="284" column="1" bodyfile="route_datatypes.py" bodystart="284" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceroute__datatypes_1a1ef5dc79288696f1a060920a263065d5" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list route_datatypes.G_line_stops_values</definition>
+        <argsstring></argsstring>
+        <name>G_line_stops_values</name>
+        <qualifiedname>route_datatypes.G_line_stops_values</qualifiedname>
+        <initializer>=  [[&quot;6:30&quot;, &quot;7:38&quot;, &quot;9:01&quot;, &quot;10:09&quot;, &quot;11:17&quot;, &quot;12:25&quot;, &quot;1:48&quot;, &quot;3:01&quot;, &quot;4:09&quot;, &quot;5:32&quot;, &quot;6:40&quot;, &quot;7:48&quot;, &quot;9:11&quot;, &quot;7:38&quot;, &quot;9:01&quot;, &quot;10:09&quot;, &quot;11:17&quot;, &quot;12:25&quot;, &quot;1:48&quot;, &quot;3:01&quot;, &quot;4:09&quot;, &quot;5:32&quot;, &quot;6:40&quot;, &quot;7:48&quot;, &quot;9:11&quot;, &quot;REQ:&quot;], 
+                       [&quot;6:33&quot;, &quot;7:41&quot;, &quot;9:04&quot;, &quot;10:12&quot;, &quot;11:20&quot;, &quot;12:28&quot;, &quot;1:51&quot;, &quot;3:04&quot;, &quot;4:12&quot;, &quot;5:35&quot;, &quot;6:43&quot;, &quot;7:51&quot;, &quot;9:14&quot;, &quot;REQ:&quot;], 
+                       [&quot;6:35&quot;, &quot;7:43&quot;, &quot;9:06&quot;, &quot;10:14&quot;, &quot;11:22&quot;, &quot;12:30&quot;, &quot;1:53&quot;, &quot;3:06&quot;, &quot;4:14&quot;, &quot;5:37&quot;, &quot;6:45&quot;, &quot;7:53&quot;, &quot;9:16&quot;, &quot;REQ:&quot;], 
+                       [&quot;6:40&quot;, &quot;7:48&quot;, &quot;9:11&quot;, &quot;10:19&quot;, &quot;11:27&quot;, &quot;12:35&quot;, &quot;1:58&quot;, &quot;3:11&quot;, &quot;4:19&quot;, &quot;5:42&quot;, &quot;6:50&quot;, &quot;7:58&quot;, &quot;9:21&quot;, &quot;REQ:&quot;], 
+                       [&quot;6:46&quot;, &quot;7:54&quot;, &quot;9:17&quot;, &quot;10:25&quot;, &quot;11:33&quot;, &quot;12:41&quot;, &quot;2:04&quot;, &quot;3:17&quot;, &quot;4:25&quot;, &quot;5:48&quot;, &quot;6:56&quot;, &quot;8:04&quot;, &quot;9:27&quot;, &quot;REQ:&quot;], 
+                       [&quot;6:57&quot;, &quot;8:20&quot;, &quot;9:28&quot;, &quot;10:36&quot;, &quot;11:44&quot;, &quot;1:07&quot;, &quot;2:15&quot;, &quot;3:28&quot;, &quot;4:51&quot;, &quot;5:59&quot;, &quot;7:07&quot;, &quot;8:30&quot;, &quot;9:38&quot;, &quot;REQ:&quot;], 
+                       [&quot;7:18&quot;, &quot;8:41&quot;, &quot;9:49&quot;, &quot;10:57&quot;, &quot;12:05&quot;, &quot;1:28&quot;, &quot;2:36&quot;, &quot;3:49&quot;, &quot;5:12&quot;, &quot;6:20&quot;, &quot;7:28&quot;, &quot;8:51&quot;, &quot;9:59&quot;], 
+                       [&quot;7:20&quot;, &quot;8:43&quot;, &quot;9:51&quot;, &quot;10:59&quot;, &quot;12:07&quot;, &quot;1:30&quot;, &quot;2:43&quot;, &quot;3:51&quot;, &quot;5:14&quot;, &quot;6:22&quot;, &quot;7:30&quot;, &quot;8:53&quot;, &quot;10:01&quot;], 
+                       [&quot;7:22&quot;, &quot;8:45&quot;, &quot;9:53&quot;, &quot;11:01&quot;, &quot;12:09&quot;, &quot;1:32&quot;, &quot;2:45&quot;, &quot;3:53&quot;, &quot;5:16&quot;, &quot;6:24&quot;, &quot;7:32&quot;, &quot;8:55&quot;, &quot;10:03&quot;], 
+                       [&quot;REQ&quot;, &quot;REQ&quot;, &quot;REQ&quot;, &quot;REQ&quot;, &quot;REQ&quot;, &quot;REQ&quot;, &quot;REQ&quot;, &quot;REQ&quot;, &quot;REQ&quot;, &quot;REQ&quot;, &quot;REQ&quot;, &quot;REQ&quot;, &quot;REQ&quot;]]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="route_datatypes.py" line="287" column="1" bodyfile="route_datatypes.py" bodystart="287" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceroute__datatypes_1ae1f168d8ad1450992ef54b938ba46909" prot="public" static="no" mutable="no">
+        <type>dict</type>
+        <definition>dict route_datatypes.yosemite_express_stops</definition>
+        <argsstring></argsstring>
+        <name>yosemite_express_stops</name>
+        <qualifiedname>route_datatypes.yosemite_express_stops</qualifiedname>
+        <initializer>=  {
+    &quot;Moraga Subdivision&quot;: [&quot;9:00&quot;, &quot;9:27&quot;, &quot;9:54&quot;, &quot;10:36&quot;, &quot;11:03&quot;, &quot;11:30&quot;, &quot;11:57&quot;, &quot;12:24&quot;, &quot;12:51&quot;, &quot;1:18&quot;,&quot;2:00&quot;, 
+                           &quot;2:27&quot;, &quot;2:54&quot;, &quot;3:21&quot;, &quot;4:03&quot;, &quot;4:35&quot;, &quot;5:02&quot;, &quot;5:29&quot;, &quot;5:56&quot;, &quot;6:38&quot;,&quot;7:05&quot;, &quot;7:32&quot;, &quot;7:59&quot;, 
+                           &quot;8:26&quot;, &quot;8:53&quot;, &quot;9:20&quot;, &quot;10:02&quot;], 
+    &quot;University Transit Center&quot; : [&quot;9:07&quot;, &quot;9:34&quot;, &quot;10:16&quot;,&quot;10:43&quot;, &quot;11:10&quot;, &quot;11:37&quot;, &quot;12:04&quot;, &quot;12:31&quot;, 
+                                        &quot;12:58&quot;, &quot;1:40&quot;,&quot;2:07&quot;, &quot;2:34&quot;, &quot;3:01&quot;, &quot;3:43&quot;, &quot;4:10&quot;, &quot;4:42&quot;, &quot;5:09&quot;, 
+                                        &quot;5:36&quot;, &quot;6:18&quot;, &quot;6:45&quot;, &quot;7:12&quot;, &quot;7:39&quot;, &quot;8:06&quot;, &quot;8:33&quot;, &quot;9:00&quot;, &quot;9:42&quot;, &quot;10:09&quot;],
+    &quot;Foothill Drive&quot; : [&quot;REQ:&quot;, &quot;REQ:&quot;, &quot;REQ:&quot;, &quot;REQ:&quot;, &quot;REQ:&quot;, &quot;REQ:&quot;, &quot;REQ:&quot;, &quot;REQ:&quot;, &quot;REQ:&quot;,&quot;REQ:&quot;, &quot;REQ:&quot;, &quot;REQ:&quot;, &quot;REQ:&quot;], 
+    &quot;TriCollege/Mercy&quot; : [&quot;9:16&quot;,&quot;9:43&quot;, &quot;10:25&quot;, &quot;10:52&quot;, &quot;11:19&quot;, &quot;11:46&quot;, &quot;12:13&quot;, &quot;12:40&quot;, &quot;1:07&quot;, &quot;1:49&quot;, 
+                            &quot;2:16&quot;, &quot;2:43&quot;,&quot;3:10&quot;, &quot;3:52&quot;, &quot;4:24&quot;, &quot;4:51&quot;,&quot;5:18&quot;, &quot;5:45&quot;, &quot;6:27&quot;, &quot;6:54&quot;, &quot;7:21&quot;, 
+                            &quot;7:48&quot;, &quot;8:15&quot;, &quot;8:42&quot;, &quot;9:09&quot;, &quot;9:51&quot;, &quot;REQ:&quot;], 
+    &quot;G Street South&quot; : [&quot;9:19&quot;, &quot;9:46&quot;, &quot;10:28&quot;,&quot;10:55&quot;, &quot;11:22&quot;, &quot;11:49&quot;, &quot;12:16&quot;, &quot;12:43&quot;, &quot;1:10&quot;, &quot;1:52&quot;, 
+                        &quot;2:19&quot;, &quot;2:46&quot;, &quot;3:13&quot;, &quot;3:55&quot;,  &quot;4:27&quot;, &quot;4:54&quot;, &quot;5:21&quot;, &quot;5:48&quot;, &quot;6:30&quot;,&quot;6:57&quot;, &quot;7:24&quot;, 
+                        &quot;7:51&quot;, &quot;8:18&quot;, &quot;8:45&quot;, &quot;9:12&quot;, &quot;9:54&quot;, &quot;REQ:&quot;],
+    &quot;University Surgery Center&quot;:[&quot;9:24&quot;, &quot;9:51&quot;, &quot;10:33&quot;, &quot;11:00&quot;, &quot;11:27&quot;, &quot;11:54&quot;, &quot;12:21&quot;, &quot;12:48&quot;,&quot;1:15&quot;, 
+                                &quot;1:57&quot;, &quot;2:24&quot;, &quot;2:51&quot;, &quot;3:18&quot;, &quot;4:00&quot;, &quot;4:32&quot;,&quot;4:59&quot;, &quot;5:26&quot;, &quot;5:53&quot;, &quot;6:35&quot;, 
+                                &quot;7:02&quot;, &quot;7:29&quot;, &quot;7:56&quot;, &quot;8:23&quot;, &quot;8:50&quot;, &quot;9:17&quot;, &quot;9:59&quot;, &quot;REQ:&quot;]
+}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="route_datatypes.py" line="298" column="1" bodyfile="route_datatypes.py" bodystart="298" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceroute__datatypes_1a50737d30096c79703d51702ac89311aa" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list route_datatypes.yosemite_express_stops_keys</definition>
+        <argsstring></argsstring>
+        <name>yosemite_express_stops_keys</name>
+        <qualifiedname>route_datatypes.yosemite_express_stops_keys</qualifiedname>
+        <initializer>=  [&quot;R Street Village Apts&quot;, &quot;El Redondo Dr&quot;, &quot;Compass Pointe Apts&quot;, &quot;Merced College The Bus Terminal&quot;, &quot;M St. At Bellevue RD&quot;, 
+                               &quot;University Transit Center&quot;, &quot;Amtrak Station&quot;, &quot;K St. Between 18th &amp; 19th&quot;, &quot;UC Merced Downtown Campus Center&quot;, &quot;Merced Transpo&quot;]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="route_datatypes.py" line="317" column="1" bodyfile="route_datatypes.py" bodystart="317" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceroute__datatypes_1ad5afab31dc5c8b2967007070b087e02b" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list route_datatypes.yosemite_express_stops_values</definition>
+        <argsstring></argsstring>
+        <name>yosemite_express_stops_values</name>
+        <qualifiedname>route_datatypes.yosemite_express_stops_values</qualifiedname>
+        <initializer>=  [[&quot;6:30&quot;, &quot;7:38&quot;, &quot;9:01&quot;, &quot;10:09&quot;, &quot;11:17&quot;, &quot;12:25&quot;, &quot;1:48&quot;, &quot;3:01&quot;, &quot;4:09&quot;, &quot;5:32&quot;, &quot;6:40&quot;, &quot;7:48&quot;, &quot;9:11&quot;, &quot;7:38&quot;, &quot;9:01&quot;, &quot;10:09&quot;, &quot;11:17&quot;, &quot;12:25&quot;, &quot;1:48&quot;, &quot;3:01&quot;, &quot;4:09&quot;, &quot;5:32&quot;, &quot;6:40&quot;, &quot;7:48&quot;, &quot;9:11&quot;, &quot;REQ:&quot;], 
+                                 [&quot;6:33&quot;, &quot;7:41&quot;, &quot;9:04&quot;, &quot;10:12&quot;, &quot;11:20&quot;, &quot;12:28&quot;, &quot;1:51&quot;, &quot;3:04&quot;, &quot;4:12&quot;, &quot;5:35&quot;, &quot;6:43&quot;, &quot;7:51&quot;, &quot;9:14&quot;, &quot;REQ:&quot;], [&quot;6:35&quot;, &quot;7:43&quot;, &quot;9:06&quot;, &quot;10:14&quot;, &quot;11:22&quot;, &quot;12:30&quot;, &quot;1:53&quot;, &quot;3:06&quot;, &quot;4:14&quot;, &quot;5:37&quot;, &quot;6:45&quot;, &quot;7:53&quot;, &quot;9:16&quot;, &quot;REQ:&quot;], 
+                                 [&quot;6:40&quot;, &quot;7:48&quot;, &quot;9:11&quot;, &quot;10:19&quot;, &quot;11:27&quot;, &quot;12:35&quot;, &quot;1:58&quot;, &quot;3:11&quot;, &quot;4:19&quot;, &quot;5:42&quot;, &quot;6:50&quot;, &quot;7:58&quot;, &quot;9:21&quot;, &quot;REQ:&quot;], [&quot;6:46&quot;, &quot;7:54&quot;, &quot;9:17&quot;, &quot;10:25&quot;, &quot;11:33&quot;, &quot;12:41&quot;, &quot;2:04&quot;, &quot;3:17&quot;, &quot;4:25&quot;, &quot;5:48&quot;, &quot;6:56&quot;, &quot;8:04&quot;, &quot;9:27&quot;, &quot;REQ:&quot;], 
+                                 [&quot;6:57&quot;, &quot;8:20&quot;, &quot;9:28&quot;, &quot;10:36&quot;, &quot;11:44&quot;, &quot;1:07&quot;, &quot;2:15&quot;, &quot;3:28&quot;, &quot;4:51&quot;, &quot;5:59&quot;, &quot;7:07&quot;, &quot;8:30&quot;, &quot;9:38&quot;, &quot;REQ:&quot;], [&quot;7:18&quot;, &quot;8:41&quot;, &quot;9:49&quot;, &quot;10:57&quot;, &quot;12:05&quot;, &quot;1:28&quot;, &quot;2:36&quot;, &quot;3:49&quot;, &quot;5:12&quot;, &quot;6:20&quot;, &quot;7:28&quot;, &quot;8:51&quot;, &quot;9:59&quot;], 
+                                 [&quot;7:20&quot;, &quot;8:43&quot;, &quot;9:51&quot;, &quot;10:59&quot;, &quot;12:07&quot;, &quot;1:30&quot;, &quot;2:43&quot;, &quot;3:51&quot;, &quot;5:14&quot;, &quot;6:22&quot;, &quot;7:30&quot;, &quot;8:53&quot;, &quot;10:01&quot;], [&quot;7:22&quot;, &quot;8:45&quot;, &quot;9:53&quot;, &quot;11:01&quot;, &quot;12:09&quot;, &quot;1:32&quot;, &quot;2:45&quot;, &quot;3:53&quot;, &quot;5:16&quot;, &quot;6:24&quot;, &quot;7:32&quot;, &quot;8:55&quot;, &quot;10:03&quot;], 
+                                 [&quot;REQ&quot;, &quot;REQ&quot;, &quot;REQ&quot;, &quot;REQ&quot;, &quot;REQ&quot;, &quot;REQ&quot;, &quot;REQ&quot;, &quot;REQ&quot;, &quot;REQ&quot;, &quot;REQ&quot;, &quot;REQ&quot;, &quot;REQ&quot;, &quot;REQ&quot;]]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="route_datatypes.py" line="320" column="1" bodyfile="route_datatypes.py" bodystart="320" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="route_datatypes.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

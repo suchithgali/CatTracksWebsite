@@ -1,0 +1,60 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"/Users/suchithgali/Python Files/Python Files/Source Code/CatTracks/build/_deps/curl-src/lib/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 276,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"lib/libcurl-d.4.8.0.dylib",
+				"lib/libcurl-d.4.dylib"
+			],
+			"targetId" : "libcurl_shared::@7349aeacaff41deceb36",
+			"targetIndex" : 6,
+			"targetInstallNamelink" : "skip",
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"lib/libcurl-d.dylib"
+			],
+			"targetId" : "libcurl_shared::@7349aeacaff41deceb36",
+			"targetIndex" : 6,
+			"targetInstallNamelink" : "only",
+			"type" : "target"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "_deps/curl-build/lib",
+		"source" : "/Users/suchithgali/Python Files/Python Files/Source Code/CatTracks/build/_deps/curl-src/lib"
+	}
+}

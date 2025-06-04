@@ -1,0 +1,366 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_brain_8cpp" xml:lang="en-US">
+<title>brain.cpp File Reference</title>
+<indexterm><primary>brain.cpp</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;iostream&gt;<?linebreak?>#include &lt;chrono&gt;<?linebreak?>#include &lt;ctime&gt;<?linebreak?>#include &lt;vector&gt;<?linebreak?>#include &quot;stops_data.h&quot;<?linebreak?>#include &quot;ArrayList.h&quot;<?linebreak?>#include &lt;unordered_set&gt;<?linebreak?>#include &quot;HashTable.h&quot;<?linebreak?>#include &lt;cpr/cpr.h&gt;<?linebreak?>#include &lt;nlohmann/json.hpp&gt;<?linebreak?></programlisting>Include dependency graph for brain.cpp:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="brain_8cpp__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>using <link linkend="_brain_8cpp_1ab701e3ac61a85b337ec5c1abaad6742d">json</link> = nlohmann::json</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>bool <link linkend="_brain_8cpp_1aaca0d28c24e42cd61684a8f04f85fd3f">validatePlace</link> (<link linkend="_class_array_list">ArrayList</link>&lt; std::string &gt; list, std::string target, int start, int end)</para>
+</listitem>
+            <listitem><para>std::string <link linkend="_brain_8cpp_1af4da574d6416dbfb33b8446fbe6d9fac">Hash_binary_search</link> (<link linkend="_class_hash_table">HashTable</link>&lt; std::string &gt; &amp;table, const std::string &amp;target)</para>
+</listitem>
+            <listitem><para>void <link linkend="_brain_8cpp_1a5d44cd73410c9105427d5ffd68759fa0">findBusTaken</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_brain_8cpp_1a92439386422a137302195241eb828238">busGoStops</link> ()</para>
+</listitem>
+            <listitem><para>float <link linkend="_brain_8cpp_1aef79fcf6e4eb190dcc020f8169e20ba4">apiCalls</link> (std::string point1, std::string point2, std::string point3)</para>
+</listitem>
+            <listitem><para>void <link linkend="_brain_8cpp_1a843260ff92ac53db80f16e606e63840b">findbustoTake</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_brain_8cpp_1a4a8de83f900529830fe73b019e7a0633">findBusSimilar</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_brain_8cpp_1a29b369f1fea7a4921c4248610e67935b">findBusGo</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_brain_8cpp_1a95d1dbab111395e55c015259450d66ab">findShortestBus</link> ()</para>
+</listitem>
+            <listitem><para>int <link linkend="_brain_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4">main</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>auto <link linkend="_brain_8cpp_1ab577df0563dcb4d3ee9709a28f3567dd">timeLA</link> = std::chrono::system_clock::now()</para>
+</listitem>
+            <listitem><para>std::time_t <link linkend="_brain_8cpp_1a8307e4bf36c4646673e073621c4f9ccf">timeT</link> = std::chrono::system_clock::to_time_t(<link linkend="_brain_8cpp_1ab577df0563dcb4d3ee9709a28f3567dd">timeLA</link>)</para>
+</listitem>
+            <listitem><para>bool <link linkend="_brain_8cpp_1abe5aba224ff7194dca28f5ef13a40065">placeFound</link> = false</para>
+</listitem>
+            <listitem><para><link linkend="_class_hash_table">HashTable</link>&lt; std::string &gt; <link linkend="_brain_8cpp_1a8c2a0ffacbd0c93f7fc43bca4191783c">nameBus</link> (&quot;nameBus&quot;, 9)</para>
+</listitem>
+            <listitem><para><link linkend="_class_hash_table">HashTable</link>&lt; std::string &gt; <link linkend="_brain_8cpp_1ac165ad729812177b76b15cb5f8a73cb8">possible_buses</link> (&quot;possiblebuses&quot;, 9)</para>
+</listitem>
+            <listitem><para><link linkend="_class_array_list">ArrayList</link>&lt; std::string &gt; <link linkend="_brain_8cpp_1a277a2025c642d7b5f76f570d44a5ca36">possible_busnames</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_hash_table">HashTable</link>&lt; std::string &gt; <link linkend="_brain_8cpp_1aa3dd0e407a95f84a0f7eaf824f5aecf3">possible_distances</link> (&quot;possibledistances&quot;, 9)</para>
+</listitem>
+            <listitem><para><link linkend="_class_array_list">ArrayList</link>&lt; std::string &gt; <link linkend="_brain_8cpp_1aa3acd787e5bf31113b5fa9a4795074a7">shortest_stops</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_hash_table">HashTable</link>&lt; std::string &gt; <link linkend="_brain_8cpp_1af72008cbffd556230fb9d77e2f83e254">busGo_stops</link> (&quot;busGostops&quot;, 9)</para>
+</listitem>
+            <listitem><para><link linkend="_class_hash_table">HashTable</link>&lt; std::string &gt; <link linkend="_brain_8cpp_1a73757c103b1d5b822641a143032b3693">distances_dict</link> (&quot;distancesdict&quot;, 9)</para>
+</listitem>
+            <listitem><para><link linkend="_class_hash_table">HashTable</link>&lt; std::string &gt; <link linkend="_brain_8cpp_1a9c3ac25e594dc612910249813aa7dced">shortestnames_stops</link> (&quot;shortestnames_stops&quot;, 9)</para>
+</listitem>
+            <listitem><para><link linkend="_class_array_list">ArrayList</link>&lt; std::string &gt; <link linkend="_brain_8cpp_1a6dfb5807da3afa5d183f5c6b73a6070e">distances_list</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_hash_table">HashTable</link>&lt; std::string &gt; <link linkend="_brain_8cpp_1a3cc2b4960bb7b12dda7f62be65a3da71">named_stops</link> (&quot;named_stops&quot;, 9)</para>
+</listitem>
+            <listitem><para>std::string <link linkend="_brain_8cpp_1a8c5d59952a4de79eddbff030bf4eea7e">q1</link></para>
+</listitem>
+            <listitem><para>std::string <link linkend="_brain_8cpp_1a15be4073443715e1c258b9b1ebb6c406">q2</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Typedef Documentation</title>
+<anchor xml:id="_brain_8cpp_1ab701e3ac61a85b337ec5c1abaad6742d"/><section>
+    <title>json</title>
+<indexterm><primary>json</primary><secondary>brain.cpp</secondary></indexterm>
+<indexterm><primary>brain.cpp</primary><secondary>json</secondary></indexterm>
+<para><computeroutput>using <link linkend="_brain_8cpp_1ab701e3ac61a85b337ec5c1abaad6742d">json</link> = nlohmann::json</computeroutput></para><para>
+Definition at line <link linkend="_brain_8cpp_source_1l00013">13</link> of file <link linkend="_brain_8cpp_source">brain.cpp</link>.</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_brain_8cpp_1aef79fcf6e4eb190dcc020f8169e20ba4"/><section>
+    <title>apiCalls()</title>
+<indexterm><primary>apiCalls</primary><secondary>brain.cpp</secondary></indexterm>
+<indexterm><primary>brain.cpp</primary><secondary>apiCalls</secondary></indexterm>
+<para><computeroutput>float apiCalls (std::string point1, std::string point2, std::string point3)</computeroutput></para><para>
+Definition at line <link linkend="_brain_8cpp_source_1l00097">97</link> of file <link linkend="_brain_8cpp_source">brain.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="brain_8cpp_aef79fcf6e4eb190dcc020f8169e20ba4_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_brain_8cpp_1a92439386422a137302195241eb828238"/><section>
+    <title>busGoStops()</title>
+<indexterm><primary>busGoStops</primary><secondary>brain.cpp</secondary></indexterm>
+<indexterm><primary>brain.cpp</primary><secondary>busGoStops</secondary></indexterm>
+<para><computeroutput>void busGoStops ( )</computeroutput></para><para>
+Definition at line <link linkend="_brain_8cpp_source_1l00089">89</link> of file <link linkend="_brain_8cpp_source">brain.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="brain_8cpp_a92439386422a137302195241eb828238_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_brain_8cpp_1a29b369f1fea7a4921c4248610e67935b"/><section>
+    <title>findBusGo()</title>
+<indexterm><primary>findBusGo</primary><secondary>brain.cpp</secondary></indexterm>
+<indexterm><primary>brain.cpp</primary><secondary>findBusGo</secondary></indexterm>
+<para><computeroutput>void findBusGo ( )</computeroutput></para><para>
+Definition at line <link linkend="_brain_8cpp_source_1l00301">301</link> of file <link linkend="_brain_8cpp_source">brain.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="brain_8cpp_a29b369f1fea7a4921c4248610e67935b_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_brain_8cpp_1a4a8de83f900529830fe73b019e7a0633"/><section>
+    <title>findBusSimilar()</title>
+<indexterm><primary>findBusSimilar</primary><secondary>brain.cpp</secondary></indexterm>
+<indexterm><primary>brain.cpp</primary><secondary>findBusSimilar</secondary></indexterm>
+<para><computeroutput>void findBusSimilar ( )</computeroutput></para><para>
+Definition at line <link linkend="_brain_8cpp_source_1l00203">203</link> of file <link linkend="_brain_8cpp_source">brain.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="brain_8cpp_a4a8de83f900529830fe73b019e7a0633_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="brain_8cpp_a4a8de83f900529830fe73b019e7a0633_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_brain_8cpp_1a5d44cd73410c9105427d5ffd68759fa0"/><section>
+    <title>findBusTaken()</title>
+<indexterm><primary>findBusTaken</primary><secondary>brain.cpp</secondary></indexterm>
+<indexterm><primary>brain.cpp</primary><secondary>findBusTaken</secondary></indexterm>
+<para><computeroutput>void findBusTaken ( )</computeroutput></para><para>
+Definition at line <link linkend="_brain_8cpp_source_1l00081">81</link> of file <link linkend="_brain_8cpp_source">brain.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="brain_8cpp_a5d44cd73410c9105427d5ffd68759fa0_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_brain_8cpp_1a843260ff92ac53db80f16e606e63840b"/><section>
+    <title>findbustoTake()</title>
+<indexterm><primary>findbustoTake</primary><secondary>brain.cpp</secondary></indexterm>
+<indexterm><primary>brain.cpp</primary><secondary>findbustoTake</secondary></indexterm>
+<para><computeroutput>void findbustoTake ( )</computeroutput></para><para>
+Definition at line <link linkend="_brain_8cpp_source_1l00174">174</link> of file <link linkend="_brain_8cpp_source">brain.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="brain_8cpp_a843260ff92ac53db80f16e606e63840b_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_brain_8cpp_1a95d1dbab111395e55c015259450d66ab"/><section>
+    <title>findShortestBus()</title>
+<indexterm><primary>findShortestBus</primary><secondary>brain.cpp</secondary></indexterm>
+<indexterm><primary>brain.cpp</primary><secondary>findShortestBus</secondary></indexterm>
+<para><computeroutput>void findShortestBus ( )</computeroutput></para><para>
+Definition at line <link linkend="_brain_8cpp_source_1l00350">350</link> of file <link linkend="_brain_8cpp_source">brain.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="brain_8cpp_a95d1dbab111395e55c015259450d66ab_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_brain_8cpp_1af4da574d6416dbfb33b8446fbe6d9fac"/><section>
+    <title>Hash_binary_search()</title>
+<indexterm><primary>Hash_binary_search</primary><secondary>brain.cpp</secondary></indexterm>
+<indexterm><primary>brain.cpp</primary><secondary>Hash_binary_search</secondary></indexterm>
+<para><computeroutput>std::string Hash_binary_search (<link linkend="_class_hash_table">HashTable</link>&lt; std::string &gt; &amp; table, const std::string &amp; target)</computeroutput></para><para>
+Definition at line <link linkend="_brain_8cpp_source_1l00051">51</link> of file <link linkend="_brain_8cpp_source">brain.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="brain_8cpp_af4da574d6416dbfb33b8446fbe6d9fac_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="brain_8cpp_af4da574d6416dbfb33b8446fbe6d9fac_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_brain_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4"/><section>
+    <title>main()</title>
+<indexterm><primary>main</primary><secondary>brain.cpp</secondary></indexterm>
+<indexterm><primary>brain.cpp</primary><secondary>main</secondary></indexterm>
+<para><computeroutput>int main ( )</computeroutput></para><para>
+Definition at line <link linkend="_brain_8cpp_source_1l00363">363</link> of file <link linkend="_brain_8cpp_source">brain.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="brain_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_brain_8cpp_1aaca0d28c24e42cd61684a8f04f85fd3f"/><section>
+    <title>validatePlace()</title>
+<indexterm><primary>validatePlace</primary><secondary>brain.cpp</secondary></indexterm>
+<indexterm><primary>brain.cpp</primary><secondary>validatePlace</secondary></indexterm>
+<para><computeroutput>bool validatePlace (<link linkend="_class_array_list">ArrayList</link>&lt; std::string &gt; list, std::string target, int start, int end)</computeroutput></para><para>
+Definition at line <link linkend="_brain_8cpp_source_1l00034">34</link> of file <link linkend="_brain_8cpp_source">brain.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="brain_8cpp_aaca0d28c24e42cd61684a8f04f85fd3f_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_brain_8cpp_1af72008cbffd556230fb9d77e2f83e254"/><section>
+    <title>busGo_stops</title>
+<indexterm><primary>busGo_stops</primary><secondary>brain.cpp</secondary></indexterm>
+<indexterm><primary>brain.cpp</primary><secondary>busGo_stops</secondary></indexterm>
+<para><computeroutput><link linkend="_class_hash_table">HashTable</link>&lt; std::string &gt; busGo_stops(&quot;busGostops&quot;, 9) (&quot;busGostops&quot; , 9 )</computeroutput></para></section>
+<anchor xml:id="_brain_8cpp_1a73757c103b1d5b822641a143032b3693"/><section>
+    <title>distances_dict</title>
+<indexterm><primary>distances_dict</primary><secondary>brain.cpp</secondary></indexterm>
+<indexterm><primary>brain.cpp</primary><secondary>distances_dict</secondary></indexterm>
+<para><computeroutput><link linkend="_class_hash_table">HashTable</link>&lt; std::string &gt; distances_dict(&quot;distancesdict&quot;, 9) (&quot;distancesdict&quot; , 9 )</computeroutput></para></section>
+<anchor xml:id="_brain_8cpp_1a6dfb5807da3afa5d183f5c6b73a6070e"/><section>
+    <title>distances_list</title>
+<indexterm><primary>distances_list</primary><secondary>brain.cpp</secondary></indexterm>
+<indexterm><primary>brain.cpp</primary><secondary>distances_list</secondary></indexterm>
+<para><computeroutput><link linkend="_class_array_list">ArrayList</link>&lt;std::string&gt; distances_list</computeroutput></para><para>
+Definition at line <link linkend="_brain_8cpp_source_1l00030">30</link> of file <link linkend="_brain_8cpp_source">brain.cpp</link>.</para>
+</section>
+<anchor xml:id="_brain_8cpp_1a8c2a0ffacbd0c93f7fc43bca4191783c"/><section>
+    <title>nameBus</title>
+<indexterm><primary>nameBus</primary><secondary>brain.cpp</secondary></indexterm>
+<indexterm><primary>brain.cpp</primary><secondary>nameBus</secondary></indexterm>
+<para><computeroutput><link linkend="_class_hash_table">HashTable</link>&lt; std::string &gt; nameBus(&quot;nameBus&quot;, 9) (&quot;nameBus&quot; , 9 )</computeroutput></para></section>
+<anchor xml:id="_brain_8cpp_1a3cc2b4960bb7b12dda7f62be65a3da71"/><section>
+    <title>named_stops</title>
+<indexterm><primary>named_stops</primary><secondary>brain.cpp</secondary></indexterm>
+<indexterm><primary>brain.cpp</primary><secondary>named_stops</secondary></indexterm>
+<para><computeroutput><link linkend="_class_hash_table">HashTable</link>&lt; std::string &gt; named_stops(&quot;named_stops&quot;, 9) (&quot;named_stops&quot; , 9 )</computeroutput></para></section>
+<anchor xml:id="_brain_8cpp_1abe5aba224ff7194dca28f5ef13a40065"/><section>
+    <title>placeFound</title>
+<indexterm><primary>placeFound</primary><secondary>brain.cpp</secondary></indexterm>
+<indexterm><primary>brain.cpp</primary><secondary>placeFound</secondary></indexterm>
+<para><computeroutput>bool placeFound = false</computeroutput></para><para>
+Definition at line <link linkend="_brain_8cpp_source_1l00020">20</link> of file <link linkend="_brain_8cpp_source">brain.cpp</link>.</para>
+</section>
+<anchor xml:id="_brain_8cpp_1ac165ad729812177b76b15cb5f8a73cb8"/><section>
+    <title>possible_buses</title>
+<indexterm><primary>possible_buses</primary><secondary>brain.cpp</secondary></indexterm>
+<indexterm><primary>brain.cpp</primary><secondary>possible_buses</secondary></indexterm>
+<para><computeroutput><link linkend="_class_hash_table">HashTable</link>&lt; std::string &gt; possible_buses(&quot;possiblebuses&quot;, 9) (&quot;possiblebuses&quot; , 9 )</computeroutput></para></section>
+<anchor xml:id="_brain_8cpp_1a277a2025c642d7b5f76f570d44a5ca36"/><section>
+    <title>possible_busnames</title>
+<indexterm><primary>possible_busnames</primary><secondary>brain.cpp</secondary></indexterm>
+<indexterm><primary>brain.cpp</primary><secondary>possible_busnames</secondary></indexterm>
+<para><computeroutput><link linkend="_class_array_list">ArrayList</link>&lt;std::string&gt; possible_busnames</computeroutput></para><para>
+Definition at line <link linkend="_brain_8cpp_source_1l00024">24</link> of file <link linkend="_brain_8cpp_source">brain.cpp</link>.</para>
+</section>
+<anchor xml:id="_brain_8cpp_1aa3dd0e407a95f84a0f7eaf824f5aecf3"/><section>
+    <title>possible_distances</title>
+<indexterm><primary>possible_distances</primary><secondary>brain.cpp</secondary></indexterm>
+<indexterm><primary>brain.cpp</primary><secondary>possible_distances</secondary></indexterm>
+<para><computeroutput><link linkend="_class_hash_table">HashTable</link>&lt; std::string &gt; possible_distances(&quot;possibledistances&quot;, 9) (&quot;possibledistances&quot; , 9 )</computeroutput></para></section>
+<anchor xml:id="_brain_8cpp_1a8c5d59952a4de79eddbff030bf4eea7e"/><section>
+    <title>q1</title>
+<indexterm><primary>q1</primary><secondary>brain.cpp</secondary></indexterm>
+<indexterm><primary>brain.cpp</primary><secondary>q1</secondary></indexterm>
+<para><computeroutput>std::string q1</computeroutput></para><para>
+Definition at line <link linkend="_brain_8cpp_source_1l00078">78</link> of file <link linkend="_brain_8cpp_source">brain.cpp</link>.</para>
+</section>
+<anchor xml:id="_brain_8cpp_1a15be4073443715e1c258b9b1ebb6c406"/><section>
+    <title>q2</title>
+<indexterm><primary>q2</primary><secondary>brain.cpp</secondary></indexterm>
+<indexterm><primary>brain.cpp</primary><secondary>q2</secondary></indexterm>
+<para><computeroutput>std::string q2</computeroutput></para><para>
+Definition at line <link linkend="_brain_8cpp_source_1l00079">79</link> of file <link linkend="_brain_8cpp_source">brain.cpp</link>.</para>
+</section>
+<anchor xml:id="_brain_8cpp_1aa3acd787e5bf31113b5fa9a4795074a7"/><section>
+    <title>shortest_stops</title>
+<indexterm><primary>shortest_stops</primary><secondary>brain.cpp</secondary></indexterm>
+<indexterm><primary>brain.cpp</primary><secondary>shortest_stops</secondary></indexterm>
+<para><computeroutput><link linkend="_class_array_list">ArrayList</link>&lt;std::string&gt; shortest_stops</computeroutput></para><para>
+Definition at line <link linkend="_brain_8cpp_source_1l00026">26</link> of file <link linkend="_brain_8cpp_source">brain.cpp</link>.</para>
+</section>
+<anchor xml:id="_brain_8cpp_1a9c3ac25e594dc612910249813aa7dced"/><section>
+    <title>shortestnames_stops</title>
+<indexterm><primary>shortestnames_stops</primary><secondary>brain.cpp</secondary></indexterm>
+<indexterm><primary>brain.cpp</primary><secondary>shortestnames_stops</secondary></indexterm>
+<para><computeroutput><link linkend="_class_hash_table">HashTable</link>&lt; std::string &gt; shortestnames_stops(&quot;shortestnames_stops&quot;, 9) (&quot;shortestnames_stops&quot; , 9 )</computeroutput></para></section>
+<anchor xml:id="_brain_8cpp_1ab577df0563dcb4d3ee9709a28f3567dd"/><section>
+    <title>timeLA</title>
+<indexterm><primary>timeLA</primary><secondary>brain.cpp</secondary></indexterm>
+<indexterm><primary>brain.cpp</primary><secondary>timeLA</secondary></indexterm>
+<para><computeroutput>auto timeLA = std::chrono::system_clock::now()</computeroutput></para><para>
+Definition at line <link linkend="_brain_8cpp_source_1l00016">16</link> of file <link linkend="_brain_8cpp_source">brain.cpp</link>.</para>
+</section>
+<anchor xml:id="_brain_8cpp_1a8307e4bf36c4646673e073621c4f9ccf"/><section>
+    <title>timeT</title>
+<indexterm><primary>timeT</primary><secondary>brain.cpp</secondary></indexterm>
+<indexterm><primary>brain.cpp</primary><secondary>timeT</secondary></indexterm>
+<para><computeroutput>std::time_t timeT = std::chrono::system_clock::to_time_t(<link linkend="_brain_8cpp_1ab577df0563dcb4d3ee9709a28f3567dd">timeLA</link>)</computeroutput></para><para>
+Definition at line <link linkend="_brain_8cpp_source_1l00018">18</link> of file <link linkend="_brain_8cpp_source">brain.cpp</link>.</para>
+</section>
+</section>
+</section>

@@ -1,0 +1,340 @@
+\doxysection{brain.\+cpp File Reference}
+\hypertarget{brain_8cpp}{}\label{brain_8cpp}\index{brain.cpp@{brain.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include "{}stops\+\_\+data.\+h"{}}\newline
+{\ttfamily \#include "{}Array\+List.\+h"{}}\newline
+{\ttfamily \#include $<$unordered\+\_\+set$>$}\newline
+{\ttfamily \#include "{}Hash\+Table.\+h"{}}\newline
+{\ttfamily \#include $<$cpr/cpr.\+h$>$}\newline
+{\ttfamily \#include $<$nlohmann/json.\+hpp$>$}\newline
+Include dependency graph for brain.\+cpp\+:
+% FIG 0
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{brain_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} = nlohmann\+::json
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{brain_8cpp_aaca0d28c24e42cd61684a8f04f85fd3f}{validate\+Place}} (\mbox{\hyperlink{class_array_list}{Array\+List}}$<$ std\+::string $>$ list, std\+::string target, int start, int end)
+\item 
+std\+::string \mbox{\hyperlink{brain_8cpp_af4da574d6416dbfb33b8446fbe6d9fac}{Hash\+\_\+binary\+\_\+search}} (\mbox{\hyperlink{class_hash_table}{Hash\+Table}}$<$ std\+::string $>$ \&table, const std\+::string \&target)
+\item 
+void \mbox{\hyperlink{brain_8cpp_a5d44cd73410c9105427d5ffd68759fa0}{find\+Bus\+Taken}} ()
+\item 
+void \mbox{\hyperlink{brain_8cpp_a92439386422a137302195241eb828238}{bus\+Go\+Stops}} ()
+\item 
+float \mbox{\hyperlink{brain_8cpp_aef79fcf6e4eb190dcc020f8169e20ba4}{api\+Calls}} (std\+::string point1, std\+::string point2, std\+::string point3)
+\item 
+void \mbox{\hyperlink{brain_8cpp_a843260ff92ac53db80f16e606e63840b}{findbusto\+Take}} ()
+\item 
+void \mbox{\hyperlink{brain_8cpp_a4a8de83f900529830fe73b019e7a0633}{find\+Bus\+Similar}} ()
+\item 
+void \mbox{\hyperlink{brain_8cpp_a29b369f1fea7a4921c4248610e67935b}{find\+Bus\+Go}} ()
+\item 
+void \mbox{\hyperlink{brain_8cpp_a95d1dbab111395e55c015259450d66ab}{find\+Shortest\+Bus}} ()
+\item 
+int \mbox{\hyperlink{brain_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+auto \mbox{\hyperlink{brain_8cpp_ab577df0563dcb4d3ee9709a28f3567dd}{time\+LA}} = std\+::chrono\+::system\+\_\+clock\+::now()
+\item 
+std\+::time\+\_\+t \mbox{\hyperlink{brain_8cpp_a8307e4bf36c4646673e073621c4f9ccf}{timeT}} = std\+::chrono\+::system\+\_\+clock\+::to\+\_\+time\+\_\+t(\mbox{\hyperlink{brain_8cpp_ab577df0563dcb4d3ee9709a28f3567dd}{time\+LA}})
+\item 
+bool \mbox{\hyperlink{brain_8cpp_abe5aba224ff7194dca28f5ef13a40065}{place\+Found}} = false
+\item 
+\mbox{\hyperlink{class_hash_table}{Hash\+Table}}$<$ std\+::string $>$ \mbox{\hyperlink{brain_8cpp_a8c2a0ffacbd0c93f7fc43bca4191783c}{name\+Bus}} ("{}name\+Bus"{}, 9)
+\item 
+\mbox{\hyperlink{class_hash_table}{Hash\+Table}}$<$ std\+::string $>$ \mbox{\hyperlink{brain_8cpp_ac165ad729812177b76b15cb5f8a73cb8}{possible\+\_\+buses}} ("{}possiblebuses"{}, 9)
+\item 
+\mbox{\hyperlink{class_array_list}{Array\+List}}$<$ std\+::string $>$ \mbox{\hyperlink{brain_8cpp_a277a2025c642d7b5f76f570d44a5ca36}{possible\+\_\+busnames}}
+\item 
+\mbox{\hyperlink{class_hash_table}{Hash\+Table}}$<$ std\+::string $>$ \mbox{\hyperlink{brain_8cpp_aa3dd0e407a95f84a0f7eaf824f5aecf3}{possible\+\_\+distances}} ("{}possibledistances"{}, 9)
+\item 
+\mbox{\hyperlink{class_array_list}{Array\+List}}$<$ std\+::string $>$ \mbox{\hyperlink{brain_8cpp_aa3acd787e5bf31113b5fa9a4795074a7}{shortest\+\_\+stops}}
+\item 
+\mbox{\hyperlink{class_hash_table}{Hash\+Table}}$<$ std\+::string $>$ \mbox{\hyperlink{brain_8cpp_af72008cbffd556230fb9d77e2f83e254}{bus\+Go\+\_\+stops}} ("{}bus\+Gostops"{}, 9)
+\item 
+\mbox{\hyperlink{class_hash_table}{Hash\+Table}}$<$ std\+::string $>$ \mbox{\hyperlink{brain_8cpp_a73757c103b1d5b822641a143032b3693}{distances\+\_\+dict}} ("{}distancesdict"{}, 9)
+\item 
+\mbox{\hyperlink{class_hash_table}{Hash\+Table}}$<$ std\+::string $>$ \mbox{\hyperlink{brain_8cpp_a9c3ac25e594dc612910249813aa7dced}{shortestnames\+\_\+stops}} ("{}shortestnames\+\_\+stops"{}, 9)
+\item 
+\mbox{\hyperlink{class_array_list}{Array\+List}}$<$ std\+::string $>$ \mbox{\hyperlink{brain_8cpp_a6dfb5807da3afa5d183f5c6b73a6070e}{distances\+\_\+list}}
+\item 
+\mbox{\hyperlink{class_hash_table}{Hash\+Table}}$<$ std\+::string $>$ \mbox{\hyperlink{brain_8cpp_a3cc2b4960bb7b12dda7f62be65a3da71}{named\+\_\+stops}} ("{}named\+\_\+stops"{}, 9)
+\item 
+std\+::string \mbox{\hyperlink{brain_8cpp_a8c5d59952a4de79eddbff030bf4eea7e}{q1}}
+\item 
+std\+::string \mbox{\hyperlink{brain_8cpp_a15be4073443715e1c258b9b1ebb6c406}{q2}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{brain_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}\index{brain.cpp@{brain.cpp}!json@{json}}
+\index{json@{json}!brain.cpp@{brain.cpp}}
+\doxysubsubsection{\texorpdfstring{json}{json}}
+{\footnotesize\ttfamily \label{brain_8cpp_ab701e3ac61a85b337ec5c1abaad6742d} 
+using \mbox{\hyperlink{brain_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} = nlohmann\+::json}
+
+
+
+Definition at line \mbox{\hyperlink{brain_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{brain_8cpp_source}{brain.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{brain_8cpp_aef79fcf6e4eb190dcc020f8169e20ba4}\index{brain.cpp@{brain.cpp}!apiCalls@{apiCalls}}
+\index{apiCalls@{apiCalls}!brain.cpp@{brain.cpp}}
+\doxysubsubsection{\texorpdfstring{apiCalls()}{apiCalls()}}
+{\footnotesize\ttfamily \label{brain_8cpp_aef79fcf6e4eb190dcc020f8169e20ba4} 
+float api\+Calls (\begin{DoxyParamCaption}\item[{std\+::string}]{point1}{, }\item[{std\+::string}]{point2}{, }\item[{std\+::string}]{point3}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{brain_8cpp_source_l00097}{97}} of file \mbox{\hyperlink{brain_8cpp_source}{brain.\+cpp}}.
+
+Here is the caller graph for this function\+:
+% FIG 1
+\Hypertarget{brain_8cpp_a92439386422a137302195241eb828238}\index{brain.cpp@{brain.cpp}!busGoStops@{busGoStops}}
+\index{busGoStops@{busGoStops}!brain.cpp@{brain.cpp}}
+\doxysubsubsection{\texorpdfstring{busGoStops()}{busGoStops()}}
+{\footnotesize\ttfamily \label{brain_8cpp_a92439386422a137302195241eb828238} 
+void bus\+Go\+Stops (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{brain_8cpp_source_l00089}{89}} of file \mbox{\hyperlink{brain_8cpp_source}{brain.\+cpp}}.
+
+Here is the call graph for this function\+:
+% FIG 2
+\Hypertarget{brain_8cpp_a29b369f1fea7a4921c4248610e67935b}\index{brain.cpp@{brain.cpp}!findBusGo@{findBusGo}}
+\index{findBusGo@{findBusGo}!brain.cpp@{brain.cpp}}
+\doxysubsubsection{\texorpdfstring{findBusGo()}{findBusGo()}}
+{\footnotesize\ttfamily \label{brain_8cpp_a29b369f1fea7a4921c4248610e67935b} 
+void find\+Bus\+Go (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{brain_8cpp_source_l00301}{301}} of file \mbox{\hyperlink{brain_8cpp_source}{brain.\+cpp}}.
+
+Here is the call graph for this function\+:
+% FIG 3
+\Hypertarget{brain_8cpp_a4a8de83f900529830fe73b019e7a0633}\index{brain.cpp@{brain.cpp}!findBusSimilar@{findBusSimilar}}
+\index{findBusSimilar@{findBusSimilar}!brain.cpp@{brain.cpp}}
+\doxysubsubsection{\texorpdfstring{findBusSimilar()}{findBusSimilar()}}
+{\footnotesize\ttfamily \label{brain_8cpp_a4a8de83f900529830fe73b019e7a0633} 
+void find\+Bus\+Similar (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{brain_8cpp_source_l00203}{203}} of file \mbox{\hyperlink{brain_8cpp_source}{brain.\+cpp}}.
+
+Here is the call graph for this function\+:
+% FIG 4
+Here is the caller graph for this function\+:
+% FIG 5
+\Hypertarget{brain_8cpp_a5d44cd73410c9105427d5ffd68759fa0}\index{brain.cpp@{brain.cpp}!findBusTaken@{findBusTaken}}
+\index{findBusTaken@{findBusTaken}!brain.cpp@{brain.cpp}}
+\doxysubsubsection{\texorpdfstring{findBusTaken()}{findBusTaken()}}
+{\footnotesize\ttfamily \label{brain_8cpp_a5d44cd73410c9105427d5ffd68759fa0} 
+void find\+Bus\+Taken (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{brain_8cpp_source_l00081}{81}} of file \mbox{\hyperlink{brain_8cpp_source}{brain.\+cpp}}.
+
+Here is the call graph for this function\+:
+% FIG 6
+\Hypertarget{brain_8cpp_a843260ff92ac53db80f16e606e63840b}\index{brain.cpp@{brain.cpp}!findbustoTake@{findbustoTake}}
+\index{findbustoTake@{findbustoTake}!brain.cpp@{brain.cpp}}
+\doxysubsubsection{\texorpdfstring{findbustoTake()}{findbustoTake()}}
+{\footnotesize\ttfamily \label{brain_8cpp_a843260ff92ac53db80f16e606e63840b} 
+void findbusto\+Take (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{brain_8cpp_source_l00174}{174}} of file \mbox{\hyperlink{brain_8cpp_source}{brain.\+cpp}}.
+
+Here is the call graph for this function\+:
+% FIG 7
+\Hypertarget{brain_8cpp_a95d1dbab111395e55c015259450d66ab}\index{brain.cpp@{brain.cpp}!findShortestBus@{findShortestBus}}
+\index{findShortestBus@{findShortestBus}!brain.cpp@{brain.cpp}}
+\doxysubsubsection{\texorpdfstring{findShortestBus()}{findShortestBus()}}
+{\footnotesize\ttfamily \label{brain_8cpp_a95d1dbab111395e55c015259450d66ab} 
+void find\+Shortest\+Bus (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{brain_8cpp_source_l00350}{350}} of file \mbox{\hyperlink{brain_8cpp_source}{brain.\+cpp}}.
+
+Here is the call graph for this function\+:
+% FIG 8
+\Hypertarget{brain_8cpp_af4da574d6416dbfb33b8446fbe6d9fac}\index{brain.cpp@{brain.cpp}!Hash\_binary\_search@{Hash\_binary\_search}}
+\index{Hash\_binary\_search@{Hash\_binary\_search}!brain.cpp@{brain.cpp}}
+\doxysubsubsection{\texorpdfstring{Hash\_binary\_search()}{Hash\_binary\_search()}}
+{\footnotesize\ttfamily \label{brain_8cpp_af4da574d6416dbfb33b8446fbe6d9fac} 
+std\+::string Hash\+\_\+binary\+\_\+search (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_hash_table}{Hash\+Table}}$<$ std\+::string $>$ \&}]{table}{, }\item[{const std\+::string \&}]{target}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{brain_8cpp_source_l00051}{51}} of file \mbox{\hyperlink{brain_8cpp_source}{brain.\+cpp}}.
+
+Here is the call graph for this function\+:
+% FIG 9
+Here is the caller graph for this function\+:
+% FIG 10
+\Hypertarget{brain_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{brain.cpp@{brain.cpp}!main@{main}}
+\index{main@{main}!brain.cpp@{brain.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{brain_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{brain_8cpp_source_l00363}{363}} of file \mbox{\hyperlink{brain_8cpp_source}{brain.\+cpp}}.
+
+Here is the call graph for this function\+:
+% FIG 11
+\Hypertarget{brain_8cpp_aaca0d28c24e42cd61684a8f04f85fd3f}\index{brain.cpp@{brain.cpp}!validatePlace@{validatePlace}}
+\index{validatePlace@{validatePlace}!brain.cpp@{brain.cpp}}
+\doxysubsubsection{\texorpdfstring{validatePlace()}{validatePlace()}}
+{\footnotesize\ttfamily \label{brain_8cpp_aaca0d28c24e42cd61684a8f04f85fd3f} 
+bool validate\+Place (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_array_list}{Array\+List}}$<$ std\+::string $>$}]{list}{, }\item[{std\+::string}]{target}{, }\item[{int}]{start}{, }\item[{int}]{end}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{brain_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{brain_8cpp_source}{brain.\+cpp}}.
+
+Here is the caller graph for this function\+:
+% FIG 12
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{brain_8cpp_af72008cbffd556230fb9d77e2f83e254}\index{brain.cpp@{brain.cpp}!busGo\_stops@{busGo\_stops}}
+\index{busGo\_stops@{busGo\_stops}!brain.cpp@{brain.cpp}}
+\doxysubsubsection{\texorpdfstring{busGo\_stops}{busGo\_stops}}
+{\footnotesize\ttfamily \label{brain_8cpp_af72008cbffd556230fb9d77e2f83e254} 
+\mbox{\hyperlink{class_hash_table}{Hash\+Table}}$<$ std\+::string $>$ bus\+Go\+\_\+stops("{}bus\+Gostops"{}, 9) (\begin{DoxyParamCaption}\item[{"{}bus\+Gostops"{}}]{}{, }\item[{9}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{brain_8cpp_a73757c103b1d5b822641a143032b3693}\index{brain.cpp@{brain.cpp}!distances\_dict@{distances\_dict}}
+\index{distances\_dict@{distances\_dict}!brain.cpp@{brain.cpp}}
+\doxysubsubsection{\texorpdfstring{distances\_dict}{distances\_dict}}
+{\footnotesize\ttfamily \label{brain_8cpp_a73757c103b1d5b822641a143032b3693} 
+\mbox{\hyperlink{class_hash_table}{Hash\+Table}}$<$ std\+::string $>$ distances\+\_\+dict("{}distancesdict"{}, 9) (\begin{DoxyParamCaption}\item[{"{}distancesdict"{}}]{}{, }\item[{9}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{brain_8cpp_a6dfb5807da3afa5d183f5c6b73a6070e}\index{brain.cpp@{brain.cpp}!distances\_list@{distances\_list}}
+\index{distances\_list@{distances\_list}!brain.cpp@{brain.cpp}}
+\doxysubsubsection{\texorpdfstring{distances\_list}{distances\_list}}
+{\footnotesize\ttfamily \label{brain_8cpp_a6dfb5807da3afa5d183f5c6b73a6070e} 
+\mbox{\hyperlink{class_array_list}{Array\+List}}$<$std\+::string$>$ distances\+\_\+list}
+
+
+
+Definition at line \mbox{\hyperlink{brain_8cpp_source_l00030}{30}} of file \mbox{\hyperlink{brain_8cpp_source}{brain.\+cpp}}.
+
+\Hypertarget{brain_8cpp_a8c2a0ffacbd0c93f7fc43bca4191783c}\index{brain.cpp@{brain.cpp}!nameBus@{nameBus}}
+\index{nameBus@{nameBus}!brain.cpp@{brain.cpp}}
+\doxysubsubsection{\texorpdfstring{nameBus}{nameBus}}
+{\footnotesize\ttfamily \label{brain_8cpp_a8c2a0ffacbd0c93f7fc43bca4191783c} 
+\mbox{\hyperlink{class_hash_table}{Hash\+Table}}$<$ std\+::string $>$ name\+Bus("{}name\+Bus"{}, 9) (\begin{DoxyParamCaption}\item[{"{}name\+Bus"{}}]{}{, }\item[{9}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{brain_8cpp_a3cc2b4960bb7b12dda7f62be65a3da71}\index{brain.cpp@{brain.cpp}!named\_stops@{named\_stops}}
+\index{named\_stops@{named\_stops}!brain.cpp@{brain.cpp}}
+\doxysubsubsection{\texorpdfstring{named\_stops}{named\_stops}}
+{\footnotesize\ttfamily \label{brain_8cpp_a3cc2b4960bb7b12dda7f62be65a3da71} 
+\mbox{\hyperlink{class_hash_table}{Hash\+Table}}$<$ std\+::string $>$ named\+\_\+stops("{}named\+\_\+stops"{}, 9) (\begin{DoxyParamCaption}\item[{"{}named\+\_\+stops"{}}]{}{, }\item[{9}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{brain_8cpp_abe5aba224ff7194dca28f5ef13a40065}\index{brain.cpp@{brain.cpp}!placeFound@{placeFound}}
+\index{placeFound@{placeFound}!brain.cpp@{brain.cpp}}
+\doxysubsubsection{\texorpdfstring{placeFound}{placeFound}}
+{\footnotesize\ttfamily \label{brain_8cpp_abe5aba224ff7194dca28f5ef13a40065} 
+bool place\+Found = false}
+
+
+
+Definition at line \mbox{\hyperlink{brain_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{brain_8cpp_source}{brain.\+cpp}}.
+
+\Hypertarget{brain_8cpp_ac165ad729812177b76b15cb5f8a73cb8}\index{brain.cpp@{brain.cpp}!possible\_buses@{possible\_buses}}
+\index{possible\_buses@{possible\_buses}!brain.cpp@{brain.cpp}}
+\doxysubsubsection{\texorpdfstring{possible\_buses}{possible\_buses}}
+{\footnotesize\ttfamily \label{brain_8cpp_ac165ad729812177b76b15cb5f8a73cb8} 
+\mbox{\hyperlink{class_hash_table}{Hash\+Table}}$<$ std\+::string $>$ possible\+\_\+buses("{}possiblebuses"{}, 9) (\begin{DoxyParamCaption}\item[{"{}possiblebuses"{}}]{}{, }\item[{9}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{brain_8cpp_a277a2025c642d7b5f76f570d44a5ca36}\index{brain.cpp@{brain.cpp}!possible\_busnames@{possible\_busnames}}
+\index{possible\_busnames@{possible\_busnames}!brain.cpp@{brain.cpp}}
+\doxysubsubsection{\texorpdfstring{possible\_busnames}{possible\_busnames}}
+{\footnotesize\ttfamily \label{brain_8cpp_a277a2025c642d7b5f76f570d44a5ca36} 
+\mbox{\hyperlink{class_array_list}{Array\+List}}$<$std\+::string$>$ possible\+\_\+busnames}
+
+
+
+Definition at line \mbox{\hyperlink{brain_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{brain_8cpp_source}{brain.\+cpp}}.
+
+\Hypertarget{brain_8cpp_aa3dd0e407a95f84a0f7eaf824f5aecf3}\index{brain.cpp@{brain.cpp}!possible\_distances@{possible\_distances}}
+\index{possible\_distances@{possible\_distances}!brain.cpp@{brain.cpp}}
+\doxysubsubsection{\texorpdfstring{possible\_distances}{possible\_distances}}
+{\footnotesize\ttfamily \label{brain_8cpp_aa3dd0e407a95f84a0f7eaf824f5aecf3} 
+\mbox{\hyperlink{class_hash_table}{Hash\+Table}}$<$ std\+::string $>$ possible\+\_\+distances("{}possibledistances"{}, 9) (\begin{DoxyParamCaption}\item[{"{}possibledistances"{}}]{}{, }\item[{9}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{brain_8cpp_a8c5d59952a4de79eddbff030bf4eea7e}\index{brain.cpp@{brain.cpp}!q1@{q1}}
+\index{q1@{q1}!brain.cpp@{brain.cpp}}
+\doxysubsubsection{\texorpdfstring{q1}{q1}}
+{\footnotesize\ttfamily \label{brain_8cpp_a8c5d59952a4de79eddbff030bf4eea7e} 
+std\+::string q1}
+
+
+
+Definition at line \mbox{\hyperlink{brain_8cpp_source_l00078}{78}} of file \mbox{\hyperlink{brain_8cpp_source}{brain.\+cpp}}.
+
+\Hypertarget{brain_8cpp_a15be4073443715e1c258b9b1ebb6c406}\index{brain.cpp@{brain.cpp}!q2@{q2}}
+\index{q2@{q2}!brain.cpp@{brain.cpp}}
+\doxysubsubsection{\texorpdfstring{q2}{q2}}
+{\footnotesize\ttfamily \label{brain_8cpp_a15be4073443715e1c258b9b1ebb6c406} 
+std\+::string q2}
+
+
+
+Definition at line \mbox{\hyperlink{brain_8cpp_source_l00079}{79}} of file \mbox{\hyperlink{brain_8cpp_source}{brain.\+cpp}}.
+
+\Hypertarget{brain_8cpp_aa3acd787e5bf31113b5fa9a4795074a7}\index{brain.cpp@{brain.cpp}!shortest\_stops@{shortest\_stops}}
+\index{shortest\_stops@{shortest\_stops}!brain.cpp@{brain.cpp}}
+\doxysubsubsection{\texorpdfstring{shortest\_stops}{shortest\_stops}}
+{\footnotesize\ttfamily \label{brain_8cpp_aa3acd787e5bf31113b5fa9a4795074a7} 
+\mbox{\hyperlink{class_array_list}{Array\+List}}$<$std\+::string$>$ shortest\+\_\+stops}
+
+
+
+Definition at line \mbox{\hyperlink{brain_8cpp_source_l00026}{26}} of file \mbox{\hyperlink{brain_8cpp_source}{brain.\+cpp}}.
+
+\Hypertarget{brain_8cpp_a9c3ac25e594dc612910249813aa7dced}\index{brain.cpp@{brain.cpp}!shortestnames\_stops@{shortestnames\_stops}}
+\index{shortestnames\_stops@{shortestnames\_stops}!brain.cpp@{brain.cpp}}
+\doxysubsubsection{\texorpdfstring{shortestnames\_stops}{shortestnames\_stops}}
+{\footnotesize\ttfamily \label{brain_8cpp_a9c3ac25e594dc612910249813aa7dced} 
+\mbox{\hyperlink{class_hash_table}{Hash\+Table}}$<$ std\+::string $>$ shortestnames\+\_\+stops("{}shortestnames\+\_\+stops"{}, 9) (\begin{DoxyParamCaption}\item[{"{}shortestnames\+\_\+stops"{}}]{}{, }\item[{9}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{brain_8cpp_ab577df0563dcb4d3ee9709a28f3567dd}\index{brain.cpp@{brain.cpp}!timeLA@{timeLA}}
+\index{timeLA@{timeLA}!brain.cpp@{brain.cpp}}
+\doxysubsubsection{\texorpdfstring{timeLA}{timeLA}}
+{\footnotesize\ttfamily \label{brain_8cpp_ab577df0563dcb4d3ee9709a28f3567dd} 
+auto time\+LA = std\+::chrono\+::system\+\_\+clock\+::now()}
+
+
+
+Definition at line \mbox{\hyperlink{brain_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{brain_8cpp_source}{brain.\+cpp}}.
+
+\Hypertarget{brain_8cpp_a8307e4bf36c4646673e073621c4f9ccf}\index{brain.cpp@{brain.cpp}!timeT@{timeT}}
+\index{timeT@{timeT}!brain.cpp@{brain.cpp}}
+\doxysubsubsection{\texorpdfstring{timeT}{timeT}}
+{\footnotesize\ttfamily \label{brain_8cpp_a8307e4bf36c4646673e073621c4f9ccf} 
+std\+::time\+\_\+t timeT = std\+::chrono\+::system\+\_\+clock\+::to\+\_\+time\+\_\+t(\mbox{\hyperlink{brain_8cpp_ab577df0563dcb4d3ee9709a28f3567dd}{time\+LA}})}
+
+
+
+Definition at line \mbox{\hyperlink{brain_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{brain_8cpp_source}{brain.\+cpp}}.
+
