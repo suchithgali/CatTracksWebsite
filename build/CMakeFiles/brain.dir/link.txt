@@ -1,0 +1,1 @@
+/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/brain.dir/src/include/brain.cpp.o -o /Users/suchithgali/Python/PythonFiles/SourceCode/CatTracks/website_docs/brain  -Wl,-rpath,/opt/homebrew/lib -Wl,-rpath,/usr/local/lib /opt/homebrew/lib/libcpr.1.11.1.dylib /usr/local/lib/libcurl.4.8.0.dylib

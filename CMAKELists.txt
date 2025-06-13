@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.8)
+
+project(CatTracks)
+set (CMAKE_CXX_STANDARD 17)
+include_directories(/Users/suchithgali/Python/PythonFiles/SourceCode/CatTracks/packages/json/include)
+find_package(cpr REQUIRED)
+add_executable(brain /Users/suchithgali/Python/PythonFiles/SourceCode/CatTracks/src/include/brain.cpp)
+target_link_libraries(brain PRIVATE cpr::cpr)
+set_target_properties(brain PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/website_docs")
