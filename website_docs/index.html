@@ -9,7 +9,12 @@
      crossorigin=""></script>
 </head>
 <body>
-  <div id="map"></div>
+  <div id="map">
+    <div class="leaflet-control coordinate"></div>
+  </div>
+  <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'>
+    //multi file types format parser for Leaflet
+  </script>
 <div>
     <button class="header">
     </button>
@@ -143,12 +148,19 @@
   #map {
     height: 80vh;
     width: 80%;
-    margin: 20px;
+    margin-left: 80px;
+    margin-top: 60px;
+  }
+
+  .coordinate{
+    position: absolute;
+    bottom: 10px;
+    right: 50%;
+    background-color: aliceblue;
   }
 </style>
 
 
-<div id="map"></div>
 </body>
 
 </html>
@@ -159,20 +171,41 @@
   //map intialization
   var map = L.map('map').setView([37.361217092553325, -120.432421122566], 13);
 
-  //osm layer
-  var osm = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+  //osm layers
+   var googleStreets = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
     maxZoom: 20,
     subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
   }).addTo(map);
 
-
-osm.addTo(map);
-
+   googleSat = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+    maxZoom: 20,
+    subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+  });
 
 var myIcon = L.icon({
     iconUrl: 'image/red-marker.png',
     iconSize: [40, 40],
 });
+//load Merced geoJson
+var mercedGeoJson = omnivore.geojson("docker/pelias/docker/projects/california/ca_data/openaddresses/us/ca/merced.geojson").addTo(map);
 //Marker:
-L.marker([37.361217092553325, -120.432421122566], {icon: myIcon}).addTo(map);
+var singleMarker = L.marker([37.361217092553325, -120.432421122566], {icon: myIcon, draggable: true}).addTo(map);
+
+var baseMaps = {
+    'Google Street' : googleStreets,
+    "Google Satellite" : googleSat
+};
+
+var overlayMaps = {
+    "Marker": singleMarker
+};
+
+L.control.layers(baseMaps, overlayMaps).addTo(map);
+
+//LEAFLET EVENTS
+map.on('mousemove', function(e){
+  document.getElementsByClassName('coordinate')[0].innerHTML = 'lat: ' + e.latlng.lat + ' lng: ' + e.latlng.lng;
+  console.log('lat: ' + e.latlng.lat + ' lng: ' + e.latlng.lng);
+})
+
 </script>
