@@ -5,8 +5,11 @@
     CatTracks | Transportation and Parking Services 
 </title>
 <link rel="stylesheet" href="styles/CatTracks.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+     crossorigin=""></script>
 </head>
 <body>
+  <div id="map"></div>
 <div>
     <button class="header">
     </button>
@@ -136,5 +139,40 @@
     });
 </script>
 
+<style>
+  #map {
+    height: 80vh;
+    width: 80%;
+    margin: 20px;
+  }
+</style>
+
+
+<div id="map"></div>
 </body>
+
 </html>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+<script>
+  //map intialization
+  var map = L.map('map').setView([37.361217092553325, -120.432421122566], 13);
+
+  //osm layer
+  var osm = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+    maxZoom: 20,
+    subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+  }).addTo(map);
+
+
+osm.addTo(map);
+
+
+var myIcon = L.icon({
+    iconUrl: 'image/red-marker.png',
+    iconSize: [40, 40],
+});
+//Marker:
+L.marker([37.361217092553325, -120.432421122566], {icon: myIcon}).addTo(map);
+</script>
