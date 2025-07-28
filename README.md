@@ -1,2 +1,2 @@
 # CatTracksWebsite
-alpha version 0.1 estimated completion date: May 30th, 2025
+alpha version 0.1 estimated completion date: July 31st, 2025
