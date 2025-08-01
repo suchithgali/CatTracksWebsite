@@ -1,16 +1,21 @@
 #include "Graph.h"
 
-void dijkstra(){
-  for every edge{
-    node2.setWeight(min(node2.getWeight(), node1.getWeight() + addEdgeWeight(node1, node2))) 
-  }
 
 int main(){
 
 Graph bobcatExpress;
 
-bobcatExpress.addNode("University Transit Center", 5);
-bobcatExpress.addNode("Wingstop/ Promenade Center", 2);
+void dijkstra(){
+  for (int i = 0; i < bobcatExpress.getNodeSize(); i++){
+    for (int j = 0; j < nodes.getSize(); j++){
+      
+    }
+    node2.setWeight(min(node2.getWeight(), node1.getWeight() + addEdgeWeight(node1, node2))) 
+  }
+}
+
+bobcatExpress.addNode("University Transit Center");
+bobcatExpress.addNode("Wingstop/ Promenade Center");
 
 bobcatExpress.addEdge(bobcatExpress.getNodes(0), bobcatExpress.getNodes(1), 9);
 
