@@ -36,6 +36,10 @@ public:
 		adjacency_matrix[i][j] = 1;
 		node2.setWeight(node1.getWeight() + 5); 
 	}
+
+	Node& getNodes(int index){
+		return nodes[index];
+	}
 	
   };
 
