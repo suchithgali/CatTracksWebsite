@@ -6,41 +6,74 @@
 #include <iostream>
 #include <climits>
 #include <vector>
+#include <algorithm>
+#include "ArrayList.h"
 
 class Graph{
 public:
-	std::vector<Node> nodes;
-	std::vector<std::vector<bool>> adjacency_matrix; 
-	std::unordered_map<std::string, int> rowName;
-	std::unordered_map<std::string, int> columnName;
+	int V;
+	int E;
+	int** W;
 
-	void addNode(const std::string& name){
-		if (rowName.find(name) != rowName.end()) {
-            std::cout << "Node " << name << " already exists.\n";
-            return;
-        }
-		nodes.push_back(Node(name, INFINITY));
-		rowName[name] = nodes.size() - 1;
-		columnName[name] = nodes.size() - 1;
-		int newSize = nodes.size();
-    adjacency_matrix.resize(newSize);
-		for (auto &row : adjacency_matrix) {
-			row.resize(newSize, INT_MAX); 
+	Graph(int V, int E){
+		this->V = V;
+		this->E = E;
+		W = new int*[V];
+		for (int i = 0; i < V; i++){
+			W[i] = new int[V];
+			for (int j = 0; j < V; j++){
+				if (i == j){
+					W[i][j] = 0;
+				}
+				else{
+					W[i][j] = INT_MAX;
+				}
+			}
 		}
-		adjacency_matrix[newSize - 1][newSize - 1] = 0;
 	}
 
-	void addEdge(Node node1, Node node2){
-		int i = rowName[node1.getName()];
-		int j = columnName[node2.getName()];
-		adjacency_matrix[i][j] = 1;
-		node2.setWeight(node1.getWeight() + 5); 
+
+	void addEdge(int u, int v, int w){
+		W[u][v] = w;
 	}
 
-	Node& getNodes(int index){
-		return nodes[index];
+	void dijkstra(int source){
+		ArrayList<int> dist;
+		ArrayList<bool> visited;
+		
+		// Initialize distances and visited array
+		for (int i = 0; i < V; i++){
+				dist.append(INT_MAX);
+				visited.append(false);
+		}
+		dist[source] = 0;  // Distance to source is 0
+		
+		for (int count = 0; count < V - 1; count++) {
+				// Find minimum distance vertex from unvisited set
+				int min_dist = INT_MAX;
+				int min_index = -1;
+				
+				for (int v = 0; v < V; v++) {
+						if (!visited[v] && dist[v] <= min_dist) {
+								min_dist = dist[v];
+								min_index = v;
+						}
+				}
+				
+				if (min_index == -1) break;
+				
+				// Mark the picked vertex as processed
+				visited[min_index] = true;
+				
+				// Update distances of adjacent vertices
+				for (int v = 0; v < V; v++) {
+						if (!visited[v] && W[min_index][v] != INT_MAX && dist[min_index] != INT_MAX) {
+								dist[v] = std::min(dist[v], dist[min_index] + W[min_index][v]);
+						}
+				}
+		}
 	}
-	
-  };
+
+};
 
 #endif
