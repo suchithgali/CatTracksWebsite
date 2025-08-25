@@ -78,7 +78,70 @@ public:
 				}
 			}
 		}
-	
+		
+		// Save results to CSV file
+		std::cout << "Saving results to CSV file..." << std::endl;
+		
+		// Read vertex mapping file to get street names
+		std::map<int, std::string> vertexNames;
+		std::ifstream mappingFile("merced_vertex_mapping.csv");
+		std::string line;
+		
+		if (mappingFile.is_open()) {
+			std::getline(mappingFile, line); // Skip header
+			while (std::getline(mappingFile, line)) {
+				std::stringstream ss(line);
+				std::string token;
+				std::vector<std::string> tokens;
+				
+				// Parse CSV line
+				while (std::getline(ss, token, ',')) {
+					tokens.push_back(token);
+				}
+				
+				if (tokens.size() >= 5) {
+					int vertexIndex = std::stoi(tokens[0]);
+					std::string description = tokens[4]; // Primary_Description column
+					vertexNames[vertexIndex] = description;
+				}
+			}
+			mappingFile.close();
+		}
+		
+		std::ofstream csvFile("dijkstra_results.csv");
+		
+		if (csvFile.is_open()) {
+			// Write CSV header with source information
+			csvFile << "# Dijkstra shortest paths from source vertex " << source << "\n";
+			csvFile << "# Source location: " << (vertexNames.count(source) ? vertexNames[source] : "Unknown location") << "\n";
+			csvFile << "Vertex_Index,Distance_Miles,Status,Intersection_Name\n";
+			
+			// Conversion factor: meters to miles
+			const double METERS_TO_MILES = 0.000621371;
+			
+			// Write data for each vertex
+			for (int i = 0; i < V; i++) {
+				csvFile << i << ",";
+				if (dist[i] == INT_MAX) {
+					csvFile << "UNREACHABLE,UNREACHABLE,";
+				} else {
+					double miles = dist[i] * METERS_TO_MILES;
+					csvFile << miles << ",REACHABLE,";
+				}
+				
+				// Add intersection name
+				if (vertexNames.count(i)) {
+					csvFile << vertexNames[i] << "\n";
+				} else {
+					csvFile << "Unknown intersection\n";
+				}
+			}
+			
+			csvFile.close();
+			std::cout << "Results saved to 'dijkstra_results.csv'" << std::endl;
+		} else {
+			std::cout << "Error: Unable to open CSV file for writing!" << std::endl;
+		}
 	}
 };
 
