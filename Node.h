@@ -18,6 +18,14 @@ public:
     this->weight = weight;
   }
 
+  int getWeight(){
+    return weight;
+  }
+
+  std::string getName(){
+    return name;
+  }
+
   void setWeight(int weight){
     this->weight = weight;
   }
