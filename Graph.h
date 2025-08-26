@@ -125,7 +125,7 @@ public:
 				if (dist[i] == INT_MAX) {
 					csvFile << "UNREACHABLE,UNREACHABLE,";
 				} else {
-					double miles = dist[i] * METERS_TO_MILES;
+					double miles = dist[i] / 10000.0;  // Convert scaled integer back to miles
 					csvFile << miles << ",REACHABLE,";
 				}
 				
