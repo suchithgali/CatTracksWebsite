@@ -1,0 +1,302 @@
+{
+  "start_address": "781 IRMA DRIVE",
+  "start_lat": 37.35437977,
+  "start_lon": -120.48155697,
+  "start_closest_stop": 27856,
+  "start_closest_stop_name": " M Circle Bus Stop",
+  "start_distance_to_stop": 0.46416413700000003,
+  "start_walking_duration_minutes": 10.233333333333333,
+  "start_walking_instructions": [
+    [
+      "Head northwest on Irma Dr toward Freemark Ave"
+    ],
+    [
+      "Turn right onto Freemark Ave"
+    ],
+    [
+      "Turn right onto M Cir"
+    ],
+    [
+      "Turn left Destination will be on the right"
+    ]
+  ],
+  "start_closest_5_stops": [
+    {
+      "index": 27856,
+      "name": " M Circle Bus Stop",
+      "road_distance_miles": 0.46416413700000003,
+      "walking_duration_minutes": 10.233333333333333,
+      "walking_instructions": [
+        [
+          "Head northwest on Irma Dr toward Freemark Ave"
+        ],
+        [
+          "Turn right onto Freemark Ave"
+        ],
+        [
+          "Turn right onto M Cir"
+        ],
+        [
+          "Turn left Destination will be on the right"
+        ]
+      ],
+      "lat": 37.35821742445712,
+      "lon": -120.4771729492768,
+      "straight_distance": 0.5764054214575419
+    },
+    {
+      "index": 27855,
+      "name": " Mercy Hospital / Tri-College (Northbound)",
+      "road_distance_miles": 1.662788796,
+      "walking_duration_minutes": 36.78333333333333,
+      "walking_instructions": [
+        [
+          "Head southeast on Irma Dr toward Isabel Ct"
+        ],
+        [
+          "Turn right onto Michelle Dr"
+        ],
+        [
+          "Turn left onto Arrow Wood Dr"
+        ],
+        [
+          "Turn right onto Sibley Pl"
+        ],
+        [
+          "Turn left onto Noble Dr"
+        ],
+        [
+          "Continue onto Merrill Pl"
+        ],
+        [
+          "Turn right onto G St Destination will be on the left"
+        ]
+      ],
+      "lat": 37.33943693693566,
+      "lon": -120.46876466032796,
+      "straight_distance": 2.0098583173609574
+    },
+    {
+      "index": 27844,
+      "name": " Mercy Hospital / Tri-College (Southbound)",
+      "road_distance_miles": 1.942405746,
+      "walking_duration_minutes": 42.4,
+      "walking_instructions": [
+        [
+          "Head southeast on Irma Dr toward Isabel Ct"
+        ],
+        [
+          "Turn right onto Michelle Dr"
+        ],
+        [
+          "Turn left onto Arrow Wood Dr"
+        ],
+        [
+          "Turn right onto M St / Veterans Blvd"
+        ],
+        [
+          "Turn left onto W Cardella Rd"
+        ],
+        [
+          "Turn right onto G St Destination will be on the right"
+        ]
+      ],
+      "lat": 37.3358457,
+      "lon": -120.4691974,
+      "straight_distance": 2.332598949954404
+    },
+    {
+      "index": 27854,
+      "name": " El Portal Plaza & G St. (Northbound)",
+      "road_distance_miles": 2.517173921,
+      "walking_duration_minutes": 55.583333333333336,
+      "walking_instructions": [
+        [
+          "Head southeast on Irma Dr toward Isabel Ct"
+        ],
+        [
+          "Turn right onto Michelle Dr"
+        ],
+        [
+          "Turn left onto Arrow Wood Dr"
+        ],
+        [
+          "Turn right onto Sibley Pl"
+        ],
+        [
+          "Turn left onto Noble Dr"
+        ],
+        [
+          "Continue onto Merrill Pl"
+        ],
+        [
+          "Turn right onto G St"
+        ]
+      ],
+      "lat": 37.32707312867669,
+      "lon": -120.46897333911626,
+      "straight_distance": 3.2337333630414693
+    },
+    {
+      "index": 27845,
+      "name": " El Portal Plaza & G St. (Southbound)",
+      "road_distance_miles": 2.681215865,
+      "walking_duration_minutes": 58.766666666666666,
+      "walking_instructions": [
+        [
+          "Head southeast on Irma Dr toward Isabel Ct"
+        ],
+        [
+          "Turn right onto Michelle Dr"
+        ],
+        [
+          "Turn left onto Arrow Wood Dr"
+        ],
+        [
+          "Turn right onto M St / Veterans Blvd"
+        ],
+        [
+          "Turn left onto S Community College Dr"
+        ],
+        [
+          "Slight right to stay on S Community College Dr"
+        ],
+        [
+          "Continue straight onto Stadium Ln"
+        ],
+        [
+          "Turn left onto W Yosemite Ave"
+        ],
+        [
+          "Turn right onto G St Destination will be on the right"
+        ]
+      ],
+      "lat": 37.32488662859358,
+      "lon": -120.46932726734228,
+      "straight_distance": 3.453112692195538
+    }
+  ],
+  "dest_address": "UC MERCED",
+  "dest_lat": 37.361459071254686,
+  "dest_lon": -120.4281153378448,
+  "dest_closest_stop": 27843,
+  "dest_closest_stop_name": "University Transit Center",
+  "dest_distance_from_stop": 0.0,
+  "dest_walking_duration_minutes": 0.0,
+  "dest_closest_5_stops": [
+    {
+      "index": 27843,
+      "name": "University Transit Center",
+      "road_distance_miles": 0.0,
+      "walking_duration_minutes": 0.0,
+      "walking_instructions": [
+        [
+          "Head west"
+        ]
+      ],
+      "lat": 37.361462148483504,
+      "lon": -120.42811469325888,
+      "straight_distance": 0.00034688221036345237
+    },
+    {
+      "index": 27856,
+      "name": " M Circle Bus Stop",
+      "road_distance_miles": 2.913608619,
+      "walking_duration_minutes": 63.96666666666667,
+      "walking_instructions": [
+        [
+          "Head north toward M St"
+        ],
+        [
+          "Turn left onto M St"
+        ],
+        [
+          "Turn right onto Bellevue Rd"
+        ],
+        [
+          "Turn left Destination will be on the right"
+        ]
+      ],
+      "lat": 37.35821742445712,
+      "lon": -120.4771729492768,
+      "straight_distance": 4.350776539676133
+    },
+    {
+      "index": 27855,
+      "name": " Mercy Hospital / Tri-College (Northbound)",
+      "road_distance_miles": 3.736925194,
+      "walking_duration_minutes": 81.26666666666667,
+      "walking_instructions": [
+        [
+          "Head north on G St"
+        ],
+        [
+          "Turn right onto Bellevue Rd"
+        ],
+        [
+          "Turn left Destination will be on the right"
+        ]
+      ],
+      "lat": 37.33943693693566,
+      "lon": -120.46876466032796,
+      "straight_distance": 4.348209625953387
+    },
+    {
+      "index": 27844,
+      "name": " Mercy Hospital / Tri-College (Southbound)",
+      "road_distance_miles": 3.984230852,
+      "walking_duration_minutes": 86.8,
+      "walking_instructions": [
+        [
+          "Head north on G St toward Community College Dr"
+        ],
+        [
+          "Turn right onto Bellevue Rd"
+        ],
+        [
+          "Turn left Destination will be on the right"
+        ]
+      ],
+      "lat": 37.3358457,
+      "lon": -120.4691974,
+      "straight_distance": 4.615091716516601
+    },
+    {
+      "index": 27854,
+      "name": " El Portal Plaza & G St. (Northbound)",
+      "road_distance_miles": 4.567698221,
+      "walking_duration_minutes": 99.93333333333334,
+      "walking_instructions": [
+        [
+          "Head north on G St toward Melody Ln"
+        ],
+        [
+          "Turn right"
+        ],
+        [
+          "Turn right onto E Yosemite Ave"
+        ],
+        [
+          "Turn left onto Lake Rd / N Lk Rd"
+        ],
+        [
+          "Turn right onto Bellevue Rd"
+        ],
+        [
+          "Turn left Destination will be on the right"
+        ]
+      ],
+      "lat": 37.32707312867669,
+      "lon": -120.46897333911626,
+      "straight_distance": 5.259759715890681
+    }
+  ],
+  "route_summary": {
+    "total_walking_distance": 0.46416413700000003,
+    "total_walking_time_minutes": 10.233333333333333,
+    "start_stop": " M Circle Bus Stop",
+    "end_stop": "University Transit Center",
+    "walking_to_bus_miles": 0.46416413700000003,
+    "walking_from_bus_miles": 0.0
+  }
+}
