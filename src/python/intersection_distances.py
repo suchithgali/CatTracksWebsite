@@ -2,6 +2,18 @@ import requests
 import pandas as pd
 import csv
 import os
+import sys
+
+# Get OpenRouteService API key from environment variable
+OPENROUTESERVICE_API_KEY = os.getenv('OPENROUTESERVICE_API_KEY')
+
+if not OPENROUTESERVICE_API_KEY:
+    print("Error: OPENROUTESERVICE_API_KEY environment variable not set")
+    print("Please set your OpenRouteService API key:")
+    print("export OPENROUTESERVICE_API_KEY='your_api_key_here'")
+    sys.exit(1)
+
+print("OpenRouteService API key loaded from environment variable")
 
 def get_coordinates_by_index(index):
     """Get latitude and longitude for a given intersection index"""
@@ -31,7 +43,7 @@ print(f"From: Index {index1} - {name1}")
 print(f"To: Index {index2} - {name2}")
 
 # Now you can use these coordinates in your API call
-api_key = "5b3ce3597851110001cf6248e4dacfb3ab0a4b1d83a0511ffdd542f3"
+api_key = OPENROUTESERVICE_API_KEY
 url = f"https://api.openrouteservice.org/v2/directions/driving-car?api_key={api_key}&start={lon1},{lat1}&end={lon2},{lat2}"
 
 response = requests.get(url)
