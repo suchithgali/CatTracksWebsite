@@ -56,10 +56,20 @@ wheels/
 .installed.cfg
 *.egg
 
-# API Keys and sensitive data
 *.key
 config.json
 secrets.json
+.env
+.env.local
+.env.production
+.env.development
+**/secrets/*
+**/.secrets
+**/credentials/*
+**/.credentials
+api_keys.py
+secrets.py
+credentials.py
 
 # Cache and temporary files
 cache/
