@@ -1,0 +1,79 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"string": "cpp",
+			"__bit_reference": "cpp",
+			"__hash_table": "cpp",
+			"__locale": "cpp",
+			"__node_handle": "cpp",
+			"__split_buffer": "cpp",
+			"__verbose_abort": "cpp",
+			"array": "cpp",
+			"bitset": "cpp",
+			"cctype": "cpp",
+			"clocale": "cpp",
+			"cmath": "cpp",
+			"cstdarg": "cpp",
+			"cstdint": "cpp",
+			"cstdio": "cpp",
+			"cstdlib": "cpp",
+			"cstring": "cpp",
+			"ctime": "cpp",
+			"cwchar": "cpp",
+			"cwctype": "cpp",
+			"execution": "cpp",
+			"initializer_list": "cpp",
+			"ios": "cpp",
+			"iosfwd": "cpp",
+			"iostream": "cpp",
+			"istream": "cpp",
+			"limits": "cpp",
+			"list": "cpp",
+			"locale": "cpp",
+			"mutex": "cpp",
+			"new": "cpp",
+			"optional": "cpp",
+			"print": "cpp",
+			"ratio": "cpp",
+			"stdexcept": "cpp",
+			"streambuf": "cpp",
+			"string_view": "cpp",
+			"typeinfo": "cpp",
+			"unordered_map": "cpp",
+			"variant": "cpp",
+			"vector": "cpp",
+			"algorithm": "cpp"
+		},
+		"sqltools.connections": [
+			{
+				"ssh": "Disabled",
+				"previewLimit": 50,
+				"server": "localhost",
+				"port": 5432,
+				"driver": "PostgreSQL",
+				"name": "PG Local",
+				"database": "demo",
+				"username": "postgres",
+				"password": "2005",
+				"connectionTimeout": 30
+			},
+			{
+				"ssh": "Disabled",
+				"previewLimit": 50,
+				"server": "localhost",
+				"port": 5432,
+				"driver": "PostgreSQL",
+				"name": "CatTracks",
+				"database": "cattracks",
+				"username": "postgres",
+				"connectionTimeout": 30,
+				"password": "2005"
+			}
+		]
+	}
+}

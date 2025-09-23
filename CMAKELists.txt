@@ -1,21 +1,31 @@
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.15)
+project(CatTracks)
 
-set(This CatTracks)
-
-project(${This} C CXX)
+# Set C++ standard
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
-enable_testing()
-add_subdirectory(googletest)
+# Add include directories
+include_directories(${CMAKE_SOURCE_DIR}/include)
+include_directories(${CMAKE_SOURCE_DIR}/src/cpp)
 
-set(Headers
-)
+# Find the packages installed by vcpkg
+find_package(cpr CONFIG REQUIRED)
+find_package(nlohmann_json CONFIG REQUIRED)
 
-set(Sources
-  brain.cpp
-)
+# Create executables from src/cpp directory
+add_executable(graph_builder src/cpp/graph_builder.cpp)
+add_executable(graph_builder_with_user src/cpp/graph_builder_with_user.cpp)
+add_executable(graph_builder_route src/cpp/graph_builder_route.cpp)
+add_executable(multi_stop_graph_builder src/cpp/multi_stop_graph_builder.cpp)
+add_executable(detailed_route_builder src/cpp/detailed_route_builder.cpp)
+add_executable(c1_graph_builder src/cpp/c1_graph_builder.cpp)
+add_executable(database_test src/cpp/database_test.cpp)
 
-add_library(${This} STATIC ${Sources} ${Headers})
-
-add_subdirectory(test)
+# Link the libraries
+target_link_libraries(graph_builder PRIVATE cpr::cpr nlohmann_json::nlohmann_json)
+target_link_libraries(graph_builder_with_user PRIVATE cpr::cpr nlohmann_json::nlohmann_json)
+target_link_libraries(graph_builder_route PRIVATE cpr::cpr nlohmann_json::nlohmann_json)
+target_link_libraries(multi_stop_graph_builder PRIVATE cpr::cpr nlohmann_json::nlohmann_json)
+target_link_libraries(detailed_route_builder PRIVATE cpr::cpr nlohmann_json::nlohmann_json)
+target_link_libraries(c1_graph_builder PRIVATE cpr::cpr nlohmann_json::nlohmann_json)
+target_link_libraries(database_test PRIVATE cpr::cpr nlohmann_json::nlohmann_json)

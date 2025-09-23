@@ -2,7 +2,7 @@
 #define ARRAY_LIST
 
 #include <initializer_list>
-#include "LinkedList.h"
+//#include "LinkedList.h"
 #include <iostream>
 #include <ostream>
 #include <cmath>
@@ -63,8 +63,8 @@ public:
         count = 0;
     }
 
-    auto begin() {return arr;}
-    auto end() {return arr + count;}
+    T* begin() {return arr;}
+    T* end() {return arr + count;}
 
     ArrayList(const ArrayList& other){
         capacity = other.capacity;
@@ -125,13 +125,14 @@ public:
         
     }
 
-     void append(LinkedList<std::list<T>>* value){
+    /*void append(LinkedList<std::list<T>>* value){
         if (count == capacity){
             inflate();
         }
         arr[count] = value;
         count++;
     }
+        */
 
     int getsize() const{
         return count;

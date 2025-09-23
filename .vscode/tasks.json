@@ -1,93 +1,20 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "build brain",
-            "type": "shell",
-            "command": "clang++",
-            "args": [
-                "-g",
-                "-fsanitize=address",
-                "-std=c++17",
-                "-I",
-                "/Users/suchithgali/Python Files/Python Files/Source Code/CatTracks/json/include",
-                "-I",
-                "/usr/local/include",
-                "-L",
-                "/usr/local/lib",
-                "-lcpr",
-                "-lcurl",
-                "brain.cpp",
-                "-o",
-                "brain"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}"
-            },
-            "problemMatcher": [
-                "$gcc"
-            ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
-        },
-        {
-            "label": "Run brain",
-            "type": "shell",
-            "command": "export DYLD_LIBRARY_PATH=/usr/local/lib:$DYLD_LIBRARY_PATH && ./brain",
-            "options": {
-                "cwd": "${workspaceFolder}"
-            },
-            "group": {
-                "kind": "test",
-                "isDefault": true
-            }
-        },
-        {
-            "label": "C/C++: clang build active file",
-            "type": "shell",
-            "command": "/usr/bin/clang",
-            "args": [
-                "-fcolor-diagnostics",
-                "-fansi-escape-codes",
-                "-g",
-                "${file}",
-                "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
-            ],
-            "options": {
-                "cwd": "${fileDirname}"
-            },
-            "problemMatcher": [
-                "$gcc"
-            ],
-            "group": {
-                "kind": "build",
-                "isDefault": false
-            }
-        },
-        {
-            "label": "C/C++: g++ build active file",
-            "type": "shell",
-            "command": "/usr/bin/g++",
-            "args": [
-                "-fdiagnostics-color=always",
-                "-g",
-                "${file}",
-                "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
-            ],
-            "options": {
-                "cwd": "${fileDirname}"
-            },
-            "problemMatcher": [
-                "$gcc"
-            ],
-            "group": {
-                "kind": "build",
-                "isDefault": false
-            }
-        }
-    ]
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "main.cpp",
+        "-o",
+        "app",
+        "-lpq"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
 }
