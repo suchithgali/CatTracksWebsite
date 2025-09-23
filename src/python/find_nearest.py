@@ -4,9 +4,19 @@ import json
 import pandas as pd
 import numpy as np
 from concurrent.futures import ThreadPoolExecutor, as_completed
+import os
+import sys
 
-# Google Maps API key
-GOOGLE_MAPS_API_KEY = "AIzaSyAgY4kXbsfD6iN1lx0_nv3KxMavJyKx4uI"
+# Get Google Maps API key from environment variable
+GOOGLE_MAPS_API_KEY = os.getenv('GOOGLE_MAPS_API_KEY')
+
+if not GOOGLE_MAPS_API_KEY:
+    print("Error: GOOGLE_MAPS_API_KEY environment variable not set")
+    print("Please set your Google Maps API key:")
+    print("export GOOGLE_MAPS_API_KEY='your_api_key_here'")
+    sys.exit(1)
+
+print("API key loaded from environment variable")
 
 # Create a session for connection reuse
 session = requests.Session()

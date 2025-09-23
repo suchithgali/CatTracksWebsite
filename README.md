@@ -78,31 +78,46 @@ Required Python packages:
 
 ## Quick Start
 
-### Basic Route Planning
+## 🚀 Quick Start
 
-1. **Prepare GIS Data**:
-   ```bash
-   cd src/python
-   python address_lookup.py  # Generate address database
-   ```
+### 1. Set Up API Keys
 
-2. **Find Route**:
-   ```bash
-   python find_nearest.py
-   # Enter starting address: 781 IRMA DRIVE
-   # Enter destination address: UC MERCED
-   ```
+```bash
+# Use the automated setup script
+./scripts/setup_api_keys.sh
 
-3. **Generate Optimal Path**:
-   ```bash
-   cd ../../build
-   ./c1_graph_builder
-   ```
+# OR set manually
+export GOOGLE_MAPS_API_KEY="your_google_maps_api_key"
+export OPENROUTESERVICE_API_KEY="your_openrouteservice_api_key"
+```
 
-4. **View Results**:
-   ```bash
-   cat ../output/optimal_route_path.txt
-   ```
+### 2. Prepare GIS Data
+
+```bash
+cd src/python
+python address_lookup.py  # Generate address database
+```
+
+### 3. Find Route
+
+```bash
+python find_nearest.py
+# Enter starting address: 781 IRMA DRIVE
+# Enter destination address: UC MERCED
+```
+
+### 4. Generate Optimal Path
+
+```bash
+cd ../../build
+./c1_graph_builder
+```
+
+### 5. View Results
+
+```bash
+cat ../output/optimal_route_path.txt
+```
 
 ## 📁 Project Structure
 
@@ -199,10 +214,24 @@ python src/python/intersection_lookup.py
 
 ### API Keys
 
-Set your Google Maps API key in `src/python/find_nearest.py`:
+### API Keys
 
-```python
-GOOGLE_MAPS_API_KEY = "your_api_key_here"
+Set your API keys as environment variables:
+
+```bash
+# Set Google Maps API key
+export GOOGLE_MAPS_API_KEY="your_api_key_here"
+
+# Set OpenRouteService API key
+export OPENROUTESERVICE_API_KEY="your_api_key_here"
+```
+
+For persistent setup, add these to your shell configuration file (`~/.bashrc`, `~/.zshrc`, etc.):
+
+```bash
+echo 'export GOOGLE_MAPS_API_KEY="your_api_key_here"' >> ~/.zshrc
+echo 'export OPENROUTESERVICE_API_KEY="your_api_key_here"' >> ~/.zshrc
+source ~/.zshrc
 ```
 
 ### Data Sources
