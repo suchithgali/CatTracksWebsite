@@ -18,17 +18,21 @@ if not GOOGLE_MAPS_API_KEY:
 
 print("API key loaded from environment variable")
 
-# Create a session for connection reuse
+# Create a session for connection reuse that way we don't need to setup parameter such as authentication again and reduce latency
 session = requests.Session()
 
+#store the starting and ending addresses, remove the whitespace and convert to upper case for consistent format
 start_address = input("Enter your starting address: ").strip().upper()
 destination_address = input("Enter your destination address: ").strip().upper()
 
-# Load addresses database
+# Load all the addresses in Merced from the csv file
 addresses_df = pd.read_csv("all_addresses.csv")
+#convert each address in the csv file to upper case for consistent formatting
 addresses_df['Address'] = addresses_df['Address'].str.upper()
 
+#function to search for an address in the csv file
 def lookup_address(address_name):
+    #search for the address by selecting all rows in the csv file where the values in the Address column match
     address_match = addresses_df[addresses_df['Address'] == address_name]
     
     if not address_match.empty:
@@ -43,7 +47,7 @@ def lookup_address(address_name):
         print("Please check the spelling or try a different address.")
         return None, None
     
-#look up both addresses
+#look up both addresses, and stop if a lat is not found that means the address doesn't exist
 start_lat, start_lon = lookup_address(start_address)
 if start_lat is None:
     exit(1)
@@ -56,7 +60,7 @@ if dest_lat is None:
 stop_distances_df = pd.read_csv("c1_stop_distances.csv")
 intersections_df = pd.read_csv("all_intersections.csv")
 
-# Get unique stop indices from stop_distances.csv
+#save each c1 stop into a set to create a filter of stops for the c1 bus route
 unique_indices = set()
 unique_indices.update(stop_distances_df['Index1'].tolist())
 unique_indices.update(stop_distances_df['Index2'].tolist())
@@ -64,39 +68,43 @@ unique_indices.update(stop_distances_df['Index2'].tolist())
 # Filter intersections to only include stops that are in stop_distances.csv
 df = intersections_df[intersections_df['Index'].isin(unique_indices)].copy()
 
-# Find closest by straight-line distance first (as initial approximation)
+# Find closest stop by straight-line distance first as initial approximation
 def haversine_distance(lat1, lon1, lat2, lon2):
-    """Calculate straight-line distance - used as initial filter"""
+    #convert the lat and long into radians and save
     lat1, lon1, lat2, lon2 = map(np.radians, [lat1, lon1, lat2, lon2])
+    #calculate difference in longitude and latitude
     dlat = lat2 - lat1
     dlon = lon2 - lon1
+    #calculate the intermediate value of the haversine formula which is the square of half a chord length between 2 points on the surface of a sphere
     a = np.sin(dlat/2)**2 + np.cos(lat1) * np.cos(lat2) * np.sin(dlon/2)**2
+    #calculates the central angle which is the angle of the center of the Earth formed by lines connecting each point to the center of the sphere 
     c = 2 * np.arcsin(np.sqrt(a))
+    #multiply by the Earth's mean radius to get the distance along Earth's sphere
     return c * 6371  # km
 
 def get_distance_with_route(start_lon, start_lat, end_lon, end_lat):
-    """
-    Get actual road distance (miles) and walking route using Google Maps Directions API.
-    Returns distance, duration, and instructions.
-    """
+    #define the api endpoint url
     url = "https://maps.googleapis.com/maps/api/directions/json"
-
+    #define the parameters for the api endpoint
     params = {
         "origin": f"{start_lat},{start_lon}",
         "destination": f"{end_lat},{end_lon}",
         "mode": "walking",
         "key": GOOGLE_MAPS_API_KEY
     }
-
+    
     try:
-        response = session.get(url, params=params, timeout=5)  # Use session for connection reuse
+        #make the api request using get and use session for connection reuse
+        response = session.get(url, params=params, timeout=5)  
+        #save response 
         data = response.json()
 
+        #if the request was not succesful print out the error message
         if data.get("status") != "OK":
             print(f"Google API error: {data.get('status')} - {data.get('error_message', 'Unknown error')}")
             return {'distance_miles': float('inf'), 'success': False}
 
-        # Extract distance (meters) and duration (seconds)
+        # Extract distance in meters and duration in seconds
         leg = data["routes"][0]["legs"][0]
         distance_meters = leg["distance"]["value"]
         duration_seconds = leg["duration"]["value"]
@@ -127,7 +135,7 @@ def get_distance_with_route(start_lon, start_lat, end_lon, end_lat):
             "instructions": instructions,
             "success": True
         }
-        
+    #if coordinates not valid for api url
     except requests.exceptions.Timeout:
         print(f"Timeout for coordinates ({start_lat}, {start_lon}) to ({end_lat}, {end_lon})")
         return {'distance_miles': float('inf'), 'success': False}
@@ -137,7 +145,7 @@ def get_distance_with_route(start_lon, start_lat, end_lon, end_lat):
 
 
 def find_closest_intersection_with_route(lat, lon, location_name, get_instructions=True):    
-    # First, calculate straight-line distances to all stops (fast)
+    # First, calculate straight-line distances to all stops as closest mileage distance will mostly always be included in an area with a good road network
     df['straight_distance'] = df.apply(lambda row: haversine_distance(lat, lon, row['Latitude'], row['Longitude']), axis=1)
     
     # Get the top 5 closest by straight-line distance to reduce API calls
@@ -147,6 +155,7 @@ def find_closest_intersection_with_route(lat, lon, location_name, get_instructio
     
     # Use parallel processing for faster API calls
     def process_candidate(row):
+        #make the api request to get the route
         route_result = get_distance_with_route(lon, lat, row['Longitude'], row['Latitude'])
         
         if route_result['success']:
@@ -174,6 +183,8 @@ def find_closest_intersection_with_route(lat, lon, location_name, get_instructio
     
     # Process candidates in parallel (max 5 concurrent requests)
     with ThreadPoolExecutor(max_workers=5) as executor:
+        #get the routes for each of the top 5 shortest straight line routes with parrallel processing
+        #save the result of process_candidate as key and the row index as the key value pair in futures
         futures = {executor.submit(process_candidate, row): idx for idx, row in top_candidates.iterrows()}
         
         for future in as_completed(futures):
@@ -187,6 +198,7 @@ def find_closest_intersection_with_route(lat, lon, location_name, get_instructio
         print("Error: No valid walking routes found. Check API connectivity.")
         return None
     
+    #sort based on distance
     valid_distances.sort(key=lambda x: x['road_distance_miles'])
     
     # Return up to 5 closest stops instead of just the closest one
@@ -203,7 +215,7 @@ if start_closest_stops is None or dest_closest_stops is None:
     print("Error: Could not find valid bus stops. Exiting.")
     exit(1)
 
-# Get the primary (closest) stops for backward compatibility
+# Get the primary (closest) stops for backward compatibility, simnce sorted it will be the first key value pair
 start_closest = start_closest_stops[0] if start_closest_stops else None
 dest_closest = dest_closest_stops[0] if dest_closest_stops else None
 
