@@ -18,7 +18,7 @@ print("OpenRouteService API key loaded from environment variable")
 def get_coordinates_by_index(index):
     """Get latitude and longitude for a given intersection index"""
     # Read the CSV file
-    df = pd.read_csv('all_intersections.csv')
+    df = pd.read_csv("../../data/all_intersections.csv")
     
     # Find the row with the given index
     row = df[df['Index'] == index]
@@ -32,8 +32,8 @@ def get_coordinates_by_index(index):
         raise ValueError(f"Index {index} not found in the CSV file")
 
 
-index1 = 27856  #start intersection
-index2 = 27843  #end intersection 
+index1 = 27866  #start intersection
+index2 = 27857  #end intersection 
 
 # Get coordinates for both points
 lat1, lon1, name1 = get_coordinates_by_index(index1)
@@ -78,14 +78,14 @@ else:
 import os
 import csv
 
-file_exists = os.path.exists("c1_stop_distances.csv") and os.path.getsize("c1_stop_distances.csv") > 0
+file_exists = os.path.exists("../../data/c2_stop_distances.csv") and os.path.getsize("../../data/c2_stop_distances.csv") > 0
 
-with open("c1_stop_distances.csv", "a", newline="") as file:
+with open("../../data/c2_stop_distances.csv", "a", newline="") as file:
     writer = csv.writer(file)
     
     # Only write header if file is new/empty
     if not file_exists:
-        writer.writerow(["Index1", "Index2" "Intersections", "Distance"])
+        writer.writerow(["Index1", "Index2", "Intersections", "Distance"])
     
     # Write the data row
     writer.writerow([f"{index1}", f"{index2}", f"{name1} - {name2}", f"{distance_miles}"])
