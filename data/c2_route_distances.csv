@@ -1,0 +1,25 @@
+Index1,Index2,Intersections,Distance
+27857,14310,R Street Village Apartments - R Street and Lehigh Drive,0.32149745888
+14310,27867,R Street and Lehigh Drive - R Street and West Yosemite Avenue,0.5520883112
+27867,27868,R Street and West Yosemite Avenue - West Yosemite Avenue and El Redondo Drive,0.48025780047999994
+27868,27858,West Yosemite Avenue and El Redondo Drive - El Redondo Drive,0.149129088
+27858,11464,El Redondo Drive - El Redondo Drive and Pacific Drive,0.10308548208
+11464,27859,El Redondo Drive and Pacific Drive - Compass Pointe Apartments,0.31975761952
+27859,27869,Compass Pointe Apartments - Compass Pointe Apartments and Pacific Drive,0.0099419392
+27869,27870,Compasse Pointe Aaprtments and Pacific Drive - Pacific Drive and Horizon Avenue,0.03734440912
+27870,27871,Pacific Drive and Horizon Avenue - Horizon Avenue and Pacific Drive,0.03336763344
+27871,27755,Horizon Avenue and Pacific Drive - Pacific Drive and R Street,0.7633545192
+27755,27867,Pacific Drive and R Street - R Street and West Yosemite Avenue,0.71637885648
+27867,27872,R Street and West Yosemite Avenue - West Yosemite Avenue and North Highway 59,0.9920812579199999
+27872,27873,West Yosemite Avenue and North Highway 59 - North Highway 59 and Buena Vista Drive,0.37642667295999993
+27873,27860,North Highway 59 and Buena Vista Drive - Buena Vista Drive,0.12918307248
+27860,4842,Buena Vista Drive - Buena Vista Drive and R Street,1.8906461502399998
+4842,8095,Buena Vista Drive and R Street - R Street and Loughborough Drive,0.20710302096
+8095,27861,R Street and Loughborough Drive - Merced Mall Target,0.07537232656
+27861,25487,Merced Mall Target - Loughborough Drive and M Street,0.36424779744
+25487,27862,Loughborough Drive and M Street - Village Apartments. M Street,0.1298665808
+27862,27863,Village Apartments. M Street - Merced College The Bus Terminal,0.7312917652800001
+27863,27864,Merced College The Bus Terminal - Cardella Rd. & M St. (Northbound),0.8937181969599999
+27864,27856,Cardella Rd. & M St. (Northbound) - M Circle Bus Stop,0.7406744704
+27856,7003,M Circle Bus Stop - M Street and Bellevue Road,0.20405830207999998
+7003,27843,M Street and Bellevue Road - University Transit Center,2.7195553310399996
