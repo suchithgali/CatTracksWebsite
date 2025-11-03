@@ -32,8 +32,8 @@ def get_coordinates_by_index(index):
         raise ValueError(f"Index {index} not found in the CSV file")
 
 
-index1 = 27866  #start intersection
-index2 = 27857  #end intersection 
+index1 = 27843  #start intersection
+index2 = 27884  #end intersection 
 
 # Get coordinates for both points
 lat1, lon1, name1 = get_coordinates_by_index(index1)
@@ -78,9 +78,9 @@ else:
 import os
 import csv
 
-file_exists = os.path.exists("../../data/c2_stop_distances.csv") and os.path.getsize("../../data/c2_stop_distances.csv") > 0
+file_exists = os.path.exists("../../data/fastcat_stop_distances.csv") and os.path.getsize("../../data/fastcat_stop_distances.csv") > 0
 
-with open("../../data/c2_stop_distances.csv", "a", newline="") as file:
+with open("../../data/fastcat_stop_distances.csv", "a", newline="") as file:
     writer = csv.writer(file)
     
     # Only write header if file is new/empty
