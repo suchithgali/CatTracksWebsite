@@ -13,22 +13,23 @@ int main(){
 
     std::ifstream user_file("route_info.json");
     
-    /*if (!user_file.is_open()){
-        std::cerr << "Could not open user_address_info.json! Run find_nearest.py first." << std::endl;
+    if (!user_file.is_open()){
+        std::cerr << "Could not open route_info.json! Run find_nearest.py first." << std::endl;
         return 1;
     }
-        */
 
     json c1_route_info;
     user_file >> c1_route_info;
     user_file.close();
 
+    //store start address, lat, lng, closest stop to start address, and distance btwn in variables
     std::string departure_stop_address = c1_route_info["start_address"];
     double departure_stop_lat = c1_route_info["start_lat"];
     double departure_stop_lng = c1_route_info["start_lon"];  // Fixed: was "start_lng"
     int closest_stop = c1_route_info["start_closest_stop"];
     double distance_to_stop = c1_route_info["start_distance_to_stop"];
 
+    //print out stored variables
     std::cout << "User Address: " << departure_stop_address << std::endl;
     std::cout << "Coordinates: (" << departure_stop_lat << ", " << departure_stop_lng << ")" << std::endl;
     std::cout << "Closest intersection: " << closest_stop << std::endl;
@@ -39,6 +40,8 @@ int main(){
     std::string line;
     std::vector<std::vector<std::string>> csvData;
 
+
+    //save the csv cells in each line in a string vecto and push that to the 2D vector csvData
     while (std::getline(file, line)){
         std::stringstream ss(line);
         std::string cell;
@@ -51,7 +54,7 @@ int main(){
     }
     file.close();
 
-    // First pass: collect all unique intersection indices
+    //collect all unique intersection indices
     std::set<int> unique_intersections;
     for (int i = 1; i < csvData.size(); i++){
         // Skip empty rows
@@ -88,7 +91,7 @@ int main(){
 
     int user_vertex = 0;
     int total_vertices = unique_intersections.size() + 1; // +1 for user
-    Graph merced(total_vertices, total_vertices * 2); // Estimate edges
+    Graph merced(total_vertices, total_vertices * 2); // Estimate total edges in the graph
     
     // Set the reverse mapping in the graph (vertex -> original index)
     for (const auto& pair : index_to_vertex) {
