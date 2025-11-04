@@ -1,0 +1,82 @@
+Index1,Index2,Intersections,Distance
+27857,27858,R Street Village Apartments - El Redondo Drive,1.09199774688
+27858,27859,El Redondo Drive - Compass Pointe Apartments,0.35225533327999997
+27859,27863,Compass Pointe Apartments - Merced College The Bus Terminal,1.6612359032
+27863,27856,Merced College The Bus Terminal - M Circle Bus Stop,1.63439266736
+27856,27843,M Circle Bus Stop - University Transit Center,2.9234893588799995
+27843,27880,University Transit Center - Wingstop/Promenade Center,3.78110588912
+27880,27861,Wingstop/Promenade Center - Merced Mall Target,2.12092631696
+27861,27877,Merced Mall Target - Walmart on Loughborough,1.20751065296
+27877,27875,Walmart on Loughborough - Amtrak Station,2.26259895056
+27875,27876,Amtrak Station - K Street Between 18th and 19th Street,0.5660691632
+27876,27853,K Street Between 18th and 19th Street - Rite Aid / Walgreens,1.9420956856
+27853,27854,Rite Aid / Walgreens - El Portal Plaza & G St. (Northbound),0.51002148096
+27854,27857,El Portal Plaza & G St. (Northbound) - R Street Village Apartments,1.5116718553600001
+27843,27844,University Transit Center - Mercy Hospital / Tri-College (Southbound),4.01070254752
+27844,27845, Mercy Hospital / Tri-College (Southbound) - El Portal Plaza & G St. (Southbound),0.76173895408
+27845,27846, El Portal Plaza & G St. (Southbound) - G St. & W. Alexander Ave. (Paul's Place),0.69649497808
+27846,27849, G St. & W. Alexander Ave. (Paul's Place) - Granville Apartments,2.83736731056
+27849,27852, Granville Apartments - G St. & W. Alexander Ave. (76 Gas Station),2.60360746512
+27852,27853, G St. & W. Alexander Ave. (76 Gas Station) - Rite Aid / Walgreens,0.26911586672
+27853,27854, Rite Aid / Walgreens - El Portal Plaza & G St. (Northbound),0.5078466817599999
+27854,27855, El Portal Plaza & G St. (Northbound) - Mercy Hospital / Tri-College (Northbound),0.86041270064
+27855,27856, Mercy Hospital / Tri-College (Northbound) - M Circle Bus Stop,2.17312149776
+27856,27843, M Circle Bus Stop - University Transit Center,2.9234893588799995
+27857,27858,R Street Village Apartments - El Redondo Drive,1.09199774688
+27858,27859,El Redondo Drive - Compass Pointe Apartments,0.35225533327999997
+27859,27860,Compass Pointe Apartments - Buena Vista Drive,1.55380082272
+27860,27861,Buena Vista Drive - Merced Mall Traget,2.1714437955199997
+27861,27862,Merced Mall Target - Village Apartments. M Street,0.49411437824
+27862,27863,Village Apartments. M Street - Merced College The Bus Terminal,0.7312917652800001
+27863,27864,Merced College The Bus Terminal - Cardella Rd. & M St. (Northbound),0.8937181969599999
+27864,27856,Cardella Rd. & M St. (Northbound) - M Circle Bus Stop,0.7406744704
+27856,27843,M Circle Bus Stop - University Transit Center,2.9234893588799995
+27843,27865,University Transit Center - Foothill Drive,2.7857313638399996
+27865,27866,Foothill Drive - Cardella Rd. & M St. (Southbound),0.9956230737599999
+27866,27857,Cardella Rd. & M St. (Southbound) - R Street Village Apartments,1.61730495936
+27843,27874,University Transit Center - G Street South (Raley's),4.37457752224
+27874,27875,G Street South (Raley's) - Amtrak Stattion,2.18213138016
+27875,27876,Amtrak Stattion - K Street Between 18th and 19th Street,0.5660691632
+27876,27877,K Street Between 18th and 19th Street - Walmart on Loughborough,2.65922018752
+27877,27878,Walmart on Loughborough - Meadows Ave. & Olivewood Dr. (Foodmaxx),0.70165235904
+27878,27861,Meadows Ave. & Olivewood Dr. (Foodmaxx) - Merced Mall Target,0.643119192
+27861,27853,Merced Mall Target - Rite Aid / Walgreens,1.43667235152
+27853,27879,Rite Aid / Walgreens - Yosemite Crossings Shopping Center,0.8912327121599999
+27843,27880,University Transit Center - Wingstop/Promenade Center,3.78110588912
+27880,27857,Wingstop/Promenade Center - R Street Village Apartments,1.6348897643199998
+27857,27858,R Street Village Apartments - El Redondo Drive,1.09199774688
+27858,27859,El Redondo Drive - Compass Pointe Apartments,0.35225533327999997
+27859,27861,Compass Pointe Apartments - Merced Mall Target,1.7036134190399999
+27861,27862,Merced Mall Target - Village Apartments. M Street,0.49411437824
+27862,27885,Village Apartments. M Street - Ironstone Drive and M Street,1.28928310288
+27885,27886,Ironstone Drive and M Street - Yosemite and Cordova (Physician Center),1.6481249708799999
+27886,27882,Yosemite and Cordova (Physician Center) - Moraga Subdivision,1.32936154528
+27882,27843,Moraga Subdivision - University Transit Center,2.57887689136
+27884,27880,University Surgery Center - Wingstop/Promenade Center,0.48280542239999996
+27880,27879,Wingstop/Promenade Center - Yosemite Crossings Shopping Center,0.50442914016
+27879,27855,Yosemite Crossings Shopping Center - Mercy Hospital / Tri-College (Northbound),0.47702667024
+27855,27864,Mercy Hospital / Tri-College (Northbound) - Cardella Rd. & M St. (Northbound),1.0320975632
+27864,27856,Cardella Rd. & M St. (Northbound) - M Circle Bus Stop,0.7406744704
+27856,27843,M Circle Bus Stop - University Transit Center,2.9234893588799995
+27843,27844,University Transit Center - Mercy Hospital / Tri-College (Southbound),4.01070254752
+27844,27886,Mercy Hospital / Tri-College (Southbound) - Yosemite and Cordova (Physician Center),0.60434562912
+27886,27884,Yosemite and Cordova (Physician Center) - University Surgery Center,0.61024865552
+27884,27882,University Surgery Center - Moraga Subdivision,0.71911288976
+27882,27843,Moraga Subdivision - University Transit Center,2.57887689136
+27843,27884,University Transit Center - University Surgery Center,3.29830046672
+27857,27858,R Street Village Apartments - El Redondo Drive,1.09199774688
+27858,27859,El Redondo Drive - Compass Pointe Apartments,0.35225533327999997
+27859,27863,Compass Pointe Apartments - Merced College The Bus Terminal,1.6612359032
+27863,27856,Merced College The Bus Terminal - M Circle Bus Stop,1.63439266736
+27856,27843,M Circle Bus Stop - University Transit Center,2.9234893588799995
+27843,27875,University Transit Center - Amtrak Station,6.5567089024
+27875,27876,Amtrak Station - K Street Between 18th and 19th Street,0.5660691632
+27876,27887,K Street Between 18th and 19th Street - UC Merced Downtown Campus Center,0.34473674175999997
+27887,27881,UC Merced Downtown Campus Center - Merced Transpo,0.35672920592
+27881,27857,Merced Transpo - R Street Village Apartments,2.6060308128
+27882,27843,Moraga Subdivision - University Transit Center,2.57887689136
+27843,27865,University Transit Center - Foothill Drive,2.7857313638399996
+27865,27883,Foothill Drive - Mercy Hospital / Tri-College,1.2904637081600001
+27883,27874,Mercy Hospital / Tri-College - G Street South (Raley's),0.8494144304
+27874,27884,G Street South (Raley's) - University Surgery Center,1.06092918688
+27884,27882,University Surgery Center - Moraga Subdivision,0.71911288976
