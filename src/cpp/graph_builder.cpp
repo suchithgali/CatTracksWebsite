@@ -11,7 +11,7 @@ using json = nlohmann::json;
 
 int main(){
 
-    std::ifstream user_file("route_info.json");
+    std::ifstream user_file("../python/route_info.json");
     
     if (!user_file.is_open()){
         std::cerr << "Could not open route_info.json! Run find_nearest.py first." << std::endl;
@@ -35,7 +35,7 @@ int main(){
     std::cout << "Closest intersection: " << closest_stop << std::endl;
     std::cout << "Distance to intersection: " << distance_to_stop << " miles" << std::endl;
 
-    std::ifstream file("c1_route_distances.csv");
+    std::ifstream file("../../data/all_stop_distances.csv");
     
     std::string line;
     std::vector<std::vector<std::string>> csvData;
