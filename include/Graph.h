@@ -93,9 +93,9 @@ public:
 		// Save results to CSV file
 		std::cout << "Saving results to CSV file..." << std::endl;
 		
-		// Read intersection names from c1_route_distances.csv
+		// Read intersection names from all_intersections.csv
 		std::map<int, std::string> intersectionNames;
-		std::ifstream routeFile("c1_route_distances.csv");
+		std::ifstream routeFile("../../data/all_intersections.csv");
 		std::string line;
 		
 		if (routeFile.is_open()) {
@@ -104,37 +104,22 @@ public:
 				if (line.empty()) continue;
 				
 				std::stringstream ss(line);
-				std::string idx1Str, idx2Str, intersectionsPair, distanceStr;
-				std::getline(ss, idx1Str, ',');
-				std::getline(ss, idx2Str, ',');
-				std::getline(ss, intersectionsPair, ',');
-				std::getline(ss, distanceStr, ',');
+				std::string idxStr, name, lat, lon;
+				std::getline(ss, idxStr, ',');
+				std::getline(ss, name, ',');
+				std::getline(ss, lat, ',');
+				std::getline(ss, lon, ',');
 				
-				if (idx1Str.empty() || idx2Str.empty() || intersectionsPair.empty()) continue;
+				if (idxStr.empty() || name.empty()) continue;
 				
-				int idx1 = std::stoi(idx1Str);
-				int idx2 = std::stoi(idx2Str);
-				
-				// Parse the intersection pair (e.g., "UC Merced - Bellevue Road and Lake Road")
-				size_t dashPos = intersectionsPair.find(" - ");
-				if (dashPos != std::string::npos) {
-					std::string intersection1 = intersectionsPair.substr(0, dashPos);
-					std::string intersection2 = intersectionsPair.substr(dashPos + 3);
-					
-					// Store both intersection names
-					intersectionNames[idx1] = intersection1;
-					intersectionNames[idx2] = intersection2;
-				} else {
-					// If no dash found, use the whole string for both
-					intersectionNames[idx1] = intersectionsPair;
-					intersectionNames[idx2] = intersectionsPair;
-				}
+				int idx = std::stoi(idxStr);
+				intersectionNames[idx] = name;
 			}
 			routeFile.close();
 		}
 		
 		// For vertex 0 (user address), read from route_info.json
-		std::ifstream routeInfoFile("route_info.json");
+		std::ifstream routeInfoFile("../python/route_info.json");
 		if (routeInfoFile.is_open()) {
 			std::string routeInfoContent((std::istreambuf_iterator<char>(routeInfoFile)),
                                         std::istreambuf_iterator<char>());
@@ -152,9 +137,9 @@ public:
 			}
 		}
 		
-		// Read distances from c1_route_distances.csv (the actual file being used)
+		// Read distances from all_stop_distances.csv (the actual file being used)
 		std::map<std::pair<int, int>, double> realDistances;
-		std::ifstream distanceFile("c1_route_distances.csv");
+		std::ifstream distanceFile("../../data/all_stop_distances.csv");
 		
 		if (distanceFile.is_open()) {
 			std::getline(distanceFile, line); // Skip header
@@ -181,7 +166,7 @@ public:
 			distanceFile.close();
 		}
 		
-		std::ofstream outFile("c1_dijkstra_paths.csv");
+		std::ofstream outFile("dijkstra_paths.csv");
 		outFile << "Destination,Destination_Name,Distance_Miles,Path,Path_Names" << std::endl;
 		
 		for (int i = 0; i < V; i++) {
