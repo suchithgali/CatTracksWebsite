@@ -1,0 +1,216 @@
+{
+  "start_address": "781 IRMA DRIVE",
+  "start_lat": 37.35437977,
+  "start_lon": -120.48155697,
+  "start_closest_stop": 27856,
+  "start_closest_stop_name": "M Circle Bus Stop",
+  "start_distance_to_stop": 0.46416413700000003,
+  "start_walking_duration_minutes": 10.233333333333333,
+  "start_walking_instructions": [
+    [
+      "Head northwest on Irma Dr toward Freemark Ave"
+    ],
+    [
+      "Turn right onto Freemark Ave"
+    ],
+    [
+      "Turn right onto M Cir"
+    ],
+    [
+      "Turn left Destination will be on the right"
+    ]
+  ],
+  "start_closest_5_stops": [
+    {
+      "index": 27856,
+      "name": "M Circle Bus Stop",
+      "road_distance_miles": 0.46416413700000003,
+      "walking_duration_minutes": 10.233333333333333,
+      "walking_instructions": [
+        [
+          "Head northwest on Irma Dr toward Freemark Ave"
+        ],
+        [
+          "Turn right onto Freemark Ave"
+        ],
+        [
+          "Turn right onto M Cir"
+        ],
+        [
+          "Turn left Destination will be on the right"
+        ]
+      ],
+      "lat": 37.35821742445712,
+      "lon": -120.4771729492768,
+      "straight_distance": 0.5764054214575419
+    },
+    {
+      "index": 27864,
+      "name": "Cardella Rd. & M St. (Northbound)",
+      "road_distance_miles": 0.663624228,
+      "walking_duration_minutes": 14.7,
+      "walking_instructions": [
+        [
+          "Head southeast on Irma Dr toward Isabel Ct"
+        ],
+        [
+          "Turn right onto Michelle Dr"
+        ],
+        [
+          "Turn left onto Arrow Wood Dr"
+        ],
+        [
+          "Turn right onto M St / Veterans Blvd Destination will be on the left"
+        ]
+      ],
+      "lat": 37.34750777765031,
+      "lon": -120.47734423460656,
+      "straight_distance": 0.8500345786790126
+    },
+    {
+      "index": 27866,
+      "name": "Cardella Rd. & M St. (Southbound)",
+      "road_distance_miles": 0.754965765,
+      "walking_duration_minutes": 16.3,
+      "walking_instructions": [
+        [
+          "Head southeast on Irma Dr toward Isabel Ct"
+        ],
+        [
+          "Turn right onto Michelle Dr"
+        ],
+        [
+          "Turn left onto Arrow Wood Dr"
+        ],
+        [
+          "Turn right onto M St / Veterans Blvd Destination will be on the right"
+        ]
+      ],
+      "lat": 37.346117277683376,
+      "lon": -120.47770288127008,
+      "straight_distance": 0.9798759284838152
+    },
+    {
+      "index": 27865,
+      "name": "Foothill Drive",
+      "road_distance_miles": 0.844443189,
+      "walking_duration_minutes": 18.533333333333335,
+      "walking_instructions": [
+        [
+          "Head southeast on Irma Dr toward Isabel Ct"
+        ],
+        [
+          "Turn left onto Michelle Dr"
+        ],
+        [
+          "Turn right"
+        ],
+        [
+          "Continue onto Tolman Way"
+        ],
+        [
+          "Turn right onto Bancroft Dr"
+        ],
+        [
+          "Turn left onto Foothill Dr"
+        ],
+        [
+          "Turn right onto G St Destination will be on the right"
+        ]
+      ],
+      "lat": 37.353548677314386,
+      "lon": -120.46896074345656,
+      "straight_distance": 1.1171979894498112
+    },
+    {
+      "index": 27885,
+      "name": "Ironstone Drive and M Street",
+      "road_distance_miles": 0.999164568,
+      "walking_duration_minutes": 22.216666666666665,
+      "walking_instructions": [
+        [
+          "Head southeast on Irma Dr toward Isabel Ct"
+        ],
+        [
+          "Turn right onto Michelle Dr"
+        ],
+        [
+          "Turn left onto Arrow Wood Dr"
+        ],
+        [
+          "Turn right onto M St / Veterans Blvd Destination will be on the left"
+        ]
+      ],
+      "lat": 37.342682037617074,
+      "lon": -120.47780490602162,
+      "straight_distance": 1.342347454144679
+    }
+  ],
+  "dest_address": "MERCED MALL TARGET",
+  "dest_lat": 37.3233329016933,
+  "dest_lon": -120.48556433218398,
+  "dest_closest_stop": 27861,
+  "dest_closest_stop_name": "Merced Mall Target",
+  "dest_distance_from_stop": 0.0,
+  "dest_walking_duration_minutes": 0.0,
+  "dest_closest_5_stops": [
+    {
+      "index": 27861,
+      "name": "Merced Mall Target",
+      "road_distance_miles": 0.0,
+      "walking_duration_minutes": 0.0,
+      "walking_instructions": [],
+      "lat": 37.3233329016933,
+      "lon": -120.48556433218398,
+      "straight_distance": 0.0
+    },
+    {
+      "index": 27862,
+      "name": "Village Apartments. M Street",
+      "road_distance_miles": 0.495854058,
+      "walking_duration_minutes": 11.083333333333334,
+      "walking_instructions": [],
+      "lat": 37.32403364705522,
+      "lon": -120.47827659536628,
+      "straight_distance": 0.649110040354546
+    },
+    {
+      "index": 27878,
+      "name": "Meadows Ave. & Olivewood Dr. (Foodmaxx)",
+      "road_distance_miles": 0.625099226,
+      "walking_duration_minutes": 14.4,
+      "walking_instructions": [],
+      "lat": 37.318127497981656,
+      "lon": -120.49058657293568,
+      "straight_distance": 0.7295601392942485
+    },
+    {
+      "index": 27857,
+      "name": "R Street Village Apartments",
+      "road_distance_miles": 0.89477424,
+      "walking_duration_minutes": 19.983333333333334,
+      "walking_instructions": [],
+      "lat": 37.33529531072189,
+      "lon": -120.4862243703257,
+      "straight_distance": 1.3314388062363558
+    },
+    {
+      "index": 27877,
+      "name": "Walmart on Loughborough",
+      "road_distance_miles": 1.097341186,
+      "walking_duration_minutes": 24.666666666666668,
+      "walking_instructions": [],
+      "lat": 37.31739825905754,
+      "lon": -120.49956845429544,
+      "straight_distance": 1.403217923059086
+    }
+  ],
+  "route_summary": {
+    "total_walking_distance": 0.46416413700000003,
+    "total_walking_time_minutes": 10.233333333333333,
+    "start_stop": "M Circle Bus Stop",
+    "end_stop": "Merced Mall Target",
+    "walking_to_bus_miles": 0.46416413700000003,
+    "walking_from_bus_miles": 0.0
+  }
+}
