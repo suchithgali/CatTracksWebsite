@@ -299,6 +299,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🗺️ Roadmap
 
+- [ ] Route Planning Integration for the remaining bus routes
 - [ ] Real-time bus tracking integration
 - [ ] Mobile application development
 - [ ] Machine learning for traffic prediction
