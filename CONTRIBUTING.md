@@ -1,6 +1,6 @@
 # Contributing to CatTracks
 
-We love your input! We want to make contributing to CatTracks as easy and transparent as possible, whether it's:
+I love your input! I want to make contributing to CatTracks as easy and transparent as possible, whether it's:
 
 - Reporting a bug
 - Discussing the current state of the code
@@ -10,11 +10,11 @@ We love your input! We want to make contributing to CatTracks as easy and transp
 
 ## Development Process
 
-We use GitHub to host code, to track issues and feature requests, as well as accept pull requests.
+I use GitHub to host code, to track issues and feature requests, as well as accept pull requests.
 
 ## Pull Requests
 
-Pull requests are the best way to propose changes to the codebase. We actively welcome your pull requests:
+Pull requests are the best way to propose changes to the codebase. I actively welcome your pull requests:
 
 1. Fork the repo and create your branch from `main`.
 2. If you've added code that should be tested, add tests.
@@ -29,7 +29,7 @@ In short, when you submit code changes, your submissions are understood to be un
 
 ## Report bugs using GitHub's [issue tracker](https://github.com/suchithgali/CatTracksWebsite/issues)
 
-We use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/suchithgali/CatTracksWebsite/issues/new); it's that easy!
+I use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/suchithgali/CatTracksWebsite/issues/new); it's that easy!
 
 ## Write bug reports with detail, background, and sample code
 
