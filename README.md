@@ -102,7 +102,7 @@ python address_lookup.py  # Generate address database
 
 ```bash
 python find_nearest.py
-# Enter starting address: 781 IRMA DRIVE
+# Enter starting address: MERCED MALL TARGET
 # Enter destination address: UC MERCED
 ```
 
