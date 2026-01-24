@@ -7,13 +7,13 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import os
 import sys
 
-# Get Google Maps API key from environment variable
-GOOGLE_MAPS_API_KEY = os.getenv('GOOGLE_MAPS_API_KEY')
+# Get Open Route Service Maps API key from environment variable
+ORS_MAPS_API_KEY = os.getenv('ORS_MAPS_API_KEY')
 
-if not GOOGLE_MAPS_API_KEY:
-    print("Error: GOOGLE_MAPS_API_KEY environment variable not set")
-    print("Please set your Google Maps API key:")
-    print("export GOOGLE_MAPS_API_KEY='your_api_key_here'")
+if not ORS_MAPS_API_KEY:
+    print("Error: ORS_MAPS_API_KEY environment variable not set")
+    print("Please set your Open Route Service Maps API key:")
+    print("export ORS_MAPS_API_KEY='your_api_key_here'")
     sys.exit(1)
 
 print("API key loaded from environment variable")
@@ -65,10 +65,10 @@ unique_indices = set()
 unique_indices.update(stop_distances_df['Index1'].tolist())
 unique_indices.update(stop_distances_df['Index2'].tolist())
 
-# Filter intersections to only include stops that are in stop_distances.csv
+# Filter intersections to only include stops that are in all_intersections.csv and unique_indeces, we use isin to create a boolen series which is true for rows where INdex is in unique_indeces so full row saved
 df = intersections_df[intersections_df['Index'].isin(unique_indices)].copy()
 
-# Find closest stop by straight-line distance first as initial approximation
+# Find closest stop by straight-line distance first as initial approximation (assumption that sraight line distance is always greater than road distance)
 def haversine_distance(lat1, lon1, lat2, lon2):
     #convert the lat and long into radians and save
     lat1, lon1, lat2, lon2 = map(np.radians, [lat1, lon1, lat2, lon2])
@@ -84,30 +84,31 @@ def haversine_distance(lat1, lon1, lat2, lon2):
 
 def get_distance_with_route(start_lon, start_lat, end_lon, end_lat):
     #define the api endpoint url
-    url = "https://maps.googleapis.com/maps/api/directions/json"
+    url = "https://api.openrouteservice.org/v2/directions/foot-walking"
     #define the parameters for the api endpoint
     params = {
-        "origin": f"{start_lat},{start_lon}",
-        "destination": f"{end_lat},{end_lon}",
-        "mode": "walking",
-        "key": GOOGLE_MAPS_API_KEY
+        "api_key": ORS_MAPS_API_KEY,
+        "start": f"{start_lon},{start_lat}",
+        "end": f"{end_lon},{end_lat}"
     }
     
     try:
-        #make the api request using get and use session for connection reuse
+        #make the api request using get
         response = session.get(url, params=params, timeout=5)  
         #save response 
         data = response.json()
 
         #if the request was not succesful print out the error message
-        if data.get("status") != "OK":
-            print(f"Google API error: {data.get('status')} - {data.get('error_message', 'Unknown error')}")
+        if data.get("type") != "FeatureCollection":
+            error = data.get("error", "Unknown error")
+            code = data.get("code", "No code")
+            print(f"ORS API error: {error} - {code}")
             return {'distance_miles': float('inf'), 'success': False}
 
         # Extract distance in meters and duration in seconds
-        leg = data["routes"][0]["legs"][0]
-        distance_meters = leg["distance"]["value"]
-        duration_seconds = leg["duration"]["value"]
+        leg = data["features"][0]["properties"]["segments"][0]
+        distance_meters = leg["distance"]
+        duration_seconds = leg["duration"]
 
         # Convert meters to miles
         distance_miles = distance_meters * 0.000621371
@@ -118,8 +119,8 @@ def get_distance_with_route(start_lon, start_lat, end_lon, end_lat):
         # Clean HTML tags from steps and extract instructions
         instructions = []
         for step in leg["steps"]:
-            # Replace HTML tags with spaces to avoid words running together
-            instruction_text = re.sub(r"<[^>]+>", " ", step["html_instructions"])
+            # Get the instruction text (plain text, no HTML)
+            instruction_text = step["instruction"]
             # Clean up multiple spaces and strip
             instruction_text = re.sub(r"\s+", " ", instruction_text).strip()
             
@@ -128,7 +129,7 @@ def get_distance_with_route(start_lon, start_lat, end_lon, end_lat):
                 # Pattern 1: Split on ". " followed by capital letter (sentence boundaries)
                 parts = re.split(r'(?<=[.!?])\s+(?=[A-Z])', instruction_text)
                 instructions.append(parts)
-
+                
         return {
             "distance_miles": distance_miles,
             "duration_minutes": duration_minutes,
@@ -143,9 +144,8 @@ def get_distance_with_route(start_lon, start_lat, end_lon, end_lat):
         print(f"Error for coordinates ({start_lat}, {start_lon}) to ({end_lat}, {end_lon}): {e}")
         return {'distance_miles': float('inf'), 'success': False}
 
-
 def find_closest_intersection_with_route(lat, lon, location_name, get_instructions=True):    
-    # First, calculate straight-line distances to all stops as closest mileage distance will mostly always be included in an area with a good road network
+    # First, calculate straight-line distances to all stops as closest mileage distance will mostly always be included in an area with a good road network, add new straight_distacne column to dataframe
     df['straight_distance'] = df.apply(lambda row: haversine_distance(lat, lon, row['Latitude'], row['Longitude']), axis=1)
     
     # Get the top 5 closest by straight-line distance to reduce API calls
@@ -185,13 +185,16 @@ def find_closest_intersection_with_route(lat, lon, location_name, get_instructio
     with ThreadPoolExecutor(max_workers=5) as executor:
         #get the routes for each of the top 5 shortest straight line routes with parrallel processing
         #save the result of process_candidate as key and the row index as the key value pair in futures
+        #iterate over top_candidates and return the (idx, row)
+        #futures is an object where the keys represent the status of the job, values are the index ("for idx...")
         futures = {executor.submit(process_candidate, row): idx for idx, row in top_candidates.iterrows()}
         
+        #for each future object that is completed, save the result of the process_candidate function, then append the result to the road_distances list
         for future in as_completed(futures):
             result = future.result()
             road_distances.append(result)
         
-    # Filter out failed API calls (infinite distances) and sort by road distance
+    #for each dictionary that is in road_distances if the road_distance miles is infinity then remove it
     valid_distances = [d for d in road_distances if d['road_distance_miles'] != float('inf')]
     
     if not valid_distances:
@@ -201,11 +204,12 @@ def find_closest_intersection_with_route(lat, lon, location_name, get_instructio
     #sort based on distance
     valid_distances.sort(key=lambda x: x['road_distance_miles'])
     
-    # Return up to 5 closest stops instead of just the closest one
+    # Return top 5 closest dictionaries
     return valid_distances[:5]
 
 # Find closest bus stops for both addresses
 # Get detailed walking instructions for start (where you need to walk TO the bus)
+#call to the main function
 start_closest_stops = find_closest_intersection_with_route(start_lat, start_lon, "STARTING ADDRESS", get_instructions=True)
 # For destination, find closest stop but we need the distance FROM that stop TO the destination
 dest_closest_stops = find_closest_intersection_with_route(dest_lat, dest_lon, "DESTINATION ADDRESS", get_instructions=False)
@@ -234,8 +238,6 @@ route_info = {
     'start_walking_duration_minutes': start_closest['walking_duration_minutes'],
     'start_walking_instructions': start_closest['walking_instructions'],
     
-    # Add all 5 closest start stops
-    'start_closest_5_stops': start_closest_stops,
     
     'dest_address': destination_address,
     'dest_lat': dest_lat,
@@ -245,8 +247,6 @@ route_info = {
     'dest_distance_from_stop': dest_closest['road_distance_miles'],  # Walking FROM bus stop TO destination
     'dest_walking_duration_minutes': dest_closest.get('walking_duration_minutes', 0),
     
-    # Add all 5 closest destination stops
-    'dest_closest_5_stops': dest_closest_stops,
     
     'route_summary': {
         'total_walking_distance': start_closest['road_distance_miles'] + dest_closest['road_distance_miles'],
