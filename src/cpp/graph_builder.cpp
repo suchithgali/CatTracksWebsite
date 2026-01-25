@@ -19,16 +19,16 @@ int main(){
     }
 
     //declares a json object and then reads the entire file into the json object and automatically makes key value pairs
-    json c1_route_info;
-    user_file >> c1_route_info;
+    json route_info;
+    user_file >> route_info;
     user_file.close();
 
     //store start address, lat, lng, closest stop to start address, and distance btwn in variables
-    std::string departure_stop_address = c1_route_info["start_address"];
-    double departure_stop_lat = c1_route_info["start_lat"];
-    double departure_stop_lng = c1_route_info["start_lon"];  
-    int closest_stop = c1_route_info["start_closest_stop"];
-    double distance_to_stop = c1_route_info["start_distance_to_stop"];
+    std::string departure_stop_address = route_info["start_address"];
+    double departure_stop_lat = route_info["start_lat"];
+    double departure_stop_lng = route_info["start_lon"];  
+    int closest_stop = route_info["start_closest_stop"];
+    double distance_to_stop = route_info["start_distance_to_stop"];
 
     //print out stored variables
     std::cout << "User Address: " << departure_stop_address << std::endl;
