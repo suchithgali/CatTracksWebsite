@@ -2,7 +2,6 @@
 #define ARRAY_LIST
 
 #include <initializer_list>
-//#include "LinkedList.h"
 #include <iostream>
 #include <ostream>
 #include <cmath>
