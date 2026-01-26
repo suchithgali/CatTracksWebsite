@@ -30,23 +30,64 @@ CatTracks is an intelligent transit route optimization system designed for Merce
 
 ### Prerequisites
 
-- **C++ Compiler**: GCC 9+ or Clang 10+ with C++17 support
+- **C++ Compiler**: GCC or Clang with C++11 support
 - **Python**: 3.8 or higher
-- **CMake**: 3.15 or higher
-- **vcpkg**: For C++ package management
-- **Git**: For version control
+- **API Key**: Open Route Service API Key
 
-### Required C++ Dependencies
+### Setup
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/CatTracks.git
+   cd CatTracks
+   ```
+
+2. **Set up Python Environment**
+   It is recommended to use a virtual environment.
+   ```bash
+   cd src/python
+   python3 -m venv venv
+   source venv/bin/activate  # On Windows use: venv\Scripts\activate
+   pip install -r ../../requirements.txt
+   cd ../..
+   ```
+
+3. **Configure API Key**
+   You need an Open Route Service API key for walking directions.
+   ```bash
+   export ORS_MAPS_API_KEY='your_api_key_here'
+   ```
+
+## 🚀 Quick Start
+
+The project includes a unified build script to handle everything.
 
 ```bash
-# Install vcpkg dependencies
-vcpkg install cpr nlohmann-json
+# Make the script executable (only needed once)
+chmod +x build_and_run.sh
+
+# Run the full pipeline
+./build_and_run.sh
 ```
 
-### Required Python Dependencies
+This script will:
+1. Run the Python address lookup tool (input your start/end points).
+2. Compile and run the C++ Graph Builder.
+3. Compile and run the C++ Path Builder to show your optimal route.
 
-```bash
-pip install -r requirements.txt
+### Project Structure (Key Files)
+
+```
+CatTracks/
+├── build_and_run.sh       # Main execution script
+├── data/
+│   ├── general/           # General address and intersection data
+│   ├── bus_routes/        # Stop names and distance chunks for each bus
+│   └── route_metadata/    # JSON/TXT definitions of routes
+├── src/
+│   ├── cpp/               # C++ Core Logic (Graph, Dijkstra)
+│   └── python/            # Python Helpers (Geocoding, API calls)
+└── include/               # Header files (Graph.h, Node.h)
 ```
 
 Required Python packages:

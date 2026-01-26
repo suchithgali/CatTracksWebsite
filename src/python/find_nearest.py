@@ -26,7 +26,7 @@ start_address = input("Enter your starting address: ").strip().upper()
 destination_address = input("Enter your destination address: ").strip().upper()
 
 # Load all the addresses in Merced from the csv file
-addresses_df = pd.read_csv("/Users/suchithgali/Python/PythonFiles/SourceCode/CatTracks/data/all_addresses.csv")
+addresses_df = pd.read_csv("/Users/suchithgali/Python/PythonFiles/SourceCode/CatTracks/data/general/all_addresses.csv")
 #convert each address in the csv file to upper case for consistent formatting
 addresses_df['Address'] = addresses_df['Address'].str.upper()
 
@@ -57,8 +57,8 @@ if dest_lat is None:
     exit(1)
 
 # Read stop distances and intersections data
-stop_distances_df = pd.read_csv("../../data/all_stop_distances.csv")
-intersections_df = pd.read_csv("../../data/all_intersections.csv")
+stop_distances_df = pd.read_csv("../../data/general/all_stop_distances.csv")
+intersections_df = pd.read_csv("../../data/general/all_intersections.csv")
 
 #save each stop into a set to create a filter of stops for the bus routes
 unique_indices = set()
