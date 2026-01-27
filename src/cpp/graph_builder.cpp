@@ -30,13 +30,15 @@ int main(){
     int closest_stop = route_info["start_closest_stop"];
     double distance_to_stop = route_info["start_distance_to_stop"];
 
+    /*
     //print out stored variables
     std::cout << "User Address: " << departure_stop_address << std::endl;
     std::cout << "Coordinates: (" << departure_stop_lat << ", " << departure_stop_lng << ")" << std::endl;
     std::cout << "Closest intersection: " << closest_stop << std::endl;
     std::cout << "Distance to intersection: " << distance_to_stop << " miles" << std::endl;
+    */
 
-    // [New Logic] Collect unique intersections directly from the bus route files
+    //Collect unique intersections directly from the bus route files
     std::set<int> unique_intersections;
     
     // Define the bus files we will use for both vertices and edges
@@ -95,8 +97,7 @@ int main(){
 
     std::cout << "Building graph with " << total_vertices << " vertices..." << std::endl;
 
-    // Add Bus Route edges to the graph (using bus_files defined above)
-
+    // Add bus route edges to the graph 
     std::cout << "Adding Direct Bus Edges via Graph::addBusEdgesFromCSV..." << std::endl;
     for (const auto& filename : bus_files) {
         merced.addBusEdgesFromCSV(filename, index_to_vertex);
@@ -106,17 +107,18 @@ int main(){
     for (const auto& dist_filename : bus_files) {
         // Convert "xyz_stop_distances.csv" to "xyz_stops.csv"
         std::string stops_filename = dist_filename;
+        //pos holds the starting index of the substring we are looking for
         size_t pos = stops_filename.find("stop_distances");
+        //when the substring is not found pos will equal npos so if not ewqual to npos then replace
         if (pos != std::string::npos) {
             stops_filename.replace(pos, 14, "stops"); // Replace "stop_distances" with "stops"
             merced.loadNamesFromCSV(stops_filename);
         }
     }
 
-     // Add edge from user address (vertex 0) to closest stop
+     // Add edge from user address to closest stop
     int mapped_closest = index_to_vertex[closest_stop]; //get vertex id of closest_stop
     merced.addEdge(user_vertex, mapped_closest, distance_to_stop); //add edges
-    merced.addEdge(mapped_closest, user_vertex, distance_to_stop);
 
     std::cout << "Added user address as vertex " << user_vertex << std::endl;
     std::cout << "Connected to intersection " << closest_stop << " (graph vertex " << mapped_closest << ")" << std::endl;
