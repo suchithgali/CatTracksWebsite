@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Khula:wght@300;400;600;700;800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+     crossorigin=""></script>
+  </head>
+    <body>
+        <div class="header-bar">
+
+          <div class="Logo">
+            <img src = "img/ucm-logo.png">
+          </div>
+
+          <div class="title">
+            <h1 class="website-context">
+              <strong>UC Merced</strong>
+            </h1>
+            <p class="wcontext-second">
+              Bus Transportation Network 
+            </p>
+          </div>
+
+          <div class="header-pages">
+            <a href="index.html" class="home-page">Home &nbsp; &nbsp; &nbsp;</a>
+            <a href="liveroutes.html" class="liveRoutes-page">Live Routes &nbsp; &nbsp; &nbsp;</a>
+            <a href="schedules.html" class="schedules-page">Schedules &nbsp; &nbsp; &nbsp;</a>
+            <a href="contact.html" class="contact-page">Contact &nbsp; &nbsp; &nbsp;</a>
+          </div>
+
+        </div>
+
+        <!-- Trip Planning UI -->
+        <div class="trip-planner-container">
+          <div class="trip-planner-box">
+            <h2>Plan Your Trip</h2>
+            
+            <input type="text" placeholder="From" id="pickupLocation">
+            <input type="text" placeholder="To" id="dropoffLocation">
+            
+            <input type="text" placeholder="Time" id="time">
+            
+            
+            <button>Find Routes</button>
+          </div>
+        </div>
+
+       <div id="map">
+    <div class="leaflet-control coordinate"></div>
+    </div>
+    <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'>
+      //multi file types format parser for Leaflet
+    </script>
+
+
+  <script>
+      //finds the html element with id goPlaces and stores it in the constant variable named goPlaces
+      const locationForm = document.getElementById('locationForm')
+      const goPlaces = document.getElementById('goPlaces')
+      const comePlaces = document.getElementById('comePlaces')
+
+      //code contacts this url for information
+      const baseUrl = 'http://localhost:8383'
+
+      locationForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const parcel = goPlaces.value;
+        const parcel2 = comePlaces.value;
+        
+        // Basic validation: make sure users have made a selection.
+        if (!parcel || !parcel2) {
+          alert('Please select values for both dropdowns.');
+          return;
+        }
+        
+        // Send both values in a single POST request.
+        const res = await fetch(baseUrl, {
+          method: 'POST',
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            parcel: parcel,
+            parcel2: parcel2
+          })
+        });
+        
+        // Optionally handle the server response
+        const result = await res.json();
+        document.getElementById('result').innerText = result.result;
+        console.log(result);
+      });
+  </script>
+
+  <style>
+    #map {
+      height: 83vh;
+      width: 65vw;
+      margin-left: 30vw;
+      margin-top: 85px;
+    }
+
+    .coordinate{
+      position: absolute;
+      bottom: 10px;
+      right: 50%;
+      background-color: aliceblue;
+    }
+  </style>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <script>
+    //map intialization
+    var map = L.map('map').setView([37.361217092553325, -120.432421122566], 13);
+
+    //osm layers
+    var googleStreets = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}&scale=4', {
+      maxZoom: 20,
+      subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+    }).addTo(map);
+
+    googleSat = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}&scale=4', {
+      maxZoom: 20,
+      subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+    });
+
+  var myIcon = L.icon({
+      iconUrl: 'img/red-marker.png',
+      iconSize: [40, 40],
+  });
+  //load Merced geoJson
+  var mercedGeoJson = omnivore.geojson("docker/pelias/docker/projects/california/ca_data/openaddresses/us/ca/merced.geojson").addTo(map);
+
+
+  //Marker:
+  var singleMarker = L.marker([37.361217092553325, -120.432421122566], {icon: myIcon, draggable: true}).addTo(map);
+
+  //map selector
+  var baseMaps = {
+      'Google Street' : googleStreets,
+      "Google Satellite" : googleSat
+  };
+
+  var overlayMaps = {
+      "Marker": singleMarker
+  };
+
+  L.control.layers(baseMaps, overlayMaps).addTo(map);
+
+  //geolocation tracker
+  function getPosition(position){
+    var lat = position.coords.latitude;
+    var lng = position.coords.longitude;
+    var accuracy = position.coords.accuracy;
+
+    var marker = L.marker([lat, lng]).addTo(map);
+
+    console.log("Your coordinate is : Lat: " + lat + "Lng: " + lng + "Accuracy: " + accuracy);
+  }
+
+  if (!navigator.geolocation){
+    console.log("Your browser doesn't support this geolocation feature");
+  }
+  else{
+    navigator.geolocation.getCurrentPosition(getPosition);
+  }
+
+
+  //LEAFLET EVENTS
+  //map.on('mousemove', function(e){
+    //document.getElementsByClassName('coordinate')[0].innerHTML = 'lat: ' + e.latlng.lat + ' lng: ' + e.latlng.lng;
+    //console.log('lat: ' + e.latlng.lat + ' lng: ' + e.latlng.lng);
+  //})
+
+  // Trip Planner Functions
+  function swapLocations() {
+    const pickupInput = document.getElementById('pickupLocation');
+    const dropoffInput = document.getElementById('dropoffLocation');
+    
+    const temp = pickupInput.value;
+    pickupInput.value = dropoffInput.value;
+    dropoffInput.value = temp;
+  }
+
+  function planTrip() {
+    const pickup = document.getElementById('pickupLocation').value;
+    const dropoff = document.getElementById('dropoffLocation').value;
+    const timeOption = document.getElementById('tripTime').value;
+    const specificTime = document.getElementById('specificTime').value;
+    
+    if (!pickup || !dropoff) {
+      alert('Please enter both pickup and drop-off locations');
+      return;
+    }
+    
+    console.log('Planning trip:', {
+      pickup: pickup,
+      dropoff: dropoff,
+      timeOption: timeOption,
+      specificTime: specificTime
+    });
+    
+    // Here you would integrate with your routing API
+    alert(`Planning route from "${pickup}" to "${dropoff}"`);
+  }
+
+  // Show/hide time input based on selection
+  document.getElementById('tripTime').addEventListener('change', function(e) {
+    const timeInput = document.getElementById('specificTime');
+    if (e.target.value === 'now') {
+      timeInput.style.display = 'none';
+    } else {
+      timeInput.style.display = 'block';
+    }
+  });
+
+  </script>
+</body>
+</html>
