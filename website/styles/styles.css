@@ -1,0 +1,457 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+.header-bar{
+  height: 10vh;
+  width: 100vw;
+  background-color: rgb(0, 33, 71);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+}
+.Logo{
+  display: flex;
+  height: 10vh;
+  width: 5vw;
+  margin-left: 8vw;
+}
+.website-context{
+  margin-left: 1vw;
+  margin-bottom: 0;
+  color: white;
+  font-family: sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  vertical-align: top;
+}
+.wcontext-second{
+  margin-left: 1vw;
+  margin-top: 0;
+  color: rgb(255, 215, 0);
+  font-family: sans-serif;
+  font-size: 12px;
+  vertical-align: top;
+}
+.header-pages{
+  display: flex;
+  margin-top: 4vh;
+  align-items: middle;
+  margin-left: 50vw;
+}
+.home-page, .liveRoutes-page, .schedules-page, .contact-page{
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  font-family: sans-serif;
+  font-size: 12px;
+  transition: color 0.2s;
+}
+.home-page:hover, .liveRoutes-page:hover, .schedules-page:hover, .contact-page:hover{
+  color: rgb(255, 215, 0);
+  text-decoration: none;
+  display: inline-block;
+  font-family: sans-serif;
+  font-size: 12px;
+}
+.home-trip-planner{
+  background-image: linear-gradient(to right, rgb(0, 33, 71), rgb(0, 85, 135));
+  width: 100vw;
+  height: 45vh;
+  margin-top: 10vh;
+  left: 0;
+  margin-left:0;
+  padding-left: 0;
+}
+.hometrip-text1{
+  padding-top: 5vh;
+  font-family: sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: white;
+}
+.hometrip-text1, .hometrip-text2{
+  text-align: center;
+  font-family: sans-serif;
+  color: white;
+  margin-bottom: 0px;
+}
+.hometrip-text2{
+  margin-top: 10px;
+  font-size: 14px;
+}
+.plan-box{
+  background-color: white;
+  height: 28vh;
+  width: 50vw;
+  margin: auto;
+  border-radius: 5px;
+}
+.planbox-header{
+  text-align: center;
+}
+.planbox-header-text{
+  margin-top: 16px;
+  height: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: rgb(0, 33, 71);
+  color: white;
+  font-family: sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.from-info-text, .to-info-text, .when-info-text{
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  width: 14vw;
+  text-align: center;
+  display: inline-block;
+  font-family: sans-serif;
+  color: rgb(45, 44, 44);
+  margin-bottom: 10px;
+}
+.to-info-text{
+  margin-left: 34px;
+}
+
+.trip-plan-button{
+  height: 4.5vh;
+  width: 47vw;
+  margin-left: 1.5vw;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(255, 215, 0);
+  font-family: sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  transition: 0.2s;
+}
+.trip-plan-button:hover{
+  background-color: rgb(202, 138, 4);
+  cursor: pointer;
+}
+.home-page-live-bus{
+  margin-top: 25px;
+}
+.home-live-bus-header{
+  color: rgb(0, 33, 71);
+  margin-left: 12%;
+  font-family: sans-serif;
+  font-weight: 700;
+}
+.home-page-current-bus-header{
+  margin-top: 20px;
+  margin-left: 10%;
+  font-family: sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+  background-color: rgb(0, 33, 71);
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 12px;
+  width: 80vw;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.home-current-buses-box{
+  height: 270px;
+  margin-left: 10%;
+  padding-top: 20px;
+  padding-left: 12px;
+  width: 80vw;
+  background-color: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  overflow: hidden; /*because of margin collapse*/
+  margin-bottom: 40px;
+}
+.home-current-buses-mini-box1{
+  width: 340px;
+  height: 245px; 
+  background-color: white;
+  border: solid;
+  border-color: rgb(240, 242, 245);
+  border-width: 1px;
+  border-radius: 8px;
+  margin-left: 10px;
+  display: inline-block;
+  vertical-align: top;
+}
+.home-current-buses-mini-box2{
+  width: 340px;
+  height: 245px;
+  background-color: white;
+  border: solid;
+  border-color: rgb(240, 242, 245);
+  border-width: 1px;
+  border-radius: 8px;
+  margin-left: 10px;
+  display: inline-block;
+  vertical-align: top;
+}
+.home-current-buses-mini-box3{
+  width: 340px;
+  height: 245px;
+  background-color: white;
+  border: solid;
+  border-color: rgb(240, 242, 245);
+  border-width: 1px;
+  border-radius: 8px;
+  margin-left: 10px;
+  display: inline-block;
+}
+.home-pop-routes-text{
+  color: rgb(0, 33, 71);
+  margin-left: 12%;
+  font-family: sans-serif;
+  font-weight: 700;
+}
+.home-popular-routes{
+  margin-bottom: 20px;
+}
+.home-popular-routes-box1{
+  transition: 0.2s;
+  cursor: pointer;
+  display: inline-block;
+  margin-left: 10%;
+  margin-right: 20px;
+  vertical-align: top;
+}
+.home-popular-routes-top-box1{
+  width: 350px;
+  height: 100px;
+  background-image: linear-gradient(to right, rgb(0, 33, 71), rgb(0, 85, 135));
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  margin-left: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 20px;
+  margin-bottom: 0;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: 0.2s;
+}
+.home-popular-routes-top-box1 p{
+  color: white;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+.home-popular-routes-bottom-box1{
+  width: 350px;
+  height: 60px;
+  background-color: white;
+  margin-left: 0;
+  margin-top: 0;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: 0.2s;
+  display: inline-block;
+}
+.home-popular-routes-box1:hover .home-popular-routes-top-box1{
+  width: 360px;
+  transform: scale(1.02);
+}
+.home-popular-routes-box1:hover .home-popular-routes-bottom-box1{
+  width: 360px;
+  transform: scale(1.02);
+}
+
+.home-popular-routes-box2{
+  transition: 0.2s;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 20px;
+  vertical-align: top;
+}
+.home-popular-routes-top-box2{
+  width: 350px;
+  height: 100px;
+  background-image: linear-gradient(to right, rgb(37, 99, 235), rgb(96, 165, 250));
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  margin-left: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 20px;
+  margin-bottom: 0;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: 0.2s;
+}
+.home-popular-routes-top-box2 p{
+  color: white;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+.home-popular-routes-bottom-box2{
+  width: 350px;
+  height: 60px;
+  background-color: white;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: 0.2s;
+}
+.home-popular-routes-box2:hover .home-popular-routes-top-box2{
+  width: 360px;
+  transform: scale(1.02);
+}
+.home-popular-routes-box2:hover .home-popular-routes-bottom-box2{
+  width: 360px;
+  transform: scale(1.02);
+}
+
+.home-popular-routes-box3{
+  transition: 0.2s;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 20px;
+  vertical-align: top;
+}
+.home-popular-routes-top-box3{
+  width: 350px;
+  height: 100px;
+  background-image: linear-gradient(to right, rgb(147, 51, 234), rgb(192, 132, 252));
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  margin-left: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 20px;
+  margin-bottom: 0;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: 0.2s;
+}
+.home-popular-routes-top-box3 p{
+  color: white;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+.home-popular-routes-bottom-box3{
+  width: 350px;
+  height: 60px;
+  background-color: white;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: 0.2s;
+}
+.home-popular-routes-box3:hover .home-popular-routes-top-box3{
+  width: 360px;
+  transform: scale(1.02);
+}
+.home-popular-routes-box3:hover .home-popular-routes-bottom-box3{
+  width: 360px;
+  transform: scale(1.02);
+}
+.announcements-home-box-title{
+  color: rgb(0, 33, 71);
+  margin-left: 12%;
+  font-family: sans-serif;
+  font-weight: 700;
+}
+.announcements-home-box-header{
+  margin-top: 20px;
+  margin-left: 10%;
+  font-family: sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+  background-color: rgb(0, 33, 71);
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 12px;
+  width: 80vw;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.announcements-home-content-box{
+  margin-left: 10%;
+  padding-left: 12px;
+  padding-top: 20px;
+  width: 80vw;
+  height: 200px;
+  background-color: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.announcements-home-content-box p{
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+.trip-planner-container{
+  position: absolute;
+  top: 100px;
+  left: 20px;
+  z-index: 1000;
+  width: 300px;
+}
+.trip-planner-box{
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+.trip-planner-box h2{
+  margin: 0 0 15px 0;
+  font-size: 18px;
+  color: rgb(0, 33, 71);
+  font-family: 'Khula', sans-serif;
+  font-weight: 600;
+}
+.trip-planner-box input, .trip-planner-box select{
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+.trip-planner-box button{
+  width: 100%;
+  background-color: rgb(0, 33, 71);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 12px;
+  font-size: 16px;
+  font-family: 'Khula', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#from-stops, #to-stops{
+  display: block;
+  float: left;
+  margin-top: 15px;
+  margin-left: 34px;
+  width: 180px;
+  height: 40px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 2px solid rgb(0, 33, 71);
+}
+#to-stops{
+  margin-left: 40px;
+}
