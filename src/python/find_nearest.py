@@ -7,23 +7,36 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import os
 import sys
 
-# Get Open Route Service Maps API key from environment variable
+# Get Open Route Service Maps API key from environment variable or file
 ORS_MAPS_API_KEY = os.getenv('ORS_MAPS_API_KEY')
 
 if not ORS_MAPS_API_KEY:
-    print("Error: ORS_MAPS_API_KEY environment variable not set")
+    key_file = os.path.join(os.path.dirname(__file__), '..', '..', 'api_key.txt')
+    try:
+        with open(key_file, 'r') as f:
+            ORS_MAPS_API_KEY = f.read().strip()
+    except FileNotFoundError:
+        pass
+
+if not ORS_MAPS_API_KEY or ORS_MAPS_API_KEY == 'your_api_key_here':
+    print("Error: ORS_MAPS_API_KEY environment variable not set and api_key.txt not found or invalid")
     print("Please set your Open Route Service Maps API key:")
-    print("export ORS_MAPS_API_KEY='your_api_key_here'")
+    print("Either export ORS_MAPS_API_KEY='your_api_key_here'")
+    print("Or add your key to api_key.txt in the project root")
     sys.exit(1)
 
-print("API key loaded from environment variable")
+print("API key loaded")
 
 # Create a session for connection reuse that way we don't need to setup parameter such as authentication again and reduce latency
 session = requests.Session()
 
 #store the starting and ending addresses, remove the whitespace and convert to upper case for consistent format
-start_address = input("Enter your starting address: ").strip().upper()
-destination_address = input("Enter your destination address: ").strip().upper()
+start_address = os.environ.get('FROM_STOP', '').strip().upper()
+destination_address = os.environ.get('TO_STOP', '').strip().upper()
+
+if not start_address or not destination_address:
+    print("Error: FROM_STOP and TO_STOP environment variables must be set")
+    sys.exit(1)
 
 # Load all the addresses in Merced from the csv file
 addresses_df = pd.read_csv("/Users/suchithgali/Python/PythonFiles/SourceCode/CatTracks/data/general/all_addresses.csv")

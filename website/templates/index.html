@@ -4,13 +4,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Khula:wght@300;400;600;700;800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../public/static/styles.css">
   </head>
     <body>
         <div class="header-bar">
 
           <div class="Logo">
-            <img src = "img/ucm-logo.png">
+            <img src = "../public/static/img/ucm-logo.png">
           </div>
 
           <div class="title">
@@ -40,6 +40,7 @@
           </p>
 
           <div class="plan-box">
+
             <div class="planbox-header">
 
               <div class="planbox-header-text">
@@ -62,41 +63,29 @@
 
               </div>
                 
-                <input list="from-stop-list" id = "from-stops" name = "from-stops" placeholder="Type to search....">
-                <datalist id = "from-stop-list">
-                  <option value = "University Transit Center"></option>
-                  <option value = "Mercy Hospital / Tri-College (Southbound)"></option>
-                  <option value = "El Portal Plaza & G St. (Southbound)"></option>
-                  <option value = "G St. & W. Alexander Ave. (Paul's Place)"></option>
-                  <option value = "Granville Apartments"></option>
-                  <option value = "G St. & W. Alexander Ave. (76 Gas Station)"></option>
-                  <option value = "Rite Aid / Walgreens"></option>
-                  <option value = "El Portal Plaza & G St. (Northbound)"></option>
-                  <option value = "Mercy Hospital / Tri-College (Northbound)"></option>
-                  <option value = "M Circle Bus Stop"></option>
-                </datalist>
+                <form action="/planner" method="post">
+                  <input list="from-stop-list" id = "from-stops" name = "from-stops" placeholder="Type to search....">
+                  <datalist id = "from-stop-list">
+                    {% for stop in stops %}
+                      <option value="{{ stop }}"></option>
+                    {% endfor %}
+                  </datalist>
 
-                <input list="to-stop-list" id = "to-stops" name = "to-stops" placeholder="Type to search....">
-                <datalist id = "to-stop-list">
-                  <option value = "University Transit Center"></option>
-                  <option value = "Mercy Hospital / Tri-College (Southbound)"></option>
-                  <option value = "El Portal Plaza & G St. (Southbound)"></option>
-                  <option value = "G St. & W. Alexander Ave. (Paul's Place)"></option>
-                  <option value = "Granville Apartments"></option>
-                  <option value = "G St. & W. Alexander Ave. (76 Gas Station)"></option>
-                  <option value = "Rite Aid / Walgreens"></option>
-                  <option value = "El Portal Plaza & G St. (Northbound)"></option>
-                  <option value = "Mercy Hospital / Tri-College (Northbound)"></option>
-                  <option value = "M Circle Bus Stop"></option>
-                </datalist>
+                  <input list="to-stop-list" id = "to-stops" name = "to-stops" placeholder="Type to search....">
+                  <datalist id = "to-stop-list">
+                    {% for stop in stops %}
+                      <option value="{{ stop }}"></option>
+                    {% endfor %}
+                  </datalist>
 
-                <a href="liveroutes.html">
-                  <button class="trip-plan-button">
-                  Plan My Trip
-                </button>
-                </a>
+                  <input type="submit" value="Plan My Trip" class="trip-plan-button">
+                </form>
             </div>
           </div>
+
+          {% if message %}
+            <p>{{ message }}</p>
+          {% endif %}
         </div>
 
          <div class="home-page-live-bus">
