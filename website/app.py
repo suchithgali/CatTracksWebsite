@@ -15,7 +15,11 @@ valid_stops = [
     "Rite Aid / Walgreens",
     "El Portal Plaza & G St. (Northbound)",
     "Mercy Hospital / Tri-College (Northbound)",
-    "M Circle Bus Stop"
+    "M Circle Bus Stop",
+    "781 Irma Drive",
+    "Merced Mall Target",
+    "Amtrak Station",
+    "Yosemite Crossings Shopping Center"
 ]
 
 @app.route('/', methods=['GET'])
