@@ -172,12 +172,14 @@ def find_closest_intersection_with_route(lat, lon, location_name, get_instructio
         route_result = get_distance_with_route(lon, lat, row['Longitude'], row['Latitude'])
         
         if route_result['success']:
+            road_distance = route_result['distance_miles']
+            instructions = route_result['instructions'] if road_distance >= 0.01 else []  # No instructions if very close
             return {
                 'index': int(row['Index']),  # Convert pandas types
                 'name': row['Intersection Name'],
-                'road_distance_miles': route_result['distance_miles'],
+                'road_distance_miles': road_distance,
                 'walking_duration_minutes': route_result['duration_minutes'],
-                'walking_instructions': route_result['instructions'] if get_instructions else [],
+                'walking_instructions': instructions,
                 'lat': float(row['Latitude']),
                 'lon': float(row['Longitude']),
                 'straight_distance': row['straight_distance']
