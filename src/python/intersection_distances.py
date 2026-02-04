@@ -3,17 +3,20 @@ import pandas as pd
 import csv
 import os
 import sys
+import logging
+
+logging.basicConfig(filename='../../logs/intersection_distances.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Get OpenRouteService API key from environment variable
 OPENROUTESERVICE_API_KEY = os.getenv('OPENROUTESERVICE_API_KEY')
 
 if not OPENROUTESERVICE_API_KEY:
-    print("Error: OPENROUTESERVICE_API_KEY environment variable not set")
-    print("Please set your OpenRouteService API key:")
-    print("export OPENROUTESERVICE_API_KEY='your_api_key_here'")
+    logging.error("OPENROUTESERVICE_API_KEY environment variable not set")
+    logging.error("Please set your OpenRouteService API key:")
+    logging.error("export OPENROUTESERVICE_API_KEY='your_api_key_here'")
     sys.exit(1)
 
-print("OpenRouteService API key loaded from environment variable")
+logging.info("OpenRouteService API key loaded from environment variable")
 
 def get_coordinates_by_index(index):
     """Get latitude and longitude for a given intersection index"""
@@ -39,8 +42,8 @@ index2 = 27884  #end intersection
 lat1, lon1, name1 = get_coordinates_by_index(index1)
 lat2, lon2, name2 = get_coordinates_by_index(index2)
 
-print(f"From: Index {index1} - {name1}")
-print(f"To: Index {index2} - {name2}")
+logging.info(f"From: Index {index1} - {name1}")
+logging.info(f"To: Index {index2} - {name2}")
 
 # Now you can use these coordinates in your API call
 api_key = OPENROUTESERVICE_API_KEY
@@ -50,7 +53,7 @@ response = requests.get(url)
 
 if response.status_code == 200:
     data = response.json()
-    print("API Response received successfully!")
+    logging.info("API Response received successfully!")
     
     # Extract distance from the response
     # The response structure is different - distance is in features[0].properties.summary.distance
@@ -59,21 +62,21 @@ if response.status_code == 200:
         if 'properties' in feature and 'summary' in feature['properties']:
             distance_meters = feature['properties']['summary']['distance']
             distance_miles = distance_meters * 0.0006213712  # Convert to miles
-            print(f"Distance: {distance_miles:.4f} miles")
+            logging.info(f"Distance: {distance_miles:.4f} miles")
         elif 'properties' in feature and 'segments' in feature['properties'] and len(feature['properties']['segments']) > 0:
             # Fallback to segments distance
             distance_meters = feature['properties']['segments'][0]['distance']
             distance_miles = distance_meters * 0.0006213712  # Convert to miles
-            print(f"Distance: {distance_miles:.4f} miles")
+            logging.info(f"Distance: {distance_miles:.4f} miles")
         else:
-            print("No distance found in response")
-            print("Full response:", data)
+            logging.error("No distance found in response")
+            logging.error("Full response:", data)
     else:
-        print("No features found in response")
-        print("Full response:", data)
+        logging.error("No features found in response")
+        logging.error("Full response:", data)
 else:
-    print("Request failed:", response.status_code)
-    print("Response:", response.text)
+    logging.error("Request failed:", response.status_code)
+    logging.error("Response:", response.text)
 
 import os
 import csv
