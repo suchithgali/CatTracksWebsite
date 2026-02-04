@@ -52,7 +52,11 @@ def planner():
             env['FROM_STOP'] = from_stop #adds from stop to the environemtn variables
             env['TO_STOP'] = to_stop #adds to stop to the current environment variables
             try:
-                subprocess.run([script_path], env=env, cwd=os.path.dirname(script_path)) #runs the build and run file with the updated variables
+                result = subprocess.run([script_path], env=env, cwd=os.path.dirname(script_path), capture_output=True, text=True) #runs the build and run file with the updated variables
+                if result.returncode == 0:
+                    message = result.stdout
+                else:
+                    message = f"Failed to run script: {result.stderr}"
             except Exception as e:
                 message = f"Failed to run script: {str(e)}"
         else:
@@ -80,7 +84,11 @@ def planner():
                 env['FROM_STOP'] = from_stop
                 env['TO_STOP'] = to_stop
                 try:
-                    subprocess.run([script_path], env=env, cwd=os.path.dirname(script_path))
+                    result = subprocess.run([script_path], env=env, cwd=os.path.dirname(script_path), capture_output=True, text=True)
+                    if result.returncode == 0:
+                        message = result.stdout
+                    else:
+                        message = f"Failed to run script: {result.stderr}"
                 except Exception as e:
                     message = f"Failed to run script: {str(e)}"
             else:
@@ -89,7 +97,7 @@ def planner():
     # get all stops for the template
     stops = Stops.query.all()
     stop_names = [stop.name for stop in stops]
-    return render_template('index.html', message=message, stops=stop_names) #renders the index.html file and passes message and stop_names as varaibles
+    return render_template('liveroutes.html', message=message, stops=stop_names) #renders the index.html file and passes message and stop_names as varaibles
 
 if __name__ == '__main__':
     app.run()
