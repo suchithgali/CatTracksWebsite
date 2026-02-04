@@ -9,6 +9,8 @@
 
 using json = nlohmann::json;
 
+std::ofstream log_file("logs/graph_builder.log", std::ios::app);
+
 int main(){
     //create a file stream to read in route_info.json
     std::ifstream user_file("src/python/route_info.json");
@@ -32,10 +34,10 @@ int main(){
 
     /*
     //print out stored variables
-    std::cout << "User Address: " << departure_stop_address << std::endl;
-    std::cout << "Coordinates: (" << departure_stop_lat << ", " << departure_stop_lng << ")" << std::endl;
-    std::cout << "Closest intersection: " << closest_stop << std::endl;
-    std::cout << "Distance to intersection: " << distance_to_stop << " miles" << std::endl;
+    log_file << "User Address: " << departure_stop_address << std::endl;
+    log_file << "Coordinates: (" << departure_stop_lat << ", " << departure_stop_lng << ")" << std::endl;
+    log_file << "Closest intersection: " << closest_stop << std::endl;
+    log_file << "Distance to intersection: " << distance_to_stop << " miles" << std::endl;
     */
 
     //Collect unique intersections directly from the bus route files
@@ -48,7 +50,7 @@ int main(){
         "data/bus_routes/g_line_stop_distances.csv", "data/bus_routes/yosemite_express_stop_distances.csv", "data/bus_routes/bobcat_express_stop_distances.csv"
     };
 
-    std::cout << "Scanning bus route files to identify stops..." << std::endl;
+    log_file << "Scanning bus route files to identify stops..." << std::endl;
     for (const auto& filename : bus_files) {
         std::ifstream file(filename);
         if (!file.is_open()) continue;
@@ -74,7 +76,7 @@ int main(){
     // Add the user's closest stop to the set
     unique_intersections.insert(closest_stop);
     // Tell the user how many intersections found
-    std::cout << "Found " << unique_intersections.size() << " unique intersections in route" << std::endl;
+    log_file << "Found " << unique_intersections.size() << " unique intersections in route" << std::endl;
     
     // Create mapping from original indices to graph vertices (0 = closest stop, 1-N = intersections)
     std::map<int, int> index_to_vertex;
@@ -95,15 +97,15 @@ int main(){
         merced.setVertexMapping(pair.second, pair.first);
     }
 
-    std::cout << "Building graph with " << total_vertices << " vertices..." << std::endl;
+    log_file << "Building graph with " << total_vertices << " vertices..." << std::endl;
 
     // Add bus route edges to the graph 
-    std::cout << "Adding Direct Bus Edges via Graph::addBusEdgesFromCSV..." << std::endl;
+    log_file << "Adding Direct Bus Edges via Graph::addBusEdgesFromCSV..." << std::endl;
     for (const auto& filename : bus_files) {
         merced.addBusEdgesFromCSV(filename, index_to_vertex);
     }
     
-    std::cout << "Loading Bus Stop names..." << std::endl;
+    log_file << "Loading Bus Stop names..." << std::endl;
     for (const auto& dist_filename : bus_files) {
         // Convert "xyz_stop_distances.csv" to "xyz_stops.csv"
         std::string stops_filename = dist_filename;
@@ -120,14 +122,14 @@ int main(){
     int mapped_closest = index_to_vertex[closest_stop]; //get vertex id of closest_stop
     merced.addEdge(user_vertex, mapped_closest, distance_to_stop); //add edges
 
-    std::cout << "Added user address as vertex " << user_vertex << std::endl;
-    std::cout << "Connected to intersection " << closest_stop << " (graph vertex " << mapped_closest << ")" << std::endl;
-    std::cout << "Running Dijkstra from user address..." << std::endl;
+    log_file << "Added user address as vertex " << user_vertex << std::endl;
+    log_file << "Connected to intersection " << closest_stop << " (graph vertex " << mapped_closest << ")" << std::endl;
+    log_file << "Running Dijkstra from user address..." << std::endl;
 
     // Run Dijkstra from user address
     merced.dijkstra(user_vertex);
 
-    std::cout << "Dijkstra complete! Results saved to dijkstra_paths.csv" << std::endl;
+    log_file << "Dijkstra complete! Results saved to dijkstra_paths.csv" << std::endl;
     return 0;
 
 

@@ -6,6 +6,9 @@ import numpy as np
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import os
 import sys
+import logging
+
+logging.basicConfig(filename='../../logs/find_nearest.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Get Open Route Service Maps API key from environment variable or file
 ORS_MAPS_API_KEY = os.getenv('ORS_MAPS_API_KEY')
@@ -19,13 +22,13 @@ if not ORS_MAPS_API_KEY:
         pass
 
 if not ORS_MAPS_API_KEY or ORS_MAPS_API_KEY == 'your_api_key_here':
-    print("Error: ORS_MAPS_API_KEY environment variable not set and api_key.txt not found or invalid")
-    print("Please set your Open Route Service Maps API key:")
-    print("Either export ORS_MAPS_API_KEY='your_api_key_here'")
-    print("Or add your key to api_key.txt in the project root")
+    logging.error("ORS_MAPS_API_KEY environment variable not set and api_key.txt not found or invalid")
+    logging.error("Please set your Open Route Service Maps API key:")
+    logging.error("Either export ORS_MAPS_API_KEY='your_api_key_here'")
+    logging.error("Or add your key to api_key.txt in the project root")
     sys.exit(1)
 
-print("API key loaded")
+logging.info("API key loaded")
 
 # Create a session for connection reuse that way we don't need to setup parameter such as authentication again and reduce latency
 session = requests.Session()
@@ -35,7 +38,7 @@ start_address = os.environ.get('FROM_STOP', '').strip().upper()
 destination_address = os.environ.get('TO_STOP', '').strip().upper()
 
 if not start_address or not destination_address:
-    print("Error: FROM_STOP and TO_STOP environment variables must be set")
+    logging.error("FROM_STOP and TO_STOP environment variables must be set")
     sys.exit(1)
 
 # Load all the addresses in Merced from the csv file
@@ -53,11 +56,11 @@ def lookup_address(address_name):
         row = address_match.iloc[0]
         lat = row['Latitude']
         lon = row['Longitude']
-        print(f"Found '{address_name}' in local database: ({lat}, {lon})")
+        logging.info(f"Found '{address_name}' in local database: ({lat}, {lon})")
         return lat, lon
     else:
-        print(f"Error: Address '{address_name}' not found in local database.")
-        print("Please check the spelling or try a different address.")
+        logging.error(f"Address '{address_name}' not found in local database.")
+        logging.error("Please check the spelling or try a different address.")
         return None, None
     
 #look up both addresses, and stop if a lat is not found that means the address doesn't exist
@@ -115,7 +118,7 @@ def get_distance_with_route(start_lon, start_lat, end_lon, end_lat):
         if data.get("type") != "FeatureCollection":
             error = data.get("error", "Unknown error")
             code = data.get("code", "No code")
-            print(f"ORS API error: {error} - {code}")
+            logging.error(f"ORS API error: {error} - {code}")
             return {'distance_miles': float('inf'), 'success': False}
 
         # Extract distance in meters and duration in seconds
@@ -151,10 +154,10 @@ def get_distance_with_route(start_lon, start_lat, end_lon, end_lat):
         }
     #if coordinates not valid for api url
     except requests.exceptions.Timeout:
-        print(f"Timeout for coordinates ({start_lat}, {start_lon}) to ({end_lat}, {end_lon})")
+        logging.error(f"Timeout for coordinates ({start_lat}, {start_lon}) to ({end_lat}, {end_lon})")
         return {'distance_miles': float('inf'), 'success': False}
     except Exception as e:
-        print(f"Error for coordinates ({start_lat}, {start_lon}) to ({end_lat}, {end_lon}): {e}")
+        logging.error(f"Error for coordinates ({start_lat}, {start_lon}) to ({end_lat}, {end_lon}): {e}")
         return {'distance_miles': float('inf'), 'success': False}
 
 def find_closest_intersection_with_route(lat, lon, location_name, get_instructions=True):    
@@ -213,7 +216,7 @@ def find_closest_intersection_with_route(lat, lon, location_name, get_instructio
     valid_distances = [d for d in road_distances if d['road_distance_miles'] != float('inf')]
     
     if not valid_distances:
-        print("Error: No valid walking routes found. Check API connectivity.")
+        logging.error("No valid walking routes found. Check API connectivity.")
         return None
     
     #sort based on distance
@@ -231,7 +234,7 @@ dest_closest_stops = find_closest_intersection_with_route(dest_lat, dest_lon, "D
 
 # Check if we found valid intersections
 if start_closest_stops is None or dest_closest_stops is None:
-    print("Error: Could not find valid bus stops. Exiting.")
+    logging.error("Could not find valid bus stops. Exiting.")
     exit(1)
 
 # Get the primary (closest) stops for backward compatibility, simnce sorted it will be the first key value pair
@@ -239,7 +242,7 @@ start_closest = start_closest_stops[0] if start_closest_stops else None
 dest_closest = dest_closest_stops[0] if dest_closest_stops else None
 
 if start_closest is None or dest_closest is None:
-    print("Error: Could not find valid bus stops. Exiting.")
+    logging.error("Could not find valid bus stops. Exiting.")
     exit(1)
 
 # Write both addresses info for C++ program

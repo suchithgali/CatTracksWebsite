@@ -132,6 +132,7 @@ public:
     }
 
 	void dijkstra(int source){
+		std::ofstream graph_log("logs/graph_dijkstra.log", std::ios::app);
 		ArrayList<double> dist; //array to hold the distances from the source vertex
 		ArrayList<double> parent; //array to track the previous vertex in the shortest path
 		ArrayList<bool> visited; //array to keep track of the visitied vertices
@@ -173,7 +174,7 @@ public:
 		}
 		
 		// Save results to CSV file
-		std::cout << "Saving results to CSV file..." << std::endl;
+		graph_log << "Saving results to CSV file..." << std::endl;
 		
 		// For vertex 0 (user address), read from route_info.json
 		std::ifstream routeInfoFile("src/python/route_info.json"); // Open JSON file
@@ -193,7 +194,6 @@ public:
 				}
 			}
 		}
-		
 		
 		std::ofstream outFile("dijkstra_paths.csv");
 		outFile << "Destination,Destination_Name,Distance_Miles,Path,Path_Names" << std::endl;
@@ -253,7 +253,7 @@ public:
 			}
 		}
 		outFile.close(); // Close the output file
-		std::cout << "Results saved to dijkstra_paths.csv" << std::endl; // Confirmation message
+		graph_log << "Results saved to dijkstra_paths.csv" << std::endl; // Confirmation message
 	}
 };
 

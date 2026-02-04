@@ -12,6 +12,8 @@
 
 using json = nlohmann::json;
 
+std::ofstream log_file("logs/path_builder.log", std::ios::app);
+
 
 
 int main(){
@@ -31,16 +33,16 @@ int main(){
     std::vector<std::vector<std::string>> walking_instructions = route_info["start_walking_instructions"];
 
     //print out stored variables
-    std::cout << "Destination Address: " << destination_stop_address << std::endl;
-    std::cout << "Coordinates: (" << destination_stop_lat << ", " << destination_stop_lng << ")" << std::endl;
-    std::cout << "Closest intersection: " << destination_closest_stop << std::endl;
-    std::cout << "Distance to intersection: " << dest_distance_from_stop << " miles" << std::endl;
+    log_file << "Destination Address: " << destination_stop_address << std::endl;
+    log_file << "Coordinates: (" << destination_stop_lat << ", " << destination_stop_lng << ")" << std::endl;
+    log_file << "Closest intersection: " << destination_closest_stop << std::endl;
+    log_file << "Distance to intersection: " << dest_distance_from_stop << " miles" << std::endl;
     
     for (int i = 0; i < walking_instructions.size(); i++){
         for (int j = 0; j < walking_instructions[i].size(); j++){
-            std::cout << walking_instructions[i][j];
+            log_file << walking_instructions[i][j];
         }
-        std::cout << std::endl;
+        log_file << std::endl;
     }
 
     std::ifstream routeFile("dijkstra_paths.csv"); // Open CSV file for reading
@@ -146,6 +148,7 @@ int main(){
 
     // "Furthest Reach" Logic: Find the bus that takes us furthest along our path
     int curr_index = 1;
+    std::string full_path;
     while (curr_index < optimal_stops.size() - 1){ //make sure curr index is less than # of stops in optimal paths 
         //each new stop we reset the search
         std::string best_bus = ""; //track best bus
@@ -189,16 +192,18 @@ int main(){
                 }
             }
         }
-
+        std::string path;
         if (best_reach_idx != -1) {
-            std::cout << "Take " << best_bus << " from " << optimal_stops[curr_index] << " to " << optimal_stops[best_reach_idx] << std::endl;
+            path = "Take " + best_bus + " from " + optimal_stops[curr_index] + " to " + optimal_stops[best_reach_idx];
             //update curr index to start at next segment of the optimal path to check 
             curr_index = best_reach_idx;
         } 
         else {
-            std::cout << "Walk from " << optimal_stops[curr_index] << " to " << optimal_stops[curr_index + 1] << std::endl;
+            path = "Walk from " + optimal_stops[curr_index] + " to " + optimal_stops[curr_index + 1];
             curr_index++;
         }
+        std::cout << path;
+        full_path += path;
     }
 
     

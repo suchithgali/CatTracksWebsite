@@ -2,6 +2,9 @@ import geopandas as gpd
 import pandas as pd
 import csv
 import os
+import logging
+
+logging.basicConfig(filename='../../logs/intersection_lookup.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Read the GeoPackage layer
 gdf = gpd.read_file("geopkg/merced_intersections.gpkg", layer="merced_intersections — filtered_no_duplicates")
@@ -56,10 +59,10 @@ with open(file_name, "w", newline="") as file:
             
             # Print progress every 1000 addresses
             if csv_index % 1000 == 0:
-                print(f"Processed {csv_index} addresses...")
+                logging.info(f"Processed {csv_index} addresses...")
                 
         except Exception as e:
-            print(f"Error processing row {index}: {e}")
+            logging.error(f"Error processing row {index}: {e}")
             continue
 
-print(f"All addresses saved to {file_name}")
+logging.info(f"All addresses saved to {file_name}")
