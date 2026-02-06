@@ -6,13 +6,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Khula:wght@300;400;600;700;800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../public/static/styles.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-     crossorigin=""></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" crossorigin="">
   </head>
     <body>
         <div class="header-bar">
 
           <div class="Logo">
-            <img src = "../img/ucm-logo.png">
+            <img src = "../public/static/img/ucm-logo.png">
           </div>
 
           <div class="title">
@@ -37,14 +37,6 @@
         <div class="trip-planner-container">
           <div class="trip-planner-box">
             <h2>Plan Your Trip</h2>
-            
-            <input type="text" placeholder="From" id="pickupLocation">
-            <input type="text" placeholder="To" id="dropoffLocation">
-            
-            <input type="text" placeholder="Time" id="time">
-            
-            
-            <button>Find Routes</button>
           </div>
         </div>
 
@@ -65,35 +57,6 @@
       //code contacts this url for information
       const baseUrl = 'http://localhost:8383'
 
-      locationForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        const parcel = goPlaces.value;
-        const parcel2 = comePlaces.value;
-        
-        // Basic validation: make sure users have made a selection.
-        if (!parcel || !parcel2) {
-          alert('Please select values for both dropdowns.');
-          return;
-        }
-        
-        // Send both values in a single POST request.
-        const res = await fetch(baseUrl, {
-          method: 'POST',
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            parcel: parcel,
-            parcel2: parcel2
-          })
-        });
-        
-        // Optionally handle the server response
-        const result = await res.json();
-        document.getElementById('result').innerText = result.result;
-        console.log(result);
-      });
   </script>
 
   <style>
@@ -130,11 +93,9 @@
     });
 
   var myIcon = L.icon({
-      iconUrl: '../img/red-marker.png',
+      iconUrl: '../public/static/img/red-marker.png',
       iconSize: [40, 40],
   });
-  //load Merced geoJson
-  var mercedGeoJson = omnivore.geojson("docker/pelias/docker/projects/california/ca_data/openaddresses/us/ca/merced.geojson").addTo(map);
 
 
   //Marker:
