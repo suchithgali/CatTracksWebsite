@@ -1,0 +1,4376 @@
+{
+  "source_dir": "/Users/suchithgali/Python/PythonFiles/SourceCode/CatTracks/data/gtfs_official",
+  "output_dir": "/Users/suchithgali/Python/PythonFiles/SourceCode/CatTracks/data/gtfs",
+  "trips_processed": 242,
+  "segments_normalized": 546,
+  "corrections": [
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_1",
+      "stop_id": "bobcat_express_2",
+      "original_arrival": "06:32:00",
+      "normalized_arrival": "12:04:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "23520"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_1",
+      "stop_id": "bobcat_express_3",
+      "original_arrival": "06:34:00",
+      "normalized_arrival": "12:05:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "23640"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_1",
+      "stop_id": "bobcat_express_4",
+      "original_arrival": "06:39:00",
+      "normalized_arrival": "12:06:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "23940"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_1",
+      "stop_id": "bobcat_express_7",
+      "original_arrival": "11:20:00",
+      "normalized_arrival": "12:07:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "40800"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_1",
+      "stop_id": "bobcat_express_8",
+      "original_arrival": "11:29:00",
+      "normalized_arrival": "12:08:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "41340"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_1",
+      "stop_id": "bobcat_express_9",
+      "original_arrival": "11:38:00",
+      "normalized_arrival": "12:09:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "41880"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_2",
+      "stop_id": "bobcat_express_10",
+      "original_arrival": "01:30:00",
+      "normalized_arrival": "07:10:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "5400"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_2",
+      "stop_id": "bobcat_express_11",
+      "original_arrival": "01:32:00",
+      "normalized_arrival": "07:11:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "5520"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_2",
+      "stop_id": "bobcat_express_12",
+      "original_arrival": "01:41:00",
+      "normalized_arrival": "07:12:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "6060"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_2",
+      "stop_id": "bobcat_express_13",
+      "original_arrival": "01:43:00",
+      "normalized_arrival": "07:13:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "6180"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_2",
+      "stop_id": "bobcat_express_2",
+      "original_arrival": "07:12:00",
+      "normalized_arrival": "07:14:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "25920"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_2",
+      "stop_id": "bobcat_express_7",
+      "original_arrival": "01:00:00",
+      "normalized_arrival": "07:20:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "3600"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_2",
+      "stop_id": "bobcat_express_8",
+      "original_arrival": "01:09:00",
+      "normalized_arrival": "07:21:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "4140"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_2",
+      "stop_id": "bobcat_express_9",
+      "original_arrival": "01:18:00",
+      "normalized_arrival": "07:22:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "4680"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_3",
+      "stop_id": "bobcat_express_10",
+      "original_arrival": "02:58:00",
+      "normalized_arrival": "07:50:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "10680"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_3",
+      "stop_id": "bobcat_express_11",
+      "original_arrival": "03:00:00",
+      "normalized_arrival": "07:51:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "10800"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_3",
+      "stop_id": "bobcat_express_12",
+      "original_arrival": "03:09:00",
+      "normalized_arrival": "07:52:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "11340"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_3",
+      "stop_id": "bobcat_express_13",
+      "original_arrival": "03:11:00",
+      "normalized_arrival": "07:53:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "11460"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_3",
+      "stop_id": "bobcat_express_2",
+      "original_arrival": "07:52:00",
+      "normalized_arrival": "07:54:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "28320"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_3",
+      "stop_id": "bobcat_express_7",
+      "original_arrival": "02:25:00",
+      "normalized_arrival": "08:00:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "8700"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_3",
+      "stop_id": "bobcat_express_8",
+      "original_arrival": "02:37:00",
+      "normalized_arrival": "08:01:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "9420"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_3",
+      "stop_id": "bobcat_express_9",
+      "original_arrival": "02:46:00",
+      "normalized_arrival": "08:02:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "9960"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_4",
+      "stop_id": "bobcat_express_10",
+      "original_arrival": "04:38:00",
+      "normalized_arrival": "08:45:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "16680"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_4",
+      "stop_id": "bobcat_express_11",
+      "original_arrival": "04:40:00",
+      "normalized_arrival": "08:46:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "16800"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_4",
+      "stop_id": "bobcat_express_12",
+      "original_arrival": "04:49:00",
+      "normalized_arrival": "08:47:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "17340"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_4",
+      "stop_id": "bobcat_express_13",
+      "original_arrival": "04:51:00",
+      "normalized_arrival": "08:48:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "17460"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_4",
+      "stop_id": "bobcat_express_2",
+      "original_arrival": "08:47:00",
+      "normalized_arrival": "08:49:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "31620"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_4",
+      "stop_id": "bobcat_express_7",
+      "original_arrival": "04:08:00",
+      "normalized_arrival": "08:55:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "14880"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_4",
+      "stop_id": "bobcat_express_8",
+      "original_arrival": "04:17:00",
+      "normalized_arrival": "08:56:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "15420"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_4",
+      "stop_id": "bobcat_express_9",
+      "original_arrival": "04:26:00",
+      "normalized_arrival": "08:57:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "15960"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_5",
+      "stop_id": "bobcat_express_10",
+      "original_arrival": "06:03:00",
+      "normalized_arrival": "09:25:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "21780"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_5",
+      "stop_id": "bobcat_express_11",
+      "original_arrival": "06:05:00",
+      "normalized_arrival": "09:26:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "21900"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_5",
+      "stop_id": "bobcat_express_12",
+      "original_arrival": "06:14:00",
+      "normalized_arrival": "09:27:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "22440"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_5",
+      "stop_id": "bobcat_express_13",
+      "original_arrival": "06:16:00",
+      "normalized_arrival": "09:28:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "22560"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_5",
+      "stop_id": "bobcat_express_2",
+      "original_arrival": "09:27:00",
+      "normalized_arrival": "09:29:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "34020"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_5",
+      "stop_id": "bobcat_express_7",
+      "original_arrival": "05:33:00",
+      "normalized_arrival": "09:35:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "19980"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_5",
+      "stop_id": "bobcat_express_8",
+      "original_arrival": "05:42:00",
+      "normalized_arrival": "09:36:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "20520"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_5",
+      "stop_id": "bobcat_express_9",
+      "original_arrival": "05:51:00",
+      "normalized_arrival": "09:37:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "21060"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_6",
+      "stop_id": "bobcat_express_10",
+      "original_arrival": "07:43:00",
+      "normalized_arrival": "10:05:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "27780"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_6",
+      "stop_id": "bobcat_express_11",
+      "original_arrival": "07:45:00",
+      "normalized_arrival": "10:06:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "27900"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_6",
+      "stop_id": "bobcat_express_12",
+      "original_arrival": "07:54:00",
+      "normalized_arrival": "10:07:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "28440"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_6",
+      "stop_id": "bobcat_express_13",
+      "original_arrival": "07:56:00",
+      "normalized_arrival": "10:08:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "28560"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_6",
+      "stop_id": "bobcat_express_2",
+      "original_arrival": "10:07:00",
+      "normalized_arrival": "10:09:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "36420"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_6",
+      "stop_id": "bobcat_express_7",
+      "original_arrival": "07:13:00",
+      "normalized_arrival": "10:15:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "25980"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_6",
+      "stop_id": "bobcat_express_8",
+      "original_arrival": "07:22:00",
+      "normalized_arrival": "10:16:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "26520"
+    },
+    {
+      "trip_id": "bobcat_express_weekday_am_pm_trip_6",
+      "stop_id": "bobcat_express_9",
+      "original_arrival": "07:31:00",
+      "normalized_arrival": "10:17:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "27060"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_1",
+      "stop_id": "c1_3",
+      "original_arrival": "06:36:00",
+      "normalized_arrival": "06:40:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "23760"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_1",
+      "stop_id": "c1_4",
+      "original_arrival": "06:32:00",
+      "normalized_arrival": "06:41:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "23520"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_1",
+      "stop_id": "c1_6",
+      "original_arrival": "06:32:00",
+      "normalized_arrival": "11:35:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "23520"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_1",
+      "stop_id": "c1_7",
+      "original_arrival": "06:34:00",
+      "normalized_arrival": "11:36:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "23640"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_1",
+      "stop_id": "c1_8",
+      "original_arrival": "06:36:00",
+      "normalized_arrival": "11:37:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "23760"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_1",
+      "stop_id": "c1_9",
+      "original_arrival": "06:39:00",
+      "normalized_arrival": "11:38:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "23940"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_2",
+      "stop_id": "c1_3",
+      "original_arrival": "07:47:00",
+      "normalized_arrival": "07:51:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "28020"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_2",
+      "stop_id": "c1_4",
+      "original_arrival": "07:43:00",
+      "normalized_arrival": "07:52:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "27780"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_2",
+      "stop_id": "c1_6",
+      "original_arrival": "07:43:00",
+      "normalized_arrival": "12:46:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "27780"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_2",
+      "stop_id": "c1_7",
+      "original_arrival": "07:45:00",
+      "normalized_arrival": "12:47:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "27900"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_2",
+      "stop_id": "c1_8",
+      "original_arrival": "07:47:00",
+      "normalized_arrival": "12:48:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "28020"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_2",
+      "stop_id": "c1_9",
+      "original_arrival": "07:50:00",
+      "normalized_arrival": "12:49:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "28200"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_3",
+      "stop_id": "c1_3",
+      "original_arrival": "09:13:00",
+      "normalized_arrival": "09:17:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "33180"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_3",
+      "stop_id": "c1_4",
+      "original_arrival": "09:09:00",
+      "normalized_arrival": "09:18:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "32940"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_3",
+      "stop_id": "c1_5",
+      "original_arrival": "02:16:00",
+      "normalized_arrival": "09:19:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "8160"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_3",
+      "stop_id": "c1_6",
+      "original_arrival": "09:09:00",
+      "normalized_arrival": "09:20:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "32940"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_3",
+      "stop_id": "c1_7",
+      "original_arrival": "09:11:00",
+      "normalized_arrival": "09:21:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "33060"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_3",
+      "stop_id": "c1_8",
+      "original_arrival": "09:13:00",
+      "normalized_arrival": "09:22:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "33180"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_3",
+      "stop_id": "c1_9",
+      "original_arrival": "09:16:00",
+      "normalized_arrival": "09:23:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "33360"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_4",
+      "stop_id": "c1_3",
+      "original_arrival": "10:24:00",
+      "normalized_arrival": "10:28:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "37440"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_4",
+      "stop_id": "c1_4",
+      "original_arrival": "10:20:00",
+      "normalized_arrival": "10:29:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "37200"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_4",
+      "stop_id": "c1_5",
+      "original_arrival": "03:27:00",
+      "normalized_arrival": "10:30:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "12420"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_4",
+      "stop_id": "c1_6",
+      "original_arrival": "10:20:00",
+      "normalized_arrival": "10:31:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "37200"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_4",
+      "stop_id": "c1_7",
+      "original_arrival": "10:22:00",
+      "normalized_arrival": "10:32:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "37320"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_4",
+      "stop_id": "c1_8",
+      "original_arrival": "10:24:00",
+      "normalized_arrival": "10:33:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "37440"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_4",
+      "stop_id": "c1_9",
+      "original_arrival": "10:27:00",
+      "normalized_arrival": "10:34:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "37620"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_5",
+      "stop_id": "c1_3",
+      "original_arrival": "11:50:00",
+      "normalized_arrival": "11:54:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "42600"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_5",
+      "stop_id": "c1_4",
+      "original_arrival": "11:46:00",
+      "normalized_arrival": "11:55:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "42360"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_5",
+      "stop_id": "c1_5",
+      "original_arrival": "04:53:00",
+      "normalized_arrival": "11:56:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "17580"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_5",
+      "stop_id": "c1_6",
+      "original_arrival": "11:46:00",
+      "normalized_arrival": "11:57:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "42360"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_5",
+      "stop_id": "c1_7",
+      "original_arrival": "11:48:00",
+      "normalized_arrival": "11:58:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "42480"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_5",
+      "stop_id": "c1_8",
+      "original_arrival": "11:50:00",
+      "normalized_arrival": "11:59:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "42600"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_5",
+      "stop_id": "c1_9",
+      "original_arrival": "11:53:00",
+      "normalized_arrival": "12:00:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "42780"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_6",
+      "stop_id": "c1_3",
+      "original_arrival": "01:01:00",
+      "normalized_arrival": "01:05:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "3660"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_6",
+      "stop_id": "c1_5",
+      "original_arrival": "06:04:00",
+      "normalized_arrival": "12:58:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "21840"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_6",
+      "stop_id": "c1_6",
+      "original_arrival": "12:57:00",
+      "normalized_arrival": "12:59:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "46620"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_6",
+      "stop_id": "c1_8",
+      "original_arrival": "01:01:00",
+      "normalized_arrival": "13:01:00",
+      "correction": "12_hour_rollover",
+      "original_seconds": "3660"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_6",
+      "stop_id": "c1_9",
+      "original_arrival": "01:04:00",
+      "normalized_arrival": "13:04:00",
+      "correction": "12_hour_rollover",
+      "original_seconds": "3840"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_7",
+      "stop_id": "c1_3",
+      "original_arrival": "02:32:00",
+      "normalized_arrival": "02:36:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "9120"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_7",
+      "stop_id": "c1_4",
+      "original_arrival": "02:28:00",
+      "normalized_arrival": "02:37:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "8880"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_7",
+      "stop_id": "c1_6",
+      "original_arrival": "02:28:00",
+      "normalized_arrival": "07:16:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "8880"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_7",
+      "stop_id": "c1_7",
+      "original_arrival": "02:30:00",
+      "normalized_arrival": "07:17:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "9000"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_7",
+      "stop_id": "c1_8",
+      "original_arrival": "02:32:00",
+      "normalized_arrival": "07:18:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "9120"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_7",
+      "stop_id": "c1_9",
+      "original_arrival": "02:35:00",
+      "normalized_arrival": "07:19:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "9300"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_8",
+      "stop_id": "c1_3",
+      "original_arrival": "03:43:00",
+      "normalized_arrival": "03:47:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "13380"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_8",
+      "stop_id": "c1_4",
+      "original_arrival": "03:39:00",
+      "normalized_arrival": "03:48:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "13140"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_8",
+      "stop_id": "c1_6",
+      "original_arrival": "03:39:00",
+      "normalized_arrival": "08:42:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "13140"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_8",
+      "stop_id": "c1_7",
+      "original_arrival": "03:41:00",
+      "normalized_arrival": "08:43:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "13260"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_8",
+      "stop_id": "c1_8",
+      "original_arrival": "03:43:00",
+      "normalized_arrival": "08:44:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "13380"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_8",
+      "stop_id": "c1_9",
+      "original_arrival": "03:46:00",
+      "normalized_arrival": "08:45:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "13560"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_9",
+      "stop_id": "c1_3",
+      "original_arrival": "05:09:00",
+      "normalized_arrival": "05:13:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "18540"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_9",
+      "stop_id": "c1_4",
+      "original_arrival": "05:05:00",
+      "normalized_arrival": "05:14:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "18300"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_9",
+      "stop_id": "c1_6",
+      "original_arrival": "05:05:00",
+      "normalized_arrival": "09:53:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "18300"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_9",
+      "stop_id": "c1_7",
+      "original_arrival": "05:07:00",
+      "normalized_arrival": "09:54:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "18420"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_9",
+      "stop_id": "c1_8",
+      "original_arrival": "05:09:00",
+      "normalized_arrival": "09:55:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "18540"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_9",
+      "stop_id": "c1_9",
+      "original_arrival": "05:12:00",
+      "normalized_arrival": "09:56:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "18720"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_10",
+      "stop_id": "c1_3",
+      "original_arrival": "06:20:00",
+      "normalized_arrival": "06:24:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "22800"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_10",
+      "stop_id": "c1_4",
+      "original_arrival": "06:16:00",
+      "normalized_arrival": "06:25:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "22560"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_10",
+      "stop_id": "c1_6",
+      "original_arrival": "06:16:00",
+      "normalized_arrival": "06:26:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "22560"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_10",
+      "stop_id": "c1_7",
+      "original_arrival": "06:18:00",
+      "normalized_arrival": "06:27:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "22680"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_10",
+      "stop_id": "c1_8",
+      "original_arrival": "06:20:00",
+      "normalized_arrival": "06:28:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "22800"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_10",
+      "stop_id": "c1_9",
+      "original_arrival": "06:23:00",
+      "normalized_arrival": "06:29:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "22980"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_11",
+      "stop_id": "c1_3",
+      "original_arrival": "07:31:00",
+      "normalized_arrival": "07:35:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "27060"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_11",
+      "stop_id": "c1_4",
+      "original_arrival": "07:27:00",
+      "normalized_arrival": "07:36:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "26820"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_11",
+      "stop_id": "c1_6",
+      "original_arrival": "07:27:00",
+      "normalized_arrival": "07:37:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "26820"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_11",
+      "stop_id": "c1_7",
+      "original_arrival": "07:29:00",
+      "normalized_arrival": "07:38:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "26940"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_11",
+      "stop_id": "c1_8",
+      "original_arrival": "07:31:00",
+      "normalized_arrival": "07:39:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "27060"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_11",
+      "stop_id": "c1_9",
+      "original_arrival": "07:34:00",
+      "normalized_arrival": "07:40:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "27240"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_12",
+      "stop_id": "c1_3",
+      "original_arrival": "08:57:00",
+      "normalized_arrival": "09:01:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "32220"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_12",
+      "stop_id": "c1_4",
+      "original_arrival": "08:53:00",
+      "normalized_arrival": "09:02:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "31980"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_12",
+      "stop_id": "c1_6",
+      "original_arrival": "08:53:00",
+      "normalized_arrival": "09:03:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "31980"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_12",
+      "stop_id": "c1_7",
+      "original_arrival": "08:55:00",
+      "normalized_arrival": "09:04:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "32100"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_12",
+      "stop_id": "c1_8",
+      "original_arrival": "08:57:00",
+      "normalized_arrival": "09:05:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "32220"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_12",
+      "stop_id": "c1_9",
+      "original_arrival": "09:00:00",
+      "normalized_arrival": "09:06:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "32400"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_13",
+      "stop_id": "c1_3",
+      "original_arrival": "10:08:00",
+      "normalized_arrival": "10:12:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "36480"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_13",
+      "stop_id": "c1_4",
+      "original_arrival": "10:04:00",
+      "normalized_arrival": "10:13:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "36240"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_13",
+      "stop_id": "c1_6",
+      "original_arrival": "10:04:00",
+      "normalized_arrival": "10:14:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "36240"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_13",
+      "stop_id": "c1_7",
+      "original_arrival": "10:06:00",
+      "normalized_arrival": "10:15:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "36360"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_13",
+      "stop_id": "c1_8",
+      "original_arrival": "10:08:00",
+      "normalized_arrival": "10:16:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "36480"
+    },
+    {
+      "trip_id": "c1_weekday_am_pm_trip_13",
+      "stop_id": "c1_9",
+      "original_arrival": "10:11:00",
+      "normalized_arrival": "10:17:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "36660"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_1",
+      "stop_id": "c2_11",
+      "original_arrival": "07:09:00",
+      "normalized_arrival": "11:41:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "25740"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_1",
+      "stop_id": "c2_12",
+      "original_arrival": "06:48:00",
+      "normalized_arrival": "11:42:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "24480"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_1",
+      "stop_id": "c2_2",
+      "original_arrival": "06:23:00",
+      "normalized_arrival": "11:43:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "22980"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_1",
+      "stop_id": "c2_3",
+      "original_arrival": "06:25:00",
+      "normalized_arrival": "11:44:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "23100"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_1",
+      "stop_id": "c2_4",
+      "original_arrival": "06:32:00",
+      "normalized_arrival": "11:45:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "23520"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_1",
+      "stop_id": "c2_5",
+      "original_arrival": "06:39:00",
+      "normalized_arrival": "11:46:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "23940"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_1",
+      "stop_id": "c2_6",
+      "original_arrival": "06:41:00",
+      "normalized_arrival": "11:47:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "24060"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_1",
+      "stop_id": "c2_7",
+      "original_arrival": "06:45:00",
+      "normalized_arrival": "11:48:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "24300"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_1",
+      "stop_id": "c2_8",
+      "original_arrival": "06:48:00",
+      "normalized_arrival": "11:49:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "24480"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_2",
+      "stop_id": "c2_11",
+      "original_arrival": "08:22:00",
+      "normalized_arrival": "12:54:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "30120"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_2",
+      "stop_id": "c2_12",
+      "original_arrival": "07:46:00",
+      "normalized_arrival": "12:55:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "27960"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_2",
+      "stop_id": "c2_2",
+      "original_arrival": "07:21:00",
+      "normalized_arrival": "12:56:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "26460"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_2",
+      "stop_id": "c2_3",
+      "original_arrival": "07:23:00",
+      "normalized_arrival": "12:57:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "26580"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_2",
+      "stop_id": "c2_4",
+      "original_arrival": "07:30:00",
+      "normalized_arrival": "12:58:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "27000"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_2",
+      "stop_id": "c2_5",
+      "original_arrival": "07:37:00",
+      "normalized_arrival": "12:59:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "27420"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_2",
+      "stop_id": "c2_6",
+      "original_arrival": "07:39:00",
+      "normalized_arrival": "13:00:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "27540"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_2",
+      "stop_id": "c2_7",
+      "original_arrival": "07:43:00",
+      "normalized_arrival": "13:01:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "27780"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_2",
+      "stop_id": "c2_8",
+      "original_arrival": "07:46:00",
+      "normalized_arrival": "13:02:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "27960"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_3",
+      "stop_id": "c2_12",
+      "original_arrival": "08:59:00",
+      "normalized_arrival": "09:21:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "32340"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_3",
+      "stop_id": "c2_2",
+      "original_arrival": "08:34:00",
+      "normalized_arrival": "09:22:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "30840"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_3",
+      "stop_id": "c2_3",
+      "original_arrival": "08:36:00",
+      "normalized_arrival": "09:23:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "30960"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_3",
+      "stop_id": "c2_4",
+      "original_arrival": "08:43:00",
+      "normalized_arrival": "09:24:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "31380"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_3",
+      "stop_id": "c2_5",
+      "original_arrival": "08:50:00",
+      "normalized_arrival": "09:25:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "31800"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_3",
+      "stop_id": "c2_6",
+      "original_arrival": "08:52:00",
+      "normalized_arrival": "09:26:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "31920"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_3",
+      "stop_id": "c2_7",
+      "original_arrival": "08:56:00",
+      "normalized_arrival": "09:27:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "32160"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_3",
+      "stop_id": "c2_8",
+      "original_arrival": "08:59:00",
+      "normalized_arrival": "09:28:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "32340"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_4",
+      "stop_id": "c2_12",
+      "original_arrival": "09:57:00",
+      "normalized_arrival": "10:34:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "35820"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_4",
+      "stop_id": "c2_2",
+      "original_arrival": "09:32:00",
+      "normalized_arrival": "10:35:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "34320"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_4",
+      "stop_id": "c2_3",
+      "original_arrival": "09:34:00",
+      "normalized_arrival": "10:36:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "34440"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_4",
+      "stop_id": "c2_4",
+      "original_arrival": "09:41:00",
+      "normalized_arrival": "10:37:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "34860"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_4",
+      "stop_id": "c2_5",
+      "original_arrival": "09:48:00",
+      "normalized_arrival": "10:38:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "35280"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_4",
+      "stop_id": "c2_6",
+      "original_arrival": "09:50:00",
+      "normalized_arrival": "10:39:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "35400"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_4",
+      "stop_id": "c2_7",
+      "original_arrival": "09:54:00",
+      "normalized_arrival": "10:40:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "35640"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_4",
+      "stop_id": "c2_8",
+      "original_arrival": "09:57:00",
+      "normalized_arrival": "10:41:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "35820"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_5",
+      "stop_id": "c2_12",
+      "original_arrival": "11:10:00",
+      "normalized_arrival": "11:32:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "40200"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_5",
+      "stop_id": "c2_2",
+      "original_arrival": "10:45:00",
+      "normalized_arrival": "11:33:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "38700"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_5",
+      "stop_id": "c2_3",
+      "original_arrival": "10:47:00",
+      "normalized_arrival": "11:34:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "38820"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_5",
+      "stop_id": "c2_4",
+      "original_arrival": "10:54:00",
+      "normalized_arrival": "11:35:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "39240"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_5",
+      "stop_id": "c2_5",
+      "original_arrival": "11:01:00",
+      "normalized_arrival": "11:36:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "39660"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_5",
+      "stop_id": "c2_6",
+      "original_arrival": "11:03:00",
+      "normalized_arrival": "11:37:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "39780"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_5",
+      "stop_id": "c2_7",
+      "original_arrival": "11:07:00",
+      "normalized_arrival": "11:38:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "40020"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_5",
+      "stop_id": "c2_8",
+      "original_arrival": "11:10:00",
+      "normalized_arrival": "11:39:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "40200"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_6",
+      "stop_id": "c2_12",
+      "original_arrival": "12:08:00",
+      "normalized_arrival": "12:45:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "43680"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_6",
+      "stop_id": "c2_2",
+      "original_arrival": "11:43:00",
+      "normalized_arrival": "12:46:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "42180"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_6",
+      "stop_id": "c2_3",
+      "original_arrival": "11:45:00",
+      "normalized_arrival": "12:47:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "42300"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_6",
+      "stop_id": "c2_4",
+      "original_arrival": "11:52:00",
+      "normalized_arrival": "12:48:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "42720"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_6",
+      "stop_id": "c2_5",
+      "original_arrival": "11:59:00",
+      "normalized_arrival": "12:49:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "43140"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_6",
+      "stop_id": "c2_6",
+      "original_arrival": "12:01:00",
+      "normalized_arrival": "12:50:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "43260"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_6",
+      "stop_id": "c2_7",
+      "original_arrival": "12:05:00",
+      "normalized_arrival": "12:51:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "43500"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_6",
+      "stop_id": "c2_8",
+      "original_arrival": "12:08:00",
+      "normalized_arrival": "12:52:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "43680"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_7",
+      "stop_id": "c2_11",
+      "original_arrival": "01:42:00",
+      "normalized_arrival": "06:02:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "6120"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_7",
+      "stop_id": "c2_12",
+      "original_arrival": "01:21:00",
+      "normalized_arrival": "06:03:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "4860"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_7",
+      "stop_id": "c2_4",
+      "original_arrival": "01:05:00",
+      "normalized_arrival": "13:05:00",
+      "correction": "12_hour_rollover",
+      "original_seconds": "3900"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_7",
+      "stop_id": "c2_5",
+      "original_arrival": "01:12:00",
+      "normalized_arrival": "13:12:00",
+      "correction": "12_hour_rollover",
+      "original_seconds": "4320"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_7",
+      "stop_id": "c2_6",
+      "original_arrival": "01:14:00",
+      "normalized_arrival": "13:14:00",
+      "correction": "12_hour_rollover",
+      "original_seconds": "4440"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_7",
+      "stop_id": "c2_7",
+      "original_arrival": "01:18:00",
+      "normalized_arrival": "13:18:00",
+      "correction": "12_hour_rollover",
+      "original_seconds": "4680"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_7",
+      "stop_id": "c2_8",
+      "original_arrival": "01:21:00",
+      "normalized_arrival": "13:21:00",
+      "correction": "12_hour_rollover",
+      "original_seconds": "4860"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_8",
+      "stop_id": "c2_11",
+      "original_arrival": "02:43:00",
+      "normalized_arrival": "07:15:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "9780"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_8",
+      "stop_id": "c2_12",
+      "original_arrival": "02:22:00",
+      "normalized_arrival": "07:16:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "8520"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_8",
+      "stop_id": "c2_2",
+      "original_arrival": "01:54:00",
+      "normalized_arrival": "07:17:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "6840"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_8",
+      "stop_id": "c2_3",
+      "original_arrival": "01:56:00",
+      "normalized_arrival": "07:18:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "6960"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_8",
+      "stop_id": "c2_4",
+      "original_arrival": "02:03:00",
+      "normalized_arrival": "07:19:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "7380"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_8",
+      "stop_id": "c2_5",
+      "original_arrival": "02:13:00",
+      "normalized_arrival": "07:20:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "7980"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_8",
+      "stop_id": "c2_6",
+      "original_arrival": "02:15:00",
+      "normalized_arrival": "07:21:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "8100"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_8",
+      "stop_id": "c2_7",
+      "original_arrival": "02:19:00",
+      "normalized_arrival": "07:22:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "8340"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_8",
+      "stop_id": "c2_8",
+      "original_arrival": "02:22:00",
+      "normalized_arrival": "07:23:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "8520"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_9",
+      "stop_id": "c2_12",
+      "original_arrival": "03:20:00",
+      "normalized_arrival": "08:13:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "12000"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_9",
+      "stop_id": "c2_2",
+      "original_arrival": "02:55:00",
+      "normalized_arrival": "08:14:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "10500"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_9",
+      "stop_id": "c2_3",
+      "original_arrival": "02:57:00",
+      "normalized_arrival": "08:15:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "10620"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_9",
+      "stop_id": "c2_4",
+      "original_arrival": "03:04:00",
+      "normalized_arrival": "08:16:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "11040"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_9",
+      "stop_id": "c2_5",
+      "original_arrival": "03:11:00",
+      "normalized_arrival": "08:17:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "11460"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_9",
+      "stop_id": "c2_6",
+      "original_arrival": "03:13:00",
+      "normalized_arrival": "08:18:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "11580"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_9",
+      "stop_id": "c2_7",
+      "original_arrival": "03:17:00",
+      "normalized_arrival": "08:19:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "11820"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_9",
+      "stop_id": "c2_8",
+      "original_arrival": "03:20:00",
+      "normalized_arrival": "08:20:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "12000"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_10",
+      "stop_id": "c2_12",
+      "original_arrival": "04:18:00",
+      "normalized_arrival": "09:26:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "15480"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_10",
+      "stop_id": "c2_2",
+      "original_arrival": "03:53:00",
+      "normalized_arrival": "09:27:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "13980"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_10",
+      "stop_id": "c2_3",
+      "original_arrival": "03:55:00",
+      "normalized_arrival": "09:28:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "14100"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_10",
+      "stop_id": "c2_4",
+      "original_arrival": "04:02:00",
+      "normalized_arrival": "09:29:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "14520"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_10",
+      "stop_id": "c2_5",
+      "original_arrival": "04:09:00",
+      "normalized_arrival": "09:30:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "14940"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_10",
+      "stop_id": "c2_6",
+      "original_arrival": "04:11:00",
+      "normalized_arrival": "09:31:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "15060"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_10",
+      "stop_id": "c2_7",
+      "original_arrival": "04:15:00",
+      "normalized_arrival": "09:32:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "15300"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_10",
+      "stop_id": "c2_8",
+      "original_arrival": "04:18:00",
+      "normalized_arrival": "09:33:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "15480"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_11",
+      "stop_id": "c2_2",
+      "original_arrival": "05:06:00",
+      "normalized_arrival": "05:32:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "18360"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_11",
+      "stop_id": "c2_3",
+      "original_arrival": "05:08:00",
+      "normalized_arrival": "05:33:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "18480"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_11",
+      "stop_id": "c2_4",
+      "original_arrival": "05:15:00",
+      "normalized_arrival": "05:34:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "18900"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_11",
+      "stop_id": "c2_5",
+      "original_arrival": "05:22:00",
+      "normalized_arrival": "05:35:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "19320"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_11",
+      "stop_id": "c2_6",
+      "original_arrival": "05:24:00",
+      "normalized_arrival": "05:36:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "19440"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_11",
+      "stop_id": "c2_7",
+      "original_arrival": "05:28:00",
+      "normalized_arrival": "05:37:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "19680"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_11",
+      "stop_id": "c2_8",
+      "original_arrival": "05:31:00",
+      "normalized_arrival": "05:38:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "19860"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_12",
+      "stop_id": "c2_2",
+      "original_arrival": "06:04:00",
+      "normalized_arrival": "06:30:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "21840"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_12",
+      "stop_id": "c2_3",
+      "original_arrival": "06:06:00",
+      "normalized_arrival": "06:31:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "21960"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_12",
+      "stop_id": "c2_4",
+      "original_arrival": "06:13:00",
+      "normalized_arrival": "06:32:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "22380"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_12",
+      "stop_id": "c2_5",
+      "original_arrival": "06:20:00",
+      "normalized_arrival": "06:33:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "22800"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_12",
+      "stop_id": "c2_6",
+      "original_arrival": "06:22:00",
+      "normalized_arrival": "06:34:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "22920"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_12",
+      "stop_id": "c2_7",
+      "original_arrival": "06:26:00",
+      "normalized_arrival": "06:35:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "23160"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_12",
+      "stop_id": "c2_8",
+      "original_arrival": "06:29:00",
+      "normalized_arrival": "06:36:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "23340"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_13",
+      "stop_id": "c2_2",
+      "original_arrival": "07:17:00",
+      "normalized_arrival": "07:43:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "26220"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_13",
+      "stop_id": "c2_3",
+      "original_arrival": "07:19:00",
+      "normalized_arrival": "07:44:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "26340"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_13",
+      "stop_id": "c2_4",
+      "original_arrival": "07:26:00",
+      "normalized_arrival": "07:45:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "26760"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_13",
+      "stop_id": "c2_5",
+      "original_arrival": "07:33:00",
+      "normalized_arrival": "07:46:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "27180"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_13",
+      "stop_id": "c2_6",
+      "original_arrival": "07:35:00",
+      "normalized_arrival": "07:47:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "27300"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_13",
+      "stop_id": "c2_7",
+      "original_arrival": "07:39:00",
+      "normalized_arrival": "07:48:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "27540"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_13",
+      "stop_id": "c2_8",
+      "original_arrival": "07:42:00",
+      "normalized_arrival": "07:49:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "27720"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_14",
+      "stop_id": "c2_2",
+      "original_arrival": "08:15:00",
+      "normalized_arrival": "08:41:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "29700"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_14",
+      "stop_id": "c2_3",
+      "original_arrival": "08:17:00",
+      "normalized_arrival": "08:42:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "29820"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_14",
+      "stop_id": "c2_4",
+      "original_arrival": "08:24:00",
+      "normalized_arrival": "08:43:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "30240"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_14",
+      "stop_id": "c2_5",
+      "original_arrival": "08:31:00",
+      "normalized_arrival": "08:44:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "30660"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_14",
+      "stop_id": "c2_6",
+      "original_arrival": "08:33:00",
+      "normalized_arrival": "08:45:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "30780"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_14",
+      "stop_id": "c2_7",
+      "original_arrival": "08:37:00",
+      "normalized_arrival": "08:46:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "31020"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_14",
+      "stop_id": "c2_8",
+      "original_arrival": "08:40:00",
+      "normalized_arrival": "08:47:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "31200"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_15",
+      "stop_id": "c2_2",
+      "original_arrival": "09:28:00",
+      "normalized_arrival": "09:54:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "34080"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_15",
+      "stop_id": "c2_3",
+      "original_arrival": "09:30:00",
+      "normalized_arrival": "09:55:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "34200"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_15",
+      "stop_id": "c2_4",
+      "original_arrival": "09:37:00",
+      "normalized_arrival": "09:56:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "34620"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_15",
+      "stop_id": "c2_5",
+      "original_arrival": "09:44:00",
+      "normalized_arrival": "09:57:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "35040"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_15",
+      "stop_id": "c2_6",
+      "original_arrival": "09:46:00",
+      "normalized_arrival": "09:58:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "35160"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_15",
+      "stop_id": "c2_7",
+      "original_arrival": "09:50:00",
+      "normalized_arrival": "09:59:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "35400"
+    },
+    {
+      "trip_id": "c2_weekday_am_pm_trip_15",
+      "stop_id": "c2_8",
+      "original_arrival": "09:53:00",
+      "normalized_arrival": "10:00:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "35580"
+    },
+    {
+      "trip_id": "e1_weekday_am_pm_trip_5",
+      "stop_id": "e1_4",
+      "original_arrival": "01:06:00",
+      "normalized_arrival": "13:06:00",
+      "correction": "12_hour_rollover",
+      "original_seconds": "3960"
+    },
+    {
+      "trip_id": "e1_weekday_am_pm_trip_5",
+      "stop_id": "e1_5",
+      "original_arrival": "01:19:00",
+      "normalized_arrival": "13:19:00",
+      "correction": "12_hour_rollover",
+      "original_seconds": "4740"
+    },
+    {
+      "trip_id": "e1_weekday_am_pm_trip_5",
+      "stop_id": "e1_6",
+      "original_arrival": "01:21:00",
+      "normalized_arrival": "13:21:00",
+      "correction": "12_hour_rollover",
+      "original_seconds": "4860"
+    },
+    {
+      "trip_id": "e1_weekday_am_pm_trip_5",
+      "stop_id": "e1_7",
+      "original_arrival": "01:25:00",
+      "normalized_arrival": "13:25:00",
+      "correction": "12_hour_rollover",
+      "original_seconds": "5100"
+    },
+    {
+      "trip_id": "e1_weekday_am_pm_trip_5",
+      "stop_id": "e1_8",
+      "original_arrival": "01:32:00",
+      "normalized_arrival": "13:32:00",
+      "correction": "12_hour_rollover",
+      "original_seconds": "5520"
+    },
+    {
+      "trip_id": "e1_weekday_am_pm_trip_5",
+      "stop_id": "e1_9",
+      "original_arrival": "01:36:00",
+      "normalized_arrival": "13:36:00",
+      "correction": "12_hour_rollover",
+      "original_seconds": "5760"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_1",
+      "stop_id": "e2_2",
+      "original_arrival": "11:14:00",
+      "normalized_arrival": "11:47:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "40440"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_1",
+      "stop_id": "e2_3",
+      "original_arrival": "11:20:00",
+      "normalized_arrival": "11:48:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "40800"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_1",
+      "stop_id": "e2_4",
+      "original_arrival": "11:23:00",
+      "normalized_arrival": "11:49:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "40980"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_1",
+      "stop_id": "e2_5",
+      "original_arrival": "11:25:00",
+      "normalized_arrival": "11:50:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "41100"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_1",
+      "stop_id": "e2_6",
+      "original_arrival": "11:31:00",
+      "normalized_arrival": "11:51:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "41460"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_1",
+      "stop_id": "e2_7",
+      "original_arrival": "11:20:00",
+      "normalized_arrival": "11:52:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "40800"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_1",
+      "stop_id": "e2_8",
+      "original_arrival": "11:37:00",
+      "normalized_arrival": "11:53:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "41820"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_1",
+      "stop_id": "e2_9",
+      "original_arrival": "11:43:00",
+      "normalized_arrival": "11:54:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "42180"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_2",
+      "stop_id": "e2_2",
+      "original_arrival": "12:18:00",
+      "normalized_arrival": "12:51:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "44280"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_2",
+      "stop_id": "e2_3",
+      "original_arrival": "12:24:00",
+      "normalized_arrival": "12:52:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "44640"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_2",
+      "stop_id": "e2_4",
+      "original_arrival": "12:27:00",
+      "normalized_arrival": "12:53:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "44820"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_2",
+      "stop_id": "e2_5",
+      "original_arrival": "12:29:00",
+      "normalized_arrival": "12:54:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "44940"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_2",
+      "stop_id": "e2_6",
+      "original_arrival": "12:35:00",
+      "normalized_arrival": "12:55:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "45300"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_2",
+      "stop_id": "e2_7",
+      "original_arrival": "12:24:00",
+      "normalized_arrival": "12:56:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "44640"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_2",
+      "stop_id": "e2_8",
+      "original_arrival": "12:41:00",
+      "normalized_arrival": "12:57:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "45660"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_2",
+      "stop_id": "e2_9",
+      "original_arrival": "12:47:00",
+      "normalized_arrival": "12:58:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "46020"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_3",
+      "stop_id": "e2_2",
+      "original_arrival": "01:07:00",
+      "normalized_arrival": "01:40:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "4020"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_3",
+      "stop_id": "e2_3",
+      "original_arrival": "01:13:00",
+      "normalized_arrival": "01:41:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "4380"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_3",
+      "stop_id": "e2_4",
+      "original_arrival": "01:16:00",
+      "normalized_arrival": "01:42:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "4560"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_3",
+      "stop_id": "e2_5",
+      "original_arrival": "01:18:00",
+      "normalized_arrival": "01:43:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "4680"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_3",
+      "stop_id": "e2_6",
+      "original_arrival": "01:24:00",
+      "normalized_arrival": "01:44:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "5040"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_3",
+      "stop_id": "e2_7",
+      "original_arrival": "01:13:00",
+      "normalized_arrival": "01:45:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "4380"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_3",
+      "stop_id": "e2_8",
+      "original_arrival": "01:30:00",
+      "normalized_arrival": "01:46:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "5400"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_3",
+      "stop_id": "e2_9",
+      "original_arrival": "01:36:00",
+      "normalized_arrival": "01:47:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "5760"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_4",
+      "stop_id": "e2_2",
+      "original_arrival": "01:56:00",
+      "normalized_arrival": "02:29:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "6960"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_4",
+      "stop_id": "e2_3",
+      "original_arrival": "02:02:00",
+      "normalized_arrival": "02:30:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "7320"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_4",
+      "stop_id": "e2_4",
+      "original_arrival": "02:05:00",
+      "normalized_arrival": "02:31:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "7500"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_4",
+      "stop_id": "e2_5",
+      "original_arrival": "02:07:00",
+      "normalized_arrival": "02:32:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "7620"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_4",
+      "stop_id": "e2_6",
+      "original_arrival": "02:13:00",
+      "normalized_arrival": "02:33:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "7980"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_4",
+      "stop_id": "e2_7",
+      "original_arrival": "02:02:00",
+      "normalized_arrival": "02:34:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "7320"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_4",
+      "stop_id": "e2_8",
+      "original_arrival": "02:19:00",
+      "normalized_arrival": "02:35:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "8340"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_4",
+      "stop_id": "e2_9",
+      "original_arrival": "02:25:00",
+      "normalized_arrival": "02:36:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "8700"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_5",
+      "stop_id": "e2_2",
+      "original_arrival": "02:45:00",
+      "normalized_arrival": "03:18:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "9900"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_5",
+      "stop_id": "e2_3",
+      "original_arrival": "02:51:00",
+      "normalized_arrival": "03:19:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "10260"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_5",
+      "stop_id": "e2_4",
+      "original_arrival": "02:54:00",
+      "normalized_arrival": "03:20:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "10440"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_5",
+      "stop_id": "e2_5",
+      "original_arrival": "02:56:00",
+      "normalized_arrival": "03:21:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "10560"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_5",
+      "stop_id": "e2_6",
+      "original_arrival": "03:02:00",
+      "normalized_arrival": "03:22:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "10920"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_5",
+      "stop_id": "e2_7",
+      "original_arrival": "02:51:00",
+      "normalized_arrival": "03:23:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "10260"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_5",
+      "stop_id": "e2_8",
+      "original_arrival": "03:08:00",
+      "normalized_arrival": "03:24:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "11280"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_5",
+      "stop_id": "e2_9",
+      "original_arrival": "03:14:00",
+      "normalized_arrival": "03:25:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "11640"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_6",
+      "stop_id": "e2_2",
+      "original_arrival": "03:49:00",
+      "normalized_arrival": "04:22:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "13740"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_6",
+      "stop_id": "e2_3",
+      "original_arrival": "03:55:00",
+      "normalized_arrival": "04:23:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "14100"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_6",
+      "stop_id": "e2_4",
+      "original_arrival": "03:58:00",
+      "normalized_arrival": "04:24:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "14280"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_6",
+      "stop_id": "e2_5",
+      "original_arrival": "04:00:00",
+      "normalized_arrival": "04:25:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "14400"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_6",
+      "stop_id": "e2_6",
+      "original_arrival": "04:06:00",
+      "normalized_arrival": "04:26:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "14760"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_6",
+      "stop_id": "e2_7",
+      "original_arrival": "03:55:00",
+      "normalized_arrival": "04:27:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "14100"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_6",
+      "stop_id": "e2_8",
+      "original_arrival": "04:12:00",
+      "normalized_arrival": "04:28:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "15120"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_6",
+      "stop_id": "e2_9",
+      "original_arrival": "04:18:00",
+      "normalized_arrival": "04:29:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "15480"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_7",
+      "stop_id": "e2_2",
+      "original_arrival": "04:38:00",
+      "normalized_arrival": "05:11:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "16680"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_7",
+      "stop_id": "e2_3",
+      "original_arrival": "04:44:00",
+      "normalized_arrival": "05:12:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "17040"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_7",
+      "stop_id": "e2_4",
+      "original_arrival": "04:47:00",
+      "normalized_arrival": "05:13:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "17220"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_7",
+      "stop_id": "e2_5",
+      "original_arrival": "04:49:00",
+      "normalized_arrival": "05:14:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "17340"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_7",
+      "stop_id": "e2_6",
+      "original_arrival": "04:55:00",
+      "normalized_arrival": "05:15:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "17700"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_7",
+      "stop_id": "e2_7",
+      "original_arrival": "04:44:00",
+      "normalized_arrival": "05:16:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "17040"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_7",
+      "stop_id": "e2_8",
+      "original_arrival": "05:01:00",
+      "normalized_arrival": "05:17:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "18060"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_7",
+      "stop_id": "e2_9",
+      "original_arrival": "05:07:00",
+      "normalized_arrival": "05:18:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "18420"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_8",
+      "stop_id": "e2_2",
+      "original_arrival": "05:27:00",
+      "normalized_arrival": "06:03:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "19620"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_8",
+      "stop_id": "e2_3",
+      "original_arrival": "05:36:00",
+      "normalized_arrival": "06:04:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "20160"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_8",
+      "stop_id": "e2_4",
+      "original_arrival": "05:39:00",
+      "normalized_arrival": "06:05:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "20340"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_8",
+      "stop_id": "e2_5",
+      "original_arrival": "05:41:00",
+      "normalized_arrival": "06:06:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "20460"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_8",
+      "stop_id": "e2_6",
+      "original_arrival": "05:47:00",
+      "normalized_arrival": "06:07:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "20820"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_8",
+      "stop_id": "e2_7",
+      "original_arrival": "05:36:00",
+      "normalized_arrival": "06:08:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "20160"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_8",
+      "stop_id": "e2_8",
+      "original_arrival": "05:53:00",
+      "normalized_arrival": "06:09:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "21180"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_8",
+      "stop_id": "e2_9",
+      "original_arrival": "05:59:00",
+      "normalized_arrival": "06:10:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "21540"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_9",
+      "stop_id": "e2_2",
+      "original_arrival": "06:34:00",
+      "normalized_arrival": "07:07:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "23640"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_9",
+      "stop_id": "e2_3",
+      "original_arrival": "06:40:00",
+      "normalized_arrival": "07:08:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "24000"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_9",
+      "stop_id": "e2_4",
+      "original_arrival": "06:43:00",
+      "normalized_arrival": "07:09:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "24180"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_9",
+      "stop_id": "e2_5",
+      "original_arrival": "06:45:00",
+      "normalized_arrival": "07:10:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "24300"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_9",
+      "stop_id": "e2_6",
+      "original_arrival": "06:51:00",
+      "normalized_arrival": "07:11:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "24660"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_9",
+      "stop_id": "e2_7",
+      "original_arrival": "06:40:00",
+      "normalized_arrival": "07:12:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "24000"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_9",
+      "stop_id": "e2_8",
+      "original_arrival": "06:57:00",
+      "normalized_arrival": "07:13:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "25020"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_9",
+      "stop_id": "e2_9",
+      "original_arrival": "07:03:00",
+      "normalized_arrival": "07:14:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "25380"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_10",
+      "stop_id": "e2_2",
+      "original_arrival": "07:23:00",
+      "normalized_arrival": "07:56:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "26580"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_10",
+      "stop_id": "e2_3",
+      "original_arrival": "07:29:00",
+      "normalized_arrival": "07:57:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "26940"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_10",
+      "stop_id": "e2_4",
+      "original_arrival": "07:32:00",
+      "normalized_arrival": "07:58:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "27120"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_10",
+      "stop_id": "e2_5",
+      "original_arrival": "07:34:00",
+      "normalized_arrival": "07:59:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "27240"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_10",
+      "stop_id": "e2_6",
+      "original_arrival": "07:40:00",
+      "normalized_arrival": "08:00:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "27600"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_10",
+      "stop_id": "e2_7",
+      "original_arrival": "07:29:00",
+      "normalized_arrival": "08:01:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "26940"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_10",
+      "stop_id": "e2_8",
+      "original_arrival": "07:46:00",
+      "normalized_arrival": "08:02:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "27960"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_10",
+      "stop_id": "e2_9",
+      "original_arrival": "07:52:00",
+      "normalized_arrival": "08:03:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "28320"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_11",
+      "stop_id": "e2_2",
+      "original_arrival": "08:27:00",
+      "normalized_arrival": "09:00:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "30420"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_11",
+      "stop_id": "e2_3",
+      "original_arrival": "08:33:00",
+      "normalized_arrival": "09:01:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "30780"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_11",
+      "stop_id": "e2_4",
+      "original_arrival": "08:36:00",
+      "normalized_arrival": "09:02:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "30960"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_11",
+      "stop_id": "e2_5",
+      "original_arrival": "08:38:00",
+      "normalized_arrival": "09:03:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "31080"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_11",
+      "stop_id": "e2_6",
+      "original_arrival": "08:44:00",
+      "normalized_arrival": "09:04:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "31440"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_11",
+      "stop_id": "e2_7",
+      "original_arrival": "08:33:00",
+      "normalized_arrival": "09:05:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "30780"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_11",
+      "stop_id": "e2_8",
+      "original_arrival": "08:50:00",
+      "normalized_arrival": "09:06:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "31800"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_11",
+      "stop_id": "e2_9",
+      "original_arrival": "08:56:00",
+      "normalized_arrival": "09:07:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "32160"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_12",
+      "stop_id": "e2_2",
+      "original_arrival": "09:16:00",
+      "normalized_arrival": "09:49:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "33360"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_12",
+      "stop_id": "e2_3",
+      "original_arrival": "09:22:00",
+      "normalized_arrival": "09:50:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "33720"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_12",
+      "stop_id": "e2_4",
+      "original_arrival": "09:25:00",
+      "normalized_arrival": "09:51:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "33900"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_12",
+      "stop_id": "e2_5",
+      "original_arrival": "09:27:00",
+      "normalized_arrival": "09:52:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "34020"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_12",
+      "stop_id": "e2_6",
+      "original_arrival": "09:33:00",
+      "normalized_arrival": "09:53:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "34380"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_12",
+      "stop_id": "e2_7",
+      "original_arrival": "09:22:00",
+      "normalized_arrival": "09:54:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "33720"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_12",
+      "stop_id": "e2_8",
+      "original_arrival": "09:39:00",
+      "normalized_arrival": "09:55:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "34740"
+    },
+    {
+      "trip_id": "e2_weekend_am_pm_trip_12",
+      "stop_id": "e2_9",
+      "original_arrival": "09:45:00",
+      "normalized_arrival": "09:56:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "35100"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_1",
+      "stop_id": "fastcat_2_2",
+      "original_arrival": "08:34:00",
+      "normalized_arrival": "09:18:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "30840"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_1",
+      "stop_id": "fastcat_2_3",
+      "original_arrival": "08:37:00",
+      "normalized_arrival": "09:19:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "31020"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_1",
+      "stop_id": "fastcat_2_4",
+      "original_arrival": "08:39:00",
+      "normalized_arrival": "09:20:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "31140"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_1",
+      "stop_id": "fastcat_2_5",
+      "original_arrival": "08:43:00",
+      "normalized_arrival": "09:21:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "31380"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_1",
+      "stop_id": "fastcat_2_8",
+      "original_arrival": "08:39:00",
+      "normalized_arrival": "09:22:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "31140"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_1",
+      "stop_id": "fastcat_2_9",
+      "original_arrival": "09:11:00",
+      "normalized_arrival": "09:23:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "33060"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_2",
+      "stop_id": "fastcat_2_2",
+      "original_arrival": "09:38:00",
+      "normalized_arrival": "10:37:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "34680"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_2",
+      "stop_id": "fastcat_2_3",
+      "original_arrival": "09:41:00",
+      "normalized_arrival": "10:38:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "34860"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_2",
+      "stop_id": "fastcat_2_4",
+      "original_arrival": "09:43:00",
+      "normalized_arrival": "10:39:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "34980"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_2",
+      "stop_id": "fastcat_2_5",
+      "original_arrival": "09:47:00",
+      "normalized_arrival": "10:40:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "35220"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_2",
+      "stop_id": "fastcat_2_8",
+      "original_arrival": "09:43:00",
+      "normalized_arrival": "10:41:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "34980"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_2",
+      "stop_id": "fastcat_2_9",
+      "original_arrival": "10:30:00",
+      "normalized_arrival": "10:42:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "37800"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_3",
+      "stop_id": "fastcat_2_2",
+      "original_arrival": "10:57:00",
+      "normalized_arrival": "11:41:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "39420"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_3",
+      "stop_id": "fastcat_2_3",
+      "original_arrival": "11:00:00",
+      "normalized_arrival": "11:42:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "39600"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_3",
+      "stop_id": "fastcat_2_4",
+      "original_arrival": "11:02:00",
+      "normalized_arrival": "11:43:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "39720"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_3",
+      "stop_id": "fastcat_2_5",
+      "original_arrival": "11:06:00",
+      "normalized_arrival": "11:44:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "39960"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_3",
+      "stop_id": "fastcat_2_8",
+      "original_arrival": "11:02:00",
+      "normalized_arrival": "11:45:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "39720"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_3",
+      "stop_id": "fastcat_2_9",
+      "original_arrival": "11:34:00",
+      "normalized_arrival": "11:46:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "41640"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_4",
+      "stop_id": "fastcat_2_2",
+      "original_arrival": "12:01:00",
+      "normalized_arrival": "12:45:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "43260"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_4",
+      "stop_id": "fastcat_2_3",
+      "original_arrival": "12:04:00",
+      "normalized_arrival": "12:46:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "43440"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_4",
+      "stop_id": "fastcat_2_4",
+      "original_arrival": "12:06:00",
+      "normalized_arrival": "12:47:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "43560"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_4",
+      "stop_id": "fastcat_2_5",
+      "original_arrival": "12:10:00",
+      "normalized_arrival": "12:48:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "43800"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_4",
+      "stop_id": "fastcat_2_8",
+      "original_arrival": "12:06:00",
+      "normalized_arrival": "12:49:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "43560"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_4",
+      "stop_id": "fastcat_2_9",
+      "original_arrival": "12:38:00",
+      "normalized_arrival": "12:50:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "45480"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_5",
+      "stop_id": "fastcat_2_2",
+      "original_arrival": "01:05:00",
+      "normalized_arrival": "01:49:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "3900"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_5",
+      "stop_id": "fastcat_2_3",
+      "original_arrival": "01:08:00",
+      "normalized_arrival": "01:50:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "4080"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_5",
+      "stop_id": "fastcat_2_4",
+      "original_arrival": "01:10:00",
+      "normalized_arrival": "01:51:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "4200"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_5",
+      "stop_id": "fastcat_2_5",
+      "original_arrival": "01:14:00",
+      "normalized_arrival": "01:52:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "4440"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_5",
+      "stop_id": "fastcat_2_8",
+      "original_arrival": "01:10:00",
+      "normalized_arrival": "01:53:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "4200"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_5",
+      "stop_id": "fastcat_2_9",
+      "original_arrival": "01:42:00",
+      "normalized_arrival": "01:54:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "6120"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_6",
+      "stop_id": "fastcat_2_2",
+      "original_arrival": "02:24:00",
+      "normalized_arrival": "03:08:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "8640"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_6",
+      "stop_id": "fastcat_2_3",
+      "original_arrival": "02:27:00",
+      "normalized_arrival": "03:09:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "8820"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_6",
+      "stop_id": "fastcat_2_4",
+      "original_arrival": "02:29:00",
+      "normalized_arrival": "03:10:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "8940"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_6",
+      "stop_id": "fastcat_2_5",
+      "original_arrival": "02:33:00",
+      "normalized_arrival": "03:11:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "9180"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_6",
+      "stop_id": "fastcat_2_8",
+      "original_arrival": "02:29:00",
+      "normalized_arrival": "03:12:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "8940"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_6",
+      "stop_id": "fastcat_2_9",
+      "original_arrival": "03:01:00",
+      "normalized_arrival": "03:13:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "10860"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_7",
+      "stop_id": "fastcat_2_2",
+      "original_arrival": "03:28:00",
+      "normalized_arrival": "04:12:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "12480"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_7",
+      "stop_id": "fastcat_2_3",
+      "original_arrival": "03:31:00",
+      "normalized_arrival": "04:13:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "12660"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_7",
+      "stop_id": "fastcat_2_4",
+      "original_arrival": "03:33:00",
+      "normalized_arrival": "04:14:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "12780"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_7",
+      "stop_id": "fastcat_2_5",
+      "original_arrival": "03:37:00",
+      "normalized_arrival": "04:15:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "13020"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_7",
+      "stop_id": "fastcat_2_8",
+      "original_arrival": "03:33:00",
+      "normalized_arrival": "04:16:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "12780"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_7",
+      "stop_id": "fastcat_2_9",
+      "original_arrival": "04:05:00",
+      "normalized_arrival": "04:17:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "14700"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_8",
+      "stop_id": "fastcat_2_2",
+      "original_arrival": "04:35:00",
+      "normalized_arrival": "05:19:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "16500"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_8",
+      "stop_id": "fastcat_2_3",
+      "original_arrival": "04:38:00",
+      "normalized_arrival": "05:20:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "16680"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_8",
+      "stop_id": "fastcat_2_4",
+      "original_arrival": "04:40:00",
+      "normalized_arrival": "05:21:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "16800"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_8",
+      "stop_id": "fastcat_2_5",
+      "original_arrival": "04:44:00",
+      "normalized_arrival": "05:22:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "17040"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_8",
+      "stop_id": "fastcat_2_8",
+      "original_arrival": "04:40:00",
+      "normalized_arrival": "05:23:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "16800"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_8",
+      "stop_id": "fastcat_2_9",
+      "original_arrival": "05:12:00",
+      "normalized_arrival": "05:24:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "18720"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_9",
+      "stop_id": "fastcat_2_2",
+      "original_arrival": "05:54:00",
+      "normalized_arrival": "06:38:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "21240"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_9",
+      "stop_id": "fastcat_2_3",
+      "original_arrival": "05:57:00",
+      "normalized_arrival": "06:39:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "21420"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_9",
+      "stop_id": "fastcat_2_4",
+      "original_arrival": "05:59:00",
+      "normalized_arrival": "06:40:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "21540"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_9",
+      "stop_id": "fastcat_2_5",
+      "original_arrival": "06:03:00",
+      "normalized_arrival": "06:41:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "21780"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_9",
+      "stop_id": "fastcat_2_8",
+      "original_arrival": "05:59:00",
+      "normalized_arrival": "06:42:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "21540"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_9",
+      "stop_id": "fastcat_2_9",
+      "original_arrival": "06:31:00",
+      "normalized_arrival": "06:43:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "23460"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_10",
+      "stop_id": "fastcat_2_2",
+      "original_arrival": "06:58:00",
+      "normalized_arrival": "07:42:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "25080"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_10",
+      "stop_id": "fastcat_2_3",
+      "original_arrival": "07:01:00",
+      "normalized_arrival": "07:43:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "25260"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_10",
+      "stop_id": "fastcat_2_4",
+      "original_arrival": "07:03:00",
+      "normalized_arrival": "07:44:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "25380"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_10",
+      "stop_id": "fastcat_2_5",
+      "original_arrival": "07:07:00",
+      "normalized_arrival": "07:45:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "25620"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_10",
+      "stop_id": "fastcat_2_8",
+      "original_arrival": "07:03:00",
+      "normalized_arrival": "07:46:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "25380"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_10",
+      "stop_id": "fastcat_2_9",
+      "original_arrival": "07:35:00",
+      "normalized_arrival": "07:47:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "27300"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_11",
+      "stop_id": "fastcat_2_2",
+      "original_arrival": "08:17:00",
+      "normalized_arrival": "09:01:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "29820"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_11",
+      "stop_id": "fastcat_2_3",
+      "original_arrival": "08:20:00",
+      "normalized_arrival": "09:02:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "30000"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_11",
+      "stop_id": "fastcat_2_4",
+      "original_arrival": "08:22:00",
+      "normalized_arrival": "09:03:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "30120"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_11",
+      "stop_id": "fastcat_2_5",
+      "original_arrival": "08:26:00",
+      "normalized_arrival": "09:04:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "30360"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_11",
+      "stop_id": "fastcat_2_8",
+      "original_arrival": "08:22:00",
+      "normalized_arrival": "09:05:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "30120"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_11",
+      "stop_id": "fastcat_2_9",
+      "original_arrival": "08:54:00",
+      "normalized_arrival": "09:06:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "32040"
+    },
+    {
+      "trip_id": "fastcat_2_weekday_am_pm_trip_12",
+      "stop_id": "fastcat_2_8",
+      "original_arrival": "09:26:00",
+      "normalized_arrival": "09:31:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "33960"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_1",
+      "stop_id": "fastcat_10",
+      "original_arrival": "07:22:00",
+      "normalized_arrival": "11:07:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "26520"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_1",
+      "stop_id": "fastcat_2",
+      "original_arrival": "06:39:00",
+      "normalized_arrival": "11:08:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "23940"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_1",
+      "stop_id": "fastcat_3",
+      "original_arrival": "06:42:00",
+      "normalized_arrival": "11:09:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "24120"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_1",
+      "stop_id": "fastcat_4",
+      "original_arrival": "06:44:00",
+      "normalized_arrival": "11:10:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "24240"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_1",
+      "stop_id": "fastcat_5",
+      "original_arrival": "06:48:00",
+      "normalized_arrival": "11:11:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "24480"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_1",
+      "stop_id": "fastcat_8",
+      "original_arrival": "06:44:00",
+      "normalized_arrival": "11:12:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "24240"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_1",
+      "stop_id": "fastcat_9",
+      "original_arrival": "07:16:00",
+      "normalized_arrival": "11:13:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "26160"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_2",
+      "stop_id": "fastcat_10",
+      "original_arrival": "08:41:00",
+      "normalized_arrival": "12:26:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "31260"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_2",
+      "stop_id": "fastcat_2",
+      "original_arrival": "07:43:00",
+      "normalized_arrival": "12:27:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "27780"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_2",
+      "stop_id": "fastcat_3",
+      "original_arrival": "07:46:00",
+      "normalized_arrival": "12:28:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "27960"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_2",
+      "stop_id": "fastcat_4",
+      "original_arrival": "07:48:00",
+      "normalized_arrival": "12:29:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "28080"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_2",
+      "stop_id": "fastcat_5",
+      "original_arrival": "07:52:00",
+      "normalized_arrival": "12:30:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "28320"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_2",
+      "stop_id": "fastcat_8",
+      "original_arrival": "07:48:00",
+      "normalized_arrival": "12:31:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "28080"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_2",
+      "stop_id": "fastcat_9",
+      "original_arrival": "08:35:00",
+      "normalized_arrival": "12:32:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "30900"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_3",
+      "stop_id": "fastcat_2",
+      "original_arrival": "09:02:00",
+      "normalized_arrival": "09:46:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "32520"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_3",
+      "stop_id": "fastcat_3",
+      "original_arrival": "09:05:00",
+      "normalized_arrival": "09:47:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "32700"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_3",
+      "stop_id": "fastcat_4",
+      "original_arrival": "09:07:00",
+      "normalized_arrival": "09:48:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "32820"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_3",
+      "stop_id": "fastcat_5",
+      "original_arrival": "09:11:00",
+      "normalized_arrival": "09:49:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "33060"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_3",
+      "stop_id": "fastcat_8",
+      "original_arrival": "09:07:00",
+      "normalized_arrival": "09:50:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "32820"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_3",
+      "stop_id": "fastcat_9",
+      "original_arrival": "09:39:00",
+      "normalized_arrival": "09:51:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "34740"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_4",
+      "stop_id": "fastcat_2",
+      "original_arrival": "10:06:00",
+      "normalized_arrival": "10:50:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "36360"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_4",
+      "stop_id": "fastcat_3",
+      "original_arrival": "10:09:00",
+      "normalized_arrival": "10:51:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "36540"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_4",
+      "stop_id": "fastcat_4",
+      "original_arrival": "10:11:00",
+      "normalized_arrival": "10:52:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "36660"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_4",
+      "stop_id": "fastcat_5",
+      "original_arrival": "10:15:00",
+      "normalized_arrival": "10:53:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "36900"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_4",
+      "stop_id": "fastcat_8",
+      "original_arrival": "10:11:00",
+      "normalized_arrival": "10:54:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "36660"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_4",
+      "stop_id": "fastcat_9",
+      "original_arrival": "10:43:00",
+      "normalized_arrival": "10:55:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "38580"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_5",
+      "stop_id": "fastcat_2",
+      "original_arrival": "11:10:00",
+      "normalized_arrival": "11:54:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "40200"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_5",
+      "stop_id": "fastcat_3",
+      "original_arrival": "11:13:00",
+      "normalized_arrival": "11:55:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "40380"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_5",
+      "stop_id": "fastcat_4",
+      "original_arrival": "11:15:00",
+      "normalized_arrival": "11:56:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "40500"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_5",
+      "stop_id": "fastcat_5",
+      "original_arrival": "11:19:00",
+      "normalized_arrival": "11:57:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "40740"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_5",
+      "stop_id": "fastcat_8",
+      "original_arrival": "11:15:00",
+      "normalized_arrival": "11:58:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "40500"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_5",
+      "stop_id": "fastcat_9",
+      "original_arrival": "11:47:00",
+      "normalized_arrival": "11:59:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "42420"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_6",
+      "stop_id": "fastcat_10",
+      "original_arrival": "01:12:00",
+      "normalized_arrival": "05:00:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "4320"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_6",
+      "stop_id": "fastcat_8",
+      "original_arrival": "12:34:00",
+      "normalized_arrival": "12:39:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "45240"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_6",
+      "stop_id": "fastcat_9",
+      "original_arrival": "01:06:00",
+      "normalized_arrival": "13:06:00",
+      "correction": "12_hour_rollover",
+      "original_seconds": "3960"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_7",
+      "stop_id": "fastcat_10",
+      "original_arrival": "02:19:00",
+      "normalized_arrival": "06:04:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "8340"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_7",
+      "stop_id": "fastcat_2",
+      "original_arrival": "01:33:00",
+      "normalized_arrival": "06:05:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "5580"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_7",
+      "stop_id": "fastcat_3",
+      "original_arrival": "01:36:00",
+      "normalized_arrival": "06:06:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "5760"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_7",
+      "stop_id": "fastcat_4",
+      "original_arrival": "01:38:00",
+      "normalized_arrival": "06:07:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "5880"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_7",
+      "stop_id": "fastcat_5",
+      "original_arrival": "01:42:00",
+      "normalized_arrival": "06:08:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "6120"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_7",
+      "stop_id": "fastcat_8",
+      "original_arrival": "01:38:00",
+      "normalized_arrival": "06:09:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "5880"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_7",
+      "stop_id": "fastcat_9",
+      "original_arrival": "02:10:00",
+      "normalized_arrival": "06:10:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "7800"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_8",
+      "stop_id": "fastcat_10",
+      "original_arrival": "03:23:00",
+      "normalized_arrival": "07:08:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "12180"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_8",
+      "stop_id": "fastcat_2",
+      "original_arrival": "02:40:00",
+      "normalized_arrival": "07:09:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "9600"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_8",
+      "stop_id": "fastcat_3",
+      "original_arrival": "02:43:00",
+      "normalized_arrival": "07:10:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "9780"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_8",
+      "stop_id": "fastcat_4",
+      "original_arrival": "02:45:00",
+      "normalized_arrival": "07:11:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "9900"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_8",
+      "stop_id": "fastcat_5",
+      "original_arrival": "02:49:00",
+      "normalized_arrival": "07:12:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "10140"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_8",
+      "stop_id": "fastcat_8",
+      "original_arrival": "02:45:00",
+      "normalized_arrival": "07:13:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "9900"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_8",
+      "stop_id": "fastcat_9",
+      "original_arrival": "03:17:00",
+      "normalized_arrival": "07:14:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "11820"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_9",
+      "stop_id": "fastcat_10",
+      "original_arrival": "04:42:00",
+      "normalized_arrival": "08:12:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "16920"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_9",
+      "stop_id": "fastcat_2",
+      "original_arrival": "03:44:00",
+      "normalized_arrival": "08:13:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "13440"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_9",
+      "stop_id": "fastcat_3",
+      "original_arrival": "03:47:00",
+      "normalized_arrival": "08:14:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "13620"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_9",
+      "stop_id": "fastcat_4",
+      "original_arrival": "03:49:00",
+      "normalized_arrival": "08:15:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "13740"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_9",
+      "stop_id": "fastcat_5",
+      "original_arrival": "03:53:00",
+      "normalized_arrival": "08:16:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "13980"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_9",
+      "stop_id": "fastcat_8",
+      "original_arrival": "03:49:00",
+      "normalized_arrival": "08:17:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "13740"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_9",
+      "stop_id": "fastcat_9",
+      "original_arrival": "04:36:00",
+      "normalized_arrival": "08:18:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "16560"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_10",
+      "stop_id": "fastcat_10",
+      "original_arrival": "05:46:00",
+      "normalized_arrival": "09:31:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "20760"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_10",
+      "stop_id": "fastcat_2",
+      "original_arrival": "05:03:00",
+      "normalized_arrival": "09:32:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "18180"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_10",
+      "stop_id": "fastcat_3",
+      "original_arrival": "05:06:00",
+      "normalized_arrival": "09:33:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "18360"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_10",
+      "stop_id": "fastcat_4",
+      "original_arrival": "05:08:00",
+      "normalized_arrival": "09:34:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "18480"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_10",
+      "stop_id": "fastcat_5",
+      "original_arrival": "05:12:00",
+      "normalized_arrival": "09:35:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "18720"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_10",
+      "stop_id": "fastcat_8",
+      "original_arrival": "05:08:00",
+      "normalized_arrival": "09:36:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "18480"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_10",
+      "stop_id": "fastcat_9",
+      "original_arrival": "05:40:00",
+      "normalized_arrival": "09:37:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "20400"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_11",
+      "stop_id": "fastcat_10",
+      "original_arrival": "06:50:00",
+      "normalized_arrival": "07:20:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "24600"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_11",
+      "stop_id": "fastcat_2",
+      "original_arrival": "06:07:00",
+      "normalized_arrival": "07:21:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "22020"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_11",
+      "stop_id": "fastcat_3",
+      "original_arrival": "06:10:00",
+      "normalized_arrival": "07:22:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "22200"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_11",
+      "stop_id": "fastcat_4",
+      "original_arrival": "06:12:00",
+      "normalized_arrival": "07:23:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "22320"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_11",
+      "stop_id": "fastcat_5",
+      "original_arrival": "06:16:00",
+      "normalized_arrival": "07:24:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "22560"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_11",
+      "stop_id": "fastcat_8",
+      "original_arrival": "06:12:00",
+      "normalized_arrival": "07:25:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "22320"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_11",
+      "stop_id": "fastcat_9",
+      "original_arrival": "06:44:00",
+      "normalized_arrival": "07:26:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "24240"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_12",
+      "stop_id": "fastcat_10",
+      "original_arrival": "07:54:00",
+      "normalized_arrival": "08:39:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "28440"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_12",
+      "stop_id": "fastcat_2",
+      "original_arrival": "07:11:00",
+      "normalized_arrival": "08:40:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "25860"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_12",
+      "stop_id": "fastcat_3",
+      "original_arrival": "07:14:00",
+      "normalized_arrival": "08:41:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "26040"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_12",
+      "stop_id": "fastcat_4",
+      "original_arrival": "07:16:00",
+      "normalized_arrival": "08:42:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "26160"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_12",
+      "stop_id": "fastcat_5",
+      "original_arrival": "07:20:00",
+      "normalized_arrival": "08:43:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "26400"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_12",
+      "stop_id": "fastcat_8",
+      "original_arrival": "07:16:00",
+      "normalized_arrival": "08:44:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "26160"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_12",
+      "stop_id": "fastcat_9",
+      "original_arrival": "07:48:00",
+      "normalized_arrival": "08:45:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "28080"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_13",
+      "stop_id": "fastcat_10",
+      "original_arrival": "09:13:00",
+      "normalized_arrival": "09:43:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "33180"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_13",
+      "stop_id": "fastcat_2",
+      "original_arrival": "08:15:00",
+      "normalized_arrival": "09:44:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "29700"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_13",
+      "stop_id": "fastcat_3",
+      "original_arrival": "08:18:00",
+      "normalized_arrival": "09:45:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "29880"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_13",
+      "stop_id": "fastcat_4",
+      "original_arrival": "08:20:00",
+      "normalized_arrival": "09:46:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "30000"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_13",
+      "stop_id": "fastcat_5",
+      "original_arrival": "08:24:00",
+      "normalized_arrival": "09:47:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "30240"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_13",
+      "stop_id": "fastcat_8",
+      "original_arrival": "08:20:00",
+      "normalized_arrival": "09:48:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "30000"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_13",
+      "stop_id": "fastcat_9",
+      "original_arrival": "09:07:00",
+      "normalized_arrival": "09:49:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "32820"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_14",
+      "stop_id": "fastcat_10",
+      "original_arrival": "10:17:00",
+      "normalized_arrival": "10:47:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "37020"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_14",
+      "stop_id": "fastcat_2",
+      "original_arrival": "09:34:00",
+      "normalized_arrival": "10:48:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "34440"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_14",
+      "stop_id": "fastcat_3",
+      "original_arrival": "09:37:00",
+      "normalized_arrival": "10:49:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "34620"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_14",
+      "stop_id": "fastcat_4",
+      "original_arrival": "09:39:00",
+      "normalized_arrival": "10:50:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "34740"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_14",
+      "stop_id": "fastcat_5",
+      "original_arrival": "09:43:00",
+      "normalized_arrival": "10:51:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "34980"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_14",
+      "stop_id": "fastcat_8",
+      "original_arrival": "09:39:00",
+      "normalized_arrival": "10:52:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "34740"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_14",
+      "stop_id": "fastcat_9",
+      "original_arrival": "10:11:00",
+      "normalized_arrival": "10:53:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "36660"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_15",
+      "stop_id": "fastcat_10",
+      "original_arrival": "07:30:00",
+      "normalized_arrival": "11:51:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "27000"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_20",
+      "stop_id": "fastcat_10",
+      "original_arrival": "01:20:00",
+      "normalized_arrival": "05:44:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "4800"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_21",
+      "stop_id": "fastcat_10",
+      "original_arrival": "02:27:00",
+      "normalized_arrival": "06:48:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "8820"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_22",
+      "stop_id": "fastcat_10",
+      "original_arrival": "03:31:00",
+      "normalized_arrival": "07:52:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "12660"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_23",
+      "stop_id": "fastcat_10",
+      "original_arrival": "04:50:00",
+      "normalized_arrival": "09:11:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "17400"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_24",
+      "stop_id": "fastcat_10",
+      "original_arrival": "05:54:00",
+      "normalized_arrival": "10:15:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "21240"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_25",
+      "stop_id": "fastcat_10",
+      "original_arrival": "06:58:00",
+      "normalized_arrival": "07:40:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "25080"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_26",
+      "stop_id": "fastcat_10",
+      "original_arrival": "08:02:00",
+      "normalized_arrival": "08:59:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "28920"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_27",
+      "stop_id": "fastcat_10",
+      "original_arrival": "09:21:00",
+      "normalized_arrival": "10:03:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "33660"
+    },
+    {
+      "trip_id": "fastcat_weekday_am_pm_trip_28",
+      "stop_id": "fastcat_10",
+      "original_arrival": "10:25:00",
+      "normalized_arrival": "11:07:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "37500"
+    },
+    {
+      "trip_id": "g_line_weekday_am_pm_trip_6",
+      "stop_id": "g_line_7",
+      "original_arrival": "01:28:00",
+      "normalized_arrival": "13:28:00",
+      "correction": "12_hour_rollover",
+      "original_seconds": "5280"
+    },
+    {
+      "trip_id": "g_line_weekday_am_pm_trip_6",
+      "stop_id": "g_line_8",
+      "original_arrival": "01:30:00",
+      "normalized_arrival": "13:30:00",
+      "correction": "12_hour_rollover",
+      "original_seconds": "5400"
+    },
+    {
+      "trip_id": "g_line_weekday_am_pm_trip_6",
+      "stop_id": "g_line_9",
+      "original_arrival": "01:32:00",
+      "normalized_arrival": "13:32:00",
+      "correction": "12_hour_rollover",
+      "original_seconds": "5520"
+    },
+    {
+      "trip_id": "yosemite_express_weekday_pm_trip_9",
+      "stop_id": "yosemite_express_4",
+      "original_arrival": "01:07:00",
+      "normalized_arrival": "13:07:00",
+      "correction": "12_hour_rollover",
+      "original_seconds": "4020"
+    },
+    {
+      "trip_id": "yosemite_express_weekday_pm_trip_9",
+      "stop_id": "yosemite_express_5",
+      "original_arrival": "01:10:00",
+      "normalized_arrival": "13:10:00",
+      "correction": "12_hour_rollover",
+      "original_seconds": "4200"
+    },
+    {
+      "trip_id": "yosemite_express_weekday_pm_trip_9",
+      "stop_id": "yosemite_express_6",
+      "original_arrival": "01:15:00",
+      "normalized_arrival": "13:15:00",
+      "correction": "12_hour_rollover",
+      "original_seconds": "4500"
+    },
+    {
+      "trip_id": "yosemite_express_weekday_pm_trip_15",
+      "stop_id": "yosemite_express_4",
+      "original_arrival": "04:24:00",
+      "normalized_arrival": "09:08:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "15840"
+    },
+    {
+      "trip_id": "yosemite_express_weekday_pm_trip_15",
+      "stop_id": "yosemite_express_5",
+      "original_arrival": "04:27:00",
+      "normalized_arrival": "09:09:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "16020"
+    },
+    {
+      "trip_id": "yosemite_express_weekday_pm_trip_15",
+      "stop_id": "yosemite_express_6",
+      "original_arrival": "04:32:00",
+      "normalized_arrival": "09:10:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "16320"
+    },
+    {
+      "trip_id": "yosemite_express_weekday_pm_trip_16",
+      "stop_id": "yosemite_express_4",
+      "original_arrival": "04:51:00",
+      "normalized_arrival": "09:35:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "17460"
+    },
+    {
+      "trip_id": "yosemite_express_weekday_pm_trip_16",
+      "stop_id": "yosemite_express_5",
+      "original_arrival": "04:54:00",
+      "normalized_arrival": "09:36:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "17640"
+    },
+    {
+      "trip_id": "yosemite_express_weekday_pm_trip_16",
+      "stop_id": "yosemite_express_6",
+      "original_arrival": "04:59:00",
+      "normalized_arrival": "09:37:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "17940"
+    },
+    {
+      "trip_id": "yosemite_express_weekday_pm_trip_17",
+      "stop_id": "yosemite_express_4",
+      "original_arrival": "05:18:00",
+      "normalized_arrival": "10:17:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "19080"
+    },
+    {
+      "trip_id": "yosemite_express_weekday_pm_trip_17",
+      "stop_id": "yosemite_express_5",
+      "original_arrival": "05:21:00",
+      "normalized_arrival": "10:18:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "19260"
+    },
+    {
+      "trip_id": "yosemite_express_weekday_pm_trip_17",
+      "stop_id": "yosemite_express_6",
+      "original_arrival": "05:26:00",
+      "normalized_arrival": "10:19:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "19560"
+    },
+    {
+      "trip_id": "yosemite_express_weekday_pm_trip_18",
+      "stop_id": "yosemite_express_4",
+      "original_arrival": "05:45:00",
+      "normalized_arrival": "10:44:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "20700"
+    },
+    {
+      "trip_id": "yosemite_express_weekday_pm_trip_18",
+      "stop_id": "yosemite_express_5",
+      "original_arrival": "05:48:00",
+      "normalized_arrival": "10:45:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "20880"
+    },
+    {
+      "trip_id": "yosemite_express_weekday_pm_trip_18",
+      "stop_id": "yosemite_express_6",
+      "original_arrival": "05:53:00",
+      "normalized_arrival": "10:46:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "21180"
+    },
+    {
+      "trip_id": "yosemite_express_weekday_pm_trip_19",
+      "stop_id": "yosemite_express_4",
+      "original_arrival": "06:27:00",
+      "normalized_arrival": "11:11:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "23220"
+    },
+    {
+      "trip_id": "yosemite_express_weekday_pm_trip_19",
+      "stop_id": "yosemite_express_5",
+      "original_arrival": "06:30:00",
+      "normalized_arrival": "11:12:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "23400"
+    },
+    {
+      "trip_id": "yosemite_express_weekday_pm_trip_19",
+      "stop_id": "yosemite_express_6",
+      "original_arrival": "06:35:00",
+      "normalized_arrival": "11:13:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "23700"
+    },
+    {
+      "trip_id": "yosemite_express_weekday_pm_trip_20",
+      "stop_id": "yosemite_express_4",
+      "original_arrival": "06:54:00",
+      "normalized_arrival": "11:38:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "24840"
+    },
+    {
+      "trip_id": "yosemite_express_weekday_pm_trip_20",
+      "stop_id": "yosemite_express_5",
+      "original_arrival": "06:57:00",
+      "normalized_arrival": "11:39:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "25020"
+    },
+    {
+      "trip_id": "yosemite_express_weekday_pm_trip_20",
+      "stop_id": "yosemite_express_6",
+      "original_arrival": "07:02:00",
+      "normalized_arrival": "11:40:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "25320"
+    },
+    {
+      "trip_id": "yosemite_express_weekday_pm_trip_21",
+      "stop_id": "yosemite_express_4",
+      "original_arrival": "07:21:00",
+      "normalized_arrival": "12:05:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "26460"
+    },
+    {
+      "trip_id": "yosemite_express_weekday_pm_trip_21",
+      "stop_id": "yosemite_express_5",
+      "original_arrival": "07:24:00",
+      "normalized_arrival": "12:06:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "26640"
+    },
+    {
+      "trip_id": "yosemite_express_weekday_pm_trip_21",
+      "stop_id": "yosemite_express_6",
+      "original_arrival": "07:29:00",
+      "normalized_arrival": "12:07:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "26940"
+    },
+    {
+      "trip_id": "yosemite_express_weekday_pm_trip_22",
+      "stop_id": "yosemite_express_4",
+      "original_arrival": "07:48:00",
+      "normalized_arrival": "12:32:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "28080"
+    },
+    {
+      "trip_id": "yosemite_express_weekday_pm_trip_22",
+      "stop_id": "yosemite_express_5",
+      "original_arrival": "07:51:00",
+      "normalized_arrival": "12:33:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "28260"
+    },
+    {
+      "trip_id": "yosemite_express_weekday_pm_trip_22",
+      "stop_id": "yosemite_express_6",
+      "original_arrival": "07:56:00",
+      "normalized_arrival": "12:34:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "28560"
+    },
+    {
+      "trip_id": "yosemite_express_weekday_pm_trip_23",
+      "stop_id": "yosemite_express_4",
+      "original_arrival": "08:15:00",
+      "normalized_arrival": "12:59:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "29700"
+    },
+    {
+      "trip_id": "yosemite_express_weekday_pm_trip_23",
+      "stop_id": "yosemite_express_5",
+      "original_arrival": "08:18:00",
+      "normalized_arrival": "13:00:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "29880"
+    },
+    {
+      "trip_id": "yosemite_express_weekday_pm_trip_23",
+      "stop_id": "yosemite_express_6",
+      "original_arrival": "08:23:00",
+      "normalized_arrival": "13:01:00",
+      "correction": "monotonic_clamp",
+      "original_seconds": "30180"
+    }
+  ]
+}

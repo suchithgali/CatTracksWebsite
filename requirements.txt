@@ -1,3 +1,9 @@
+# Web application
+Flask>=3.0,<4
+Flask-SQLAlchemy>=3.1,<4
+gunicorn>=22,<24
+networkx>=3.2,<4
+
 # CatTracks Requirements
 
 ## Python Dependencies

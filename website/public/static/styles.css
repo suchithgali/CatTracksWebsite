@@ -1,457 +1,66 @@
-html, body {
-  margin: 0;
-  padding: 0;
+:root {
+  --navy: #002147;
+  --blue: #075985;
+  --gold: #ffd700;
+  --ink: #172033;
+  --muted: #64748b;
+  --surface: #f5f7fb;
+  --line: #e2e8f0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
 }
-.header-bar{
-  height: 10vh;
-  width: 100vw;
-  background-color: rgb(0, 33, 71);
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-}
-.Logo{
-  display: flex;
-  height: 10vh;
-  width: 5vw;
-  margin-left: 8vw;
-}
-.website-context{
-  margin-left: 1vw;
-  margin-bottom: 0;
-  color: white;
-  font-family: sans-serif;
-  font-size: 24px;
-  font-weight: 700;
-  vertical-align: top;
-}
-.wcontext-second{
-  margin-left: 1vw;
-  margin-top: 0;
-  color: rgb(255, 215, 0);
-  font-family: sans-serif;
-  font-size: 12px;
-  vertical-align: top;
-}
-.header-pages{
-  display: flex;
-  margin-top: 4vh;
-  align-items: middle;
-  margin-left: 50vw;
-}
-.home-page, .liveRoutes-page, .schedules-page, .contact-page{
-  color: white;
-  text-decoration: none;
-  display: inline-block;
-  font-family: sans-serif;
-  font-size: 12px;
-  transition: color 0.2s;
-}
-.home-page:hover, .liveRoutes-page:hover, .schedules-page:hover, .contact-page:hover{
-  color: rgb(255, 215, 0);
-  text-decoration: none;
-  display: inline-block;
-  font-family: sans-serif;
-  font-size: 12px;
-}
-.home-trip-planner{
-  background-image: linear-gradient(to right, rgb(0, 33, 71), rgb(0, 85, 135));
-  width: 100vw;
-  height: 45vh;
-  margin-top: 10vh;
-  left: 0;
-  margin-left:0;
-  padding-left: 0;
-}
-.hometrip-text1{
-  padding-top: 5vh;
-  font-family: sans-serif;
-  font-size: 22px;
-  font-weight: 700;
-  color: white;
-}
-.hometrip-text1, .hometrip-text2{
-  text-align: center;
-  font-family: sans-serif;
-  color: white;
-  margin-bottom: 0px;
-}
-.hometrip-text2{
-  margin-top: 10px;
-  font-size: 14px;
-}
-.plan-box{
-  background-color: white;
-  height: 28vh;
-  width: 50vw;
-  margin: auto;
-  border-radius: 5px;
-}
-.planbox-header{
-  text-align: center;
-}
-.planbox-header-text{
-  margin-top: 16px;
-  height: 15px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: rgb(0, 33, 71);
-  color: white;
-  font-family: sans-serif;
-  font-weight: 700;
-  font-size: 15px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
-.from-info-text, .to-info-text, .when-info-text{
-  font-family: sans-serif;
-  font-size: 16px;
-  font-weight: 900;
-  width: 14vw;
-  text-align: center;
-  display: inline-block;
-  font-family: sans-serif;
-  color: rgb(45, 44, 44);
-  margin-bottom: 10px;
-}
-.to-info-text{
-  margin-left: 34px;
-}
-
-.trip-plan-button{
-  height: 4.5vh;
-  width: 47vw;
-  margin-left: 1.5vw;
-  border: none;
-  border-radius: 5px;
-  background-color: rgb(255, 215, 0);
-  font-family: sans-serif;
-  font-weight: 600;
-  font-size: 14px;
-  transition: 0.2s;
-}
-.trip-plan-button:hover{
-  background-color: rgb(202, 138, 4);
-  cursor: pointer;
-}
-.home-page-live-bus{
-  margin-top: 25px;
-}
-.home-live-bus-header{
-  color: rgb(0, 33, 71);
-  margin-left: 12%;
-  font-family: sans-serif;
-  font-weight: 700;
-}
-.home-page-current-bus-header{
-  margin-top: 20px;
-  margin-left: 10%;
-  font-family: sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  color: white;
-  background-color: rgb(0, 33, 71);
-  padding-top: 12px;
-  padding-bottom: 12px;
-  padding-left: 12px;
-  width: 80vw;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
-.home-current-buses-box{
-  height: 270px;
-  margin-left: 10%;
-  padding-top: 20px;
-  padding-left: 12px;
-  width: 80vw;
-  background-color: white;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-  overflow: hidden; /*because of margin collapse*/
-  margin-bottom: 40px;
-}
-.home-current-buses-mini-box1{
-  width: 340px;
-  height: 245px; 
-  background-color: white;
-  border: solid;
-  border-color: rgb(240, 242, 245);
-  border-width: 1px;
-  border-radius: 8px;
-  margin-left: 10px;
-  display: inline-block;
-  vertical-align: top;
-}
-.home-current-buses-mini-box2{
-  width: 340px;
-  height: 245px;
-  background-color: white;
-  border: solid;
-  border-color: rgb(240, 242, 245);
-  border-width: 1px;
-  border-radius: 8px;
-  margin-left: 10px;
-  display: inline-block;
-  vertical-align: top;
-}
-.home-current-buses-mini-box3{
-  width: 340px;
-  height: 245px;
-  background-color: white;
-  border: solid;
-  border-color: rgb(240, 242, 245);
-  border-width: 1px;
-  border-radius: 8px;
-  margin-left: 10px;
-  display: inline-block;
-}
-.home-pop-routes-text{
-  color: rgb(0, 33, 71);
-  margin-left: 12%;
-  font-family: sans-serif;
-  font-weight: 700;
-}
-.home-popular-routes{
-  margin-bottom: 20px;
-}
-.home-popular-routes-box1{
-  transition: 0.2s;
-  cursor: pointer;
-  display: inline-block;
-  margin-left: 10%;
-  margin-right: 20px;
-  vertical-align: top;
-}
-.home-popular-routes-top-box1{
-  width: 350px;
-  height: 100px;
-  background-image: linear-gradient(to right, rgb(0, 33, 71), rgb(0, 85, 135));
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  margin-left: 0;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding-top: 20px;
-  margin-bottom: 0;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  transition: 0.2s;
-}
-.home-popular-routes-top-box1 p{
-  color: white;
-  margin: 0;
-  font-size: 16px;
-  font-weight: 600;
-}
-.home-popular-routes-bottom-box1{
-  width: 350px;
-  height: 60px;
-  background-color: white;
-  margin-left: 0;
-  margin-top: 0;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  transition: 0.2s;
-  display: inline-block;
-}
-.home-popular-routes-box1:hover .home-popular-routes-top-box1{
-  width: 360px;
-  transform: scale(1.02);
-}
-.home-popular-routes-box1:hover .home-popular-routes-bottom-box1{
-  width: 360px;
-  transform: scale(1.02);
-}
-
-.home-popular-routes-box2{
-  transition: 0.2s;
-  cursor: pointer;
-  display: inline-block;
-  margin-right: 20px;
-  vertical-align: top;
-}
-.home-popular-routes-top-box2{
-  width: 350px;
-  height: 100px;
-  background-image: linear-gradient(to right, rgb(37, 99, 235), rgb(96, 165, 250));
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  margin-left: 0;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding-top: 20px;
-  margin-bottom: 0;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  transition: 0.2s;
-}
-.home-popular-routes-top-box2 p{
-  color: white;
-  margin: 0;
-  font-size: 16px;
-  font-weight: 600;
-}
-.home-popular-routes-bottom-box2{
-  width: 350px;
-  height: 60px;
-  background-color: white;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  transition: 0.2s;
-}
-.home-popular-routes-box2:hover .home-popular-routes-top-box2{
-  width: 360px;
-  transform: scale(1.02);
-}
-.home-popular-routes-box2:hover .home-popular-routes-bottom-box2{
-  width: 360px;
-  transform: scale(1.02);
-}
-
-.home-popular-routes-box3{
-  transition: 0.2s;
-  cursor: pointer;
-  display: inline-block;
-  margin-right: 20px;
-  vertical-align: top;
-}
-.home-popular-routes-top-box3{
-  width: 350px;
-  height: 100px;
-  background-image: linear-gradient(to right, rgb(147, 51, 234), rgb(192, 132, 252));
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  margin-left: 0;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding-top: 20px;
-  margin-bottom: 0;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  transition: 0.2s;
-}
-.home-popular-routes-top-box3 p{
-  color: white;
-  margin: 0;
-  font-size: 16px;
-  font-weight: 600;
-}
-.home-popular-routes-bottom-box3{
-  width: 350px;
-  height: 60px;
-  background-color: white;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  transition: 0.2s;
-}
-.home-popular-routes-box3:hover .home-popular-routes-top-box3{
-  width: 360px;
-  transform: scale(1.02);
-}
-.home-popular-routes-box3:hover .home-popular-routes-bottom-box3{
-  width: 360px;
-  transform: scale(1.02);
-}
-.announcements-home-box-title{
-  color: rgb(0, 33, 71);
-  margin-left: 12%;
-  font-family: sans-serif;
-  font-weight: 700;
-}
-.announcements-home-box-header{
-  margin-top: 20px;
-  margin-left: 10%;
-  font-family: sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  color: white;
-  background-color: rgb(0, 33, 71);
-  padding-top: 12px;
-  padding-bottom: 12px;
-  padding-left: 12px;
-  width: 80vw;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
-.announcements-home-content-box{
-  margin-left: 10%;
-  padding-left: 12px;
-  padding-top: 20px;
-  width: 80vw;
-  height: 200px;
-  background-color: white;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-}
-.announcements-home-content-box p{
-  margin: 0;
-  font-size: 16px;
-  color: #333;
-}
-.trip-planner-container{
-  position: absolute;
-  top: 100px;
-  left: 20px;
-  z-index: 1000;
-  width: 300px;
-}
-.trip-planner-box{
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-}
-.trip-planner-box h2{
-  margin: 0 0 15px 0;
-  font-size: 18px;
-  color: rgb(0, 33, 71);
-  font-family: 'Khula', sans-serif;
-  font-weight: 600;
-}
-.trip-planner-box input, .trip-planner-box select{
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 14px;
-  box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
-}
-.trip-planner-box button{
-  width: 100%;
-  background-color: rgb(0, 33, 71);
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 12px;
-  font-size: 16px;
-  font-family: 'Khula', sans-serif;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-#from-stops, #to-stops{
-  display: block;
-  float: left;
-  margin-top: 15px;
-  margin-left: 34px;
-  width: 180px;
-  height: 40px;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  border: 2px solid rgb(0, 33, 71);
-}
-#to-stops{
-  margin-left: 40px;
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--ink); background: var(--surface); line-height: 1.5; }
+a { color: inherit; }
+.site-header { height: 76px; padding: 0 max(24px, calc((100% - 1180px) / 2)); display: flex; align-items: center; justify-content: space-between; background: var(--navy); color: white; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.brand img { width: 42px; height: 42px; object-fit: contain; }
+.brand strong, .brand small { display: block; }
+.brand small { color: var(--gold); font-size: 12px; }
+nav { display: flex; gap: 26px; font-size: 14px; }
+nav a { text-decoration: none; opacity: .86; }
+nav a:hover, nav a:focus { color: var(--gold); opacity: 1; }
+main { min-height: calc(100vh - 126px); }
+footer { padding: 24px; text-align: center; color: var(--muted); font-size: 13px; }
+.hero { min-height: 470px; padding: 80px max(24px, calc((100% - 1180px) / 2)); display: grid; grid-template-columns: 1fr 420px; gap: 72px; align-items: center; background: linear-gradient(120deg, var(--navy), #075985); color: white; }
+.hero h1 { max-width: 560px; margin: 8px 0 16px; font-size: clamp(42px, 6vw, 72px); line-height: .98; letter-spacing: -.04em; }
+.hero-copy > p:not(.eyebrow) { max-width: 470px; color: #dbeafe; font-size: 18px; }
+.eyebrow { margin: 0; color: var(--gold); font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.planner-card, .route-panel, .info-card, .schedule-card { background: white; border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 12px 35px rgba(15, 23, 42, .08); }
+.planner-card { padding: 26px; color: var(--ink); }
+.card-heading { display: flex; align-items: center; gap: 9px; margin-bottom: 22px; font-size: 18px; font-weight: 800; }
+.status-dot { width: 9px; height: 9px; border-radius: 50%; background: #22c55e; }
+label { display: block; margin: 14px 0 6px; color: var(--muted); font-size: 13px; font-weight: 700; }
+input { width: 100%; padding: 13px 14px; border: 1px solid #cbd5e1; border-radius: 9px; color: var(--ink); font: inherit; }
+input:focus { outline: 3px solid rgba(59, 130, 246, .2); border-color: #2563eb; }
+.button { display: inline-flex; justify-content: center; align-items: center; gap: 12px; width: 100%; margin-top: 22px; padding: 13px 16px; border: 0; border-radius: 9px; font: inherit; font-weight: 800; cursor: pointer; text-decoration: none; }
+.button-primary { background: var(--gold); color: var(--navy); }
+.button-primary:hover { background: #fbbf24; }
+.content-section, .page-heading { max-width: 1180px; margin: 0 auto; padding: 64px 24px; }
+.page-heading { padding-bottom: 28px; }
+.page-heading h1 { margin: 8px 0; font-size: 42px; letter-spacing: -.03em; }
+.page-heading > p:last-child { color: var(--muted); }
+.section-heading h2 { margin: 6px 0 24px; font-size: 30px; }
+.feature-grid, .route-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.feature-card, .schedule-card { padding: 24px; text-decoration: none; }
+.feature-card:hover { border-color: #93c5fd; transform: translateY(-2px); transition: .2s ease; }
+.feature-icon { display: inline-grid; place-items: center; width: 38px; height: 38px; border-radius: 10px; background: #e0f2fe; color: var(--blue); font-size: 22px; font-weight: 800; }
+.feature-card h3, .schedule-card h2 { margin: 18px 0 6px; }
+.feature-card p, .schedule-card p, .route-panel p, .info-card p { color: var(--muted); }
+.text-link { color: var(--blue); font-size: 14px; font-weight: 800; text-decoration: none; }
+.planner-layout { max-width: 1180px; margin: 0 auto; padding: 0 24px 64px; display: grid; grid-template-columns: 380px 1fr; gap: 24px; align-items: start; }
+.route-panel { min-height: 250px; padding: 34px; }
+.route-panel h2 { margin-bottom: 8px; }
+.narrow { max-width: 760px; display: grid; gap: 18px; margin-left: max(24px, calc((100% - 1180px) / 2)); margin-right: max(24px, calc((100% - 1180px) / 2)); padding-left: 0; padding-right: 0; }
+.info-card { padding: 26px; }
+.info-card h2 { margin-top: 0; }
+.route-badge { display: inline-block; padding: 5px 9px; border-radius: 6px; background: var(--navy); color: white; font-weight: 800; }
+.schedule-card { display: flex; flex-direction: column; gap: 16px; }
+.schedule-card .text-link { margin-top: auto; }
+@media (max-width: 760px) {
+  .site-header { height: auto; padding: 16px 20px; align-items: flex-start; gap: 18px; }
+  nav { flex-wrap: wrap; justify-content: flex-end; gap: 8px 14px; font-size: 12px; }
+  .hero { grid-template-columns: 1fr; gap: 28px; padding-top: 52px; }
+  .hero h1 { font-size: 48px; }
+  .feature-grid, .route-grid, .planner-layout { grid-template-columns: 1fr; }
+  .planner-layout { padding-bottom: 32px; }
 }

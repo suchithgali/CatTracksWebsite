@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}CatTracks{% endblock %} | UC Merced</title>
+  <link rel="icon" href="{{ url_for('static', filename='img/ucm-logo.png') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  {% block head %}{% endblock %}
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="{{ url_for('index') }}">
+      <img src="{{ url_for('static', filename='img/ucm-logo.png') }}" alt="UC Merced">
+      <span><strong>UC Merced</strong><small>CatTracks transit</small></span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="{{ url_for('index') }}">Plan a trip</a>
+      <a href="{{ url_for('planner') }}">Live routes</a>
+      <a href="{{ url_for('schedules') }}">Schedules</a>
+      <a href="{{ url_for('contact') }}">Contact</a>
+    </nav>
+  </header>
+  <main>{% block content %}{% endblock %}</main>
+  <footer>CatTracks · UC Merced transit information</footer>
+</body>
+</html>

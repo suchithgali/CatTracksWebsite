@@ -1,19 +1,18 @@
-#!/bin/bash
-set -e # Exit on error
+#!/usr/bin/env bash
+set -Eeuo pipefail
 
-echo "Running address lookup (find_nearest.py)..."
-cd src/python
-./venv/bin/python find_nearest.py
-cd ../..
+cd "$(dirname "$0")"
+export FLASK_APP="${FLASK_APP:-website.app}"
+export FLASK_DEBUG="${FLASK_DEBUG:-0}"
 
-echo "Building graph_builder..."
-g++ src/cpp/graph_builder.cpp -o graph_builder -I include -std=c++11
+PYTHON_BIN="website/.venv/bin/python"
+if [[ ! -x "$PYTHON_BIN" ]]; then
+  PYTHON_BIN=".venv/bin/python"
+fi
 
-echo "Running graph_builder..."
-./graph_builder
+if [[ ! -x "$PYTHON_BIN" ]]; then
+  echo "Missing Python environment. Create one with: python3 -m venv .venv && .venv/bin/pip install -r requirements.txt" >&2
+  exit 1
+fi
 
-echo "Building path_builder..."
-g++ src/cpp/path_builder.cpp -o path_builder -I include -std=c++11
-
-echo "Running path_builder..."
-./path_builder
+exec "$PYTHON_BIN" -m flask run --host "${HOST:-127.0.0.1}" --port "${PORT:-5000}"

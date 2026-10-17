@@ -1,0 +1,13 @@
+service_id,monday,tuesday,wednesday,thursday,friday,saturday,sunday,start_date,end_date
+bobcat_express_weekday_am_pm,1,1,1,1,1,0,0,20240101,20301231
+c1_weekday_am,1,1,1,1,1,0,0,20240101,20301231
+c1_weekday_am_pm,1,1,1,1,1,0,0,20240101,20301231
+c2_weekday_am,1,1,1,1,1,0,0,20240101,20301231
+c2_weekday_am_pm,1,1,1,1,1,0,0,20240101,20301231
+e1_weekday_am_pm,1,1,1,1,1,0,0,20240101,20301231
+e2_weekend_am_pm,0,0,0,0,0,1,1,20240101,20301231
+fastcat_2_weekday_am_pm,1,1,1,1,1,0,0,20240101,20301231
+fastcat_weekday_am,1,1,1,1,1,0,0,20240101,20301231
+fastcat_weekday_am_pm,1,1,1,1,1,0,0,20240101,20301231
+g_line_weekday_am_pm,1,1,1,1,1,0,0,20240101,20301231
+yosemite_express_weekday_pm,1,1,1,1,1,0,0,20240101,20301231

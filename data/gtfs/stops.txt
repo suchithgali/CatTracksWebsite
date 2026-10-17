@@ -1,0 +1,91 @@
+stop_id,stop_name,stop_lat,stop_lon
+bobcat_express_1,R Street Village Apartments,37.335295,-120.486224
+bobcat_express_2,El Redondo Drive,37.334304,-120.495185
+bobcat_express_3,Compass Pointe Apartments,37.335631,-120.490190
+bobcat_express_4,Merced College The Bus Terminal,37.334607,-120.477978
+bobcat_express_5,M Circle Bus Stop,37.358217,-120.477173
+bobcat_express_6,University Transit Center,37.361462,-120.428115
+bobcat_express_7,Wingstop/Promenade Center,37.332201,-120.460492
+bobcat_express_8,Merced Mall Target,37.323333,-120.485564
+bobcat_express_9,Walmart on Loughborough,37.317398,-120.499568
+bobcat_express_10,Amtrak Station,37.307609,-120.477388
+bobcat_express_11,K Street Between 18th and 19th Street,37.302246,-120.481175
+bobcat_express_12,Rite Aid / Walgreens,37.319708,-120.469153
+bobcat_express_13,El Portal Plaza & G St. (Northbound),37.326687,-120.469166
+c1_1,University Transit Center,37.361462,-120.428115
+c1_2,Mercy Hospital / Tri-College (Southbound),37.335846,-120.469197
+c1_3,El Portal Plaza & G St. (Southbound),37.326687,-120.469166
+c1_4,G St. & W. Alexander Ave. (Paul's Place),37.314807,-120.469498
+c1_5,Granville Apartments,37.315208,-120.502879
+c1_6,G St. & W. Alexander Ave. (76 Gas Station),37.315813,-120.469210
+c1_7,Rite Aid / Walgreens,37.319708,-120.469153
+c1_8,El Portal Plaza & G St. (Northbound),37.326687,-120.469166
+c1_9,Mercy Hospital / Tri-College (Northbound),37.335846,-120.469197
+c1_10,M Circle Bus Stop,37.358217,-120.477173
+c2_1,R Street Village Apartments,37.335295,-120.486224
+c2_2,El Redondo Drive,37.334304,-120.495185
+c2_3,Compass Pointe Apartments,37.335631,-120.490190
+c2_4,Buena Vista Drive,37.326280,-120.502378
+c2_5,Merced Mall Target,37.323333,-120.485564
+c2_6,Village Apartments. M Street,37.324034,-120.478277
+c2_7,Merced College The Bus Terminal,37.334607,-120.477978
+c2_8,Cardella Rd. & M St. (Northbound),37.347508,-120.477344
+c2_9,M Circle Bus Stop,37.358217,-120.477173
+c2_10,University Transit Center,37.361462,-120.428115
+c2_11,Foothill Drive,37.353549,-120.468961
+c2_12,Cardella Rd. & M St. (Southbound),37.347508,-120.477344
+e1_1,University Transit Center,37.361462,-120.428115
+e1_2,G Street South (Raley's),37.330615,-120.468945
+e1_3,Amtrak Stattion,37.307609,-120.477388
+e1_4,K Street Between 18th and 19th Street,37.302246,-120.481175
+e1_5,Walmart on Loughborough,37.317398,-120.499568
+e1_6,Meadows Ave. & Olivewood Dr. (Foodmaxx),37.318127,-120.490587
+e1_7,Merced Mall Target,37.323333,-120.485564
+e1_8,Rite Aid / Walgreens,37.319708,-120.469153
+e1_9,Yosemite Crossings Shopping Center,37.332576,-120.468955
+e2_1,University Transit Center,37.361462,-120.428115
+e2_2,Wingstop/Promenade Center,37.332201,-120.460492
+e2_3,R Street Village Apartments,37.335295,-120.486224
+e2_4,El Redondo Drive,37.334304,-120.495185
+e2_5,Compass Pointe Apartments,37.335631,-120.490190
+e2_6,Merced Mall Target,37.323333,-120.485564
+e2_7,Village Apartments. M Street,37.324034,-120.478277
+e2_8,Ironstone Drive and M Street,37.342997,-120.478281
+e2_9,Yosemite and Cordova (Physician Center),37.332079,-120.462813
+e2_10,Moraga Subdivision,37.332048,-120.438625
+fastcat_2_1,University Surgery Center,37.332079,-120.451705
+fastcat_2_2,Wingstop/Promenade Center,37.332201,-120.460492
+fastcat_2_3,Yosemite Crossings Shopping Center,37.332576,-120.468955
+fastcat_2_4,Mercy Hospital / Tri-College (Northbound),37.335846,-120.469197
+fastcat_2_5,Cardella Rd. & M St. (Northbound),37.347508,-120.477344
+fastcat_2_6,M Circle Bus Stop,37.358217,-120.477173
+fastcat_2_7,University Transit Center,37.361462,-120.428115
+fastcat_2_8,Mercy Hospital / Tri-College (Southbound),37.335846,-120.469197
+fastcat_2_9,Yosemite and Cordova (Physician Center),37.332079,-120.462813
+fastcat_2_10,Moraga Subdivision,37.332048,-120.438625
+fastcat_1,University Surgery Center,37.332079,-120.451705
+fastcat_2,Wingstop/Promenade Center,37.332201,-120.460492
+fastcat_3,Yosemite Crossings Shopping Center,37.332576,-120.468955
+fastcat_4,Mercy Hospital / Tri-College (Northbound),37.335846,-120.469197
+fastcat_5,Cardella Rd. & M St. (Northbound),37.347508,-120.477344
+fastcat_6,M Circle Bus Stop,37.358217,-120.477173
+fastcat_7,University Transit Center,37.361462,-120.428115
+fastcat_8,Mercy Hospital / Tri-College (Southbound),37.335846,-120.469197
+fastcat_9,Yosemite and Cordova (Physician Center),37.332079,-120.462813
+fastcat_10,Moraga Subdivision,37.332048,-120.438625
+g_line_1,R Street Village Apartments,37.335295,-120.486224
+g_line_2,El Redondo Drive,37.334304,-120.495185
+g_line_3,Compass Pointe Apartments,37.335631,-120.490190
+g_line_4,Merced College The Bus Terminal,37.334607,-120.477978
+g_line_5,M Circle Bus Stop,37.358217,-120.477173
+g_line_6,University Transit Center,37.361462,-120.428115
+g_line_7,Amtrak Station,37.307609,-120.477388
+g_line_8,K Street Between 18th and 19th Street,37.302246,-120.481175
+g_line_9,UC Merced Downtown Campus Center,37.303807,-120.485521
+g_line_10,Merced Transpo,37.301450,-120.487809
+yosemite_express_1,Moraga Subdivision,37.332048,-120.438625
+yosemite_express_2,University Transit Center,37.361462,-120.428115
+yosemite_express_3,Foothill Drive,37.353549,-120.468961
+yosemite_express_4,Mercy Hospital / Tri-College,37.335846,-120.469197
+yosemite_express_5,G Street South (Raley's),37.330615,-120.468945
+yosemite_express_6,University Surgery Center,37.332079,-120.451705

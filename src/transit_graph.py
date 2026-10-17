@@ -1,0 +1,141 @@
+from __future__ import annotations
+
+import networkx as nx
+import pandas as pd
+
+from src.gtfs_loader import load_gtfs
+
+
+def normalize_stop_name(value: str) -> str:
+    return " ".join(str(value).lower().replace("&", "and").split())
+
+
+def walking_time(first: dict, second: dict) -> int:
+    latitude_distance = (float(first["stop_lat"]) - float(second["stop_lat"])) * 111_000
+    longitude_distance = (
+        (float(first["stop_lon"]) - float(second["stop_lon"]))
+        * 111_000
+        * 0.8
+    )
+    distance = max((latitude_distance**2 + longitude_distance**2) ** 0.5, 1)
+    return max(int(distance / 1.4), 1)
+
+
+def gtfs_time_to_seconds(value: str) -> int:
+    """Convert a GTFS HH:MM:SS value to seconds.
+
+    GTFS allows hours greater than 23, such as 25:15:00.
+    """
+    hours, minutes, seconds = (int(part) for part in value.split(":"))
+    return hours * 3600 + minutes * 60 + seconds
+
+
+def build_transit_graph(feed: dict[str, pd.DataFrame]) -> nx.MultiDiGraph:
+    """Build a directed transit graph from a GTFS feed."""
+    stops = feed["stops"]
+    routes = feed["routes"]
+    trips = feed["trips"]
+    stop_times = feed["stop_times"]
+
+    stop_lookup = (
+        stops.set_index("stop_id")
+        .to_dict(orient="index")
+    )
+
+    route_lookup = (
+        routes.set_index("route_id")["route_short_name"]
+        .to_dict()
+    )
+
+    graph = nx.MultiDiGraph()
+
+    for stop_id, stop in stop_lookup.items():
+        graph.add_node(
+            stop_id,
+            name=stop["stop_name"],
+            latitude=float(stop["stop_lat"]),
+            longitude=float(stop["stop_lon"]),
+            mode="bus_stop",
+        )
+
+    trip_routes = trips.set_index("trip_id")["route_id"].to_dict()
+
+    for trip_id, trip_stop_times in stop_times.groupby("trip_id"):
+        ordered = trip_stop_times.sort_values("stop_sequence")
+        route_id = trip_routes[trip_id]
+        route_name = route_lookup.get(route_id, route_id)
+
+        rows = list(ordered.itertuples(index=False))
+
+        for current, following in zip(rows, rows[1:]):
+            departure = gtfs_time_to_seconds(current.departure_time)
+            arrival = gtfs_time_to_seconds(following.arrival_time)
+
+            if current.stop_id not in stop_lookup:
+                raise ValueError(f"Unknown stop ID: {current.stop_id}")
+
+            if following.stop_id not in stop_lookup:
+                raise ValueError(f"Unknown stop ID: {following.stop_id}")
+
+            edge_data = {
+                "mode": "bus",
+                "trip_id": trip_id,
+                "route_id": route_id,
+                "route_name": route_name,
+                "departure_time": current.departure_time,
+                "arrival_time": following.arrival_time,
+                "travel_time": max(arrival - departure, 1),
+                "weight": max(arrival - departure, 1),
+            }
+            graph.add_edge(current.stop_id, following.stop_id, **edge_data)
+            graph.add_edge(following.stop_id, current.stop_id, **edge_data)
+
+    stops_by_name: dict[str, list[str]] = {}
+    for stop_id, stop in stop_lookup.items():
+        key = normalize_stop_name(stop["stop_name"])
+        stops_by_name.setdefault(key, []).append(stop_id)
+
+    for stop_ids in stops_by_name.values():
+        for current in stop_ids:
+            for following in stop_ids:
+                if current == following:
+                    continue
+                graph.add_edge(
+                    current,
+                    following,
+                    mode="transfer",
+                    route_id="",
+                    route_name="Transfer",
+                    travel_time=60,
+                    weight=60,
+                )
+
+    stop_items = list(stop_lookup.items())
+    for current_id, current in stop_items:
+        for following_id, following in stop_items:
+            if current_id == following_id:
+                continue
+            travel_time = walking_time(current, following)
+            graph.add_edge(
+                current_id,
+                following_id,
+                mode="walk",
+                route_id="",
+                route_name="Walking",
+                travel_time=travel_time,
+                weight=travel_time,
+            )
+
+    return graph
+
+
+def build_graph() -> nx.MultiDiGraph:
+    """Load GTFS data and build the transit graph."""
+    return build_transit_graph(load_gtfs())
+
+
+if __name__ == "__main__":
+    graph = build_graph()
+
+    print(f"Nodes: {graph.number_of_nodes()}")
+    print(f"Edges: {graph.number_of_edges()}")

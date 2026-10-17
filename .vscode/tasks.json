@@ -2,7 +2,7 @@
   "version": "2.0.0",
 	"tasks": [
 		{
-			"label": "Build and Run CatTracks",
+			"label": "Run CatTracks web app",
 			"type": "shell",
 			"command": "./build_and_run.sh",
 			"group": {
@@ -14,7 +14,7 @@
 				"panel": "new"
 			},
 			"problemMatcher": [
-				"$gcc"
+				"$python"
 			]
 		}
 	]

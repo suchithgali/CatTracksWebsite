@@ -72,7 +72,11 @@ secrets.py
 credentials.py
 
 # Cache and temporary files
+geopkg/Merced_County_Site_Address_Points.geojson
+src/scripts/merced_graph/merced_directional.gpkg
+src/scripts/merced_graph/merced_directional.graphml
 cache/
+instance/
 *.tmp
 *.temp
 .DS_Store

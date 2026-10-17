@@ -59,7 +59,6 @@
 				"name": "PG Local",
 				"database": "demo",
 				"username": "postgres",
-				"password": "2005",
 				"connectionTimeout": 30
 			},
 			{
@@ -71,8 +70,7 @@
 				"name": "CatTracks",
 				"database": "cattracks",
 				"username": "postgres",
-				"connectionTimeout": 30,
-				"password": "2005"
+				"connectionTimeout": 30
 			}
 		]
 	}

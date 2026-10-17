@@ -60,20 +60,57 @@ CatTracks is an intelligent transit route optimization system designed for Merce
 
 ## 🚀 Quick Start
 
-The project includes a unified build script to handle everything.
+The current application is a Flask web service backed by GTFS data. The old
+C++/CSV route-builder pipeline is no longer the web runtime.
 
 ```bash
 # Make the script executable (only needed once)
 chmod +x build_and_run.sh
 
-# Run the full pipeline
+# Start the local web app
 ./build_and_run.sh
 ```
 
-This script will:
-1. Run the Python address lookup tool (input your start/end points).
-2. Compile and run the C++ Graph Builder.
-3. Compile and run the C++ Path Builder to show your optimal route.
+Open <http://127.0.0.1:5000>. The deployment health check is
+<http://127.0.0.1:5000/health>.
+
+Test the complete route engine without opening the website:
+
+```bash
+.venv/bin/python -m scripts.smoke_test_route \
+  --from-stop "University Transit Center" \
+  --to-stop "Merced Mall Target"
+```
+
+To prepare a local environment:
+
+```bash
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt
+cp .env.example .env
+```
+
+### GTFS data
+
+The application uses the professional-format canonical feed in `data/gtfs/`.
+The original official download is preserved in `data/gtfs_official/`. If the
+official source is updated, regenerate the canonical feed with:
+
+```bash
+.venv/bin/python -m src.gtfs_normalize
+```
+
+The command reads `data/gtfs_official/` and writes `data/gtfs/`. Set
+`CATTRACKS_GTFS_DIR` to use a different canonical feed directory.
+
+Docker and Gunicorn configuration are included for deployment. For a
+production-like local run:
+
+```bash
+website/.venv/bin/gunicorn --bind 0.0.0.0:5000 --workers 2 website.app:app
+```
+
+The JSON API is available at `POST /api/route` with `from` and `to` stop names.
 
 ### Project Structure (Key Files)
 

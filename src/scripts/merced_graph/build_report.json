@@ -1,0 +1,78 @@
+{
+  "build": {
+    "address_nodes_created": 103394,
+    "addresses_matched": 103394,
+    "addresses_unmatched": 580,
+    "direction_source_counts": {
+      "B": 3993,
+      "FT": 129,
+      "TF": 12,
+      "UNKNOWN": 10376
+    },
+    "initial_junction_nodes": 11214,
+    "road_segments_created": 100833,
+    "speed_source_counts": {
+      "global_default": 4746,
+      "roadclass_default": 5500,
+      "speedlimit": 4264
+    },
+    "zero_length_segments_skipped": 0
+  },
+  "centerline_intersection_diagnostics": {
+    "interior_to_both_lines_pairs": 42,
+    "interior_to_either_line_pairs": 90,
+    "intersecting_centerline_pairs": 29174,
+    "nonpoint_intersection_pairs": 24,
+    "point_intersection_pairs": 29150
+  },
+  "configuration": {
+    "access_speed_kph": 5.0,
+    "connector_merge_tolerance_m": 0.5,
+    "default_speed_mph": 25.0,
+    "endpoint_snap_tolerance_m": 0.5,
+    "max_address_distance_m": 500.0,
+    "projected_crs": "EPSG:32610",
+    "unknown_oneway_policy": "both"
+  },
+  "direction_validation": {
+    "B_forward": 32865,
+    "B_reverse": 32865,
+    "FT_forward": 230,
+    "TF_reverse": 66,
+    "UNKNOWN_forward": 67672,
+    "UNKNOWN_reverse": 67672,
+    "invalid_ft_reverse_edges": 0,
+    "invalid_tf_forward_edges": 0
+  },
+  "inputs": {
+    "addresses": "/Users/suchithgali/Python/PythonFiles/SourceCode/CatTracks/geopkg/Merced_County_Site_Address_Points.geojson",
+    "bbox_wgs84": null,
+    "roads": "/Users/suchithgali/Python/PythonFiles/SourceCode/CatTracks/geopkg/Road_Centerlines (2).geojson"
+  },
+  "source": {
+    "addresses_source_crs": "EPSG:4326",
+    "roads_source_crs": "EPSG:4326",
+    "source_road_features": 14509,
+    "usable_address_points": 103974,
+    "usable_road_parts": 14510
+  },
+  "topology": {
+    "directed": true,
+    "directed_edges": 408158,
+    "edge_type_counts": {
+      "address_access": 206788,
+      "road": 201370
+    },
+    "largest_strong_component_nodes": 127222,
+    "largest_weak_component_nodes": 127226,
+    "multigraph": true,
+    "node_type_counts": {
+      "address": 103394,
+      "junction": 11214,
+      "road_connector": 86323
+    },
+    "nodes": 200931,
+    "strong_components": 74,
+    "weak_components": 46
+  }
+}
