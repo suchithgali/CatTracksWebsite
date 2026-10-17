@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-import re
-
 import networkx as nx
 
 from src.gtfs_loader import load_gtfs
@@ -30,58 +28,6 @@ def gtfs_time_to_seconds(value: str) -> int:
     """
     hours, minutes, seconds = (int(part) for part in value.split(":"))
     return hours * 3600 + minutes * 60 + seconds
-
-def _stop_number(stop_id: str) -> tuple[str, int] | None:
-    match = re.fullmatch(r"(.+?)_(\d+)", stop_id)
-    return (match.group(1), int(match.group(2))) if match else None
-
-def _complete_trip_stop_times(
-    rows: list[dict],
-    stop_lookup: dict[str, dict],
-) -> list[dict]:
-    """Restore route stops omitted from otherwise numbered trip sequences."""
-    if not rows:
-        return rows
-    completed: list[dict] = []
-    for current, following in zip(rows, rows[1:]):
-        completed.append(current)
-        current_number = _stop_number(current["stop_id"])
-        following_number = _stop_number(following["stop_id"])
-        if (
-            not current_number
-            or not following_number
-            or current_number[0] != following_number[0]
-            or following_number[1] - current_number[1] <= 1
-        ):
-            continue
-
-        departure = gtfs_time_to_seconds(current["departure_time"])
-        arrival = gtfs_time_to_seconds(following["arrival_time"])
-        if arrival < departure:
-            continue
-        missing_count = following_number[1] - current_number[1] - 1
-        interval = (arrival - departure) / (missing_count + 1)
-        for offset in range(1, missing_count + 1):
-            stop_id = f"{current_number[0]}_{current_number[1] + offset}"
-            if stop_id not in stop_lookup:
-                continue
-            timestamp = int(round(departure + interval * offset))
-            completed.append(
-                {
-                    "trip_id": current["trip_id"],
-                    "stop_id": stop_id,
-                    "stop_sequence": int(current["stop_sequence"]) + offset,
-                    "arrival_time": _seconds_to_gtfs_time(timestamp),
-                    "departure_time": _seconds_to_gtfs_time(timestamp),
-                }
-            )
-    completed.append(rows[-1])
-    return completed
-
-def _seconds_to_gtfs_time(value: int) -> str:
-    hours, remainder = divmod(value, 3600)
-    minutes, seconds = divmod(remainder, 60)
-    return f"{hours:02d}:{minutes:02d}:{seconds:02d}"
 
 def build_transit_graph(feed: dict[str, list[dict]]) -> nx.MultiDiGraph:
     """Build a directed transit graph from a GTFS feed."""
@@ -112,7 +58,6 @@ def build_transit_graph(feed: dict[str, list[dict]]) -> nx.MultiDiGraph:
 
     for trip_id, trip_stop_times in trips_by_id.items():
         ordered = sorted(trip_stop_times, key=lambda row: row["stop_sequence"])
-        ordered = _complete_trip_stop_times(ordered, stop_lookup)
         route_id = trip_routes[trip_id]
         route_name = route_lookup.get(route_id, route_id)
 

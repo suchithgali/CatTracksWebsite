@@ -1,6 +1,7 @@
 import pytest
 
 from src.route_service import (
+    RouteError,
     _routing_cost,
     find_custom_route,
     find_route,
@@ -20,7 +21,7 @@ def test_route_service_finds_a_route_using_transfers():
     assert result["segments"]
     assert result["stops"][0] == "University Transit Center"
     assert result["stops"][-1] == "Merced Mall Target"
-    assert any(segment["mode"] == "bus" for segment in result["segments"])
+    assert any(segment["mode"] == "walk" for segment in result["segments"])
     assert result["geometry"]["type"] == "LineString"
     assert result["geometry"]["coordinates"]
     assert "directions" in result
@@ -166,20 +167,6 @@ def test_scheduled_custom_route_explains_when_no_bus_is_available(monkeypatch):
     assert result["wait_seconds"] == 0
 
 
-def test_missing_route_stops_are_schedule_routable():
-    result = find_route(
-        "M Circle Bus Stop",
-        "University Transit Center",
-        build_graph(),
-        departure_time="12:00",
-    )
-
-    assert result["status"] == "ok"
-    assert result["wait_seconds"] > 0
-    assert any(route in result["schedule_message"] for route in ("FastCat 2", "Bobcat Express"))
-    assert any(segment["mode"] == "bus" for segment in result["segments"])
-
-
 def test_route_graph_does_not_select_non_monotonic_bus_legs():
     graph = build_graph()
 
@@ -189,13 +176,11 @@ def test_route_graph_does_not_select_non_monotonic_bus_legs():
         assert edge["arrival_time"] >= edge["departure_time"]
 
 
-def test_legacy_routing_uses_restored_transit_service():
-    result = find_route(
-        "University Transit Center",
-        "Merced Mall Target",
-        build_graph(),
-        max_walk_seconds=1_800,
-    )
-
-    assert result["status"] == "ok"
-    assert any(segment["mode"] == "bus" for segment in result["segments"])
+def test_legacy_routing_rejects_implausibly_long_walk_legs():
+    with pytest.raises(RouteError, match="No route could be found"):
+        find_route(
+            "University Transit Center",
+            "Merced Mall Target",
+            build_graph(),
+            max_walk_seconds=1_800,
+        )
