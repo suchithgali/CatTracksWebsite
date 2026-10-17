@@ -89,7 +89,7 @@ input:focus { outline: 3px solid rgba(59, 130, 246, .2); border-color: #2563eb; 
 .empty-results h2 { margin-bottom: 8px; }
 .empty-results p { color: var(--muted); }
 @keyframes pulse { 50% { opacity: .45; } }
-.map-section { max-width: 1180px; margin: 0 auto; padding: 0 24px 64px; }
+.map-section { max-width: 1180px; margin: 36px auto 0; padding: 0 24px 64px; }
 .route-map { min-height: 480px; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; box-shadow: 0 12px 35px rgba(15, 23, 42, .08); }
 .live-tracker-section { padding-top: 12px; }
 .live-tracker-card { padding: 28px; background: white; border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 12px 35px rgba(15, 23, 42, .08); }
@@ -121,6 +121,7 @@ input:focus { outline: 3px solid rgba(59, 130, 246, .2); border-color: #2563eb; 
   .planner-hero { display: block; }
   .planner-status { margin-top: 20px; }
   .planner-workspace { grid-template-columns: 1fr; }
+  .map-section { margin-top: 28px; }
   .live-tracker-heading { display: block; }
   .live-tracker-frame { height: 540px; }
   .live-tracker-link { width: 100%; }
