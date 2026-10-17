@@ -106,7 +106,9 @@ The command reads `data/gtfs_official/` and writes `data/gtfs/`. Set
 ### Road-following route maps
 
 The planner requests road geometry from an OSRM-compatible routing service and
-draws that geometry on the Leaflet map. The default service is the public
+draws that geometry on the Leaflet map. The basemap uses CARTO Voyager tiles
+for a clean, Google-style road-map appearance without requiring a Google Maps
+API key. The default routing service is the public
 OSRM demo endpoint. For production deployments, set
 `CATTRACKS_ROUTING_URL` to a hosted or private OSRM-compatible service. If
 the service is unavailable, the API keeps the route usable and falls back to

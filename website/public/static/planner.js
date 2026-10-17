@@ -21,8 +21,10 @@
     useEffect(() => {
       map.current = L.map(target.current, { zoomControl: false }).setView([37.3612, -120.4324], 13);
       L.control.zoom({ position: "bottomright" }).addTo(map.current);
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        maxZoom: 19, attribution: "&copy; OpenStreetMap contributors"
+      L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
+        maxZoom: 20,
+        subdomains: "abcd",
+        attribution: "&copy; OpenStreetMap contributors &copy; CARTO"
       }).addTo(map.current);
       return () => map.current.remove();
     }, []);
