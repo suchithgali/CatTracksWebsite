@@ -53,6 +53,9 @@ def test_planner_renders_route_map_and_distance():
     assert response.status_code == 200
     assert b'id="planner-app"' in response.data
     assert b'planner.js' in response.data
+    assert b'"from": "University Transit Center"' in response.data
+    assert b'"to": "Merced Mall Target"' in response.data
+    assert b'"route":' in response.data
 
 
 def test_route_api_rejects_missing_stops():

@@ -7,6 +7,12 @@
 {% block content %}
 <div id="planner-app"></div>
 <script id="planner-stops" type="application/json">{{ stops|tojson }}</script>
+<script id="planner-initial" type="application/json">{{ {
+  "from": from_stop,
+  "to": to_stop,
+  "route": route,
+  "message": message
+}|tojson }}</script>
 {% endblock %}
 {% block scripts %}
 <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>

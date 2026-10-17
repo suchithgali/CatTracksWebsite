@@ -1,6 +1,7 @@
 (function () {
   const { createElement: h, useEffect, useRef, useState } = React;
   const stops = JSON.parse(document.getElementById("planner-stops").textContent);
+  const initial = JSON.parse(document.getElementById("planner-initial").textContent);
 
   const minutes = seconds => seconds < 60 ? "< 1 min" : `${Math.round(seconds / 60)} min`;
   const miles = meters => `${(meters / 1609.344).toFixed(2)} mi`;
@@ -44,11 +45,11 @@
   }
 
   function Planner() {
-    const [from, setFrom] = useState("");
-    const [to, setTo] = useState("");
-    const [route, setRoute] = useState(null);
-    const [status, setStatus] = useState("idle");
-    const [message, setMessage] = useState("");
+    const [from, setFrom] = useState(initial.from || "");
+    const [to, setTo] = useState(initial.to || "");
+    const [route, setRoute] = useState(initial.route || null);
+    const [status, setStatus] = useState(initial.route ? "success" : initial.message ? "error" : "idle");
+    const [message, setMessage] = useState(initial.message || "");
     async function submit(event) {
       event.preventDefault();
       if (!from.trim() || !to.trim()) return setMessage("Enter both a departure and destination.");
