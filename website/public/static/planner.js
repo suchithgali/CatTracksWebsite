@@ -45,16 +45,36 @@
       if (layer.current) layer.current.remove();
       const points = route.geometry.coordinates.map(point => [point[1], point[0]]);
       const routeLayers = [
-        L.polyline(points, { color: "#075985", weight: 6, opacity: 0.9 }),
-        L.marker(points[0]).bindPopup(`<strong>Start</strong><br>${route.from}`),
-        L.marker(points[points.length - 1]).bindPopup(`<strong>Destination</strong><br>${route.to}`)
+        L.polyline(points, { color: "#075985", weight: 6, opacity: 0.9 })
       ];
       const stopPoints = route.points || [];
+      const meaningfulNames = new Set(
+        (route.segments || []).flatMap(segment => [segment.from, segment.to])
+      );
+      const boardingNames = new Set(
+        (route.segments || [])
+          .filter(segment => segment.mode === "bus")
+          .map(segment => segment.from)
+      );
+      const alightingNames = new Set(
+        (route.segments || [])
+          .filter(segment => segment.mode === "bus")
+          .map(segment => segment.to)
+      );
       stopPoints.forEach((point, index) => {
+        if (index !== 0 && index !== stopPoints.length - 1 && !meaningfulNames.has(point.name)) return;
         const position = [Number(point.latitude), Number(point.longitude)];
         const isFirst = index === 0;
         const isLast = index === stopPoints.length - 1;
-        const role = isFirst ? "Starting point" : isLast ? "Destination" : "Transit stop";
+        const role = isFirst
+          ? "Starting point"
+          : isLast
+            ? "Destination"
+            : boardingNames.has(point.name)
+              ? "Board here"
+              : alightingNames.has(point.name)
+                ? "Get off here"
+                : "Transfer stop";
         const poi = L.circleMarker(position, {
           radius: isFirst || isLast ? 8 : 6,
           color: isFirst || isLast ? "#002147" : "#075985",
