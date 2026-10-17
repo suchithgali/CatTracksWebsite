@@ -21,10 +21,17 @@
     useEffect(() => {
       map.current = L.map(target.current, { zoomControl: false }).setView([37.3612, -120.4324], 13);
       L.control.zoom({ position: "bottomright" }).addTo(map.current);
-      L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
-        maxZoom: 20,
-        subdomains: "abcd",
-        attribution: "&copy; OpenStreetMap contributors &copy; CARTO"
+      const streets = L.tileLayer(
+        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
+        { maxZoom: 19, attribution: "Tiles &copy; Esri" }
+      ).addTo(map.current);
+      const satellite = L.tileLayer(
+        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+        { maxZoom: 19, attribution: "Tiles &copy; Esri" }
+      );
+      L.control.layers({ "Street map": streets, "Satellite": satellite }, null, {
+        position: "topright",
+        collapsed: true
       }).addTo(map.current);
       return () => map.current.remove();
     }, []);
