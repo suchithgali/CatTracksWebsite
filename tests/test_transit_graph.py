@@ -53,3 +53,28 @@ def test_graph_skips_non_monotonic_bus_legs():
     assert all(
         edge["arrival_time"] >= edge["departure_time"] for edge in bus_edges
     )
+
+
+def test_graph_restores_missing_numbered_route_stops():
+    feed = {
+        "stops": [
+            {"stop_id": "route_1", "stop_name": "A", "stop_lat": "37.0", "stop_lon": "-120.0"},
+            {"stop_id": "route_2", "stop_name": "B", "stop_lat": "37.001", "stop_lon": "-120.0"},
+            {"stop_id": "route_3", "stop_name": "C", "stop_lat": "37.002", "stop_lon": "-120.0"},
+        ],
+        "routes": [{"route_id": "r", "route_short_name": "R"}],
+        "trips": [{"trip_id": "trip", "route_id": "r"}],
+        "stop_times": [
+            {"trip_id": "trip", "stop_id": "route_1", "stop_sequence": "1", "departure_time": "14:00:00", "arrival_time": "14:00:00"},
+            {"trip_id": "trip", "stop_id": "route_3", "stop_sequence": "3", "departure_time": "14:02:00", "arrival_time": "14:02:00"},
+        ],
+    }
+
+    graph = build_transit_graph(feed)
+
+    assert any(
+        graph.nodes[u]["name"] == "B"
+        and graph.nodes[v]["name"] == "C"
+        and edge["mode"] == "bus"
+        for u, v, edge in graph.edges(data=True)
+    )

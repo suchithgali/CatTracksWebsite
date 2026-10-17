@@ -100,5 +100,9 @@ def test_network_offline_shows_legacy_banner_and_uses_static_routes(monkeypatch)
             "departure_time": "08:00",
         },
     )
-    assert response.status_code == 400
-    assert "No route could be found" in response.json["message"]
+    assert response.status_code == 200
+    assert response.json["status"] == "ok"
+    assert all(
+        segment["mode"] != "walk" or segment["travel_time"] <= 1_800
+        for segment in response.json["segments"]
+    )

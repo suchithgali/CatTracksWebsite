@@ -75,6 +75,11 @@ schedule-aware implementation reads trip times and service-calendar data from
 the feed, but route searches currently select from the loaded trips without
 performing a date-specific service-day filter. Results should therefore be
 treated as schedule-aware estimates rather than calendar-perfect departures.
+Some published trips omit numbered intermediate or terminal stop records even
+though those stops are present in `stops.txt`. The graph restores those
+route-sequence gaps using the neighboring recorded trip times, so named stops
+such as M Circle Bus Stop and University Transit Center can participate in
+scheduled routing without inventing independent bus service.
 
 ## Route behavior
 
