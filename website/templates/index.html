@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "macros/icons.html" import icon %}
 {% block title %}Plan your trip{% endblock %}
 {% block content %}
 <section class="hero">
@@ -22,9 +23,9 @@
 <section class="content-section">
   <div class="section-heading"><div><p class="eyebrow">Service at a glance</p><h2>Explore CatTracks</h2></div></div>
   <div class="feature-grid">
-    <a class="feature-card" href="{{ url_for('schedules') }}"><span class="feature-icon">◷</span><h3>Schedules</h3><p>View current route schedules and service hours.</p><span class="text-link">View schedules →</span></a>
-    <a class="feature-card" href="{{ url_for('planner') }}"><span class="feature-icon">⌁</span><h3>Live routes</h3><p>Choose stops and submit a trip-planning request.</p><span class="text-link">Plan a trip →</span></a>
-    <a class="feature-card" href="{{ url_for('contact') }}"><span class="feature-icon">?</span><h3>Need help?</h3><p>Find contact details and project information.</p><span class="text-link">Get in touch →</span></a>
+    <a class="feature-card" href="{{ url_for('schedules') }}"><span class="feature-icon">{{ icon("calendar") }}</span><h3>Schedules</h3><p>View current route schedules and service hours.</p><span class="text-link">View schedules {{ icon("arrow") }}</span></a>
+    <a class="feature-card" href="{{ url_for('planner') }}"><span class="feature-icon">{{ icon("map") }}</span><h3>Live routes</h3><p>Choose stops and submit a trip-planning request.</p><span class="text-link">Plan a trip {{ icon("arrow") }}</span></a>
+    <a class="feature-card" href="{{ url_for('contact') }}"><span class="feature-icon">{{ icon("info") }}</span><h3>Need help?</h3><p>Find contact details and project information.</p><span class="text-link">Get in touch {{ icon("arrow") }}</span></a>
   </div>
 </section>
 {% endblock %}

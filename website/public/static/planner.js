@@ -5,6 +5,14 @@
 
   const minutes = seconds => seconds < 60 ? "< 1 min" : `${Math.round(seconds / 60)} min`;
   const miles = meters => `${(meters / 1609.344).toFixed(2)} mi`;
+  const iconPaths = {
+    map: [h("path", { d: "m9 18-6 3V6l6-3 6 3 6-3v15l-6 3-6-3Z" }), h("path", { d: "M9 3v15M15 6v15" })],
+    route: [h("circle", { cx: "6", cy: "5", r: "2.5" }), h("circle", { cx: "18", cy: "19", r: "2.5" }), h("path", { d: "M6 7.5v2a3 3 0 0 0 3 3h3a3 3 0 0 1 3 3v1M15 16.5l2 2 2-2" })],
+    arrow: [h("path", { d: "M5 12h13M13 6l6 6-6 6" })]
+  };
+  function Icon({ name }) {
+    return h("svg", { className: "ui-icon", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.8", strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": "true" }, iconPaths[name]);
+  }
 
   function MapView({ route }) {
     const target = useRef(null);
@@ -76,13 +84,13 @@
       ),
       h("section", { className: "planner-workspace" },
         h("form", { className: "planner-card reactive-form", onSubmit: submit },
-          h("div", { className: "card-heading" }, h("span", { className: "feature-icon" }, "↗"), h("span", null, "Plan a journey")),
+          h("div", { className: "card-heading" }, h("span", { className: "feature-icon" }, h(Icon, { name: "route" })), h("span", null, "Plan a journey")),
           h("label", { htmlFor: "from-stops" }, "Starting point"),
           h("input", { id: "from-stops", list: "stop-list", value: from, onChange: e => setFrom(e.target.value), placeholder: "Address or CatTracks stop", required: true }),
           h("label", { htmlFor: "to-stops" }, "Destination"),
           h("input", { id: "to-stops", list: "stop-list", value: to, onChange: e => setTo(e.target.value), placeholder: "Address or CatTracks stop", required: true }),
           h("datalist", { id: "stop-list" }, stops.map(stop => h("option", { key: stop, value: stop }))),
-          h("button", { className: "button button-primary", disabled: status === "loading" }, status === "loading" ? "Planning route…" : "Find my route →"),
+          h("button", { className: "button button-primary", disabled: status === "loading" }, status === "loading" ? "Planning route…" : h(React.Fragment, null, "Find my route ", h(Icon, { name: "arrow" }))),
           message && h("p", { className: "planner-message" }, message)
         ),
         h("div", { className: "route-panel reactive-results", "aria-live": "polite" },
@@ -90,7 +98,7 @@
             h("div", { className: "result-heading" }, h("div", null, h("p", { className: "eyebrow" }, "Route found"), h("h2", null, minutes(route.duration_seconds))), h("strong", { className: "distance-pill" }, miles(route.distance_meters))),
             route.access_stops && h("p", { className: "route-access" }, `Board at ${route.access_stops.from} · Get off at ${route.access_stops.to}`),
             h("ol", { className: "route-results" }, route.segments.map((segment, index) => h(Segment, { segment, index, key: `${segment.from}-${segment.to}-${index}` })))
-          ) : h("div", { className: "empty-results" }, h("span", { className: "feature-icon" }, "⌁"), h("h2", null, "Your route will appear here"), h("p", null, "Search for a trip to see the best way across the CatTracks network."))
+          ) : h("div", { className: "empty-results" }, h("span", { className: "feature-icon" }, h(Icon, { name: "map" })), h("h2", null, "Your route will appear here"), h("p", null, "Search for a trip to see the best way across the CatTracks network."))
         )
       ),
       h("section", { className: "map-section" }, h(MapView, { route }))

@@ -16,9 +16,11 @@ a { color: inherit; }
 .brand img { width: 42px; height: 42px; object-fit: contain; }
 .brand strong, .brand small { display: block; }
 .brand small { color: var(--gold); font-size: 12px; }
-nav { display: flex; gap: 26px; font-size: 14px; }
-nav a { text-decoration: none; opacity: .86; }
+nav { display: flex; gap: 22px; font-size: 14px; }
+nav a { display: inline-flex; align-items: center; gap: 7px; text-decoration: none; opacity: .86; }
 nav a:hover, nav a:focus { color: var(--gold); opacity: 1; }
+.ui-icon { width: 18px; height: 18px; display: inline-block; vertical-align: middle; flex: 0 0 auto; }
+nav .ui-icon { width: 16px; height: 16px; }
 main { min-height: calc(100vh - 126px); }
 footer { padding: 24px; text-align: center; color: var(--muted); font-size: 13px; }
 .hero { min-height: 470px; padding: 80px max(24px, calc((100% - 1180px) / 2)); display: grid; grid-template-columns: 1fr 420px; gap: 72px; align-items: center; background: linear-gradient(120deg, var(--navy), #075985); color: white; }
@@ -43,7 +45,15 @@ input:focus { outline: 3px solid rgba(59, 130, 246, .2); border-color: #2563eb; 
 .feature-grid, .route-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .feature-card, .schedule-card { padding: 24px; text-decoration: none; }
 .feature-card:hover { border-color: #93c5fd; transform: translateY(-2px); transition: .2s ease; }
-.feature-icon { display: inline-grid; place-items: center; width: 38px; height: 38px; border-radius: 10px; background: #e0f2fe; color: var(--blue); font-size: 22px; font-weight: 800; }
+.feature-icon { display: inline-grid; place-items: center; width: 42px; height: 42px; border-radius: 13px; background: #e0f2fe; color: var(--blue); }
+.feature-icon .ui-icon { width: 21px; height: 21px; }
+.text-link { display: inline-flex; align-items: center; gap: 5px; }
+.text-link .ui-icon { width: 15px; height: 15px; }
+.eyebrow .ui-icon { width: 15px; height: 15px; margin-right: 5px; vertical-align: -3px; }
+.card-heading .feature-icon { width: 34px; height: 34px; border-radius: 10px; }
+.card-heading .feature-icon .ui-icon { width: 18px; height: 18px; }
+.button .ui-icon { width: 17px; height: 17px; }
+.info-card h2 { display: flex; align-items: center; gap: 8px; }
 .feature-card h3, .schedule-card h2 { margin: 18px 0 6px; }
 .feature-card p, .schedule-card p, .route-panel p, .info-card p { color: var(--muted); }
 .text-link { color: var(--blue); font-size: 14px; font-weight: 800; text-decoration: none; }
@@ -87,6 +97,7 @@ input:focus { outline: 3px solid rgba(59, 130, 246, .2); border-color: #2563eb; 
 @media (max-width: 760px) {
   .site-header { height: auto; padding: 16px 20px; align-items: flex-start; gap: 18px; }
   nav { flex-wrap: wrap; justify-content: flex-end; gap: 8px 14px; font-size: 12px; }
+  nav .ui-icon { display: none; }
   .hero { grid-template-columns: 1fr; gap: 28px; padding-top: 52px; }
   .hero h1 { font-size: 48px; }
   .feature-grid, .route-grid, .planner-layout { grid-template-columns: 1fr; }

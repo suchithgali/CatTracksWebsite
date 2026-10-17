@@ -1,14 +1,15 @@
 {% extends "base.html" %}
+{% from "macros/icons.html" import icon %}
 {% block title %}Schedules{% endblock %}
 {% block content %}
-<section class="page-heading"><p class="eyebrow">Transit service</p><h1>Schedules</h1><p>Routes currently available in the CatTracks GTFS feed.</p></section>
+<section class="page-heading"><p class="eyebrow">{{ icon("calendar") }} Transit service</p><h1>Schedules</h1><p>Routes currently available in the CatTracks GTFS feed.</p></section>
 <section class="content-section">
   <div class="route-grid">
     {% for route in routes %}
     <article class="schedule-card">
       <div class="route-badge">{{ route.name }}</div>
       <div><h2>{{ route.name }}</h2><p>{{ route.description or "UC Merced area service" }}</p></div>
-      <a class="text-link" href="{{ url_for('planner') }}">Plan this route →</a>
+      <a class="text-link" href="{{ url_for('planner') }}">Plan this route {{ icon("arrow") }}</a>
     </article>
     {% else %}
     <div class="info-card"><h2>No schedule data available</h2><p>GTFS route data is not available in this deployment.</p></div>
