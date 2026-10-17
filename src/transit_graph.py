@@ -76,38 +76,6 @@ def _complete_trip_stop_times(
                 }
             )
     completed.append(rows[-1])
-    last_number = _stop_number(rows[-1]["stop_id"])
-    if last_number:
-        route_stop_numbers = sorted(
-            number
-            for stop_id in stop_lookup
-            if (parsed := _stop_number(stop_id))
-            and parsed[0] == last_number[0]
-            for number in [parsed[1]]
-        )
-        missing_after = [
-            number for number in route_stop_numbers if number > last_number[1]
-        ]
-        if missing_after:
-            previous = rows[-2] if len(rows) > 1 else rows[-1]
-            interval = max(
-                gtfs_time_to_seconds(rows[-1]["departure_time"])
-                - gtfs_time_to_seconds(previous["departure_time"]),
-                60,
-            )
-            departure = gtfs_time_to_seconds(rows[-1]["departure_time"])
-            for offset, number in enumerate(missing_after, start=1):
-                timestamp = departure + interval * offset
-                stop_id = f"{last_number[0]}_{number}"
-                completed.append(
-                    {
-                        "trip_id": rows[-1]["trip_id"],
-                        "stop_id": stop_id,
-                        "stop_sequence": int(rows[-1]["stop_sequence"]) + offset,
-                        "arrival_time": _seconds_to_gtfs_time(timestamp),
-                        "departure_time": _seconds_to_gtfs_time(timestamp),
-                    }
-                )
     return completed
 
 def _seconds_to_gtfs_time(value: int) -> str:
