@@ -108,6 +108,7 @@ input:focus { outline: 3px solid rgba(59, 130, 246, .2); border-color: #2563eb; 
 .step-content > span { color: var(--ink); }
 .step-content small { color: var(--muted); }
 .planner-message { padding: 10px 12px; border-radius: 8px; background: #fef2f2; color: #b91c1c !important; font-size: 13px; }
+.planner-schedule-message { padding: 10px 12px; border-radius: 8px; background: #eff6ff; color: #1e3a8a; font-size: 13px; }
 .empty-results { padding-top: 26px; }
 .empty-results h2 { margin-bottom: 8px; }
 .empty-results p { color: var(--muted); }

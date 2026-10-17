@@ -100,6 +100,56 @@ def _gtfs_time_seconds(value: str) -> int:
     return hours * 3600 + minutes * 60 + seconds
 
 
+def _clock_time(seconds: int) -> str:
+    return f"{(seconds // 3600) % 24:02d}:{(seconds % 3600) // 60:02d}"
+
+
+def _schedule_summary(
+    graph: nx.MultiDiGraph,
+    path: list[str],
+    selected_edges: list[dict],
+    departure_seconds: int,
+) -> dict[str, object]:
+    current_time = departure_seconds
+    wait_seconds = 0
+    bus_edges = 0
+    first_wait: tuple[int, str, str] | None = None
+    for current, edge in zip(path, selected_edges):
+        if edge["mode"] == "bus":
+            bus_edges += 1
+            bus_departure = _gtfs_time_seconds(edge["departure_time"])
+            if bus_departure > current_time and first_wait is None:
+                first_wait = (
+                    bus_departure - current_time,
+                    graph.nodes[current]["name"],
+                    edge["route_name"],
+                )
+            wait_seconds += max(bus_departure - current_time, 0)
+            current_time = _gtfs_time_seconds(edge["arrival_time"])
+        else:
+            current_time += edge["travel_time"]
+
+    if first_wait:
+        seconds, stop_name, route_name = first_wait
+        return {
+            "wait_seconds": wait_seconds,
+            "schedule_message": (
+                f"Wait {max(1, round(seconds / 60))} min at {stop_name} "
+                f"for {route_name}, departing at "
+                f"{_clock_time(departure_seconds + seconds)}."
+            ),
+        }
+    if bus_edges == 0:
+        return {
+            "wait_seconds": 0,
+            "schedule_message": (
+                "No scheduled bus connection was found after your departure "
+                "time; walking is the available route."
+            ),
+        }
+    return {"wait_seconds": wait_seconds}
+
+
 def _scheduled_edge(edge_options: dict, current_time: int) -> tuple[dict, int] | None:
     candidates = []
     for edge in edge_options.values():
@@ -303,6 +353,14 @@ def find_route(
         )
         route["duration_seconds"] = arrival_seconds - departure_seconds
         route["departure_time"] = departure_time
+        route.update(
+            _schedule_summary(
+                graph,
+                path,
+                selected_edges,
+                departure_seconds,
+            )
+        )
         return route
     path = _best_path(graph, origins, destinations, max_walk_seconds)
     return _route_for_path(graph, path, from_stop, to_stop)
@@ -413,7 +471,7 @@ def find_custom_route(
     points = [departure, *transit_route["points"], destination]
     road_route = route_geometry(points)
 
-    return {
+    result = {
         **transit_route,
         "from": from_location,
         "to": to_location,
@@ -435,6 +493,14 @@ def find_custom_route(
     if departure_time:
         result["departure_time"] = departure_time
         result["duration_seconds"] = scheduled_arrival - departure_seconds
+        result.update(
+            _schedule_summary(
+                graph,
+                transit_path,
+                selected_edges or [],
+                departure_seconds + access_seconds,
+            )
+        )
     return result
 
 

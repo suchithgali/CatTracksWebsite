@@ -99,6 +99,11 @@ Malformed bus legs whose arrival precedes departure are ignored. If no valid
 scheduled transit path is available, the service reports the routing error
 instead of silently labeling a different edge.
 
+Schedule-aware results include a wait message when the selected route boards a
+later bus. If no scheduled bus connection exists after the requested time, the
+planner explicitly says that walking is the available route rather than
+implying that a bus was missed.
+
 Without a departure time, the service uses its static generalized route cost.
 Travel time remains primary; walking distance, transit distance, and transfers
 receive additional penalties to avoid choosing implausible routes solely

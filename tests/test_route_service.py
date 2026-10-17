@@ -143,6 +143,28 @@ def test_departure_time_uses_schedule_and_returns_elapsed_duration():
     assert result["status"] == "ok"
     assert result["departure_time"] == "08:00"
     assert result["duration_seconds"] >= 0
+    assert "wait_seconds" in result
+    assert "schedule_message" in result or result["wait_seconds"] > 0
+
+
+def test_scheduled_custom_route_explains_when_no_bus_is_available(monkeypatch):
+    monkeypatch.setattr(
+        "src.route_service.geocode_location",
+        lambda location: {
+            "name": location,
+            "latitude": 37.3561315,
+            "longitude": -120.4833789,
+        },
+    )
+    result = find_custom_route(
+        "781 Irma Drive",
+        "University Transit Center",
+        build_graph(),
+        departure_time="14:00",
+    )
+
+    assert result["schedule_message"].startswith("No scheduled bus connection")
+    assert result["wait_seconds"] == 0
 
 
 def test_route_graph_does_not_select_non_monotonic_bus_legs():

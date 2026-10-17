@@ -176,6 +176,7 @@
           route ? h("div", null,
             h("div", { className: "result-heading" }, h("div", null, h("p", { className: "eyebrow" }, "Route found"), h("h2", null, minutes(route.duration_seconds)), route.departure_time && h("small", null, `Leaving at ${route.departure_time}`)), h("strong", { className: "distance-pill" }, miles(route.distance_meters))),
             route.access_stops && h("p", { className: "route-access" }, `Board at ${route.access_stops.from} · Get off at ${route.access_stops.to}`),
+            route.schedule_message && h("p", { className: "planner-schedule-message" }, route.schedule_message),
             h(Directions, { directions: route.directions }),
             h("ol", { className: "route-results" }, route.segments.map((segment, index) => h(Segment, { segment, index, key: `${segment.from}-${segment.to}-${index}` })))
           ) : h("div", { className: "empty-results" }, h("span", { className: "feature-icon" }, h(Icon, { name: "map" })), h("h2", null, "Your route will appear here"), h("p", null, "Search for a trip to see the best way across the CatTracks network."))
