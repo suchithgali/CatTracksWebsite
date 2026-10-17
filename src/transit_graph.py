@@ -77,6 +77,12 @@ def build_transit_graph(feed: dict[str, list[dict]]) -> nx.MultiDiGraph:
             if following["stop_id"] not in stop_lookup:
                 raise ValueError(f"Unknown stop ID: {following['stop_id']}")
 
+            # A malformed stop-time pair cannot represent a usable trip leg.
+            # Keeping it with a one-second fallback makes static routing prefer
+            # an impossible bus over a valid scheduled or walking connection.
+            if arrival < departure:
+                continue
+
             edge_data = {
                 "mode": "bus",
                 "trip_id": trip_id,

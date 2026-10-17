@@ -136,3 +136,12 @@ def test_departure_time_uses_schedule_and_returns_elapsed_duration():
     assert result["status"] == "ok"
     assert result["departure_time"] == "08:00"
     assert result["duration_seconds"] >= 0
+
+
+def test_route_graph_does_not_select_non_monotonic_bus_legs():
+    graph = build_graph()
+
+    for _, _, edge in graph.edges(data=True):
+        if edge["mode"] != "bus":
+            continue
+        assert edge["arrival_time"] >= edge["departure_time"]

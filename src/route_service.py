@@ -214,10 +214,7 @@ def _route_for_path(
             "travel_time": edge["travel_time"],
             "distance_meters": edge.get("distance_meters", 0),
         }
-        if (
-            segment["from"] == segment["to"]
-            and segment["mode"] in {"walk", "transfer"}
-        ):
+        if segment["from"] == segment["to"]:
             continue
         if segments and segments[-1]["mode"] == segment["mode"] and (
             segments[-1].get("route") == segment.get("route")
@@ -229,6 +226,11 @@ def _route_for_path(
             segments.append(segment)
 
     road_route = route_geometry(points)
+    segments = [
+        segment
+        for segment in segments
+        if segment["from"] != segment["to"]
+    ]
     return {
         "status": "ok",
         "from": from_stop,
