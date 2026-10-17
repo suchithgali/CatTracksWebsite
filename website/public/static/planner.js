@@ -61,6 +61,19 @@
     );
   }
 
+  function Directions({ directions }) {
+    if (!directions || !directions.length) return null;
+    return h("details", { className: "route-directions" },
+      h("summary", null, "Turn-by-turn road directions"),
+      h("ol", null, directions.map((direction, index) =>
+        h("li", { key: `${direction.instruction}-${index}` },
+          h("span", null, direction.instruction),
+          h("small", null, `${minutes(direction.duration_seconds)} · ${miles(direction.distance_meters)}`)
+        )
+      ))
+    );
+  }
+
   function Planner() {
     const [from, setFrom] = useState(initial.from || "");
     const [to, setTo] = useState(initial.to || "");
@@ -106,6 +119,7 @@
           route ? h("div", null,
             h("div", { className: "result-heading" }, h("div", null, h("p", { className: "eyebrow" }, "Route found"), h("h2", null, minutes(route.duration_seconds))), h("strong", { className: "distance-pill" }, miles(route.distance_meters))),
             route.access_stops && h("p", { className: "route-access" }, `Board at ${route.access_stops.from} · Get off at ${route.access_stops.to}`),
+            h(Directions, { directions: route.directions }),
             h("ol", { className: "route-results" }, route.segments.map((segment, index) => h(Segment, { segment, index, key: `${segment.from}-${segment.to}-${index}` })))
           ) : h("div", { className: "empty-results" }, h("span", { className: "feature-icon" }, h(Icon, { name: "map" })), h("h2", null, "Your route will appear here"), h("p", null, "Search for a trip to see the best way across the CatTracks network."))
         )

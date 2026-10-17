@@ -16,6 +16,11 @@ def test_route_service_finds_a_route_using_transfers():
     assert any(segment["mode"] == "walk" for segment in result["segments"])
     assert result["geometry"]["type"] == "LineString"
     assert result["geometry"]["coordinates"]
+    assert "directions" in result
+    assert all(
+        segment["from"] != segment["to"]
+        for segment in result["segments"]
+    )
 
 
 def test_custom_route_adds_walking_legs(monkeypatch):

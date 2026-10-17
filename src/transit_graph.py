@@ -118,7 +118,9 @@ def build_transit_graph(feed: dict[str, list[dict]]) -> nx.MultiDiGraph:
     stop_items = list(stop_lookup.items())
     for current_id, current in stop_items:
         for following_id, following in stop_items:
-            if current_id == following_id:
+            if current_id == following_id or normalize_stop_name(
+                current["stop_name"]
+            ) == normalize_stop_name(following["stop_name"]):
                 continue
             travel_time = walking_time(current, following)
             graph.add_edge(

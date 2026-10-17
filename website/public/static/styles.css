@@ -73,6 +73,11 @@ input:focus { outline: 3px solid rgba(59, 130, 246, .2); border-color: #2563eb; 
 .result-heading h2 { margin: 4px 0 0; font-size: 36px; }
 .distance-pill { padding: 8px 12px; border-radius: 999px; background: #e0f2fe; color: var(--blue); white-space: nowrap; }
 .route-access { padding: 12px 14px; border-left: 3px solid var(--gold); background: #fffbeb; color: var(--ink) !important; }
+.route-directions { margin: 16px 0; padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px; background: #f8fafc; }
+.route-directions summary { color: var(--blue); cursor: pointer; font-weight: 800; }
+.route-directions ol { display: grid; gap: 9px; margin: 12px 0 0; padding-left: 24px; }
+.route-directions li { padding-left: 4px; }
+.route-directions li small { display: block; color: var(--muted); margin-top: 2px; }
 .route-results { display: grid; gap: 14px; padding: 0; list-style: none; }
 .route-step { display: flex; gap: 12px; align-items: start; }
 .step-number { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--navy); color: white; font-size: 12px; font-weight: 800; flex: 0 0 auto; }

@@ -104,6 +104,11 @@ def _route_for_path(
             "travel_time": edge["travel_time"],
             "distance_meters": edge.get("distance_meters", 0),
         }
+        if (
+            segment["from"] == segment["to"]
+            and segment["mode"] in {"walk", "transfer"}
+        ):
+            continue
         if segments and segments[-1]["mode"] == segment["mode"] and (
             segments[-1].get("route") == segment.get("route")
         ):
@@ -123,6 +128,7 @@ def _route_for_path(
         "points": points,
         "geometry": road_route["geometry"],
         "geometry_source": road_route["source"],
+        "directions": road_route.get("directions", []),
         "stops": [graph.nodes[node]["name"] for node in path],
         "segments": segments,
     }
@@ -232,6 +238,7 @@ def find_custom_route(
         "points": points,
         "geometry": road_route["geometry"],
         "geometry_source": road_route["source"],
+        "directions": road_route.get("directions", []),
         "segments": segments,
         "access_stops": {
             "from": start_stop["name"],

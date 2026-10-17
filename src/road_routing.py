@@ -11,6 +11,31 @@ DEFAULT_ROUTING_URL = "https://router.project-osrm.org"
 DEFAULT_GEOCODING_URL = "https://nominatim.openstreetmap.org/search"
 
 
+def _step_instruction(step: dict[str, Any]) -> str:
+    maneuver = step.get("maneuver", {})
+    modifier = str(maneuver.get("modifier", "")).replace("-", " ")
+    maneuver_type = str(maneuver.get("type", "continue")).replace("-", " ")
+    road_name = step.get("name") or "the road"
+    if maneuver_type == "depart":
+        return f"Start on {road_name}"
+    if maneuver_type == "arrive":
+        return "Arrive at your destination"
+    if maneuver_type == "roundabout":
+        exit_number = maneuver.get("exit")
+        suffix = f", take exit {exit_number}" if exit_number else ""
+        return f"Enter the roundabout{suffix} onto {road_name}"
+    action = {
+        "turn": f"Turn {modifier}".strip(),
+        "new name": "Continue",
+        "merge": f"Merge {modifier}".strip(),
+        "on ramp": "Take the ramp",
+        "off ramp": "Take the exit",
+        "fork": f"Keep {modifier}".strip(),
+        "continue": "Continue",
+    }.get(maneuver_type, "Continue")
+    return f"{action} onto {road_name}" if road_name != "the road" else action
+
+
 def geocode_location(location: str) -> dict[str, float | str]:
     """Resolve a user-entered address or place to coordinates."""
     try:
@@ -54,7 +79,7 @@ def route_between(first: dict[str, Any], second: dict[str, Any]) -> dict[str, An
     try:
         response = requests.get(
             url,
-            params={"overview": "full", "geometries": "geojson", "steps": "false"},
+            params={"overview": "full", "geometries": "geojson", "steps": "true"},
             timeout=5,
         )
         response.raise_for_status()
@@ -69,10 +94,20 @@ def route_between(first: dict[str, Any], second: dict[str, Any]) -> dict[str, An
             "source": "osrm",
             "distance_meters": float(route["distance"]),
             "duration_seconds": float(route["duration"]),
+            "directions": [
+                {
+                    "instruction": _step_instruction(step),
+                    "distance_meters": float(step.get("distance", 0)),
+                    "duration_seconds": float(step.get("duration", 0)),
+                }
+                for leg in route.get("legs", [])
+                for step in leg.get("steps", [])
+                if step.get("distance", 0) > 0
+            ],
         }
     except (requests.RequestException, ValueError, TypeError, KeyError, IndexError):
         LOGGER.warning("Road routing unavailable; using direct stop geometry", exc_info=True)
-        return {"geometry": fallback, "source": "stops"}
+        return {"geometry": fallback, "source": "stops", "directions": []}
 
 
 def route_geometry(points: list[dict[str, Any]]) -> dict[str, Any]:
@@ -85,6 +120,6 @@ def route_geometry(points: list[dict[str, Any]]) -> dict[str, Any]:
         ],
     }
     if len(points) < 2:
-        return {"geometry": fallback, "source": "stops"}
+        return {"geometry": fallback, "source": "stops", "directions": []}
 
     return route_between(points[0], points[-1])
