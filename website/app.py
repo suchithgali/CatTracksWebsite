@@ -72,10 +72,34 @@ def available_stops() -> list[str]:
 def index():
     return render_template("index.html", stops=available_stops())
 
+@app.route("/plan", methods=["GET", "POST"])
+def plan():
+    message = None
+    route = None
+    if request.method == "POST":
+        from_stop = request.form.get("from-stops", "").strip()
+        to_stop = request.form.get("to-stops", "").strip()
+        try:
+            route = find_route_request(from_stop, to_stop)
+        except RouteError as error:
+            message = str(error)
+
+    return render_template(
+        "liveroutes.html",
+        message=message,
+        route=route,
+        from_stop=request.form.get("from-stops", ""),
+        to_stop=request.form.get("to-stops", ""),
+        stops=available_stops(),
+    )
 
 @app.route("/schedules")
 def schedules():
     return render_template("schedules.html", routes=load_routes())
+
+@app.route("/planner")
+def planner():
+    return render_template("live.html")
 
 
 @app.route("/contact")
@@ -116,27 +140,6 @@ def api_route():
         return jsonify(find_route_request(from_stop, to_stop))
     except RouteError as error:
         return jsonify({"status": "error", "message": str(error)}), 400
-
-@app.route('/planner', methods=['GET', 'POST'])
-def planner():
-    message = None
-    route = None
-    if request.method == 'POST':
-        from_stop = request.form.get('from-stops')
-        to_stop = request.form.get('to-stops')
-        try:
-            route = find_route_request(from_stop, to_stop)
-        except RouteError as error:
-            message = str(error)
-
-    return render_template(
-        "liveroutes.html",
-        message=message,
-        route=route,
-        from_stop=request.form.get("from-stops", ""),
-        to_stop=request.form.get("to-stops", ""),
-        stops=available_stops(),
-    )
 
 if __name__ == '__main__':
     app.run()

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% from "macros/icons.html" import icon %}
+{% block title %}Live routes{% endblock %}
+{% block content %}
+<section class="page-heading">
+  <p class="eyebrow">{{ icon("bus") }} Real-time transit</p>
+  <h1>Live bus locations</h1>
+  <p>See the current CatTracks vehicles and route activity from the official UC Merced tracker.</p>
+</section>
+<section class="content-section live-tracker-section">
+  <div class="live-tracker-card">
+    <div class="live-tracker-heading">
+      <div>
+        <p class="eyebrow">Official UC Merced service</p>
+        <h2>CatTracks Ridesystems Tracker</h2>
+      </div>
+      <span class="live-indicator"><span class="status-dot"></span> Live feed</span>
+    </div>
+    <p>The tracker is operated by UC Merced Transportation and Parking Services and provides the live vehicle map.</p>
+    <iframe
+      class="live-tracker-frame"
+      src="https://cattracks.ridesystems.net/routes"
+      title="UC Merced CatTracks live bus tracker"
+      loading="lazy"
+      allow="geolocation"></iframe>
+    <a class="button button-primary live-tracker-link" href="https://cattracks.ridesystems.net/routes" target="_blank" rel="noopener">
+      Open live tracker {{ icon("arrow") }}
+    </a>
+  </div>
+</section>
+{% endblock %}
