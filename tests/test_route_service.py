@@ -1,4 +1,11 @@
-from src.route_service import _routing_cost, find_custom_route, find_route
+import pytest
+
+from src.route_service import (
+    RouteError,
+    _routing_cost,
+    find_custom_route,
+    find_route,
+)
 from src.transit_graph import build_graph
 from src.road_routing import geocode_location
 
@@ -145,3 +152,13 @@ def test_route_graph_does_not_select_non_monotonic_bus_legs():
         if edge["mode"] != "bus":
             continue
         assert edge["arrival_time"] >= edge["departure_time"]
+
+
+def test_legacy_routing_rejects_implausibly_long_walk_legs():
+    with pytest.raises(RouteError, match="No route could be found"):
+        find_route(
+            "University Transit Center",
+            "Merced Mall Target",
+            build_graph(),
+            max_walk_seconds=1_800,
+        )

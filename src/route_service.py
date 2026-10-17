@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from functools import lru_cache
 import heapq
+import math
 
 import networkx as nx
 
@@ -16,6 +17,7 @@ ACCESS_DRIVING_THRESHOLD_METERS = 1_600
 TRANSFER_PENALTY_SECONDS = 120
 WALKING_DISTANCE_PENALTY = 0.15
 TRANSIT_DISTANCE_PENALTY = 0.02
+LEGACY_MAX_WALK_SECONDS = 1_800
 
 
 def _distance_meters(first: dict, second: dict) -> float:
@@ -65,6 +67,22 @@ def _routing_cost(_from: str, _to: str, edge_options: dict) -> float:
     elif edge["mode"] == "bus":
         cost += distance * TRANSIT_DISTANCE_PENALTY
     return cost
+
+
+def _static_edge_cost(
+    current: str,
+    following: str,
+    edge_options: dict,
+    max_walk_seconds: int | None,
+) -> float:
+    edge = min(edge_options.values(), key=lambda value: value["weight"])
+    if (
+        max_walk_seconds is not None
+        and edge["mode"] == "walk"
+        and edge["travel_time"] > max_walk_seconds
+    ):
+        return math.inf
+    return _routing_cost(current, following, edge_options)
 
 
 def _time_to_seconds(value: str) -> int:
@@ -144,6 +162,7 @@ def _best_path(
     graph: nx.MultiDiGraph,
     origins: list[str],
     destinations: list[str],
+    max_walk_seconds: int | None = None,
 ) -> list[str]:
     best_path: list[str] | None = None
     best_weight: float | None = None
@@ -155,16 +174,24 @@ def _best_path(
                     graph,
                     origin,
                     destination,
-                    weight=_routing_cost,
+                    weight=lambda current, following, options: _static_edge_cost(
+                        current,
+                        following,
+                        options,
+                        max_walk_seconds,
+                    ),
                 )
                 weight = sum(
-                    _routing_cost(
+                    _static_edge_cost(
                         current,
                         following,
                         graph.get_edge_data(current, following),
+                        max_walk_seconds,
                     )
                     for current, following in zip(path, path[1:])
                 )
+                if not math.isfinite(weight):
+                    continue
             except nx.NetworkXNoPath:
                 continue
             if best_weight is None or weight < best_weight:
@@ -251,6 +278,7 @@ def find_route(
     to_stop: str,
     graph: nx.MultiDiGraph | None = None,
     departure_time: str | None = None,
+    max_walk_seconds: int | None = None,
 ) -> dict:
     graph = graph or get_graph()
     origins = _stop_ids_by_name(graph, from_stop)
@@ -276,7 +304,7 @@ def find_route(
         route["duration_seconds"] = arrival_seconds - departure_seconds
         route["departure_time"] = departure_time
         return route
-    path = _best_path(graph, origins, destinations)
+    path = _best_path(graph, origins, destinations, max_walk_seconds)
     return _route_for_path(graph, path, from_stop, to_stop)
 
 
@@ -285,6 +313,7 @@ def find_custom_route(
     to_location: str,
     graph: nx.MultiDiGraph | None = None,
     departure_time: str | None = None,
+    max_walk_seconds: int | None = None,
 ) -> dict:
     """Route from arbitrary locations through the transit network."""
     graph = graph or get_graph()
@@ -317,7 +346,12 @@ def find_custom_route(
             departure_seconds + access_seconds,
         )
     else:
-        transit_path = _best_path(graph, [origin_stop], [destination_stop])
+        transit_path = _best_path(
+            graph,
+            [origin_stop],
+            [destination_stop],
+            max_walk_seconds,
+        )
         scheduled_arrival = None
     transit_route = _route_for_path(
         graph,
@@ -422,9 +456,22 @@ def find_route_request(
     to_location: str,
     graph: nx.MultiDiGraph | None = None,
     departure_time: str | None = None,
+    max_walk_seconds: int | None = None,
 ) -> dict:
     """Use stop names directly, or geocode arbitrary departure/destination text."""
     graph = graph or get_graph()
     if _stop_ids_by_name(graph, from_location) and _stop_ids_by_name(graph, to_location):
-        return find_route(from_location, to_location, graph, departure_time)
-    return find_custom_route(from_location, to_location, graph, departure_time)
+        return find_route(
+            from_location,
+            to_location,
+            graph,
+            departure_time,
+            max_walk_seconds,
+        )
+    return find_custom_route(
+        from_location,
+        to_location,
+        graph,
+        departure_time,
+        max_walk_seconds,
+    )

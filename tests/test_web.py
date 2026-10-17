@@ -100,5 +100,5 @@ def test_network_offline_shows_legacy_banner_and_uses_static_routes(monkeypatch)
             "departure_time": "08:00",
         },
     )
-    assert response.status_code == 200
-    assert "departure_time" not in response.json
+    assert response.status_code == 400
+    assert "No route could be found" in response.json["message"]

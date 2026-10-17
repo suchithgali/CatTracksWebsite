@@ -126,6 +126,12 @@ The flag is evaluated at request time, but a Vercel deployment must be
 recreated after changing the dashboard environment variable so the deployment
 receives the updated value.
 
+Legacy routing also rejects stop-to-stop walking legs longer than 30 minutes.
+This prevents stale static data from producing implausible long walking
+detours when the schedule-aware network is offline. If no route satisfies that
+limit, the API reports that no reasonable route is available instead of
+presenting the long walk as a recommendation.
+
 ## Configuration
 
 Copy `.env.example` to `.env` for local configuration. Supported deployment

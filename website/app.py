@@ -124,6 +124,9 @@ def plan():
                 from_stop,
                 to_stop,
                 departure_time=departure_time if network_is_online() else None,
+                max_walk_seconds=(
+                    None if network_is_online() else 1_800
+                ),
             )
         except RouteError as error:
             message = str(error)
@@ -197,6 +200,9 @@ def api_route():
                 from_stop,
                 to_stop,
                 departure_time=departure_time if network_is_online() else None,
+                max_walk_seconds=(
+                    None if network_is_online() else 1_800
+                ),
             )
         )
     except RouteError as error:
