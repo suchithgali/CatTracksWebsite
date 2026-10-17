@@ -1,5 +1,6 @@
 from src.route_service import find_custom_route, find_route
 from src.transit_graph import build_graph
+from src.road_routing import geocode_location
 
 
 def test_route_service_finds_a_route_using_transfers():
@@ -59,3 +60,21 @@ def test_distant_custom_route_uses_driving_access(monkeypatch):
 
     assert result["segments"][0]["mode"] == "drive"
     assert result["segments"][0]["route"] == "Driving"
+
+
+def test_geocoder_rejects_locations_outside_merced(monkeypatch):
+    class Response:
+        def raise_for_status(self):
+            return None
+
+        def json(self):
+            return [{"lat": "37.77", "lon": "-122.42"}]
+
+    monkeypatch.setattr("src.road_routing.requests.get", lambda *args, **kwargs: Response())
+
+    try:
+        geocode_location("Rite Aid / Walgreens")
+    except ValueError as error:
+        assert "outside the Merced CatTracks service area" in str(error)
+    else:
+        raise AssertionError("Expected an outside-service-area geocode error")
