@@ -71,9 +71,8 @@ def _complete_trip_stop_times(
                     "trip_id": current["trip_id"],
                     "stop_id": stop_id,
                     "stop_sequence": int(current["stop_sequence"]) + offset,
-                    "arrival_time": str(timestamp),
-                    "departure_time": str(timestamp),
-                    "_time_seconds": timestamp,
+                    "arrival_time": _seconds_to_gtfs_time(timestamp),
+                    "departure_time": _seconds_to_gtfs_time(timestamp),
                 }
             )
     completed.append(rows[-1])
@@ -109,10 +108,6 @@ def _complete_trip_stop_times(
                         "departure_time": _seconds_to_gtfs_time(timestamp),
                     }
                 )
-    for row in completed:
-        if "_time_seconds" in row:
-            row["arrival_time"] = _seconds_to_gtfs_time(row["_time_seconds"])
-            row["departure_time"] = row["arrival_time"]
     return completed
 
 def _seconds_to_gtfs_time(value: int) -> str:
