@@ -99,14 +99,17 @@ class Stops(db.Model):
     name = db.Column(db.String(100), unique=True, nullable=False)
 
 
-with app.app_context():
-    db.create_all()
-    if not Stops.query.first():
-        db.session.add_all(Stops(name=name) for name in load_stop_names())
-        db.session.commit()
+if not os.environ.get("VERCEL"):
+    with app.app_context():
+        db.create_all()
+        if not Stops.query.first():
+            db.session.add_all(Stops(name=name) for name in load_stop_names())
+            db.session.commit()
 
 
 def available_stops() -> list[str]:
+    if os.environ.get("VERCEL"):
+        return load_stop_names()
     return [stop.name for stop in Stops.query.order_by(Stops.name).all()]
 
 
