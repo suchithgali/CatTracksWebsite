@@ -4,12 +4,14 @@ from functools import lru_cache
 
 import networkx as nx
 
-from src.road_routing import geocode_location, route_geometry
+from src.road_routing import geocode_location, route_between, route_geometry
 from src.transit_graph import build_graph, normalize_stop_name
 
 
 class RouteError(ValueError):
     pass
+
+ACCESS_DRIVING_THRESHOLD_METERS = 1_600
 
 
 def _distance_meters(first: dict, second: dict) -> float:
@@ -178,28 +180,43 @@ def find_custom_route(
     }
     first_distance = _distance_meters(departure, start_stop)
     last_distance = _distance_meters(end_stop, destination)
-    first_time = max(int(first_distance / 1.4), 1)
-    last_time = max(int(last_distance / 1.4), 1)
+    first_mode = "drive" if first_distance > ACCESS_DRIVING_THRESHOLD_METERS else "walk"
+    last_mode = "drive" if last_distance > ACCESS_DRIVING_THRESHOLD_METERS else "walk"
+    first_leg = route_between(departure, start_stop) if first_mode == "drive" else {}
+    last_leg = route_between(end_stop, destination) if last_mode == "drive" else {}
+    first_distance = first_leg.get("distance_meters", first_distance)
+    last_distance = last_leg.get("distance_meters", last_distance)
+    first_time = (
+        int(first_leg.get("duration_seconds", first_distance / 13.4))
+        if first_mode == "drive"
+        else max(int(first_distance / 1.4), 1)
+    )
+    last_time = (
+        int(last_leg.get("duration_seconds", last_distance / 13.4))
+        if last_mode == "drive"
+        else max(int(last_distance / 1.4), 1)
+    )
 
-    segments = [
-        {
-            "mode": "walk",
-            "route": "Walking",
+    segments = []
+    if first_distance > 1:
+        segments.append({
+            "mode": first_mode,
+            "route": "Driving" if first_mode == "drive" else "Walking",
             "from": from_location,
             "to": start_stop["name"],
             "travel_time": first_time,
             "distance_meters": first_distance,
-        },
-        *transit_route["segments"],
-        {
-            "mode": "walk",
-            "route": "Walking",
+        })
+    segments.extend(transit_route["segments"])
+    if last_distance > 1:
+        segments.append({
+            "mode": last_mode,
+            "route": "Driving" if last_mode == "drive" else "Walking",
             "from": end_stop["name"],
             "to": to_location,
             "travel_time": last_time,
             "distance_meters": last_distance,
-        },
-    ]
+        })
     points = [departure, *transit_route["points"], destination]
     road_route = route_geometry(points)
 

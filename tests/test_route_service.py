@@ -39,3 +39,18 @@ def test_custom_route_adds_walking_legs(monkeypatch):
     assert any(segment["mode"] == "bus" for segment in result["segments"])
     assert result["access_stops"]["from"]
     assert result["access_stops"]["to"]
+
+
+def test_distant_custom_route_uses_driving_access(monkeypatch):
+    monkeypatch.setattr(
+        "src.route_service.geocode_location",
+        lambda location: {
+            "name": location,
+            "latitude": 37.5 if location == "far start" else 37.335,
+            "longitude": -121.9 if location == "far start" else -120.486,
+        },
+    )
+    result = find_custom_route("far start", "custom destination", build_graph())
+
+    assert result["segments"][0]["mode"] == "drive"
+    assert result["segments"][0]["route"] == "Driving"

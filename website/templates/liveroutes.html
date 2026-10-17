@@ -24,7 +24,7 @@
       {% if route.access_stops %}<p class="route-access">Board at {{ route.access_stops.from }} · Get off at {{ route.access_stops.to }}</p>{% endif %}
       <ol class="route-results">
       {% for segment in route.segments %}
-        <li><strong>{{ segment.mode|capitalize }}{% if segment.route %}: {{ segment.route }}{% endif %}</strong><br>{{ segment["from"] }} → {{ segment["to"] }}<small>{{ segment.travel_time // 60 }} min · {{ "%.2f"|format(segment.distance_meters / 1609.344) }} mi</small></li>
+        <li><strong>{% if segment.mode == "drive" %}Driving{% else %}{{ segment.mode|capitalize }}{% endif %}{% if segment.route %}: {{ segment.route }}{% endif %}</strong><br>{{ segment["from"] }} → {{ segment["to"] }}<small>{{ segment.travel_time // 60 }} min · {{ "%.2f"|format(segment.distance_meters / 1609.344) }} mi</small></li>
       {% endfor %}
       </ol>
     {% elif message %}<p>{{ message }}</p>{% else %}<p>Enter a starting point and destination to get started.</p>{% endif %}
