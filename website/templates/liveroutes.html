@@ -5,59 +5,13 @@
   integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 {% endblock %}
 {% block content %}
-<section class="page-heading"><p class="eyebrow">Route planner</p><h1>Live routes</h1><p>Enter stops, addresses, or campus locations for a complete door-to-door route.</p></section>
-<section class="planner-layout">
-  <form class="planner-card" method="post">
-    <div class="card-heading"><span class="status-dot"></span><span>Trip details</span></div>
-    <label for="from-stops">From</label>
-    <input id="from-stops" name="from-stops" list="stop-list" value="{{ from_stop }}" placeholder="Address or starting stop" required>
-    <label for="to-stops">To</label>
-    <input id="to-stops" name="to-stops" list="stop-list" value="{{ to_stop }}" placeholder="Address or destination stop" required>
-    <datalist id="stop-list">{% for stop in stops %}<option value="{{ stop }}">{% endfor %}</datalist>
-    <button type="submit" class="button button-primary">Request route <span aria-hidden="true">→</span></button>
-  </form>
-  <div class="route-panel" aria-live="polite">
-    <span class="feature-icon">⌁</span>
-    <h2>{% if route %}Route found{% elif message %}Request status{% else %}Your route will appear here{% endif %}</h2>
-    {% if route %}
-      <p>{{ route.duration_seconds // 60 }} minutes · {{ "%.2f"|format(route.distance_meters / 1609.344) }} miles · {{ route.from }} to {{ route.to }}</p>
-      {% if route.access_stops %}<p class="route-access">Board at {{ route.access_stops.from }} · Get off at {{ route.access_stops.to }}</p>{% endif %}
-      <ol class="route-results">
-      {% for segment in route.segments %}
-        <li><strong>{% if segment.mode == "drive" %}Driving{% else %}{{ segment.mode|capitalize }}{% endif %}{% if segment.route %}: {{ segment.route }}{% endif %}</strong><br>{{ segment["from"] }} → {{ segment["to"] }}<small>{{ segment.travel_time // 60 }} min · {{ "%.2f"|format(segment.distance_meters / 1609.344) }} mi</small></li>
-      {% endfor %}
-      </ol>
-    {% elif message %}<p>{{ message }}</p>{% else %}<p>Enter a starting point and destination to get started.</p>{% endif %}
-  </div>
-</section>
-<section class="map-section">
-  <div id="route-map" class="route-map" aria-label="Map showing the selected route"></div>
-</section>
-{% if route %}
-<script id="route-data" type="application/json">{{ route|tojson }}</script>
-{% endif %}
+<div id="planner-app"></div>
+<script id="planner-stops" type="application/json">{{ stops|tojson }}</script>
+{% endblock %}
 {% block scripts %}
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
   integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script>
-  const mapElement = document.getElementById("route-map");
-  const routeDataElement = document.getElementById("route-data");
-  const defaultCenter = [37.3612, -120.4324];
-  const map = L.map(mapElement).setView(defaultCenter, 13);
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: 19,
-    attribution: "&copy; OpenStreetMap contributors"
-  }).addTo(map);
-
-  if (routeDataElement) {
-    const route = JSON.parse(routeDataElement.textContent);
-    const stopPoints = route.points.map(point => [point.latitude, point.longitude]);
-    const roadPoints = route.geometry.coordinates.map(point => [point[1], point[0]]);
-    const line = L.polyline(roadPoints, {color: "#075985", weight: 5}).addTo(map);
-    L.marker(stopPoints[0]).addTo(map).bindPopup(`<strong>Start</strong><br>${route.from}`);
-    L.marker(stopPoints[stopPoints.length - 1]).addTo(map).bindPopup(`<strong>Destination</strong><br>${route.to}`);
-    map.fitBounds(line.getBounds(), {padding: [24, 24]});
-  }
-</script>
-{% endblock %}
+<script src="{{ url_for('static', filename='planner.js') }}"></script>
 {% endblock %}

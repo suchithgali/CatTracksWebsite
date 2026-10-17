@@ -49,6 +49,31 @@ input:focus { outline: 3px solid rgba(59, 130, 246, .2); border-color: #2563eb; 
 .text-link { color: var(--blue); font-size: 14px; font-weight: 800; text-decoration: none; }
 .planner-layout { max-width: 1180px; margin: 0 auto; padding: 0 24px 64px; display: grid; grid-template-columns: 380px 1fr; gap: 24px; align-items: start; }
 .route-panel { min-height: 250px; padding: 34px; }
+.react-planner { max-width: 1180px; margin: 0 auto; padding: 56px 24px 0; }
+.planner-hero { display: flex; justify-content: space-between; gap: 32px; align-items: end; margin-bottom: 34px; }
+.planner-hero h1 { max-width: 650px; margin: 8px 0 12px; font-size: clamp(38px, 5vw, 62px); line-height: 1; letter-spacing: -.05em; }
+.planner-subtitle { max-width: 620px; margin: 0; color: var(--muted); font-size: 17px; }
+.planner-status { display: flex; align-items: center; gap: 9px; white-space: nowrap; color: var(--muted); font-size: 13px; font-weight: 700; }
+.status-loading { background: #f59e0b; animation: pulse 1s infinite; }
+.status-error { background: #ef4444; }
+.planner-workspace { display: grid; grid-template-columns: 380px 1fr; gap: 24px; align-items: stretch; }
+.reactive-form { padding: 30px; }
+.reactive-results { min-height: 320px; }
+.result-heading { display: flex; justify-content: space-between; align-items: start; gap: 20px; }
+.result-heading h2 { margin: 4px 0 0; font-size: 36px; }
+.distance-pill { padding: 8px 12px; border-radius: 999px; background: #e0f2fe; color: var(--blue); white-space: nowrap; }
+.route-access { padding: 12px 14px; border-left: 3px solid var(--gold); background: #fffbeb; color: var(--ink) !important; }
+.route-results { display: grid; gap: 14px; padding: 0; list-style: none; }
+.route-step { display: flex; gap: 12px; align-items: start; }
+.step-number { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--navy); color: white; font-size: 12px; font-weight: 800; flex: 0 0 auto; }
+.step-content { display: grid; gap: 3px; }
+.step-content > span { color: var(--ink); }
+.step-content small { color: var(--muted); }
+.planner-message { padding: 10px 12px; border-radius: 8px; background: #fef2f2; color: #b91c1c !important; font-size: 13px; }
+.empty-results { padding-top: 26px; }
+.empty-results h2 { margin-bottom: 8px; }
+.empty-results p { color: var(--muted); }
+@keyframes pulse { 50% { opacity: .45; } }
 .map-section { max-width: 1180px; margin: 0 auto; padding: 0 24px 64px; }
 .route-map { min-height: 480px; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; box-shadow: 0 12px 35px rgba(15, 23, 42, .08); }
 .route-results small { display: block; color: var(--muted); margin-top: 4px; }
@@ -66,4 +91,8 @@ input:focus { outline: 3px solid rgba(59, 130, 246, .2); border-color: #2563eb; 
   .hero h1 { font-size: 48px; }
   .feature-grid, .route-grid, .planner-layout { grid-template-columns: 1fr; }
   .planner-layout { padding-bottom: 32px; }
+  .react-planner { padding-top: 36px; }
+  .planner-hero { display: block; }
+  .planner-status { margin-top: 20px; }
+  .planner-workspace { grid-template-columns: 1fr; }
 }

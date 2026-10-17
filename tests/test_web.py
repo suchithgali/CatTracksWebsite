@@ -21,7 +21,8 @@ def test_planner_rejects_unknown_stops():
         data={"from-stops": "not a stop", "to-stops": "also not a stop"},
     )
     assert response.status_code == 200
-    assert b"Could not find location" in response.data
+    assert b'id="planner-app"' in response.data
+    assert b'planner.js' in response.data
 
 
 def test_route_api_returns_route():
@@ -50,8 +51,8 @@ def test_planner_renders_route_map_and_distance():
     )
 
     assert response.status_code == 200
-    assert b'id="route-map"' in response.data
-    assert b"miles" in response.data
+    assert b'id="planner-app"' in response.data
+    assert b'planner.js' in response.data
 
 
 def test_route_api_rejects_missing_stops():
