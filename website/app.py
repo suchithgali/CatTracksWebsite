@@ -1,9 +1,9 @@
 from pathlib import Path
+import csv
 
 from flask import Flask, jsonify, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 import os
-import pandas as pd
 
 from src.route_service import RouteError, find_route, get_graph
 
@@ -28,23 +28,29 @@ def load_stop_names() -> list[str]:
     if not GTFS_STOPS.exists():
         app.logger.error("GTFS stops file is missing: %s", GTFS_STOPS)
         return []
-    stops = pd.read_csv(GTFS_STOPS, dtype=str)
-    if "stop_name" not in stops:
-        app.logger.error("GTFS stops file has no stop_name column")
-        return []
-    return sorted(stops["stop_name"].dropna().str.strip().loc[lambda values: values != ""].unique())
+    with GTFS_STOPS.open(newline="", encoding="utf-8") as source:
+        stops = csv.DictReader(source)
+        if "stop_name" not in (stops.fieldnames or []):
+            app.logger.error("GTFS stops file has no stop_name column")
+            return []
+        names = [row["stop_name"].strip() for row in stops if row.get("stop_name", "").strip()]
+    return sorted(set(names))
 
 
 def load_routes() -> list[dict[str, str]]:
     if not GTFS_ROUTES.exists():
         app.logger.error("GTFS routes file is missing: %s", GTFS_ROUTES)
         return []
-    routes = pd.read_csv(GTFS_ROUTES, dtype=str).fillna("")
-    return [
-        {"name": row.route_short_name.strip(), "description": row.route_long_name.strip()}
-        for row in routes.itertuples(index=False)
-        if row.route_short_name.strip()
-    ]
+    with GTFS_ROUTES.open(newline="", encoding="utf-8") as source:
+        routes = csv.DictReader(source)
+        return [
+            {
+                "name": row["route_short_name"].strip(),
+                "description": row["route_long_name"].strip(),
+            }
+            for row in routes
+            if row.get("route_short_name", "").strip()
+        ]
 
 class Stops(db.Model):
     stop_id = db.Column(db.Integer, primary_key=True)

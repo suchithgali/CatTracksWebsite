@@ -1,70 +1,44 @@
 from pathlib import Path
+import csv
 import os
-
-import pandas as pd
-
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 OFFICIAL_GTFS_DIR = PROJECT_ROOT / "data" / "gtfs_official"
 GTFS_DIR = Path(os.environ.get("CATTRACKS_GTFS_DIR", PROJECT_ROOT / "data" / "gtfs"))
 
 
-def load_stops() -> pd.DataFrame:
+def _read_table(filename: str) -> list[dict[str, str]]:
+    with (GTFS_DIR / filename).open(newline="", encoding="utf-8") as source:
+        return list(csv.DictReader(source))
+
+
+def load_stops() -> list[dict[str, str | float]]:
     """Load stop IDs, names, and coordinates."""
-    stops = pd.read_csv(GTFS_DIR / "stops.txt", dtype={"stop_id": str})
-    stops["stop_lat"] = pd.to_numeric(stops["stop_lat"])
-    stops["stop_lon"] = pd.to_numeric(stops["stop_lon"])
-    return stops
+    return [
+        {**stop, "stop_lat": float(stop["stop_lat"]), "stop_lon": float(stop["stop_lon"])}
+        for stop in _read_table("stops.txt")
+    ]
 
 
-def load_routes() -> pd.DataFrame:
+def load_routes() -> list[dict[str, str]]:
     """Load route definitions."""
-    return pd.read_csv(
-        GTFS_DIR / "routes.txt",
-        dtype={
-            "route_id": str,
-            "agency_id": str,
-            "route_short_name": str,
-            "route_long_name": str,
-        },
-    )
+    return _read_table("routes.txt")
 
 
-def load_trips() -> pd.DataFrame:
+def load_trips() -> list[dict[str, str]]:
     """Load trip metadata."""
-    return pd.read_csv(
-        GTFS_DIR / "trips.txt",
-        dtype={
-            "trip_id": str,
-            "route_id": str,
-            "service_id": str,
-            "trip_headsign": str,
-        },
-    )
+    return _read_table("trips.txt")
 
 
-def load_stop_times() -> pd.DataFrame:
+def load_stop_times() -> list[dict[str, str | int]]:
     """Load ordered stop events for each trip."""
-    stop_times = pd.read_csv(
-        GTFS_DIR / "stop_times.txt",
-        dtype={
-            "trip_id": str,
-            "stop_id": str,
-            "arrival_time": str,
-            "departure_time": str,
-            "stop_headsign": str,
-            "pickup_type": str,
-            "drop_off_type": str,
-        },
-    )
-    stop_times["stop_sequence"] = pd.to_numeric(
-        stop_times["stop_sequence"],
-        errors="raise",
-    )
-    return stop_times
+    return [
+        {**row, "stop_sequence": int(row["stop_sequence"])}
+        for row in _read_table("stop_times.txt")
+    ]
 
 
-def load_gtfs() -> dict[str, pd.DataFrame]:
+def load_gtfs() -> dict[str, list[dict]]:
     """Load the complete GTFS feed."""
     return {
         "stops": load_stops(),
