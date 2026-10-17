@@ -21,15 +21,20 @@
     useEffect(() => {
       map.current = L.map(target.current, { zoomControl: false }).setView([37.3612, -120.4324], 13);
       L.control.zoom({ position: "bottomright" }).addTo(map.current);
-      const streets = L.tileLayer(
-        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
-        { maxZoom: 19, attribution: "Tiles &copy; Esri" }
-      ).addTo(map.current);
+      const streetBase = L.tileLayer(
+        "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
+        { maxZoom: 19 }
+      );
+      const streetLabels = L.tileLayer(
+        "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}",
+        { maxZoom: 19 }
+      );
+      const streets = L.layerGroup([streetBase, streetLabels]).addTo(map.current);
       const satellite = L.tileLayer(
         "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
         { maxZoom: 19, attribution: "Tiles &copy; Esri" }
       );
-      L.control.layers({ "Street map": streets, "Satellite": satellite }, null, {
+      L.control.layers({ "Clean street map": streets, "Satellite": satellite }, null, {
         position: "topright",
         collapsed: true
       }).addTo(map.current);
