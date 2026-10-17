@@ -49,6 +49,9 @@ input:focus { outline: 3px solid rgba(59, 130, 246, .2); border-color: #2563eb; 
 .text-link { color: var(--blue); font-size: 14px; font-weight: 800; text-decoration: none; }
 .planner-layout { max-width: 1180px; margin: 0 auto; padding: 0 24px 64px; display: grid; grid-template-columns: 380px 1fr; gap: 24px; align-items: start; }
 .route-panel { min-height: 250px; padding: 34px; }
+.map-section { max-width: 1180px; margin: 0 auto; padding: 0 24px 64px; }
+.route-map { min-height: 480px; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; box-shadow: 0 12px 35px rgba(15, 23, 42, .08); }
+.route-results small { display: block; color: var(--muted); margin-top: 4px; }
 .route-panel h2 { margin-bottom: 8px; }
 .narrow { max-width: 760px; display: grid; gap: 18px; margin-left: max(24px, calc((100% - 1180px) / 2)); margin-right: max(24px, calc((100% - 1180px) / 2)); padding-left: 0; padding-right: 0; }
 .info-card { padding: 26px; }

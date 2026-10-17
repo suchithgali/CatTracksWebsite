@@ -103,6 +103,28 @@ official source is updated, regenerate the canonical feed with:
 The command reads `data/gtfs_official/` and writes `data/gtfs/`. Set
 `CATTRACKS_GTFS_DIR` to use a different canonical feed directory.
 
+### Road-following route maps
+
+The planner requests road geometry from an OSRM-compatible routing service and
+draws that geometry on the Leaflet map. The default service is the public
+OSRM demo endpoint. For production deployments, set
+`CATTRACKS_ROUTING_URL` to a hosted or private OSRM-compatible service. If
+the service is unavailable, the API keeps the route usable and falls back to
+straight lines between the transit stops.
+
+### Deploy on Vercel
+
+The Flask application is exposed through `api/index.py` and configured by
+`vercel.json`. From the project root:
+
+```bash
+npx vercel
+```
+
+Configure `CATTRACKS_ROUTING_URL` and, if needed, `DATABASE_URL` as Vercel
+environment variables. The canonical GTFS files in `data/gtfs/` are included
+with the deployment.
+
 Docker and Gunicorn configuration are included for deployment. For a
 production-like local run:
 

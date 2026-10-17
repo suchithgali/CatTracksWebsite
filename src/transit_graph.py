@@ -11,14 +11,18 @@ def normalize_stop_name(value: str) -> str:
 
 
 def walking_time(first: dict, second: dict) -> int:
+    distance = stop_distance_meters(first, second)
+    return max(int(distance / 1.4), 1)
+
+
+def stop_distance_meters(first: dict, second: dict) -> float:
     latitude_distance = (float(first["stop_lat"]) - float(second["stop_lat"])) * 111_000
     longitude_distance = (
         (float(first["stop_lon"]) - float(second["stop_lon"]))
         * 111_000
         * 0.8
     )
-    distance = max((latitude_distance**2 + longitude_distance**2) ** 0.5, 1)
-    return max(int(distance / 1.4), 1)
+    return max((latitude_distance**2 + longitude_distance**2) ** 0.5, 1)
 
 
 def gtfs_time_to_seconds(value: str) -> int:
@@ -85,6 +89,10 @@ def build_transit_graph(feed: dict[str, pd.DataFrame]) -> nx.MultiDiGraph:
                 "departure_time": current.departure_time,
                 "arrival_time": following.arrival_time,
                 "travel_time": max(arrival - departure, 1),
+                "distance_meters": stop_distance_meters(
+                    stop_lookup[current.stop_id],
+                    stop_lookup[following.stop_id],
+                ),
                 "weight": max(arrival - departure, 1),
             }
             graph.add_edge(current.stop_id, following.stop_id, **edge_data)
@@ -107,6 +115,7 @@ def build_transit_graph(feed: dict[str, pd.DataFrame]) -> nx.MultiDiGraph:
                     route_id="",
                     route_name="Transfer",
                     travel_time=60,
+                    distance_meters=0,
                     weight=60,
                 )
 
@@ -123,6 +132,7 @@ def build_transit_graph(feed: dict[str, pd.DataFrame]) -> nx.MultiDiGraph:
                 route_id="",
                 route_name="Walking",
                 travel_time=travel_time,
+                distance_meters=stop_distance_meters(current, following),
                 weight=travel_time,
             )
 

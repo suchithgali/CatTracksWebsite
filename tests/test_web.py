@@ -36,6 +36,22 @@ def test_route_api_returns_route():
     assert response.status_code == 200
     assert response.json["status"] == "ok"
     assert response.json["segments"]
+    assert response.json["distance_meters"] > 0
+    assert response.json["points"]
+
+
+def test_planner_renders_route_map_and_distance():
+    response = app.test_client().post(
+        "/planner",
+        data={
+            "from-stops": "University Transit Center",
+            "to-stops": "Merced Mall Target",
+        },
+    )
+
+    assert response.status_code == 200
+    assert b'id="route-map"' in response.data
+    assert b"miles" in response.data
 
 
 def test_route_api_rejects_missing_stops():

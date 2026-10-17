@@ -14,3 +14,5 @@ def test_route_service_finds_a_route_using_transfers():
     assert result["stops"][0] == "University Transit Center"
     assert result["stops"][-1] == "Merced Mall Target"
     assert any(segment["mode"] == "walk" for segment in result["segments"])
+    assert result["geometry"]["type"] == "LineString"
+    assert result["geometry"]["coordinates"]
