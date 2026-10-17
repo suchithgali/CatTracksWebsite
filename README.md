@@ -112,6 +112,11 @@ OSRM demo endpoint. For production deployments, set
 the service is unavailable, the API keeps the route usable and falls back to
 straight lines between the transit stops.
 
+The planner also accepts custom departure and destination addresses. Addresses
+are geocoded with the Nominatim service, connected to the nearest CatTracks
+stops with walking legs, and routed through the transit graph. Bus transfers
+continue to use the same transfer logic between the custom walking legs.
+
 ### Deploy on Vercel
 
 The Flask application is exposed through `api/index.py` and configured by

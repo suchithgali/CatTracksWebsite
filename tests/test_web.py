@@ -21,7 +21,7 @@ def test_planner_rejects_unknown_stops():
         data={"from-stops": "not a stop", "to-stops": "also not a stop"},
     )
     assert response.status_code == 200
-    assert b"Choose both locations" in response.data
+    assert b"Could not find location" in response.data
 
 
 def test_route_api_returns_route():

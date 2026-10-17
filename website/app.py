@@ -5,7 +5,7 @@ from flask import Flask, jsonify, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 import os
 
-from src.route_service import RouteError, find_route, get_graph
+from src.route_service import RouteError, find_route_request, get_graph
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 app = Flask(__name__, static_folder="public/static", static_url_path="/public/static")
@@ -113,7 +113,7 @@ def api_route():
         return jsonify({"status": "error", "message": "Both stops are required."}), 400
 
     try:
-        return jsonify(find_route(from_stop, to_stop))
+        return jsonify(find_route_request(from_stop, to_stop))
     except RouteError as error:
         return jsonify({"status": "error", "message": str(error)}), 400
 
@@ -124,14 +124,10 @@ def planner():
     if request.method == 'POST':
         from_stop = request.form.get('from-stops')
         to_stop = request.form.get('to-stops')
-        known_stops = set(available_stops())
-        if from_stop not in known_stops or to_stop not in known_stops:
-            message = "Choose both locations from the available transit stops."
-        else:
-            try:
-                route = find_route(from_stop, to_stop)
-            except RouteError as error:
-                message = str(error)
+        try:
+            route = find_route_request(from_stop, to_stop)
+        except RouteError as error:
+            message = str(error)
 
     return render_template(
         "liveroutes.html",

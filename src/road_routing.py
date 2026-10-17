@@ -8,6 +8,30 @@ import requests
 
 LOGGER = logging.getLogger(__name__)
 DEFAULT_ROUTING_URL = "https://router.project-osrm.org"
+DEFAULT_GEOCODING_URL = "https://nominatim.openstreetmap.org/search"
+
+
+def geocode_location(location: str) -> dict[str, float | str]:
+    """Resolve a user-entered address or place to coordinates."""
+    try:
+        response = requests.get(
+            os.environ.get("CATTRACKS_GEOCODING_URL", DEFAULT_GEOCODING_URL),
+            params={"q": location, "format": "jsonv2", "limit": 1},
+            headers={"User-Agent": "CatTracks/1.0 (UC Merced route planner)"},
+            timeout=5,
+        )
+        response.raise_for_status()
+        results = response.json()
+        if not results:
+            raise ValueError("Location was not found")
+        result = results[0]
+        return {
+            "name": location,
+            "latitude": float(result["lat"]),
+            "longitude": float(result["lon"]),
+        }
+    except (requests.RequestException, ValueError, TypeError, KeyError, IndexError) as error:
+        raise ValueError(f"Could not find location: {location}") from error
 
 
 def route_geometry(points: list[dict[str, Any]]) -> dict[str, Any]:

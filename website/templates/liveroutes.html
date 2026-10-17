@@ -5,14 +5,14 @@
   integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 {% endblock %}
 {% block content %}
-<section class="page-heading"><p class="eyebrow">Route planner</p><h1>Live routes</h1><p>Choose two transit stops to request a multimodal route.</p></section>
+<section class="page-heading"><p class="eyebrow">Route planner</p><h1>Live routes</h1><p>Enter stops, addresses, or campus locations for a complete door-to-door route.</p></section>
 <section class="planner-layout">
   <form class="planner-card" method="post">
     <div class="card-heading"><span class="status-dot"></span><span>Trip details</span></div>
     <label for="from-stops">From</label>
-    <input id="from-stops" name="from-stops" list="stop-list" value="{{ from_stop }}" placeholder="Choose a starting stop" required>
+    <input id="from-stops" name="from-stops" list="stop-list" value="{{ from_stop }}" placeholder="Address or starting stop" required>
     <label for="to-stops">To</label>
-    <input id="to-stops" name="to-stops" list="stop-list" value="{{ to_stop }}" placeholder="Choose a destination stop" required>
+    <input id="to-stops" name="to-stops" list="stop-list" value="{{ to_stop }}" placeholder="Address or destination stop" required>
     <datalist id="stop-list">{% for stop in stops %}<option value="{{ stop }}">{% endfor %}</datalist>
     <button type="submit" class="button button-primary">Request route <span aria-hidden="true">→</span></button>
   </form>
@@ -21,6 +21,7 @@
     <h2>{% if route %}Route found{% elif message %}Request status{% else %}Your route will appear here{% endif %}</h2>
     {% if route %}
       <p>{{ route.duration_seconds // 60 }} minutes · {{ "%.2f"|format(route.distance_meters / 1609.344) }} miles · {{ route.from }} to {{ route.to }}</p>
+      {% if route.access_stops %}<p class="route-access">Board at {{ route.access_stops.from }} · Get off at {{ route.access_stops.to }}</p>{% endif %}
       <ol class="route-results">
       {% for segment in route.segments %}
         <li><strong>{{ segment.mode|capitalize }}{% if segment.route %}: {{ segment.route }}{% endif %}</strong><br>{{ segment["from"] }} → {{ segment["to"] }}<small>{{ segment.travel_time // 60 }} min · {{ "%.2f"|format(segment.distance_meters / 1609.344) }} mi</small></li>

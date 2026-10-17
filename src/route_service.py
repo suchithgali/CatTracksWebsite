@@ -4,12 +4,33 @@ from functools import lru_cache
 
 import networkx as nx
 
-from src.road_routing import route_geometry
+from src.road_routing import geocode_location, route_geometry
 from src.transit_graph import build_graph, normalize_stop_name
 
 
 class RouteError(ValueError):
     pass
+
+
+def _distance_meters(first: dict, second: dict) -> float:
+    latitude_distance = (first["latitude"] - second["latitude"]) * 111_000
+    longitude_distance = (
+        (first["longitude"] - second["longitude"]) * 111_000 * 0.8
+    )
+    return max((latitude_distance**2 + longitude_distance**2) ** 0.5, 1)
+
+
+def _nearest_stop(graph: nx.MultiDiGraph, location: dict) -> str:
+    return min(
+        graph.nodes,
+        key=lambda node: _distance_meters(
+            location,
+            {
+                "latitude": graph.nodes[node]["latitude"],
+                "longitude": graph.nodes[node]["longitude"],
+            },
+        ),
+    )
 
 
 @lru_cache(maxsize=1)
@@ -50,21 +71,12 @@ def _best_path(
     return best_path
 
 
-def find_route(
+def _route_for_path(
+    graph: nx.MultiDiGraph,
+    path: list[str],
     from_stop: str,
     to_stop: str,
-    graph: nx.MultiDiGraph | None = None,
 ) -> dict:
-    graph = graph or get_graph()
-    origins = _stop_ids_by_name(graph, from_stop)
-    destinations = _stop_ids_by_name(graph, to_stop)
-
-    if not origins:
-        raise RouteError(f"Unknown starting stop: {from_stop}")
-    if not destinations:
-        raise RouteError(f"Unknown destination stop: {to_stop}")
-
-    path = _best_path(graph, origins, destinations)
     segments = []
     total_time = 0
     total_distance = 0.0
@@ -100,7 +112,6 @@ def find_route(
             segments.append(segment)
 
     road_route = route_geometry(points)
-
     return {
         "status": "ok",
         "from": from_stop,
@@ -113,3 +124,112 @@ def find_route(
         "stops": [graph.nodes[node]["name"] for node in path],
         "segments": segments,
     }
+
+
+def find_route(
+    from_stop: str,
+    to_stop: str,
+    graph: nx.MultiDiGraph | None = None,
+) -> dict:
+    graph = graph or get_graph()
+    origins = _stop_ids_by_name(graph, from_stop)
+    destinations = _stop_ids_by_name(graph, to_stop)
+
+    if not origins:
+        raise RouteError(f"Unknown starting stop: {from_stop}")
+    if not destinations:
+        raise RouteError(f"Unknown destination stop: {to_stop}")
+
+    path = _best_path(graph, origins, destinations)
+    return _route_for_path(graph, path, from_stop, to_stop)
+
+
+def find_custom_route(
+    from_location: str,
+    to_location: str,
+    graph: nx.MultiDiGraph | None = None,
+) -> dict:
+    """Route from arbitrary locations through the transit network."""
+    graph = graph or get_graph()
+    try:
+        departure = geocode_location(from_location)
+        destination = geocode_location(to_location)
+    except ValueError as error:
+        raise RouteError(str(error)) from error
+    origin_stop = _nearest_stop(graph, departure)
+    destination_stop = _nearest_stop(graph, destination)
+    transit_path = _best_path(graph, [origin_stop], [destination_stop])
+    transit_route = _route_for_path(
+        graph,
+        transit_path,
+        graph.nodes[origin_stop]["name"],
+        graph.nodes[destination_stop]["name"],
+    )
+
+    start_stop = {
+        "name": graph.nodes[origin_stop]["name"],
+        "latitude": graph.nodes[origin_stop]["latitude"],
+        "longitude": graph.nodes[origin_stop]["longitude"],
+    }
+    end_stop = {
+        "name": graph.nodes[destination_stop]["name"],
+        "latitude": graph.nodes[destination_stop]["latitude"],
+        "longitude": graph.nodes[destination_stop]["longitude"],
+    }
+    first_distance = _distance_meters(departure, start_stop)
+    last_distance = _distance_meters(end_stop, destination)
+    first_time = max(int(first_distance / 1.4), 1)
+    last_time = max(int(last_distance / 1.4), 1)
+
+    segments = [
+        {
+            "mode": "walk",
+            "route": "Walking",
+            "from": from_location,
+            "to": start_stop["name"],
+            "travel_time": first_time,
+            "distance_meters": first_distance,
+        },
+        *transit_route["segments"],
+        {
+            "mode": "walk",
+            "route": "Walking",
+            "from": end_stop["name"],
+            "to": to_location,
+            "travel_time": last_time,
+            "distance_meters": last_distance,
+        },
+    ]
+    points = [departure, *transit_route["points"], destination]
+    road_route = route_geometry(points)
+
+    return {
+        **transit_route,
+        "from": from_location,
+        "to": to_location,
+        "duration_seconds": transit_route["duration_seconds"] + first_time + last_time,
+        "distance_meters": round(
+            transit_route["distance_meters"] + first_distance + last_distance,
+            1,
+        ),
+        "points": points,
+        "geometry": road_route["geometry"],
+        "geometry_source": road_route["source"],
+        "segments": segments,
+        "access_stops": {
+            "from": start_stop["name"],
+            "to": end_stop["name"],
+        },
+    }
+
+
+def find_route_request(
+    from_location: str,
+    to_location: str,
+    graph: nx.MultiDiGraph | None = None,
+) -> dict:
+    """Use stop names directly, or geocode arbitrary departure/destination text."""
+    graph = graph or get_graph()
+    if _stop_ids_by_name(graph, from_location) and _stop_ids_by_name(graph, to_location):
+        return find_route(from_location, to_location, graph)
+    return find_custom_route(from_location, to_location, graph)
