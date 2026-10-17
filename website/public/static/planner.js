@@ -39,11 +39,29 @@
       if (!map.current || !route) return;
       if (layer.current) layer.current.remove();
       const points = route.geometry.coordinates.map(point => [point[1], point[0]]);
-      layer.current = L.layerGroup([
+      const routeLayers = [
         L.polyline(points, { color: "#075985", weight: 6, opacity: 0.9 }),
         L.marker(points[0]).bindPopup(`<strong>Start</strong><br>${route.from}`),
         L.marker(points[points.length - 1]).bindPopup(`<strong>Destination</strong><br>${route.to}`)
-      ]).addTo(map.current);
+      ];
+      const stopPoints = route.points || [];
+      stopPoints.forEach((point, index) => {
+        const position = [Number(point.latitude), Number(point.longitude)];
+        const isFirst = index === 0;
+        const isLast = index === stopPoints.length - 1;
+        const role = isFirst ? "Starting point" : isLast ? "Destination" : "Transit stop";
+        const poi = L.circleMarker(position, {
+          radius: isFirst || isLast ? 8 : 6,
+          color: isFirst || isLast ? "#002147" : "#075985",
+          weight: 3,
+          fillColor: isFirst || isLast ? "#ffd700" : "#ffffff",
+          fillOpacity: 1
+        });
+        poi.bindTooltip(point.name, { direction: "top", offset: [0, -8] });
+        poi.bindPopup(`<strong>${role}</strong><br>${point.name}<br><small>${Number(point.latitude).toFixed(5)}, ${Number(point.longitude).toFixed(5)}</small>`);
+        routeLayers.push(poi);
+      });
+      layer.current = L.layerGroup(routeLayers).addTo(map.current);
       map.current.fitBounds(L.latLngBounds(points), { padding: [28, 28] });
     }, [route]);
     return h("div", { ref: target, className: "route-map", "aria-label": "Map showing the selected route" });
