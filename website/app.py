@@ -10,6 +10,22 @@ from src.route_service import RouteError, find_route_request, get_graph
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 app = Flask(__name__, static_folder="public/static", static_url_path="/public/static")
 
+
+def network_is_online() -> bool:
+    """Return whether the current schedule-aware planner is enabled."""
+    return os.environ.get("CATTRACKS_NETWORK_ONLINE", "true").strip().lower() not in {
+        "0",
+        "false",
+        "no",
+        "off",
+    }
+
+
+@app.context_processor
+def inject_network_status() -> dict[str, bool]:
+    return {"network_online": network_is_online()}
+
+
 # Database config. SQLite is the local default; production can provide DATABASE_URL.
 db_url = os.environ.get("DATABASE_URL")
 if db_url:
@@ -102,8 +118,13 @@ def plan():
     if request.method == "POST":
         from_stop = request.form.get("from-stops", "").strip()
         to_stop = request.form.get("to-stops", "").strip()
+        departure_time = request.form.get("departure-time", "").strip() or None
         try:
-            route = find_route_request(from_stop, to_stop)
+            route = find_route_request(
+                from_stop,
+                to_stop,
+                departure_time=departure_time if network_is_online() else None,
+            )
         except RouteError as error:
             message = str(error)
 
@@ -113,6 +134,7 @@ def plan():
         route=route,
         from_stop=request.form.get("from-stops", ""),
         to_stop=request.form.get("to-stops", ""),
+        departure_time=request.form.get("departure-time", ""),
         stops=available_stops(),
     )
 
@@ -146,6 +168,7 @@ def health():
             "status": "ok",
             "service": "cattracks-web",
             "routing_engine": True,
+            "network_online": network_is_online(),
             "graph_nodes": graph.number_of_nodes(),
             "graph_edges": graph.number_of_edges(),
         })
@@ -163,12 +186,19 @@ def api_route():
     payload = request.get_json(silent=True) or {}
     from_stop = str(payload.get("from", "")).strip()
     to_stop = str(payload.get("to", "")).strip()
+    departure_time = str(payload.get("departure_time", "")).strip() or None
 
     if not from_stop or not to_stop:
         return jsonify({"status": "error", "message": "Both stops are required."}), 400
 
     try:
-        return jsonify(find_route_request(from_stop, to_stop))
+        return jsonify(
+            find_route_request(
+                from_stop,
+                to_stop,
+                departure_time=departure_time if network_is_online() else None,
+            )
+        )
     except RouteError as error:
         return jsonify({"status": "error", "message": str(error)}), 400
 

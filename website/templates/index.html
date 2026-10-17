@@ -6,14 +6,16 @@
   <div class="hero-copy">
     <p class="eyebrow">UC Merced transportation</p>
     <h1>Get where you need to go.</h1>
-    <p>Plan a trip across campus and the greater Merced community with CatTracks.</p>
+    <p>Plan a trip across Merced with CatTracks.</p>
   </div>
   <form class="planner-card" action="{{ url_for('plan') }}" method="post">
-    <div class="card-heading"><span class="status-dot"></span><span>Plan a trip</span></div>
+    <div class="card-heading"><span class="status-dot{% if not network_online %} status-offline{% endif %}"></span><span>{% if network_online %}CatTracks network online{% else %}CatTracks network offline{% endif %}</span></div>
     <label for="from-stops">From</label>
     <input id="from-stops" name="from-stops" list="stop-list" placeholder="Choose a starting stop" required>
     <label for="to-stops">To</label>
     <input id="to-stops" name="to-stops" list="stop-list" placeholder="Choose a destination stop" required>
+    <label for="departure-time">Departure time</label>
+    <input id="departure-time" name="departure-time" type="time" required>
     <datalist id="stop-list">
       {% for stop in stops %}<option value="{{ stop }}">{% endfor %}
     </datalist>

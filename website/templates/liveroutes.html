@@ -10,6 +10,8 @@
 <script id="planner-initial" type="application/json">{{ {
   "from": from_stop,
   "to": to_stop,
+  "departure_time": departure_time,
+  "network_online": network_online,
   "route": route,
   "message": message
 }|tojson }}</script>
@@ -19,5 +21,5 @@
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
   integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script src="{{ url_for('static', filename='planner.js') }}"></script>
+<script src="{{ url_for('static', filename='planner.js', v='network-switch-2') }}"></script>
 {% endblock %}

@@ -48,9 +48,7 @@
         L.polyline(points, { color: "#075985", weight: 6, opacity: 0.9 })
       ];
       const stopPoints = route.points || [];
-      const meaningfulNames = new Set(
-        (route.segments || []).flatMap(segment => [segment.from, segment.to])
-      );
+      const pointByName = new Map(stopPoints.map(point => [point.name, point]));
       const boardingNames = new Set(
         (route.segments || [])
           .filter(segment => segment.mode === "bus")
@@ -61,29 +59,38 @@
           .filter(segment => segment.mode === "bus")
           .map(segment => segment.to)
       );
-      stopPoints.forEach((point, index) => {
-        if (index !== 0 && index !== stopPoints.length - 1 && !meaningfulNames.has(point.name)) return;
+      const poiSteps = (route.segments || []).map((segment, index) => ({
+        name: segment.from,
+        number: index + 1
+      }));
+      const locations = new Map();
+      poiSteps.forEach(({ name, number }) => {
+        const point = pointByName.get(name);
+        if (!point) return;
+        const locationKey = `${point.latitude}|${point.longitude}`;
+        const overlapCount = locations.get(locationKey) || 0;
+        locations.set(locationKey, overlapCount + 1);
         const position = [Number(point.latitude), Number(point.longitude)];
-        const isFirst = index === 0;
-        const isLast = index === stopPoints.length - 1;
+        const isFirst = number === 1;
+        const stepNumber = number;
         const role = isFirst
           ? "Starting point"
-          : isLast
-            ? "Destination"
-            : boardingNames.has(point.name)
-              ? "Board here"
-              : alightingNames.has(point.name)
-                ? "Get off here"
-                : "Transfer stop";
-        const poi = L.circleMarker(position, {
-          radius: isFirst || isLast ? 8 : 6,
-          color: isFirst || isLast ? "#002147" : "#075985",
-          weight: 3,
-          fillColor: isFirst || isLast ? "#ffd700" : "#ffffff",
-          fillOpacity: 1
+          : boardingNames.has(point.name)
+            ? "Board here"
+            : alightingNames.has(point.name)
+              ? "Get off here"
+              : "Transfer stop";
+        const poi = L.marker(position, {
+          icon: L.divIcon({
+            className: "route-poi-icon",
+            html: `<span aria-label="Route step ${stepNumber}" style="display:grid;place-items:center;width:28px;height:28px;border:3px solid #002147;border-radius:50%;background:#ffd700;color:#002147;font-size:12px;font-weight:900;box-shadow:0 2px 8px rgba(15,23,42,.3);transform:translateX(${(overlapCount - 0.5) * 18}px);">${stepNumber}</span>`,
+            iconSize: [30, 30],
+            iconAnchor: [15, 15]
+          }),
+          title: `${stepNumber}. ${point.name}`
         });
         poi.bindTooltip(point.name, { direction: "top", offset: [0, -8] });
-        poi.bindPopup(`<strong>${role}</strong><br>${point.name}<br><small>${Number(point.latitude).toFixed(5)}, ${Number(point.longitude).toFixed(5)}</small>`);
+        poi.bindPopup(`<strong>Step ${stepNumber} · ${role}</strong><br>${point.name}<br><small>${Number(point.latitude).toFixed(5)}, ${Number(point.longitude).toFixed(5)}</small>`);
         routeLayers.push(poi);
       });
       layer.current = L.layerGroup(routeLayers).addTo(map.current);
@@ -120,6 +127,7 @@
   function Planner() {
     const [from, setFrom] = useState(initial.from || "");
     const [to, setTo] = useState(initial.to || "");
+    const [departureTime, setDepartureTime] = useState(initial.departure_time || "");
     const [route, setRoute] = useState(initial.route || null);
     const [status, setStatus] = useState(initial.route ? "success" : initial.message ? "error" : "idle");
     const [message, setMessage] = useState(initial.message || "");
@@ -130,7 +138,11 @@
       try {
         const response = await fetch("/api/route", {
           method: "POST", headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ from: from.trim(), to: to.trim() })
+          body: JSON.stringify({
+            from: from.trim(),
+            to: to.trim(),
+            departure_time: departureTime
+          })
         });
         const result = await response.json();
         if (!response.ok) throw new Error(result.message || "No route was found.");
@@ -145,7 +157,7 @@
           h("h1", null, "Move through Merced with confidence."),
           h("p", { className: "planner-subtitle" }, "Enter an address, landmark, or CatTracks stop. We connect walking, driving, transfers, and transit.")
         ),
-        h("div", { className: "planner-status" }, h("span", { className: `status-dot status-${status}` }), status === "loading" ? "Finding your route" : "CatTracks network online")
+        h("div", { className: "planner-status" }, h("span", { className: `status-dot status-${status}${initial.network_online === false ? " status-offline" : ""}` }), status === "loading" ? "Finding your route" : initial.network_online === false ? "CatTracks network offline" : "CatTracks network online")
       ),
       h("section", { className: "planner-workspace" },
         h("form", { className: "planner-card reactive-form", onSubmit: submit },
@@ -154,13 +166,15 @@
           h("input", { id: "from-stops", list: "stop-list", value: from, onChange: e => setFrom(e.target.value), placeholder: "Address or CatTracks stop", required: true }),
           h("label", { htmlFor: "to-stops" }, "Destination"),
           h("input", { id: "to-stops", list: "stop-list", value: to, onChange: e => setTo(e.target.value), placeholder: "Address or CatTracks stop", required: true }),
+          h("label", { htmlFor: "departure-time" }, "Departure time"),
+          h("input", { id: "departure-time", type: "time", value: departureTime, onChange: e => setDepartureTime(e.target.value), required: true }),
           h("datalist", { id: "stop-list" }, stops.map(stop => h("option", { key: stop, value: stop }))),
           h("button", { className: "button button-primary", disabled: status === "loading" }, status === "loading" ? "Planning route…" : h(React.Fragment, null, "Find my route ", h(Icon, { name: "arrow" }))),
           message && h("p", { className: "planner-message" }, message)
         ),
         h("div", { className: "route-panel reactive-results", "aria-live": "polite" },
           route ? h("div", null,
-            h("div", { className: "result-heading" }, h("div", null, h("p", { className: "eyebrow" }, "Route found"), h("h2", null, minutes(route.duration_seconds))), h("strong", { className: "distance-pill" }, miles(route.distance_meters))),
+            h("div", { className: "result-heading" }, h("div", null, h("p", { className: "eyebrow" }, "Route found"), h("h2", null, minutes(route.duration_seconds)), route.departure_time && h("small", null, `Leaving at ${route.departure_time}`)), h("strong", { className: "distance-pill" }, miles(route.distance_meters))),
             route.access_stops && h("p", { className: "route-access" }, `Board at ${route.access_stops.from} · Get off at ${route.access_stops.to}`),
             h(Directions, { directions: route.directions }),
             h("ol", { className: "route-results" }, route.segments.map((segment, index) => h(Segment, { segment, index, key: `${segment.from}-${segment.to}-${index}` })))

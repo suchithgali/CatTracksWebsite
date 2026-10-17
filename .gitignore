@@ -10,6 +10,7 @@
 build/
 bin/
 obj/
+*.dSYM/
 
 # CMake generated files
 CMakeCache.txt
@@ -30,6 +31,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 *.so
+.coverage
+.coverage.*
+.pytest_cache/
 .Python
 env/
 venv/

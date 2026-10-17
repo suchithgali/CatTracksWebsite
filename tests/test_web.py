@@ -81,3 +81,24 @@ def test_route_api_rejects_missing_stops():
 
     assert response.status_code == 400
     assert response.json["status"] == "error"
+
+
+def test_network_offline_shows_legacy_banner_and_uses_static_routes(monkeypatch):
+    monkeypatch.setenv("CATTRACKS_NETWORK_ONLINE", "false")
+    client = app.test_client()
+
+    page = client.get("/plan")
+    assert b"CatTracks network offline" in page.data
+    assert b"older version" in page.data
+    assert b"status-offline" in page.data
+
+    response = client.post(
+        "/api/route",
+        json={
+            "from": "University Transit Center",
+            "to": "Merced Mall Target",
+            "departure_time": "08:00",
+        },
+    )
+    assert response.status_code == 200
+    assert "departure_time" not in response.json

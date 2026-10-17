@@ -1,4 +1,4 @@
-from src.route_service import find_custom_route, find_route
+from src.route_service import _routing_cost, find_custom_route, find_route
 from src.transit_graph import build_graph
 from src.road_routing import geocode_location
 
@@ -47,6 +47,27 @@ def test_custom_route_adds_walking_legs(monkeypatch):
     assert result["access_stops"]["to"]
 
 
+def test_custom_route_does_not_geocode_a_known_stop(monkeypatch):
+    def geocode(location):
+        if location == "custom destination":
+            return {
+                "name": location,
+                "latitude": 37.335,
+                "longitude": -120.486,
+            }
+        raise AssertionError(f"Known stop was sent to geocoder: {location}")
+
+    monkeypatch.setattr("src.route_service.geocode_location", geocode)
+    result = find_custom_route(
+        "Cardella Rd. & M St. (Southbound)",
+        "custom destination",
+        build_graph(),
+    )
+
+    assert result["status"] == "ok"
+    assert result["from"] == "Cardella Rd. & M St. (Southbound)"
+
+
 def test_distant_custom_route_uses_driving_access(monkeypatch):
     monkeypatch.setattr(
         "src.route_service.geocode_location",
@@ -78,3 +99,40 @@ def test_geocoder_rejects_locations_outside_merced(monkeypatch):
         assert "outside the Merced CatTracks service area" in str(error)
     else:
         raise AssertionError("Expected an outside-service-area geocode error")
+
+
+def test_routing_cost_prioritizes_time_but_penalizes_transfers_and_walking():
+    walk = {
+        "mode": "walk",
+        "travel_time": 600,
+        "distance_meters": 840,
+        "weight": 600,
+    }
+    transfer = {
+        "mode": "transfer",
+        "travel_time": 60,
+        "distance_meters": 0,
+        "weight": 60,
+    }
+    bus = {
+        "mode": "bus",
+        "travel_time": 300,
+        "distance_meters": 3000,
+        "weight": 300,
+    }
+
+    assert _routing_cost("a", "b", {"walk": walk}) > _routing_cost("a", "b", {"bus": bus})
+    assert _routing_cost("a", "b", {"transfer": transfer}) > transfer["travel_time"]
+
+
+def test_departure_time_uses_schedule_and_returns_elapsed_duration():
+    result = find_route(
+        "University Transit Center",
+        "Merced Mall Target",
+        build_graph(),
+        departure_time="08:00",
+    )
+
+    assert result["status"] == "ok"
+    assert result["departure_time"] == "08:00"
+    assert result["duration_seconds"] >= 0
