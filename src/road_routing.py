@@ -61,17 +61,22 @@ def geocode_location(location: str) -> dict[str, float | str]:
 
 def route_between(first: dict[str, Any], second: dict[str, Any]) -> dict[str, Any]:
     """Return road geometry, distance, and duration for one access leg."""
+    return route_through_points([first, second])
+
+
+def route_through_points(points: list[dict[str, Any]]) -> dict[str, Any]:
+    """Return road geometry that visits every point in order."""
     fallback = {
         "type": "LineString",
         "coordinates": [
-            [float(first["longitude"]), float(first["latitude"])],
-            [float(second["longitude"]), float(second["latitude"])],
+            [float(point["longitude"]), float(point["latitude"])]
+            for point in points
         ],
     }
 
-    coordinates = (
-        f'{float(first["longitude"])},{float(first["latitude"])};'
-        f'{float(second["longitude"])},{float(second["latitude"])}'
+    coordinates = ";".join(
+        f'{float(point["longitude"])},{float(point["latitude"])}'
+        for point in points
     )
     base_url = os.environ.get("CATTRACKS_ROUTING_URL", DEFAULT_ROUTING_URL).rstrip("/")
     url = f"{base_url}/route/v1/driving/{coordinates}"
@@ -122,4 +127,4 @@ def route_geometry(points: list[dict[str, Any]]) -> dict[str, Any]:
     if len(points) < 2:
         return {"geometry": fallback, "source": "stops", "directions": []}
 
-    return route_between(points[0], points[-1])
+    return route_through_points(points)
