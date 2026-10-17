@@ -31,8 +31,11 @@ db_url = os.environ.get("DATABASE_URL")
 if db_url:
     app.config["SQLALCHEMY_DATABASE_URI"] = db_url
 else:
-    os.makedirs(app.instance_path, exist_ok=True)
-    db_path = Path(app.instance_path) / "cattracks.db"
+    if os.environ.get("VERCEL"):
+        db_path = Path("/tmp") / "cattracks.db"
+    else:
+        os.makedirs(app.instance_path, exist_ok=True)
+        db_path = Path(app.instance_path) / "cattracks.db"
     app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{db_path}"
 
 db = SQLAlchemy(app)
