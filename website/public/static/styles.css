@@ -106,6 +106,9 @@ input:focus { outline: 3px solid rgba(59, 130, 246, .2); border-color: #2563eb; 
 .route-badge { display: inline-block; padding: 5px 9px; border-radius: 6px; background: var(--navy); color: white; font-weight: 800; }
 .schedule-card { display: flex; flex-direction: column; gap: 16px; }
 .schedule-card .text-link { margin-top: auto; }
+.official-schedule-note { display: grid; gap: 4px; margin-bottom: 24px; padding: 18px 20px; border-left: 3px solid var(--gold); border-radius: 10px; background: #fffbeb; }
+.official-schedule-note span, .schedule-hours { color: var(--muted); }
+.schedule-card .schedule-hours { margin-top: 0; font-size: 13px; }
 @media (max-width: 760px) {
   .site-header { height: auto; padding: 16px 20px; align-items: flex-start; gap: 18px; }
   nav { flex-wrap: wrap; justify-content: flex-end; gap: 8px 14px; font-size: 12px; }

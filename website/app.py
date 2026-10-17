@@ -22,6 +22,29 @@ else:
 db = SQLAlchemy(app)
 GTFS_STOPS = PROJECT_ROOT / "data" / "gtfs" / "stops.txt"
 GTFS_ROUTES = PROJECT_ROOT / "data" / "gtfs" / "routes.txt"
+OFFICIAL_ROUTES_URL = (
+    "https://taps.ucmerced.edu/transportation/cattracks-and-route-uc/routes"
+)
+
+OFFICIAL_SCHEDULES = [
+    ("Bobcat Express", "Campus, Bellevue & R Street", "Mon - Fri | 6:29 AM - 9:20 PM", "https://taps.ucmerced.edu/node/4711"),
+    ("C-1 Line", "Campus, G Street & Granville Apartments", "Mon - Fri | 6:20 AM - 10:28 PM", "https://taps.ucmerced.edu/node/4816"),
+    ("C-2 Line", "Campus & Village Apartments", "Mon - Fri | 6:20 AM - 10:07 PM", "https://taps.ucmerced.edu/node/4821"),
+    ("E-1 Line", "Campus, Moraga & Downtown", "Sat - Sun | 8:30 AM - 11:06 PM", "https://taps.ucmerced.edu/node/4826"),
+    ("E-2 Line", "Yosemite Avenue & Park and Ride Bellevue Road", "Sat - Sun | 11:05 AM - 9:56 PM", "https://taps.ucmerced.edu/node/4851"),
+    ("FastCat", "Park and Ride Bellevue Road & R Street", "Mon - Fri | 6:35 AM - 10:25 PM", "https://taps.ucmerced.edu/node/4831"),
+    ("FastCat 2", "Park and Ride Bellevue Road & R Street", "Mon - Fri | 8:30 AM - 9:45 PM", "https://taps.ucmerced.edu/node/4836"),
+    ("G Line", "R Street, El Redondo & Village Apartments", "Mon - Fri | 6:30 AM - 10:03 PM", "https://taps.ucmerced.edu/node/4841"),
+    ("Yosemite Express", "Campus & Moraga, G Street", "Mon - Fri | 9:00 AM - 10:09 PM", "https://taps.ucmerced.edu/node/4846"),
+    ("Route UC", "Paulson Avenue & Olive Avenue", "Mon - Fri | 6:00 AM - 8:00 PM", "https://taps.ucmerced.edu/sites/g/files/ufvvjh1811/f/documents/Fall/2025/route_uc_fall_2025_8_18_25.pdf"),
+    ("M-1", "Grocery Outlet & T Street, 3rd Street", "Mon - Fri | 6:00 AM - 8:00 PM · Sat - Sun | 8:00 AM - 6:00 PM", "https://taps.ucmerced.edu/sites/g/files/ufvvjh1811/f/documents/Fall/2025/m-1_fall_2025_8_18_2025.pdf"),
+    ("M-2", "Best Buy & Walmart", "Mon - Fri | 6:00 AM - 8:00 PM · Sat - Sun | 8:30 AM - 6:00 PM", "https://taps.ucmerced.edu/sites/g/files/ufvvjh1811/f/documents/Fall/2025/m-2_fall_2025_8_18_2025.pdf"),
+    ("M-3", "County Admin & West Avenue, 1st Avenue", "Mon - Fri | 6:00 AM - 8:00 PM · Sat - Sun | 8:00 AM - 6:00 PM", "https://taps.ucmerced.edu/sites/g/files/ufvvjh1811/f/documents/Fall/2025/m-3_fall_2025_8_18_2025.pdf"),
+    ("M-4", "Yosemite High School & Park and Ride Bellevue Road", "Mon - Fri | 6:00 AM - 8:30 PM · Sat - Sun | 8:00 AM - 6:00 PM", "https://taps.ucmerced.edu/sites/g/files/ufvvjh1811/f/documents/Fall/2025/m-4_fall_2025_8_18_2025pdf.pdf"),
+    ("M-5", "Amtrak & Rancho San Miguel", "Mon - Fri | 6:00 AM - 8:00 PM · Sat - Sun | 8:00 AM - 6:00 PM", "https://taps.ucmerced.edu/sites/g/files/ufvvjh1811/f/documents/Fall/2025/m-5_fall_2025_8_18_2025.pdf"),
+    ("M-6", "Santa Fe & SaveMart", "Mon - Fri | 7:00 AM - 8:00 PM · Sat - Sun | 8:00 AM - 6:00 PM", "https://taps.ucmerced.edu/sites/g/files/ufvvjh1811/f/documents/Fall/2025/m-6_fall_2025_8_18_2025.pdf"),
+    ("M-7", "B Street & Rescue Mission", "Mon - Fri | 6:00 AM - 8:00 PM · Sat - Sun | 8:00 AM - 6:00 PM", "https://taps.ucmerced.edu/sites/g/files/ufvvjh1811/f/documents/Fall/2025/m-7_fall_2025_8_18_2025.pdf"),
+]
 
 
 def load_stop_names() -> list[str]:
@@ -95,7 +118,15 @@ def plan():
 
 @app.route("/schedules")
 def schedules():
-    return render_template("schedules.html", routes=load_routes())
+    routes = [
+        {"name": name, "description": description, "hours": hours, "schedule_url": url}
+        for name, description, hours, url in OFFICIAL_SCHEDULES
+    ]
+    return render_template(
+        "schedules.html",
+        routes=routes,
+        official_routes_url=OFFICIAL_ROUTES_URL,
+    )
 
 @app.route("/planner")
 def planner():

@@ -2,14 +2,20 @@
 {% from "macros/icons.html" import icon %}
 {% block title %}Schedules{% endblock %}
 {% block content %}
-<section class="page-heading"><p class="eyebrow">{{ icon("calendar") }} Transit service</p><h1>Schedules</h1><p>Routes currently available in the CatTracks GTFS feed.</p></section>
+<section class="page-heading"><p class="eyebrow">{{ icon("calendar") }} Official transit service</p><h1>Schedules</h1><p>Current CatTracks and Route UC schedules published by UC Merced Transportation and Parking Services.</p></section>
 <section class="content-section">
+  <div class="official-schedule-note">
+    <strong>Fall 2026 service</strong>
+    <span>Schedule documents are maintained by UC Merced TAPS.</span>
+    <a class="text-link" href="{{ official_routes_url }}" target="_blank" rel="noopener">View official routes page {{ icon("arrow") }}</a>
+  </div>
   <div class="route-grid">
     {% for route in routes %}
     <article class="schedule-card">
       <div class="route-badge">{{ route.name }}</div>
-      <div><h2>{{ route.name }}</h2><p>{{ route.description or "UC Merced area service" }}</p></div>
-      <a class="text-link" href="{{ url_for('plan') }}">Plan this route {{ icon("arrow") }}</a>
+      <div><h2>{{ route.name }}</h2><p>{{ route.description }}</p><p class="schedule-hours">{{ route.hours }}</p></div>
+      <a class="text-link" href="{{ route.schedule_url }}" target="_blank" rel="noopener">Open official schedule {{ icon("arrow") }}</a>
+      <a class="text-link" href="{{ url_for('plan') }}">Plan a trip {{ icon("arrow") }}</a>
     </article>
     {% else %}
     <div class="info-card"><h2>No schedule data available</h2><p>GTFS route data is not available in this deployment.</p></div>

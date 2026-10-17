@@ -15,6 +15,15 @@ def test_pages_and_health_endpoint():
     assert response.json["status"] == "ok"
 
 
+def test_schedules_page_uses_official_uc_merced_schedule_links():
+    response = app.test_client().get("/schedules")
+
+    assert response.status_code == 200
+    assert b"Fall 2026 service" in response.data
+    assert b"https://taps.ucmerced.edu/node/4821" in response.data
+    assert b"m-1_fall_2025_8_18_2025.pdf" in response.data
+
+
 def test_planner_rejects_unknown_stops():
     app.config.update(TESTING=True)
     response = app.test_client().post(
